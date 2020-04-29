@@ -1,39 +1,40 @@
 .navbar-expand {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #cecece;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-    cursor: pointer;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+  cursor: pointer;
 
-    a {
-        padding: 8px 8px 8px 20px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        transition: 0.3s;
+  a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #c2c2c2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.3s;
 
-        &:hover {
-            color: #f1f1f1;
-        }
-        i {
-            margin-right: 10px;
-        }
+    &:hover {
+      color: #aaaaaa;
     }
+
+    i {
+      margin-right: 10px;
+    }
+  }
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
+@media screen and (max-height: 450px) { // TODO - Create media constant
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }

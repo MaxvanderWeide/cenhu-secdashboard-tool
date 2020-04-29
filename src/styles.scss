@@ -8,7 +8,8 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 
 body {
   font-family: $font-family !important;
-  margin: 70px 0 0;
+  background: #e2e2e2;
+  margin: 70px 0 0 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,27 +22,32 @@ h1 {
   font-weight: 700;
   text-transform: uppercase;
 }
+
 h2 {
   font-size: 25px;
   font-weight: 700;
 }
+
 h3 {
   font-size: 20px;
   font-weight: 500;
   color: #ffffff;
 }
+
 h4 {
   font-size: 18px;
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
 }
+
 h5 {
   font-size: 15px;
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
 }
+
 h6 {
   font-size: 12px;
   font-weight: 700;
