@@ -1,11 +1,17 @@
 <nav (click)="toggleNavbar()" class="navbar-expand" #navBar>
-  <a href="#" (click)="$event.stopPropagation()">
-    <i class="fa fa-search"></i>
-    Reports
-  </a>
-  <br>
-  <a href="#" (click)="$event.stopPropagation()">
-    <i class="fa fa-server"></i>
-    Components
-  </a>
+
+  <div class="link-hanger" (click)="$event.stopPropagation()">
+    <em class="fa fa-search"></em>
+    <a href="#">
+      Reports
+    </a>
+  </div>
+
+  <div class="link-hanger" (click)="$event.stopPropagation()">
+    <em class="fa fa-server"></em>
+    <a href="#">
+      Components
+    </a>
+  </div>
+
 </nav>
