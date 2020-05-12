@@ -1,4 +1,4 @@
-![Eslint on Project](https://github.com/MaxvanderWeide/cenhu-secdashboard-tool/workflows/Eslint%20on%20Project/badge.svg?branch=develop)
+![Checkup](https://github.com/MaxvanderWeide/cenhu-secdashboard-tool/workflows/Eslint%20on%20Project/badge.svg?branch=develop)
 # CenhuSecdashboardTool
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
