@@ -7,11 +7,10 @@
   background-color: #ffffff;
   overflow-x: hidden;
   padding-top: 60px;
-  transition: 0.5s;
-  cursor: pointer;
+  transition: 0.2s;
 
   .link-hanger {
-    padding: 8px 8px 8px 20px;
+    padding: 8px 20px;
     font-size: 25px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -19,6 +18,8 @@
     transition: 0.3s;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+
     &:hover {
       opacity: .6;
     }
@@ -34,6 +35,16 @@
     }
   }
 
+  .navbar-toggler {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    em {
+      margin: 0 auto;
+    }
+  }
 }
 
 @media screen and (max-height: 450px) { // TODO - Create media constant

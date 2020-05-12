@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cenhu-secdashboard-tool"
+    }
+  },
+  "defaultProject": "cenhu-secdashboard-tool",
+  "cli": {
+    "analytics": false
+  }
 }

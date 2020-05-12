@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,6 @@ import {Component} from '@angular/core';
 })
 
 export class HeaderComponent {
+  @ViewChild('header', {read: ElementRef}) header: ElementRef;
+
 }
