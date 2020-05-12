@@ -1,5 +1,5 @@
 table {
-  width:99%;
+  width:94%;
 }
 table, th, td {
   border: 1px solid black;
@@ -9,7 +9,9 @@ th, td {
   padding: 11px;
   text-align: left;
 }
-
+table.t01 {
+  margin-left: 75px;
+}
 table.t01 tr:nth-child(even) {
   background-color: #E2EFDA;
 }
