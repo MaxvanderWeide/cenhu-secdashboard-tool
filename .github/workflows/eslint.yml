@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 jobs:
   build:
-    name: Run ESLint
+    name: Checkup
     runs-on: ubuntu-latest
     steps:
       # Check out the repository
@@ -16,7 +16,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      # Install your dependencies
+      # Install
       - run: npm install
       # Run ESLint
       - uses: eslint/github-action@v0
+      # Build
+      - run: npm run-script build
