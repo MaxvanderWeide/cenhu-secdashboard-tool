@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotfoundComponent} from './components/notfound/notfound.component';
-import {CategoriesComponent} from './components/categories/categories.component';
+import {AcademyComponent} from './components/academy/academy.component';
 import {IncidentsComponent} from './components/incidents/incidents.component';
 
 const routes: Routes = [
@@ -14,8 +14,8 @@ const routes: Routes = [
     component: NotfoundComponent,
   },
   {
-    path: 'categories',
-    component: CategoriesComponent,
+    path: 'academy',
+    component: AcademyComponent,
   },
   {
     path: '**',
