@@ -7,6 +7,7 @@ import {NavigationComponent} from './components/navigation/navigation.component'
 import {HeaderComponent} from './components/header/header.component';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {IncidentsComponent} from './components/incidents/incidents.component';
+import { TopdeskComponent } from './components/topdesk/topdesk.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {IncidentsComponent} from './components/incidents/incidents.component';
     NavigationComponent,
     HeaderComponent,
     NotfoundComponent,
-    IncidentsComponent
+    IncidentsComponent,
+    TopdeskComponent,
   ],
   imports: [
     BrowserModule,
