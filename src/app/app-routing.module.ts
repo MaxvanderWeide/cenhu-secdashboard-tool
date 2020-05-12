@@ -8,6 +8,10 @@ const routes: Routes = [
     component: NotfoundComponent,
   },
   {
+    path: 'notfound',
+    component: NotfoundComponent,
+  },
+  {
     path: '**',
     redirectTo: 'notfound'
   }
