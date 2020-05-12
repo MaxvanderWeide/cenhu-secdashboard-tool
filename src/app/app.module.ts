@@ -7,6 +7,7 @@ import {NavigationComponent} from './components/navigation/navigation.component'
 import {HeaderComponent} from './components/header/header.component';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {IncidentsComponent} from './components/incidents/incidents.component';
+import {AcademyComponent} from './components/academy/academy.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {IncidentsComponent} from './components/incidents/incidents.component';
     HeaderComponent,
     NotfoundComponent,
     IncidentsComponent,
+    AcademyComponent
   ],
   imports: [
     BrowserModule,
