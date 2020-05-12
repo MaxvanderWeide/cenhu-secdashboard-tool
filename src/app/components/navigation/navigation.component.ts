@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 
 
@@ -12,7 +12,7 @@ import {HeaderComponent} from '../header/header.component';
 export class NavigationComponent implements OnInit, AfterViewInit {
 
   // @ViewChild('navBar', {read: ElementRef}) navBar: ElementRef;
-  public isExtended = false;
+  public isExtended: boolean = false;
 
   public ngOnInit(): void {
     this.toggleNavbar();

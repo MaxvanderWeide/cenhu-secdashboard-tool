@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./incidents.component.scss']
 })
 export class IncidentsComponent {
-  messages = [
+  messages: object[] = [
     {name: 'person Debora made a message'},
     {name: 'person Opal made a message'},
     {name: 'person Bean made a message'},

@@ -8,5 +8,4 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 
 export class HeaderComponent {
   @ViewChild('header', {read: ElementRef}) header: ElementRef;
-
 }

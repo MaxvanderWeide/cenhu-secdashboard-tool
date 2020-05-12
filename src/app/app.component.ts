@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cenhu-secdashboard-tool';
+  title: string = 'cenhu-secdashboard-tool';
 
   private auth: boolean = true;
 
