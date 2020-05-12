@@ -1,18 +1,18 @@
-<<<<<<< Updated upstream
 @import "~src/assets/scss/mixins";
 @include lg-phone-only {
   // Content here
-=======
-.section {
-  position: relative;
-  padding-bottom: 60px;
-  padding-top: 40px;
-  &.green {
-    background: #007734;
-    color: #fff;
+  .section {
+    position: relative;
+    padding-bottom: 60px;
+    padding-top: 40px;
+
+    &.green {
+      background: #007734;
+      color: #fff;
+    }
+
+    p {
+      margin: 0 15px;
+    }
   }
-  p{
-    margin: 0 15px;
-  }
->>>>>>> Stashed changes
 }
