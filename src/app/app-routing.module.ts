@@ -3,7 +3,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {CategoriesComponent} from './components/categories/categories.component';
 import {IncidentsComponent} from './components/incidents/incidents.component';
-import {TopdeskComponent} from "./components/topdesk/topdesk.component";
 
 const routes: Routes = [
   {
@@ -17,10 +16,6 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent,
-  },
-  {
-    path: 'topdesk',
-    component: TopdeskComponent,
   },
   {
     path: '**',
