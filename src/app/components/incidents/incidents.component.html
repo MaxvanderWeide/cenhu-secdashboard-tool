@@ -4,10 +4,10 @@
   </div>
 
   <div class="message-container">
-    <div class="incident-message">
+    <div class="incident-message" *ngFor="let message of messages">
       <div class="row">
         <div class="col-9">
-          <a>Dit is een message en is heel leuk</a><br>
+          <a>{{message.name}}</a><br>
           <a href="#">Open reference in secure browser</a>
         </div>
         <div class="col-3 text-center">
