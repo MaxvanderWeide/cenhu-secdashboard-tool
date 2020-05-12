@@ -1,5 +1,5 @@
 .incidents {
-  width: 500px;
+  width: auto;
   height: auto;
   max-height: 500px;
   overflow: auto;
@@ -33,9 +33,13 @@
       padding: 5px 5px 5px 5px;
       background-color: #ffffff;
 
+      .message-link {
+        text-decoration: underline;
+      }
+
       .message-icon {
-        font-size: 32px;
         color: red;
+        font-size: 32px;
       }
     }
   }
