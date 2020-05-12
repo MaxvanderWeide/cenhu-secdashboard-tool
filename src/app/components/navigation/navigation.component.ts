@@ -13,9 +13,6 @@ export class NavigationComponent implements AfterViewInit {
   @ViewChild('navBar', {read: ElementRef}) navBar: ElementRef;
   protected isExtended = false;
 
-  constructor(private headerComponent: HeaderComponent) {
-  }
-
   public ngAfterViewInit(): void {
     this.toggleNavbar();
   }
