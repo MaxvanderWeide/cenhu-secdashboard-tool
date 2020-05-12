@@ -1,5 +1,7 @@
+@import "src/assets/scss/mixins";
+
 .incidents {
-  width: auto;
+  width: 500px;
   height: auto;
   max-height: 500px;
   overflow: auto;
@@ -42,5 +44,11 @@
         font-size: 32px;
       }
     }
+  }
+}
+
+@include lg-phone-only() {
+  .incidents {
+    width: auto;
   }
 }
