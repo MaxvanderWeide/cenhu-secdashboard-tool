@@ -21,6 +21,15 @@
   ],
   "rules": {
     "@typescript-eslint/ban-ts-ignore": "off",
-    "@typescript-eslint/no-use-before-define": "off"
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/typedef": [
+      "error",
+      {
+        "arrayDestructuring": true,
+        "variableDeclarationIgnoreFunction": true,
+        "propertyDeclaration": true
+      }
+    ]
   }
 }

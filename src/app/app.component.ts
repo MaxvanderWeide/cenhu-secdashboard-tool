@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'cenhu-secdashboard-tool';
 
-  private auth = true;
+  private auth: boolean = true;
 
   public get isAuthenticated(): boolean {
     return this.auth;
