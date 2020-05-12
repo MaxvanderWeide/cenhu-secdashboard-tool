@@ -11,6 +11,11 @@
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.2s;
+  width: 60px;
+
+  &.navbar-expanded {
+    width: 250px;
+  }
 
   .link-hanger {
     padding: 8px 20px;

@@ -51,7 +51,7 @@
 </div>
 
   <div class="navbar-toggle link-hanger">
-    <em class="fa fa-arrow-circle-right"></em>
+    <em [ngClass]="this.isExtended ? 'fa fa-arrow-circle-right' : 'fa fa-arrow-circle-left'"></em>
   </div>
 </nav>
 

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HeaderComponent} from '../header/header.component';
 
 
@@ -9,23 +9,26 @@ import {HeaderComponent} from '../header/header.component';
   providers: [HeaderComponent]
 })
 
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('navBar', {read: ElementRef}) navBar: ElementRef;
+  // @ViewChild('navBar', {read: ElementRef}) navBar: ElementRef;
   public isExtended = false;
 
-  public ngAfterViewInit(): void {
+  public ngOnInit(): void {
     this.toggleNavbar();
   }
 
-  public toggleNavbar(): void {
-    this.navBar.nativeElement.style.width = this.isExtended ? '250px' : '60px';
+  ngAfterViewInit(): void {
     if (window.screen.width > 375) {
-      document.querySelector('header').style.left = this.isExtended ? '250px' : '60px';
+      document.querySelector('header').style.left = this.isExtended ? '60px' : '250px';
     }
+  }
 
-    this.navBar.nativeElement.querySelector('.navbar-toggle em').className = this.isExtended ? 'fa fa-arrow-circle-left' : 'fa fa-arrow-circle-right';
+  public toggleNavbar(): void {
     this.isExtended = !this.isExtended;
+    if (window.screen.width > 375) {
+      document.querySelector('header').style.left = this.isExtended ? '60px' : '250px';
+    }
   }
 
 }
