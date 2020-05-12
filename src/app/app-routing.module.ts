@@ -9,13 +9,13 @@ const routes: Routes = [
     component: NotfoundComponent,
   },
   {
-    path: '**',
-    redirectTo: 'notfound'
-  },
-  {
     path: 'categories',
     component: CategoriesComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'notfound'
+  }
 ];
 
 @NgModule({
