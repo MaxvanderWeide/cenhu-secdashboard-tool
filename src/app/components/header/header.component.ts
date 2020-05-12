@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +6,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @ViewChild('header', {read: ElementRef}) header: ElementRef;
 
 }
