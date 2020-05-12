@@ -1,5 +1,5 @@
-<nav (click)="toggleNavbar()" class="navbar-expand" #navBar>
-
+<nav (click)="toggleNavbar()" class="navbar-expand" #navBar [ngClass]="isExtended ? '' : 'navbar-expanded'">
+<div class="nav-links">
   <div class="link-hanger" (click)="$event.stopPropagation()">
     <a href="#">
     <em class="fa fa-search"></em>
@@ -48,6 +48,7 @@
       Academy
     </a>
   </div>
+</div>
 
   <div class="navbar-toggler link-hanger">
     <em class="fa fa-arrow-circle-right"></em>
