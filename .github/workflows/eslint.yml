@@ -1,4 +1,4 @@
-name: Eslint on Project
+name: Checkup
 
 on:
   push:
