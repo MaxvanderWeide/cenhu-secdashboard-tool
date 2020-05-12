@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "eslint:github-action": "eslint . -c eslintrc.json --exit .ts"
+    "eslint:github-action": "eslint . -c eslintrc.json --ext .ts"
   },
   "private": true,
   "dependencies": {
