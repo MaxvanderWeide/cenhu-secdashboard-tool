@@ -1,5 +1,7 @@
+@import "src/assets/scss/mixins";
+
 .navbar-expand {
-  display: none;
+  //display:none;
   height: 100%;
   position: fixed;
   z-index: 2;
@@ -58,3 +60,15 @@
   }
 }
 
+@include md-phone-only {
+  .navbar-expand:not(.navbar-expanded) {
+    height: auto;
+    bottom: 0;
+    top: initial;
+    background-color: initial;
+
+    .nav-links {
+      display: none;
+    }
+  }
+}
