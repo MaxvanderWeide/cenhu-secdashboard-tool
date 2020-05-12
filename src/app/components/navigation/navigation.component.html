@@ -1,4 +1,4 @@
-<nav class="navbar-expand" #navBar>
+<nav (click)="toggleNavbar()" class="navbar-expand" #navBar>
 
   <div class="link-hanger" (click)="$event.stopPropagation()">
     <em class="fa fa-search"></em>
@@ -42,7 +42,7 @@
     </a>
   </div>
 
-  <div class="navbar-toggler link-hanger" (click)="toggleNavbar()">
+  <div class="navbar-toggler link-hanger">
     <em class="fa fa-arrow-circle-right"></em>
   </div>
 </nav>
