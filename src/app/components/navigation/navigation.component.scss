@@ -19,12 +19,19 @@
     white-space: nowrap;
     overflow: hidden;
     transition: 0.3s;
-    display: flex;
-    justify-content: space-between;
     cursor: pointer;
+
+    &.navbar-toggle {
+      text-overflow: clip;
+    }
 
     &:hover {
       opacity: .6;
+    }
+
+    a {
+      display: flex;
+      justify-content: space-between;
     }
 
     a, em {
@@ -39,15 +46,12 @@
     }
   }
 
-  .navbar-toggler {
+  .navbar-toggle {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-
-    em {
-      margin: 0 auto;
-    }
+    text-align: center;
   }
 }
 

@@ -24,7 +24,7 @@ export class NavigationComponent implements AfterViewInit {
       document.querySelector('header').style.left = this.isExtended ? '250px' : '60px';
     }
 
-    this.navBar.nativeElement.querySelector('.navbar-toggler em').className = this.isExtended ? 'fa fa-arrow-circle-left' : 'fa fa-arrow-circle-right';
+    this.navBar.nativeElement.querySelector('.navbar-toggle em').className = this.isExtended ? 'fa fa-arrow-circle-left' : 'fa fa-arrow-circle-right';
     this.isExtended = !this.isExtended;
   }
 
