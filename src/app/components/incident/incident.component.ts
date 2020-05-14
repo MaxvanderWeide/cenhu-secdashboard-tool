@@ -5,7 +5,7 @@ interface Message {
 }
 
 @Component({
-  selector: 'app-incidents',
+  selector: 'app-incident',
   templateUrl: './incident.component.html',
   styleUrls: ['./incident.component.scss']
 })
