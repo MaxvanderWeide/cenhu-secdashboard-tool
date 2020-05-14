@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {CSVRecord} from "./CSVModel";
+import {CSVRecord} from "./Academy";
 
 @Component({
   selector: 'app-academy',
@@ -9,17 +9,16 @@ import {CSVRecord} from "./CSVModel";
 export class AcademyComponent {
   public records: any[] = [];
   @ViewChild('csvReader') csvReader: any;
-  uploadListener($event: any): void {
-    let text = [];
-    let files = $event.srcElement.files;
+  uploadListener(event: any): void {
+    const files = event.srcElement.files;
     if (this.isValidCSVFile(files[0])) {
-      let input = $event.target;
-      let reader = new FileReader();
+      const input = event.target;
+      const reader = new FileReader();
       reader.readAsText(input.files[0]);
       reader.onload = () => {
-        let csvData = reader.result;
-        let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);
-        let headersRow = this.getHeaderArray(csvRecordsArray);
+        const csvData = reader.result.toString();
+        const csvRecordsArray = (csvData).split(/\r\n|\n/);
+        const headersRow = this.getHeaderArray(csvRecordsArray);
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
       };
       reader.onerror = function () {
@@ -40,13 +39,13 @@ export class AcademyComponent {
         csvRecord.dateStarted = curruntRecord[1].trim();
         csvRecord.dateCompleted = curruntRecord[2].trim();
         csvRecord.teams = curruntRecord[3].trim();
-        csvRecord.progress = curruntRecord[4].trim();
-        csvRecord.timeSpent = curruntRecord[5].trim();
-        csvRecord.reviewScore = curruntRecord[6].trim();
-        csvRecord.trainerReview = curruntRecord[7].trim();
+        csvRecord.progress =  parseFloat(curruntRecord[4].trim());
+        csvRecord.timeSpent = parseFloat(curruntRecord[5].trim());
+        csvRecord.reviewScore = parseFloat(curruntRecord[6].trim());
+        csvRecord.trainerReview = parseFloat(curruntRecord[7].trim());
         csvRecord.certificate = curruntRecord[8].trim();
-        csvRecord.quizScore = curruntRecord[9].trim();
-        csvRecord.quizAttempts = curruntRecord[10].trim();
+        csvRecord.quizScore = parseFloat(curruntRecord[9].trim());
+        csvRecord.quizAttempts = parseFloat(curruntRecord[10].trim());
         csvArr.push(csvRecord);
       }
     }
