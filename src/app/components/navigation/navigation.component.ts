@@ -1,16 +1,17 @@
 import {Component} from '@angular/core';
-import {HeaderComponent} from '../header/header.component';
 
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
-  providers: [HeaderComponent]
+  styleUrls: ['./navigation.component.scss']
 })
 
 export class NavigationComponent {
 
   public isRetracted: boolean = true;
 
+  public toggleNav() {
+    this.isRetracted = !this.isRetracted;
+  }
 }
