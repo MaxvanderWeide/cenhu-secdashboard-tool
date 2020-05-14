@@ -1,7 +1,6 @@
 @import "src/assets/scss/mixins";
 
 .navbar-expand {
-  //display:none;
   height: 100%;
   position: fixed;
   z-index: 2;
@@ -12,6 +11,7 @@
   transition: 0.2s;
   width: 60px;
   cursor: pointer;
+
   &.navbar-expanded {
     width: 250px;
   }
