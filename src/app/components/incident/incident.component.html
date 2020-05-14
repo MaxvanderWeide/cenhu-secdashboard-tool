@@ -1,17 +1,17 @@
-<div class="incidents">
+<div class="incidents {{severityClass}}">
   <div class="box-header">
-    <a>High Security Risk Alerts</a>
+    <h4>{{headerText}}</h4>
   </div>
 
   <div class="message-container">
     <div class="incident-message" *ngFor="let message of messages">
       <div class="row">
         <div class="col-9 message-text">
-          <a>{{message.name}}</a><br>
+          <p>{{message.name}}</p>
           <a class="message-link" href="#">Open reference in secure browser</a>
         </div>
         <div class="col-3 my-auto">
-          <a class="message-icon"><em class="fa fa-exclamation-circle"></em></a>
+          <em class="message-icon fa {{severityIcon}}"></em>
         </div>
       </div>
     </div>
