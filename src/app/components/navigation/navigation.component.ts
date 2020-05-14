@@ -9,26 +9,9 @@ import {HeaderComponent} from '../header/header.component';
   providers: [HeaderComponent]
 })
 
-export class NavigationComponent implements OnInit, AfterViewInit {
+export class NavigationComponent {
 
   // @ViewChild('navBar', {read: ElementRef}) navBar: ElementRef;
-  public isExtended: boolean = false;
-
-  public ngOnInit(): void {
-    this.toggleNavbar();
-  }
-
-  ngAfterViewInit(): void {
-    if (window.screen.width > 375) {
-      document.querySelector('header').style.left = this.isExtended ? '60px' : '250px';
-    }
-  }
-
-  public toggleNavbar(): void {
-    this.isExtended = !this.isExtended;
-    if (window.screen.width > 375) {
-      document.querySelector('header').style.left = this.isExtended ? '60px' : '250px';
-    }
-  }
+  public isRetracted: boolean = true;
 
 }

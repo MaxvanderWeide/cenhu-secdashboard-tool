@@ -1,4 +1,4 @@
-<nav (click)="toggleNavbar()" class="navbar-expand" #navBar [ngClass]="isExtended ? '' : 'navbar-expanded'">
+<nav (click)="isRetracted = !isRetracted" class="navbar-expand" [ngClass]="isRetracted ? '' : 'navbar-expanded'">
   <div class="nav-links">
     <div class="link-hanger" (click)="$event.stopPropagation()">
       <a href="#">
@@ -51,7 +51,7 @@
   </div>
 
   <div class="navbar-toggle link-hanger">
-    <em [ngClass]="this.isExtended ? 'fa fa-arrow-circle-right' : 'fa fa-arrow-circle-left'"></em>
+    <em [ngClass]="this.isRetracted ? 'fa fa-arrow-circle-right' : 'fa fa-arrow-circle-left'"></em>
   </div>
 </nav>
 
