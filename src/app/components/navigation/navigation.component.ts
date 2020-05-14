@@ -20,14 +20,14 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (window.screen.width > 375) {
-      document.querySelector('header').style.left = this.isExtended ? '60px' : '250px';
+      document.querySelector('header').style.left = this.isExtended ? '0px' : '0px';
     }
   }
 
   public toggleNavbar(): void {
     this.isExtended = !this.isExtended;
     if (window.screen.width > 375) {
-      document.querySelector('header').style.left = this.isExtended ? '60px' : '250px';
+      document.querySelector('header').style.left = this.isExtended ? '0px' : '0px';
     }
   }
 
