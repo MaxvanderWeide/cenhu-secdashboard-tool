@@ -6,7 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {NavigationComponent} from './components/navigation/navigation.component';
 import {HeaderComponent} from './components/header/header.component';
 import {NotfoundComponent} from './components/notfound/notfound.component';
-import {IncidentsComponent} from './components/incidents/incidents.component';
+import {IncidentComponent} from './components/incident/incident.component';
 import {AcademyComponent} from './components/academy/academy.component';
 
 @NgModule({
@@ -15,7 +15,7 @@ import {AcademyComponent} from './components/academy/academy.component';
     NavigationComponent,
     HeaderComponent,
     NotfoundComponent,
-    IncidentsComponent,
+    IncidentComponent,
     AcademyComponent
   ],
   imports: [
