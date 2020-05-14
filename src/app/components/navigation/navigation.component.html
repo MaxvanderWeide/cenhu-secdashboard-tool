@@ -1,4 +1,4 @@
-<nav (click)="toggleNav()" class="navbar-expand" [ngClass]="[isRetracted ? '' : 'navbar-expanded', mobileRestracted ? '' : 'mobile-navbar-expanded']">
+<nav (click)="this.isRetracted = !this.isRetracted" class="navbar-expand" [ngClass]="isRetracted ? '' : 'navbar-expanded'">
   <div class="nav-links">
     <div class="link-hanger" (click)="$event.stopPropagation()">
       <a href="#">
