@@ -29,12 +29,13 @@ export class AcademyComponent {
       this.fileReset();
     }
   }
-  getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
-    let csvArr = [];
+
+  getDataRecordsArrayFromCSVFile(csvRecordsArray: string[], headerLength: any) {
+    const csvArr = [];
     for (let i = 1; i < csvRecordsArray.length; i++) {
-      let curruntRecord = (<string>csvRecordsArray[i]).split(',');
+      const curruntRecord = (csvRecordsArray[i]).split(',');
       if (curruntRecord.length == headerLength) {
-        let csvRecord: CSVRecord = new CSVRecord();
+        const csvRecord: CSVRecord = new CSVRecord();
         csvRecord.dateAssigned = curruntRecord[0].trim();
         csvRecord.dateStarted = curruntRecord[1].trim();
         csvRecord.dateCompleted = curruntRecord[2].trim();
@@ -54,9 +55,10 @@ export class AcademyComponent {
   isValidCSVFile(file: any) {
     return file.name.endsWith(".csv");
   }
-  getHeaderArray(csvRecordsArr: any) {
-    let headers = (<string>csvRecordsArr[0]).split(',');
-    let headerArray = [];
+
+  getHeaderArray(csvRecordsArr: string[]) {
+    const headers = (csvRecordsArr[0]).split(',');
+    const headerArray = [];
     for (let j = 0; j < headers.length; j++) {
       headerArray.push(headers[j]);
     }
