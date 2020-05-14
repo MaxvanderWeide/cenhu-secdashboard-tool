@@ -47,7 +47,7 @@
   }
 }
 
-@include lg-phone-only() {
+@include lg-phone-only {
   .incidents {
     width: auto;
   }
