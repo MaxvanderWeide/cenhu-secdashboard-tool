@@ -13,7 +13,8 @@ export class NavigationComponent {
   public mobileRestracted: boolean = true;
 
   public toggleNav() {
-    this.isRetracted = !this.isRetracted;
+    if (window.screen.width > 375)
+      this.isRetracted = !this.isRetracted;
   }
 
   public toggleMobileNav() {
