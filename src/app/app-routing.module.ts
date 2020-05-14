@@ -2,12 +2,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AcademyComponent} from './components/academy/academy.component';
-import {IncidentsComponent} from './components/incidents/incidents.component';
+import {IncidentComponent} from './components/incident/incident.component';
 
 const routes: Routes = [
   {
     path: 'incidents',
-    component: IncidentsComponent,
+    component: IncidentComponent,
   },
   {
     path: 'notfound',

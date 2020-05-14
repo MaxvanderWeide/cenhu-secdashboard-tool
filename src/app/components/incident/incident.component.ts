@@ -6,10 +6,10 @@ interface Message {
 
 @Component({
   selector: 'app-incidents',
-  templateUrl: './incidents.component.html',
-  styleUrls: ['./incidents.component.scss']
+  templateUrl: './incident.component.html',
+  styleUrls: ['./incident.component.scss']
 })
-export class IncidentsComponent {
+export class IncidentComponent {
   messages: Message[] = [
     {name: 'person Debora made a message'},
     {name: 'person Opal made a message'},
