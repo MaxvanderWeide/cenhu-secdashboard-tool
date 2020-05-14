@@ -1,13 +1,15 @@
 @import "src/assets/scss/mixins";
 
 .navbar-expand {
+  //display:none;
   height: 100%;
   position: fixed;
   z-index: 2;
-  top: 72px;
+  top: 0;
   left: 0;
   background-color: #eaeaea;
   overflow-x: hidden;
+  padding-top: 60px;
   transition: 0.2s;
   width: 60px;
 
@@ -51,7 +53,7 @@
 
   .navbar-toggle {
     position: absolute;
-    bottom: 72px;
+    bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
