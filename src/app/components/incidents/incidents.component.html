@@ -6,11 +6,11 @@
   <div class="message-container">
     <div class="incident-message" *ngFor="let message of messages">
       <div class="row">
-        <div class="col-9">
+        <div class="col-9 message-text">
           <a>{{message.name}}</a><br>
           <a class="message-link" href="#">Open reference in secure browser</a>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-3 my-auto">
           <a class="message-icon"><em class="fa fa-exclamation-circle"></em></a>
         </div>
       </div>
