@@ -3,7 +3,6 @@
 .incidents {
   width: 500px;
   height: auto;
-  max-height: 500px;
   overflow: auto;
   position: relative;
   background-color: rgb(255, 255, 255, 0.3);
@@ -22,6 +21,7 @@
     position: sticky;
     background-color: red;
     padding: 5px 0 5px 10px;
+    z-index: -999;
   }
 
   .message-container {
