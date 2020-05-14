@@ -8,7 +8,7 @@
   left: 0;
   background-color: #eaeaea;
   overflow-x: hidden;
-  transition: 0.2s;
+  transition: 0.3s;
   width: 60px;
   cursor: pointer;
 
@@ -59,25 +59,29 @@
   }
 }
 
-@media screen and (max-height: 450px) { // TODO - Create media constant
+@include md-phone-only {
   .sidenav {
     padding-top: 15px;
   }
   .sidenav a {
     font-size: 18px;
   }
-}
 
-@include md-phone-only {
+  .navbar-expand {
+    width: 100%;
+    transition: 0.5s;
 
-  //.navbar-expand:not(.navbar-expanded) {
-  //  height: auto;
-  //  bottom: 0;
-  //  top: initial;
-  //  background-color: initial;
-  //
-  //  .nav-links {
-  //    display: none;
-  //  }
-  //}
+    .navbar-toggle {
+      display: none;
+    }
+
+    &:not(.navbar-expanded) {
+      height: 0;
+    }
+
+    &.mobile-navbar-expanded {
+      height: 100%;
+
+    }
+  }
 }
