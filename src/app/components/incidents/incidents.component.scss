@@ -54,7 +54,15 @@
     top: 2em;
 
     .message-container {
-      font-size: 14px;
+      .message-text {
+        font-size: 14px;
+      }
+
+      .incident-message {
+        .message-icon {
+          font-size: 35px;
+        }
+      }
     }
   }
 }
