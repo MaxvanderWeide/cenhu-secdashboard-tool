@@ -12,9 +12,6 @@ import {IncidentComponent} from '../components/incident/incident.component';
   ],
   imports: [
     CommonModule
-  ],
-  exports: [
-    IncidentComponent
   ]
 })
 export class IncidentsModule { }
