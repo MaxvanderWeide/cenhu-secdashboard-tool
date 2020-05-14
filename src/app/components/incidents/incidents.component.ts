@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-interface Messages {
+interface Message {
   name: string;
 }
 
@@ -10,7 +10,7 @@ interface Messages {
   styleUrls: ['./incidents.component.scss']
 })
 export class IncidentsComponent {
-  messages: Messages[] = [
+  messages: Message[] = [
     {name: 'person Debora made a message'},
     {name: 'person Opal made a message'},
     {name: 'person Bean made a message'},
