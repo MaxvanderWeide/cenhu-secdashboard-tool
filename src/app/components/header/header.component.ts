@@ -15,13 +15,13 @@ export class HeaderComponent {
   }
 
   public toggleNav() {
-    this.navigationComponent.toggleMobileNav();
-    if (this.navigationComponent.mobileRestracted) {
-      document.querySelector('.navbar-expand').classList.remove('mobile-navbar-expanded');
-      this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
-    } else {
-      document.querySelector('.navbar-expand').classList.add('mobile-navbar-expanded');
+    if (this.navigationComponent.isRetracted) {
+      document.querySelector('.navbar-expand').classList.add('navbar-expanded');
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-bars', 'fa-times');
+    } else {
+      document.querySelector('.navbar-expand').classList.remove('navbar-expanded');
+      this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
     }
+    this.navigationComponent.isRetracted = !this.navigationComponent.isRetracted;
   }
 }
