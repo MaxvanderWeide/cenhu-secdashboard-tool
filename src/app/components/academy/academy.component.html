@@ -1,33 +1,59 @@
-<input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
-<table class="table-responsive" *ngIf="records.length > 0">
-  <thead>
-  <tr>
-    <th>Date Assigned </th>
-    <th>Date Started </th>
-    <th>Date Completed </th>
-    <th>Teams </th>
-    <th>Progress </th>
-    <th>Time Spent(in hrs) </th>
-    <th>Review Score </th>
-    <th>Trainer Review </th>
-    <th>Certificate(Y/N) </th>
-    <th>Quiz Score </th>
-    <th>Quiz Attempts </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let record of records;let i = index;">
-    <td> <span>{{record.dateAssigned}}</span> </td>
-    <td> <span>{{record.dateStarted}}</span> </td>
-    <td> <span>{{record.dateCompleted}}</span> </td>
-    <td> <span>{{record.teams}}</span> </td>
-    <td> <span>{{record.progress}}</span> </td>
-    <td> <span>{{record.timeSpent}}</span> </td>
-    <td> <span>{{record.reviewScore}}</span> </td>
-    <td> <span>{{record.trainerReview}}</span> </td>
-    <td> <span>{{record.certificate}}</span> </td>
-    <td> <span>{{record.quizScore}}</span> </td>
-    <td> <span>{{record.quizAttempts}}</span> </td>
-  </tr>
-  </tbody>
-</table>
+<div id="academy-component">
+  <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
+  <table class="table-responsive" *ngIf="records.length > 0">
+    <thead>
+    <tr>
+      <th>Date Assigned </th>
+      <th>Date Started </th>
+      <th>Date Completed </th>
+      <th>Teams </th>
+      <th>Progress </th>
+      <th>Time Spent(in hrs) </th>
+      <th>Review Score </th>
+      <th>Trainer Review </th>
+      <th>Certificate(Y/N) </th>
+      <th>Quiz Score </th>
+      <th>Quiz Attempts </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let record of records;let i = index;">
+      <td> <span>{{record.dateAssigned}}</span> </td>
+      <td> <span>{{record.dateStarted}}</span> </td>
+      <td> <span>{{record.dateCompleted}}</span> </td>
+      <td> <span>{{record.teams}}</span> </td>
+      <td> <span>{{record.progress}}</span> </td>
+      <td> <span>{{record.timeSpent}}</span> </td>
+      <td> <span>{{record.reviewScore}}</span> </td>
+      <td> <span>{{record.trainerReview}}</span> </td>
+      <td> <span>{{record.certificate}}</span> </td>
+      <td> <span>{{record.quizScore}}</span> </td>
+      <td> <span>{{record.quizAttempts}}</span> </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="calculations">
+    <div class="row">
+      <div class="col-md-6">
+        <p>Average Hour = {{avgHours}}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Average Progress = {{avgProgress}}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Average ReviewScore = {{avgReviewScore}}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Average TrainerScore = {{avgTrainerReview}}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Percentage of Y certificates = {{yPercentage}}</p>
+        <p>Percentage of N certificates  = {{nPercentage}}</p>
+      </div>
+      <div class="col-md-6">
+        <p>Total Quiz Attempts = {{quizAttempt}}</p>
+        <p>Total Passed Quizzes  = {{quizScore}}</p>
+      </div>
+    </div>
+  </div>
+</div>
