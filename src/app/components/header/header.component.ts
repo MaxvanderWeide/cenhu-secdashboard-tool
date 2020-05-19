@@ -14,12 +14,13 @@ export class HeaderComponent {
   constructor(private navigationComponent: NavigationComponent) {
   }
 
-  public toggleNav() {
+  public toggleNav(target) {
     if (this.navigationComponent.isRetracted) {
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-bars', 'fa-times');
     } else {
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
     }
-    this.navigationComponent.toggleRetracted();
+
+    this.navigationComponent.toggleRetracted(target);
   }
 }

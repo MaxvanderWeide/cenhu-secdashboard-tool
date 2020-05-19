@@ -14,10 +14,22 @@ export class NavigationComponent {
     return this.retracted;
   }
 
-  public toggleRetracted(): void {
-    const navbarItems = document.getElementsByClassName('navbar-items') as HTMLCollectionOf<HTMLElement>;
+  public toggleRetracted(target): void {
+    const targetClass = target === 'header' ? 'navbar-expand' : 'navbar-items';
+    const animationToName = target === 'header' ? 'moveToTop' : 'moveToLeft';
+    const animationFromName = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
 
-    navbarItems[0].style.animation = this.retracted ? '.6s moveFrom' : '2s moveTo';
+    if (target === 'header') {
+      if (this.isRetracted) {
+        document.querySelector('.navbar-expand').classList.add('nav-expanded');
+      } else {
+        document.querySelector('.navbar-expand').classList.remove('nav-expanded');
+      }
+    }
+
+    const navbarItems = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
+
+    navbarItems[0].style.animation = this.retracted ? '.6s ' + animationFromName : '2s ' + animationToName;
 
     this.retracted = !this.retracted;
   }

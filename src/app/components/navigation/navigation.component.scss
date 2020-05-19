@@ -10,7 +10,12 @@
   background-color: #eaeaea;
   cursor: pointer;
   @include md-phone-only {
+    top: -1000px;
     width: 100%;
+    &.nav-expanded {
+      background-color: blue;
+      top: 72px;
+    }
   }
 
   .navbar {
@@ -48,36 +53,38 @@
   }
 }
 
-@keyframes moveFrom {
+@keyframes moveFromLeft {
   from {
     left: -100px;
-    @include md-phone-only {
-      top: -1000px;
-      left: 0;
-    }
   }
   to {
     left: 60px;
-    @include md-phone-only {
-      top: 72px;
-      left: 0;
-    }
   }
 }
 
-@keyframes moveTo {
+@keyframes moveToLeft {
   from {
     left: 60px;
-    @include md-phone-only {
-      top: 72px;
-      left: 0;
-    }
   }
   to {
     left: -100px;
-    @include md-phone-only {
-      top: -1000px;
-      left: 0;
-    }
+  }
+}
+
+@keyframes moveFromTop {
+  from {
+    top: -1000px;
+  }
+  to {
+    top: 72px;
+  }
+}
+
+@keyframes moveToTop {
+  from {
+    top: 72px;
+  }
+  to {
+    top: -1000px;
   }
 }
