@@ -14,7 +14,7 @@ export class NavigationComponent {
     return this.retracted;
   }
 
-  public toggleRetracted(target): void {
+  public toggleRetracted(target: string): void {
     const targetClass = target === 'header' ? 'navbar-expand' : 'navbar-items';
     const animationToName = target === 'header' ? 'moveToTop' : 'moveToLeft';
     const animationFromName = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
@@ -29,7 +29,7 @@ export class NavigationComponent {
 
     const navbarItems = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
 
-    navbarItems[0].style.animation = this.retracted ? '.6s ' + animationFromName : '2s ' + animationToName;
+    navbarItems[0].style.animation = this.retracted ? '.4s ' + animationFromName : '1s ' + animationToName;
 
     this.retracted = !this.retracted;
   }
