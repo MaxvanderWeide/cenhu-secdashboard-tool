@@ -1,13 +1,71 @@
-<nav (mouseenter)="toggleRetracted()" (mouseleave)="toggleRetracted()">
-  <div class="navbar-icons">
-    <a href="/user">
-      <em class="fa fa-user"></em>
-    </a>
+<nav (click)="this.toggleRetracted()" class="navbar-expand" [ngClass]="isRetracted ? '' : 'navbar-expanded'">
+  <div class="nav-links">
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="#">
+        <em class="fa fa-search"></em>
+        <span>Reports</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="#">
+        <em class="fa fa-server"></em>
+        <span>Components</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="#">
+        <em class="fa fa-bookmark"></em>
+        <span>References</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="#">
+        <em class="fa fa-book"></em>
+        <span>Wiki</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="#">
+        <em class="fa fa-table"></em>
+        <span>Comfort</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="#">
+        <em class="fa fa-id-card"></em>
+        <span>Facts</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="/academy">
+        <em class="fa fa-list"></em>
+        <span>Academy</span>
+      </a>
+    </div>
+
+    <div class="link-hanger" (click)="$event.stopPropagation()">
+      <a href="/kpi">
+        <em class="fa fa-bar-chart"></em>
+        <span>KPI</span>
+      </a>
+    </div>
+
+    <div class="link-hanger user" (click)="$event.stopPropagation()">
+      <a href="/user">
+        <em class="fa fa-user"></em>
+        <span>User</span>
+      </a>
+    </div>
+
   </div>
 
-  <div class="navbar-links" [ngClass]="isRetracted ? '' : 'navbar-links-expanded'">
-    <a href="/user">
-      <span>User</span>
-    </a>
+  <div class="navbar-toggle link-hanger">
+    <em [ngClass]="this.isRetracted ? 'fa fa-arrow-circle-right' : 'fa fa-arrow-circle-left'"></em>
   </div>
 </nav>

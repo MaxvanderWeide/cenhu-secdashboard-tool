@@ -22,6 +22,6 @@ export class HeaderComponent {
       document.querySelector('.navbar-expand').classList.remove('navbar-expanded');
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
     }
-    this.navigationComponent.isRetracted = !this.navigationComponent.isRetracted;
+    this.navigationComponent.toggleRetracted();
   }
 }
