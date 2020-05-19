@@ -13,6 +13,7 @@ export class PieComponent implements OnInit{
       data: [];
       labels: [];
     };
+    labels: [];
     options: {};
     type: string;
     showLegend: boolean;
