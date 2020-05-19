@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-keyperformances',
@@ -7,7 +6,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./keyperformances.component.scss']
 })
 export class KeyperformancesComponent {
-  public data = {
+  public data: {} = {
     awareness:
       {
         data: [300, 500, 100],
