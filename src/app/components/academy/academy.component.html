@@ -1,5 +1,5 @@
 <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
-<table class="minimalistBlack" *ngIf="records.length > 0">
+<table class="table-responsive" *ngIf="records.length > 0">
   <thead>
   <tr>
     <th>Date Assigned </th>
