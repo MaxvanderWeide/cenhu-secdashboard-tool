@@ -8,28 +8,17 @@ import {Component} from '@angular/core';
 })
 
 export class NavigationComponent {
+  private retracted: boolean = true;
 
   public get isRetracted(): boolean {
     return this.retracted;
   }
 
-  private retracted: boolean = true;
-
-  mini = true;
-
   public toggleRetracted(): void {
-    this.retracted = !this.retracted;
-  }
+    const navbarItems = document.getElementsByClassName('navbar-items') as HTMLCollectionOf<HTMLElement>;
 
-  public toggleSidebar() {
-    if (this.mini) {
-      console.log('opening sidebar');
-      document.getElementById('mySidebar').style.width = '250px';
-      this.mini = false;
-    } else {
-      console.log('closing sidebar');
-      document.getElementById('mySidebar').style.width = '85px';
-      this.mini = true;
-    }
+    navbarItems[0].style.animation = this.retracted ? '.6s moveFrom' : '2s moveTo';
+
+    this.retracted = !this.retracted;
   }
 }

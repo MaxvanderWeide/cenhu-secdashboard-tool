@@ -9,7 +9,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 export class PieComponent implements OnInit{
   // tslint:disable-next-line:no-input-rename
   @Input('pieChart') pieChart: {
-    data: {};
+    data: {data: [], labels: []};
     options: {};
     type: string;
     showLegend: boolean;

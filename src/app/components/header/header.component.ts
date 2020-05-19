@@ -16,10 +16,8 @@ export class HeaderComponent {
 
   public toggleNav() {
     if (this.navigationComponent.isRetracted) {
-      document.querySelector('.navbar-expand').classList.add('navbar-expanded');
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-bars', 'fa-times');
     } else {
-      document.querySelector('.navbar-expand').classList.remove('navbar-expanded');
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
     }
     this.navigationComponent.toggleRetracted();
