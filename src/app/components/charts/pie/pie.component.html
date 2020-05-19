@@ -1,0 +1,14 @@
+<div class="chart">
+  <canvas baseChart
+          [data]="pieChart.data"
+          [labels]="pieChart.labels"
+          [chartType]="pieChart.type"
+          [options]="pieChart.options"
+          [plugins]="pieChart.plugins"
+          [colors]="pieChart.colors"
+          [legend]="pieChart.showLegend">
+  </canvas>
+</div>
+<div>
+  <button mat-button mat-raised-button color="primary" (click)="pieChart.showLegend=!pieChart.showLegend">Toggle Legend</button>
+</div>

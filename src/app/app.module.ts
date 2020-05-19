@@ -8,7 +8,9 @@ import {HeaderComponent} from './components/header/header.component';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AcademyComponent} from './components/academy/academy.component';
 import {IncidentsModule} from './incidents/incidents.module';
-import {KpiComponent} from './components/kpi/kpi.component';
+import { KeyperformancesComponent } from './pages/keyperformances/keyperformances.component';
+import {ChartsModule} from 'ng2-charts';
+import { PieComponent } from './components/charts/pie/pie.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import {KpiComponent} from './components/kpi/kpi.component';
     HeaderComponent,
     NotfoundComponent,
     AcademyComponent,
-    KpiComponent
+    KeyperformancesComponent,
+    PieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IncidentsModule
+    IncidentsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
