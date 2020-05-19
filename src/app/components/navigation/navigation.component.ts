@@ -14,7 +14,7 @@ export class NavigationComponent {
     return this.retracted;
   }
 
-  public toggleRetracted(target): void {
+  public toggleRetracted(target: string): void {
     const targetClass = target === 'header' ? 'navbar-expand' : 'navbar-items';
     const animationToName = target === 'header' ? 'moveToTop' : 'moveToLeft';
     const animationFromName = target === 'header' ? 'moveFromTop' : 'moveFromLeft';

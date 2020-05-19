@@ -14,7 +14,7 @@ export class HeaderComponent {
   constructor(private navigationComponent: NavigationComponent) {
   }
 
-  public toggleNav(target) {
+  public toggleNav(target: string) {
     if (this.navigationComponent.isRetracted) {
       this.navMenu.nativeElement.querySelector('em').classList.replace('fa-bars', 'fa-times');
     } else {
