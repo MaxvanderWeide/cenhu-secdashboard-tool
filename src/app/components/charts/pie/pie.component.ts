@@ -6,8 +6,10 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   templateUrl: './pie.component.html',
   styleUrls: ['./pie.component.scss']
 })
-export class PieComponent implements OnInit{
-  @Input('pieChart') pieChart;
+export class PieComponent implements OnInit {
+
+  // tslint:disable-next-line:no-input-rename
+  @Input('pieChart') pieChart; // eslint-disable-line @typescript-eslint/typedef
 
   ngOnInit() {
     this.pieChart.options = {
@@ -26,14 +28,5 @@ export class PieComponent implements OnInit{
         },
       ];
     console.log(this.pieChart);
-  }
-
-  // events
-  public chartClicked({event, active}: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({event, active}: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
   }
 }

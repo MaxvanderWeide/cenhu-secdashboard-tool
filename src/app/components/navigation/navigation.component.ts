@@ -9,5 +9,14 @@ import {Component} from '@angular/core';
 
 export class NavigationComponent {
 
-  public isRetracted: boolean = true;
+  private retracted: boolean = true;
+
+  public get isRetracted(): boolean {
+    return this.retracted;
+  }
+
+  public toggleRetracted(): void {
+    console.log('toggle');
+    this.retracted = !this.retracted;
+  }
 }
