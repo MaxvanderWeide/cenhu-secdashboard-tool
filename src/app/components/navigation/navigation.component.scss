@@ -3,17 +3,76 @@
 .navbar-expand {
   height: 100%;
   position: fixed;
-  z-index: 2;
+  z-index: 1;
   top: 72px;
   left: 0;
   background-color: #eaeaea;
   overflow-x: hidden;
-  transition: 0.3s;
   width: 60px;
   cursor: pointer;
+  animation-name: moveToLeft;
+  animation-duration: 0.2s;
+
+  @include md-phone-only {
+    width: 100%;
+    top: -1000px;
+    animation-name: moveToTop;
+    animation-duration: 0.8s;
+    .link-hanger {
+      padding: 15px 20px;
+
+      .fa {
+        margin: 0;
+      }
+
+      a.fa {
+        display: inline-block;
+      }
+
+      span {
+        display: inline-block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        text-align: center;
+        margin-top: -5px;
+      }
+
+      &.active {
+        background-color: #109f46;
+        color: white;
+
+        .fa, span {
+          color: white;
+        }
+      }
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .user {
+      margin-top: auto;
+      margin-bottom: 72px;
+      width: 100%;
+    }
+    .navbar-toggle {
+      display: none;
+    }
+
+  }
 
   &.navbar-expanded {
     width: 250px;
+    animation-name: moveFromLeft;
+    animation-duration: 0.2s;
+    @include md-phone-only {
+      animation-name: moveFromTop;
+      animation-duration: 0.8s;
+      width: 100%;
+      top: 72px;
+    }
   }
 
   .link-hanger {
@@ -43,7 +102,6 @@
       text-decoration: none;
     }
 
-    // TODO - Center EM static location
     em {
       margin-right: 25px;
       margin-top: 5px;
@@ -59,29 +117,38 @@
   }
 }
 
-@include md-phone-only {
-  .sidenav {
-    padding-top: 15px;
+@keyframes moveFromTop {
+  from {
+    top: -1000px;
   }
-  .sidenav a {
-    font-size: 18px;
+  to {
+    top: 72px;
   }
+}
 
-  .navbar-expand {
-    width: 100%;
-    transition: 0.5s;
+@keyframes moveToTop {
+  from {
+    top: 72px;
+  }
+  to {
+    top: -1000px;
+  }
+}
 
-    .navbar-toggle {
-      display: none;
-    }
+@keyframes moveFromLeft {
+  from {
+    left: -100px;
+  }
+  to {
+    left: 0;
+  }
+}
 
-    &:not(.navbar-expanded) {
-      height: 0;
-    }
-
-    &.mobile-navbar-expanded {
-      height: 100%;
-
-    }
+@keyframes moveToLeft {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100px;
   }
 }

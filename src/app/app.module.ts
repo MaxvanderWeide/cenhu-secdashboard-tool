@@ -8,6 +8,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AcademyComponent} from './components/academy/academy.component';
 import {IncidentsModule} from './incidents/incidents.module';
+import {KpiComponent} from './components/kpi/kpi.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {IncidentsModule} from './incidents/incidents.module';
     NavigationComponent,
     HeaderComponent,
     NotfoundComponent,
-    AcademyComponent
+    AcademyComponent,
+    KpiComponent
   ],
   imports: [
     BrowserModule,

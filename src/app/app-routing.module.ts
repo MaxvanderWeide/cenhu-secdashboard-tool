@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AcademyComponent} from './components/academy/academy.component';
 import {IncidentsOverviewComponent} from './incidents/incidents-overview/incidents.component';
+import {KpiComponent} from './components/kpi/kpi.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'academy',
     component: AcademyComponent,
+  },
+  {
+    path: 'kpi',
+    component: KpiComponent,
   },
   {
     path: '**',
