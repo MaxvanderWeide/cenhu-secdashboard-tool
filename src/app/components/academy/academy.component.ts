@@ -7,8 +7,21 @@ import {CSVRecord} from "./Academy";
   styleUrls: ['./academy.component.scss']
 })
 export class AcademyComponent {
+  public avgHours: any;
+  public avgProgress: any;
+  public avgReviewScore: any;
+  public avgTrainerReview: any;
+
+  public yPercentage: any;
+  public nPercentage: any;
+
+  public quizScore: any;
+  public quizAttempt: any;
+
   public records: any[] = [];
   @ViewChild('csvReader') csvReader: any;
+
+
   uploadListener(event: any): void {
     const files = event.srcElement.files;
     if (this.isValidCSVFile(files[0])) {
@@ -20,6 +33,7 @@ export class AcademyComponent {
         const csvRecordsArray = (csvData).split(/\r\n|\n/);
         const headersRow = this.getHeaderArray(csvRecordsArray);
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
+        this.getData();
       };
       reader.onerror = function () {
         console.log('error is occured while reading file!');
@@ -52,6 +66,7 @@ export class AcademyComponent {
     }
     return csvArr;
   }
+
   isValidCSVFile(file: any) {
     return file.name.endsWith(".csv");
   }
@@ -64,9 +79,50 @@ export class AcademyComponent {
     }
     return headerArray;
   }
+
   fileReset() {
     this.csvReader.nativeElement.value = "";
     this.records = [];
+  }
+
+  getData(){
+    var sumHour = 0;
+    var sumProgress = 0;
+    var sumReviewScore = 0;
+    var sumTrainerReview = 0;
+
+    var yAmount = 0;
+    var nAmount = 0;
+
+    var sumQuizScore = 0;
+    var sumQuizAttempt = 0;
+
+    for (let record of this.records){
+      sumHour += record.timeSpent;
+      sumProgress += record.progress;
+      sumReviewScore += record.reviewScore;
+      sumTrainerReview += record.trainerReview;
+
+      sumQuizScore += record.quizScore;
+      sumQuizAttempt += record.quizAttempts;
+
+      if (record.certificate == 'Y'){
+        yAmount += 1;
+      } else {
+        nAmount += 1;
+      }
+    }
+
+    this.avgHours = (sumHour / this.records.length).toFixed(2);
+    this.avgProgress = (sumProgress / this.records.length).toFixed(2);
+    this.avgReviewScore = (sumReviewScore / this.records.length).toFixed(2);
+    this.avgTrainerReview = (sumTrainerReview / this.records.length).toFixed(2);
+
+    this.yPercentage = ((yAmount / this.records.length) * 100).toFixed(2);
+    this.nPercentage = ((nAmount / this.records.length) * 100).toFixed(2);
+
+    this.quizScore = sumQuizScore;
+    this.quizAttempt = sumQuizAttempt;
   }
 
 }
