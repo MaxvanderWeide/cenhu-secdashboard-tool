@@ -6,12 +6,18 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   templateUrl: './pie.component.html',
   styleUrls: ['./pie.component.scss']
 })
-export class PieComponent implements OnInit {
-
+export class PieComponent implements OnInit{
   // tslint:disable-next-line:no-input-rename
-  @Input('pieChart') pieChart; // eslint-disable-line @typescript-eslint/typedef
+  @Input('pieChart') pieChart: {
+    data: {};
+    options: {};
+    type: string;
+    showLegend: boolean;
+    plugins: {};
+    colors: {};
+  };
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.pieChart.options = {
       responsive: true,
       legend: {
@@ -19,7 +25,7 @@ export class PieComponent implements OnInit {
       }
     };
     this.pieChart.type = 'pie';
-    this.pieChart.showLegend = true;
+    this.pieChart.showLegend = false;
     this.pieChart.plugins = [pluginDataLabels];
     this.pieChart.colors =
       [
@@ -27,6 +33,5 @@ export class PieComponent implements OnInit {
           backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
         },
       ];
-    console.log(this.pieChart);
   }
 }
