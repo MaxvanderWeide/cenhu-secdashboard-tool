@@ -5,11 +5,20 @@
     border: 1px solid black;
     font-size: 15px;
     padding: 5px 4px;
+    background-color: #fff;
   }
 
   th {
     background-color: darkgreen;
-    color: #ffffff;
+    color: #fff;
+  }
+
+  .table-responsive {
+    margin-top: 5px;
+  }
+
+  .calculations {
+    margin-top: 15px;
   }
 }
 

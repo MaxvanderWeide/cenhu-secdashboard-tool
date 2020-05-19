@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {CSVRecord} from "./Academy";
+import {CSVRecord} from '../../models/academy.model';
 
 @Component({
   selector: 'app-academy',
@@ -35,11 +35,11 @@ export class AcademyComponent {
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
         this.getData();
       };
-      reader.onerror = function () {
+      reader.onerror = () => {
         console.log('error is occured while reading file!');
       };
     } else {
-      alert("Please import valid .csv file.");
+      alert('Please import valid .csv file.');
       this.fileReset();
     }
   }
@@ -47,20 +47,20 @@ export class AcademyComponent {
   getDataRecordsArrayFromCSVFile(csvRecordsArray: string[], headerLength: any) {
     const csvArr = [];
     for (let i = 1; i < csvRecordsArray.length; i++) {
-      const curruntRecord = (csvRecordsArray[i]).split(',');
-      if (curruntRecord.length == headerLength) {
+      const currentRecord = (csvRecordsArray[i]).split(',');
+      if (currentRecord.length === headerLength) {
         const csvRecord: CSVRecord = new CSVRecord();
-        csvRecord.dateAssigned = curruntRecord[0].trim();
-        csvRecord.dateStarted = curruntRecord[1].trim();
-        csvRecord.dateCompleted = curruntRecord[2].trim();
-        csvRecord.teams = curruntRecord[3].trim();
-        csvRecord.progress =  parseFloat(curruntRecord[4].trim());
-        csvRecord.timeSpent = parseFloat(curruntRecord[5].trim());
-        csvRecord.reviewScore = parseFloat(curruntRecord[6].trim());
-        csvRecord.trainerReview = parseFloat(curruntRecord[7].trim());
-        csvRecord.certificate = curruntRecord[8].trim();
-        csvRecord.quizScore = parseFloat(curruntRecord[9].trim());
-        csvRecord.quizAttempts = parseFloat(curruntRecord[10].trim());
+        csvRecord.dateAssigned = currentRecord[0].trim();
+        csvRecord.dateStarted = currentRecord[1].trim();
+        csvRecord.dateCompleted = currentRecord[2].trim();
+        csvRecord.teams = currentRecord[3].trim();
+        csvRecord.progress =  parseFloat(currentRecord[4].trim());
+        csvRecord.timeSpent = parseFloat(currentRecord[5].trim());
+        csvRecord.reviewScore = parseFloat(currentRecord[6].trim());
+        csvRecord.trainerReview = parseFloat(currentRecord[7].trim());
+        csvRecord.certificate = currentRecord[8].trim();
+        csvRecord.quizScore = parseFloat(currentRecord[9].trim());
+        csvRecord.quizAttempts = parseFloat(currentRecord[10].trim());
         csvArr.push(csvRecord);
       }
     }
@@ -68,36 +68,36 @@ export class AcademyComponent {
   }
 
   isValidCSVFile(file: any) {
-    return file.name.endsWith(".csv");
+    return file.name.endsWith('.csv');
   }
 
   getHeaderArray(csvRecordsArr: string[]) {
     const headers = (csvRecordsArr[0]).split(',');
     const headerArray = [];
-    for (let j = 0; j < headers.length; j++) {
+    for (const j of headers) {
       headerArray.push(headers[j]);
     }
     return headerArray;
   }
 
   fileReset() {
-    this.csvReader.nativeElement.value = "";
+    this.csvReader.nativeElement.value = '';
     this.records = [];
   }
 
   getData(){
-    var sumHour = 0;
-    var sumProgress = 0;
-    var sumReviewScore = 0;
-    var sumTrainerReview = 0;
+    let sumHour = 0;
+    let sumProgress = 0;
+    let sumReviewScore = 0;
+    let sumTrainerReview = 0;
 
-    var yAmount = 0;
-    var nAmount = 0;
+    let yAmount = 0;
+    let nAmount = 0;
 
-    var sumQuizScore = 0;
-    var sumQuizAttempt = 0;
+    let sumQuizScore = 0;
+    let sumQuizAttempt = 0;
 
-    for (let record of this.records){
+    for (const record of this.records){
       sumHour += record.timeSpent;
       sumProgress += record.progress;
       sumReviewScore += record.reviewScore;
@@ -106,7 +106,7 @@ export class AcademyComponent {
       sumQuizScore += record.quizScore;
       sumQuizAttempt += record.quizAttempts;
 
-      if (record.certificate == 'Y'){
+      if (record.certificate === 'Y'){
         yAmount += 1;
       } else {
         nAmount += 1;
