@@ -1,6 +1,7 @@
 import {TestBed, async} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 
+/*eslint-disable*/
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,4 +30,5 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('cenhu-secdashboard-tool app is running!');
   });
 });
+/*eslint-enable*/
 
