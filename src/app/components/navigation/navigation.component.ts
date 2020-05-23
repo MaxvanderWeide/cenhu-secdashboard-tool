@@ -29,7 +29,7 @@ export class NavigationComponent {
 
     const navbarItems = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
 
-    navbarItems[0].style.animation = this.retracted ? '.4s ' + animationFromName : '1s ' + animationToName;
+    navbarItems[0].style.animation = this.retracted ? '.4s ' + animationFromName : '.8s ' + animationToName;
 
     this.retracted = !this.retracted;
   }

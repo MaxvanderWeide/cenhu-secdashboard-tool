@@ -18,6 +18,12 @@
     }
   }
 
+  em, a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #616161;
+  }
+
   .navbar {
     &-icons, &-items {
       display: inline-block;
@@ -40,9 +46,11 @@
       left: -100px;
       z-index: -1;
       height: 100%;
+
       a {
-        display: inline-block;
+        display: block;
       }
+
       @include md-phone-only {
         text-align: center;
         width: 100%;

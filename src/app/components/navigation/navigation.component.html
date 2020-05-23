@@ -1,38 +1,30 @@
-<nav (click)="this.toggleRetracted('nav')" class="navbar-expand">
+<nav (mouseenter)="this.toggleRetracted('nav')" (mouseleave)="this.toggleRetracted('nav')" class="navbar-expand">
   <div class="navbar-icons">
-    <a href="#">
-      <div class="navbar-icon">
-        <em class="fa fa-user"></em>
-      </div>
-    </a>
     <a href="/incidents">
       <div class="navbar-icon">
-        <em class="fa fa-user"></em>
+        <em class="fa fa-exclamation-circle"></em>
       </div>
     </a>
-    <a href="#">
+    <a href="/performances">
       <div class="navbar-icon">
-        <em class="fa fa-user"></em>
+        <em class="fa fa-tachometer"></em>
       </div>
     </a>
-    <a href="#">
+    <a href="/academy">
       <div class="navbar-icon">
-        <em class="fa fa-user"></em>
+        <em class="fa fa-university"></em>
       </div>
     </a>
   </div>
   <div class="navbar-items" [ngClass]="isRetracted ? '' : 'expanded'">
-    <a href="#">
-      <span class="navbar-item">User</span>
-    </a>
     <a href="/incidents">
-      <span class="navbar-item">User</span>
+      <span class="navbar-item">Incidents</span>
     </a>
-    <a href="#">
-      <span class="navbar-item">User</span>
+    <a href="/performances">
+      <span class="navbar-item">Performance</span>
     </a>
-    <a href="#">
-      <span class="navbar-item">User</span>
+    <a href="/academy">
+      <span class="navbar-item">Academy</span>
     </a>
   </div>
 </nav>
