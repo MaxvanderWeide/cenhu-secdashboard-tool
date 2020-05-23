@@ -2,13 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
-  selector: 'app-pie',
+  selector: 'app-pie-chart',
   templateUrl: './pie.component.html',
   styleUrls: ['./pie.component.scss']
 })
-export class PieComponent implements OnInit{
-  // tslint:disable-next-line:no-input-rename
-  @Input('pieChart') pieChart: {
+export class PieChartComponent implements OnInit{
+  @Input() pieChart: {
     data: {
       data: [];
       labels: [];
