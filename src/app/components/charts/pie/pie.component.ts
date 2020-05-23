@@ -8,6 +8,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 })
 export class PieChartComponent implements OnInit{
   @Input() pieChart: {
+    title: string,
     data: {
       data: [];
       labels: [];
@@ -18,22 +19,23 @@ export class PieChartComponent implements OnInit{
     showLegend: boolean;
     plugins: {};
     colors: {};
+    dataColors: string[];
   };
 
   ngOnInit(): void {
     this.pieChart.options = {
       responsive: true,
       legend: {
-        position: 'top',
+        position: 'right',
       }
     };
     this.pieChart.type = 'pie';
-    this.pieChart.showLegend = false;
+    this.pieChart.showLegend = true;
     this.pieChart.plugins = [pluginDataLabels];
     this.pieChart.colors =
       [
         {
-          backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+          backgroundColor: this.pieChart.dataColors,
         },
       ];
   }
