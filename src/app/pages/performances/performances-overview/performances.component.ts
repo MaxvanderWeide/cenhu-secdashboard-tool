@@ -9,10 +9,10 @@ import {Label} from 'ng2-charts';
 })
 export class PerformancesOverviewComponent {
   public pieData: {
-    title: string,
+    title: string;
     data: number[];
     labels: string[];
-    dataColors: string[]
+    dataColors: string[];
   } = {
     title: 'Taart is lekker',
     data: [300, 500, 100],
@@ -21,9 +21,9 @@ export class PerformancesOverviewComponent {
   };
 
   public lineData: {
-    title: string,
-    data: ChartDataSets[],
-    labels: Label[],
+    title: string;
+    data: ChartDataSets[];
+    labels: Label[];
     dataColors: string[];
   } = {
     title: 'Dit is een lijn',

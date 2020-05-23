@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import {ChartOptions} from 'chart.js';
 
 @Component({
   selector: 'app-pie-chart',
@@ -8,13 +9,13 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 })
 export class PieChartComponent implements OnInit{
   @Input() pieChart: {
-    title: string,
+    title: string;
     data: {
       data: [];
       labels: [];
     };
     labels: [];
-    options: {};
+    options: ChartOptions;
     type: string;
     showLegend: boolean;
     plugins: {};
