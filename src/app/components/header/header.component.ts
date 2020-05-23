@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {NavigationComponent} from '../navigation/navigation.component';
+import {NavigationComponent} from '@app/components/navigation/navigation.component';
 
 @Component({
   selector: 'app-header',

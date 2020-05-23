@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {CSVRecord} from '../../models/academy.model';
+import {CSVRecord} from '@models/academy.model';
 
 @Component({
   selector: 'app-academy',
