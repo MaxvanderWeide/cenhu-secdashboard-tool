@@ -1,6 +1,7 @@
 @import "src/assets/scss/mixins";
 
 .incidents {
+  border-radius: 5px 5px 5px 5px;
   z-index: 0;
   display: block;
   height: 500px;
@@ -10,43 +11,24 @@
   background-color: rgb(169, 169, 169, 0.6);
   margin: 15px 15px;
 
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-  }
-
   .badge {
     float: right;
     margin-right: 8px;
   }
 
   &.high-incident {
-    &::-webkit-scrollbar-thumb {
-      background: red;
-    }
     .box-header {
       background-color: red;
     }
   }
 
   &.middle-incident {
-    &::-webkit-scrollbar-thumb {
-      background: #ffb801;
-    }
     .box-header {
       background-color: #ffb801;
     }
   }
 
   &.low-incident {
-    &::-webkit-scrollbar-thumb {
-      background: forestgreen;
-    }
     .box-header {
       background-color: forestgreen;
     }
@@ -65,6 +47,23 @@
   }
 
   .message-container {
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+    .empty-message {
+      text-align: center;
+      width: auto;
+      height: auto;
+      border-radius: 5px;
+      margin: 15px 2% 15px 2%;
+      padding: 5px 5px 5px 5px;
+    }
 
     .incident-message {
       width: auto;
@@ -93,7 +92,6 @@
 
 @include lg-phone-only {
   .incidents {
-    border-radius: 0 0 5px 5px;
     width: auto;
     max-height: 500px;
     margin: 35px 10px;

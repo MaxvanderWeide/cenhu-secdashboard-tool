@@ -5,10 +5,13 @@
 
   <div class="message-container">
     <div class="incident-message" *ngFor="let message of getMessages()">
-        <div class="message-text" *ngIf="this.message.severity === this.alertType">
-          <p>{{message.message}}</p>
-          <a class="message-link" href="#" *ngIf="this.message.hasOwnProperty('url')">Open reference in secure browser</a>
-        </div>
+      <div class="message-text" *ngIf="this.message.severity === this.alertType">
+        <p>{{message.message}}</p>
+        <a class="message-link" href="#" *ngIf="this.message.hasOwnProperty('url')">Open reference in secure browser</a>
+      </div>
+    </div>
+    <div class="empty-message" *ngIf="getMessages().length === 0">
+      <p>No incidents found</p>
     </div>
   </div>
 </div>
