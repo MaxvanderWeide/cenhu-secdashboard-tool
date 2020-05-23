@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChartDataSets, ChartType} from 'chart.js';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Label} from 'ng2-charts';
 
 @Component({
@@ -9,26 +9,14 @@ import {Label} from 'ng2-charts';
 })
 export class LineChartComponent implements OnInit {
   @Input() lineChart: {
-    title: string,
-    data: ChartDataSets[],
-    labels: Label[],
-    options: {
-      responsive: boolean,
-      scales: {
-        xAxes: [{
-          id?: string,
-          position?: string
-        }],
-        yAxes: [{
-          id?: string,
-          position?: string
-        }]
-      }
-    },
-    colors: {}[],
-    dataColors: string[],
-    legend: boolean,
-    type: ChartType
+    title: string;
+    data: ChartDataSets[];
+    labels: Label[];
+    options: ChartOptions;
+    colors: {}[];
+    dataColors: string[];
+    legend: boolean;
+    type: ChartType;
   };
 
   colorsList: {[property: string]: {}}[] = [
@@ -74,10 +62,8 @@ export class LineChartComponent implements OnInit {
 
     this.lineChart.colors = [];
     for (const tempColor of this.lineChart.dataColors) {
-      const color = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
+      const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
       this.lineChart.colors.push(color);
     }
-
-    console.log(document.querySelectorAll('canvas'));
   }
 }
