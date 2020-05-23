@@ -57,7 +57,7 @@ export class IncidentComponent implements OnInit {
   }
 
   getMessages(): Message[] {
-    return this.messages.filter(message => {
+    return this.messages.filter(message => { // eslint-disable-line @typescript-eslint/typedef
       if (message.severity === this.alertType) {
         return message;
       }

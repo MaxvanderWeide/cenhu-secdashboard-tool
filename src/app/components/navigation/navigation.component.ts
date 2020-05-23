@@ -16,7 +16,7 @@ export class NavigationComponent {
   private retracted: boolean = true;
 
   @HostListener('document:click', ['$event'])
-  // eslint-disable-next-line no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private toggleOnClick(event: any): void {
     if (this.eRef.nativeElement.contains(event.target) || (!this.eRef.nativeElement.contains(event.target) && !this.isRetracted)) {
       this.toggleRetracted('nav');
@@ -28,9 +28,9 @@ export class NavigationComponent {
   }
 
   public toggleRetracted(target: string): void {
-    const targetClass = target === 'header' ? 'navbar-expand' : 'navbar-items';
-    const animationToName = target === 'header' ? 'moveToTop' : 'moveToLeft';
-    const animationFromName = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
+    const targetClass: string = target === 'header' ? 'navbar-expand' : 'navbar-items';
+    const animationToName: string = target === 'header' ? 'moveToTop' : 'moveToLeft';
+    const animationFromName: string = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
 
     if (target === 'header') {
       if (this.isRetracted) {
@@ -40,7 +40,7 @@ export class NavigationComponent {
       }
     }
 
-    const navbarItems = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
+    const navbarItems: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
 
     navbarItems[0].style.animation = this.retracted ? '.4s ' + animationFromName : '.8s ' + animationToName;
 
