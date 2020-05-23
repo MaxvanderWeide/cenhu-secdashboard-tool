@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AcademyComponent} from './components/academy/academy.component';
-import {IncidentsOverviewComponent} from './incidents/incidents-overview/incidents.component';
-import {KeyperformancesComponent} from './pages/keyperformances/keyperformances.component';
+import {IncidentsOverviewComponent} from './pages/incidents/incidents-overview/incidents.component';
+import {PerformancesOverviewComponent} from './pages/performances/performances-overview/performances.component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
     component: AcademyComponent,
   },
   {
-    path: 'keyperformances',
-    component: KeyperformancesComponent,
+    path: 'performances',
+    component: PerformancesOverviewComponent,
   },
   {
     path: '**',

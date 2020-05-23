@@ -7,10 +7,9 @@ import {NavigationComponent} from './components/navigation/navigation.component'
 import {HeaderComponent} from './components/header/header.component';
 import {NotfoundComponent} from './components/notfound/notfound.component';
 import {AcademyComponent} from './components/academy/academy.component';
-import {IncidentsModule} from './incidents/incidents.module';
-import { KeyperformancesComponent } from './pages/keyperformances/keyperformances.component';
+import {IncidentsModule} from './pages/incidents/incidents.module';
 import {ChartsModule} from 'ng2-charts';
-import { PieComponent } from './components/charts/pie/pie.component';
+import {PerformancesModule} from './pages/performances/performances.module';
 
 @NgModule({
   declarations: [
@@ -19,14 +18,13 @@ import { PieComponent } from './components/charts/pie/pie.component';
     HeaderComponent,
     NotfoundComponent,
     AcademyComponent,
-    KeyperformancesComponent,
-    PieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     IncidentsModule,
-    ChartsModule
+    ChartsModule,
+    PerformancesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

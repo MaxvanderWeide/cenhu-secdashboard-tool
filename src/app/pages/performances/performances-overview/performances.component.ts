@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-keyperformances',
-  templateUrl: './keyperformances.component.html',
-  styleUrls: ['./keyperformances.component.scss']
+  templateUrl: './performances.component.html',
+  styleUrls: ['./performances.component.scss']
 })
-export class KeyperformancesComponent {
+export class PerformancesOverviewComponent {
   public data: {
     data: number[];
     labels: string[];
