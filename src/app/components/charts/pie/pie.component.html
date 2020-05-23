@@ -1,4 +1,5 @@
 <div class="chart">
+  <h3 class="chart-title">{{pieChart.title}}</h3>
   <canvas baseChart
           [data]="pieChart.data"
           [labels]="pieChart.labels"
@@ -8,7 +9,4 @@
           [colors]="pieChart.colors"
           [legend]="pieChart.showLegend">
   </canvas>
-</div>
-<div>
-  <button mat-button mat-raised-button color="primary" (click)="pieChart.showLegend=!pieChart.showLegend">Toggle Legend</button>
 </div>

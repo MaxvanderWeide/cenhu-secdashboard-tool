@@ -1,4 +1,12 @@
 .chart {
-  width: 500px;
+  width: 100%;
   display: inline-block;
+  background-color :#fff;
+  padding: 10px;
+
+  &-title {
+    text-align: center;
+    color: #000;
+    margin-bottom: 10px;
+  }
 }

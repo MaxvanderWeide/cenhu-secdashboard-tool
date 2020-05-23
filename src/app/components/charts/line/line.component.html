@@ -1,7 +1,6 @@
-<div class="flex">
-  <div class="flex-item">
-    <div style="display: block;">
-      <canvas baseChart width="600"
+<div class="chart">
+  <h3 class="chart-title">{{lineChart.title}}</h3>
+  <canvas baseChart
               [datasets]="lineChart.data"
               [labels]="lineChart.labels"
               [options]="lineChart.options"
@@ -9,6 +8,4 @@
               [legend]="lineChart.legend"
               [chartType]="lineChart.type"
       ></canvas>
-    </div>
-  </div>
 </div>
