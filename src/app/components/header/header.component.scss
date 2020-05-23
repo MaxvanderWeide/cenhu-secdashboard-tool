@@ -22,7 +22,7 @@
     margin: auto 0;
     font-size: 26px;
     display: none;
-    @include md-phone-only {
+    @include lg-phone-only {
       display: block;
     }
   }
