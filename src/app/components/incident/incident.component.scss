@@ -3,37 +3,37 @@
 .incidents {
   z-index: 0;
   display: block;
-  height: auto;
-  max-height: 500px;
-  overflow: auto;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   background-color: rgb(169, 169, 169, 0.6);
   margin: 15px 15px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .badge {
+    float: right;
+    margin-right: 8px;
+  }
 
   &.high-incident {
     .box-header {
       background-color: red;
     }
-    .message-icon {
-      color: red;
-    }
   }
 
   &.middle-incident {
     .box-header {
-      background-color: #FFD300;
-    }
-    .message-icon {
-      color: #FFD300;
+      background-color: #ffb801;
     }
   }
 
   &.low-incident {
     .box-header {
       background-color: forestgreen;
-    }
-    .message-icon {
-      color: forestgreen;
     }
   }
 
@@ -50,7 +50,6 @@
   }
 
   .message-container {
-    overflow-y: scroll;
 
     .incident-message {
       width: auto;
