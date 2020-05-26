@@ -1,0 +1,60 @@
+import {Component, Input, OnInit} from '@angular/core';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {Label} from 'ng2-charts';
+
+@Component({
+  selector: 'app-bar-chart',
+  templateUrl: './bar.component.html',
+  styleUrls: ['./bar.component.scss']
+})
+export class BarChartComponent implements OnInit {
+  @Input() barChart: {
+    title: string;
+    data: ChartDataSets[];
+    labels: Label[];
+    options: ChartOptions;
+    colors: {}[];
+    dataColors: string[];
+    legend: boolean;
+    type: ChartType;
+  };
+
+  colorsList: {[property: string]: {}}[] = [
+    {
+      green:
+        { // green
+          backgroundColor: 'rgba(0,255,0,0.3)',
+          borderColor: 'green',
+        },
+      blue:
+        { // blue
+          backgroundColor: 'rgba(0,0,255,0.3)',
+          borderColor: 'blue',
+        },
+      red:
+        { // red
+          backgroundColor: 'rgba(255,0,0,0.3)',
+          borderColor: 'red',
+        },
+      default:
+        {
+          backgroundColor: 'rgba(173,173,173,0.3)',
+          borderColor: 'gray',
+        }
+    }
+  ];
+
+  ngOnInit(): void {
+    this.barChart.options = {
+      responsive: true,
+    };
+    this.barChart.legend = true;
+    this.barChart.type = 'bar';
+
+    this.barChart.colors = [];
+    for (const tempColor of this.barChart.dataColors) {
+      const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
+      this.barChart.colors.push(color);
+    }
+  }
+}

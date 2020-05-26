@@ -1,5 +1,5 @@
 <div class="container-fluid performances-container">
-  <div class="row">
+  <div class="row pie-charts-container">
     <div class="col-md-4">
       <app-pie-chart [pieChart]="pieData"></app-pie-chart>
     </div>
@@ -10,9 +10,14 @@
       <app-pie-chart [pieChart]="pieData"></app-pie-chart>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-4 line-chart">
+  <div class="row line-charts-container">
+    <div class="col-md-4">
       <app-line-chart [lineChart]="lineData"></app-line-chart>
+    </div>
+  </div>
+  <div class="row bar-charts-container">
+    <div class="col-md-6">
+      <app-bar-chart [barChart]="barData"></app-bar-chart>
     </div>
   </div>
 </div>

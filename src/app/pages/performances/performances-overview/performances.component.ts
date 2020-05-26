@@ -34,4 +34,19 @@ export class PerformancesOverviewComponent {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     dataColors: ['blue', 'red']
   };
+
+  public barData: {
+    title: string;
+    data: ChartDataSets[];
+    labels: Label[];
+    dataColors: string[];
+  } = {
+    title: 'Bar',
+    data: [
+      {data: [65, 59, 80, 81, 56, 55, 40, 52, 31, 23, 64, 31], label: 'Series A'},
+      {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Series B'}
+    ],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    dataColors: ['blue', 'red']
+  };
 }

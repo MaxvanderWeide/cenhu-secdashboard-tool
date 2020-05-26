@@ -4,12 +4,14 @@ import {PerformancesOverviewComponent} from './performances-overview/performance
 import {PieChartComponent} from '@components/charts/pie/pie.component';
 import {ChartsModule} from 'ng2-charts';
 import {LineChartComponent} from '@components/charts/line/line.component';
+import {BarChartComponent} from '@components/charts/bar/bar.component';
 
 @NgModule({
   declarations: [
     PerformancesOverviewComponent,
     PieChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    BarChartComponent
   ],
   imports: [
     CommonModule,

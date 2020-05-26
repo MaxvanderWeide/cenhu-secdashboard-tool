@@ -17,7 +17,7 @@ import {PerformancesModule} from '@pages/performances/performances.module';
     NavigationComponent,
     HeaderComponent,
     NotfoundComponent,
-    AcademyComponent
+    AcademyComponent,
   ],
   imports: [
     BrowserModule,
