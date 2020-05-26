@@ -26,13 +26,10 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
-    "csv": "^5.3.2",
-    "csv-parser": "^2.3.2",
     "eslint": "^7.0.0",
     "font-awesome": "^4.7.0",
     "ng2-charts": "^2.3.2",
     "ngx-bootstrap": "^5.6.1",
-    "ngx-papaparse": "^4.0.4",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

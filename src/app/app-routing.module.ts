@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AcademyComponent} from '@components/academy/academy.component';
 import {IncidentsOverviewComponent} from '@pages/incidents/incidents-overview/incidents.component';
 import {PerformancesOverviewComponent} from '@pages/performances/performances-overview/performances.component';
 import {NotfoundComponent} from '@pages/notfound/notfound.component';
-import {ReportOverviewComponent} from "@pages/report/report-overview/report-overview.component";
+import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
+import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-overview.component';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'academy',
-    component: AcademyComponent,
+    component: AcademyOverviewComponent,
   },
   {
     path: 'performances',
