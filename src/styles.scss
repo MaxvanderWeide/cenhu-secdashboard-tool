@@ -7,12 +7,18 @@ $font-family: 'Poppins', sans-serif;
 $fa-font-path: "../node_modules/font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome.scss';
 
-body {
-  font-family: $font-family !important;
-  background: #e2e2e2;
-  margin: 87px 0 0 60px;
-  @include lg-phone-only {
-    margin-left: 0;
+html {
+  max-height: 100vh;
+  overflow: hidden;
+
+  body {
+    font-family: $font-family !important;
+    background: #e2e2e2;
+    margin: 87px 0 0 60px;
+
+    @include lg-phone-only {
+      margin-left: 0;
+    }
   }
 }
 
