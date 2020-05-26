@@ -1,4 +1,4 @@
-export class CSVRecord {
+export class Academy {
   public dateAssigned: string;
   public dateStarted: string;
   public dateCompleted: string;
