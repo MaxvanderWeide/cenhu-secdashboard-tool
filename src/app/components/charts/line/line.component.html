@@ -1,11 +1,11 @@
 <div class="chart">
-  <h3 class="chart-title">{{lineChart.title}}</h3>
+  <h3 class="chart-title">{{chart.title}}</h3>
   <canvas baseChart
-              [datasets]="lineChart.data"
-              [labels]="lineChart.labels"
-              [options]="lineChart.options"
-              [colors]="lineChart.colors"
-              [legend]="lineChart.legend"
-              [chartType]="lineChart.type"
+              [datasets]="chart.data"
+              [labels]="chart.labels"
+              [options]="chart.options"
+              [colors]="chart.colors"
+              [legend]="chart.legend"
+              [chartType]="chart.type"
       ></canvas>
 </div>

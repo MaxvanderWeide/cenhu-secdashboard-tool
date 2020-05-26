@@ -1,12 +1,12 @@
 <div class="chart">
-  <h3 class="chart-title">{{pieChart.title}}</h3>
+  <h3 class="chart-title">{{chart.title}}</h3>
   <canvas baseChart
-          [data]="pieChart.data"
-          [labels]="pieChart.labels"
-          [chartType]="pieChart.type"
-          [options]="pieChart.options"
-          [plugins]="pieChart.plugins"
-          [colors]="pieChart.colors"
-          [legend]="pieChart.showLegend">
+          [data]="chart.data"
+          [labels]="chart.labels"
+          [chartType]="chart.type"
+          [options]="chart.options"
+          [plugins]="chart.plugins"
+          [colors]="chart.colors"
+          [legend]="chart.showLegend">
   </canvas>
 </div>

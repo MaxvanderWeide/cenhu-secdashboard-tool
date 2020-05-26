@@ -1,23 +1,23 @@
 <div class="container-fluid performances-container">
   <div class="row pie-charts-container">
     <div class="col-md-4">
-      <app-pie-chart [pieChart]="pieData"></app-pie-chart>
+      <app-pie-chart [chart]="awarenessData"></app-pie-chart>
     </div>
     <div class="col-md-4">
-      <app-pie-chart [pieChart]="pieData"></app-pie-chart>
+      <app-pie-chart [chart]="defensibilityData"></app-pie-chart>
     </div>
     <div class="col-md-4">
-      <app-pie-chart [pieChart]="pieData"></app-pie-chart>
+      <app-pie-chart [chart]="complianceData"></app-pie-chart>
     </div>
   </div>
   <div class="row line-charts-container">
-    <div class="col-md-4">
-      <app-line-chart [lineChart]="lineData"></app-line-chart>
+    <div class="col-md-6">
+      <app-line-chart [chart]="lineData"></app-line-chart>
     </div>
   </div>
   <div class="row bar-charts-container">
     <div class="col-md-6">
-      <app-bar-chart [barChart]="barData"></app-bar-chart>
+      <app-bar-chart [chart]="barData"></app-bar-chart>
     </div>
   </div>
 </div>

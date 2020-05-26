@@ -8,7 +8,7 @@ import {Label} from 'ng2-charts';
   styleUrls: ['./line.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  @Input() lineChart: {
+  @Input() chart: {
     title: string;
     data: ChartDataSets[];
     labels: Label[];
@@ -45,7 +45,7 @@ export class LineChartComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.lineChart.options = {
+    this.chart.options = {
       responsive: true,
       scales: {
         xAxes: [{}],
@@ -57,13 +57,13 @@ export class LineChartComponent implements OnInit {
         ]
       }
     };
-    this.lineChart.legend = true;
-    this.lineChart.type = 'line';
+    this.chart.legend = true;
+    this.chart.type = 'line';
 
-    this.lineChart.colors = [];
-    for (const tempColor of this.lineChart.dataColors) {
+    this.chart.colors = [];
+    for (const tempColor of this.chart.dataColors) {
       const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
-      this.lineChart.colors.push(color);
+      this.chart.colors.push(color);
     }
   }
 }

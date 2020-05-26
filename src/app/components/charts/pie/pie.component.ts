@@ -8,7 +8,7 @@ import {ChartOptions} from 'chart.js';
   styleUrls: ['./pie.component.scss']
 })
 export class PieChartComponent implements OnInit{
-  @Input() pieChart: {
+  @Input() chart: {
     title: string;
     data: {
       data: [];
@@ -24,19 +24,19 @@ export class PieChartComponent implements OnInit{
   };
 
   ngOnInit(): void {
-    this.pieChart.options = {
+    this.chart.options = {
       responsive: true,
       legend: {
         position: 'right',
       }
     };
-    this.pieChart.type = 'pie';
-    this.pieChart.showLegend = true;
-    this.pieChart.plugins = [pluginDataLabels];
-    this.pieChart.colors =
+    this.chart.type = 'pie';
+    this.chart.showLegend = true;
+    this.chart.plugins = [pluginDataLabels];
+    this.chart.colors =
       [
         {
-          backgroundColor: this.pieChart.dataColors,
+          backgroundColor: this.chart.dataColors,
         },
       ];
   }

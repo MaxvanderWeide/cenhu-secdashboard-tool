@@ -8,7 +8,7 @@ import {Label} from 'ng2-charts';
   styleUrls: ['./bar.component.scss']
 })
 export class BarChartComponent implements OnInit {
-  @Input() barChart: {
+  @Input() chart: {
     title: string;
     data: ChartDataSets[];
     labels: Label[];
@@ -45,16 +45,16 @@ export class BarChartComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.barChart.options = {
+    this.chart.options = {
       responsive: true,
     };
-    this.barChart.legend = true;
-    this.barChart.type = 'bar';
+    this.chart.legend = true;
+    this.chart.type = 'bar';
 
-    this.barChart.colors = [];
-    for (const tempColor of this.barChart.dataColors) {
+    this.chart.colors = [];
+    for (const tempColor of this.chart.dataColors) {
       const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
-      this.barChart.colors.push(color);
+      this.chart.colors.push(color);
     }
   }
 }
