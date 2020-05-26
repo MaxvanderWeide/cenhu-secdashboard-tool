@@ -1,31 +1,32 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import {Academy} from '@models/academy.model';
 // @ts-ignore
-import SampleJson from '../../../assets/temp_assets/convertcsv.json';
-import {CSVRecord} from '@models/academy.model';
+import SampleJson from '../../../../assets/temp_assets/convertcsv.json';
 
 @Component({
-  selector: 'app-academy',
-  templateUrl: './academy.component.html',
-  styleUrls: ['./academy.component.scss']
+  selector: 'app-academy-overview',
+  templateUrl: './academy-overview.component.html',
+  styleUrls: ['./academy-overview.component.scss']
 })
-export class AcademyComponent {
-  records: CSVRecord[] = [];
+export class AcademyOverviewComponent {
+  records: Academy[] = [];
 
-  public avgHours: string;
-  public avgProgress: string;
-  public avgReviewScore: string;
-  public avgTrainerReview: string;
+  avgHours: string;
+  avgProgress: string;
+  avgReviewScore: string;
+  avgTrainerReview: string;
 
-  public yPercentage: string;
-  public nPercentage: string;
+  yPercentage: string;
+  nPercentage: string;
 
-  public quizScore: number;
-  public quizAttempt: number;
+  quizScore: number = 0;
+  quizAttempt: number = 0;
 
   constructor() {
     for (const sample of SampleJson) {
       this.records.push(
-        new CSVRecord(
+        new Academy(
           sample.dateAssigned,
           sample.dateStarted,
           sample.dateCompleted,
@@ -40,20 +41,17 @@ export class AcademyComponent {
     }
 
     console.log(this.records);
-    this.calculateDate();
+    this.calculateData();
   }
 
-  calculateDate(){
-    let sumHour = 0;
-    let sumProgress = 0;
-    let sumReviewScore = 0;
-    let sumTrainerReview = 0;
+  calculateData(): void {
+    let sumHour: number = 0;
+    let sumProgress: number = 0;
+    let sumReviewScore: number = 0;
+    let sumTrainerReview: number = 0;
 
-    let yAmount = 0;
-    let nAmount = 0;
-
-    let sumQuizScore = 0;
-    let sumQuizAttempt = 0;
+    let yAmount: number = 0;
+    let nAmount: number = 0;
 
     for (const record of this.records){
       sumHour += record.timeSpent;
@@ -61,8 +59,8 @@ export class AcademyComponent {
       sumReviewScore += record.reviewScore;
       sumTrainerReview += record.trainerReview;
 
-      sumQuizScore += record.quizScore;
-      sumQuizAttempt += record.quizAttempts;
+      this.quizScore += record.quizScore;
+      this.quizAttempt += record.quizAttempts;
 
       if (record.certificate === 'Y'){
         yAmount += 1;
@@ -78,9 +76,6 @@ export class AcademyComponent {
 
     this.yPercentage = ((yAmount / this.records.length) * 100).toFixed(2);
     this.nPercentage = ((nAmount / this.records.length) * 100).toFixed(2);
-
-    this.quizScore = sumQuizScore;
-    this.quizAttempt = sumQuizAttempt;
   }
 
 }
