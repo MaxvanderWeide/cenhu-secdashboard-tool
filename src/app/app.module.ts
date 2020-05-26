@@ -10,6 +10,7 @@ import {AcademyComponent} from '@components/academy/academy.component';
 import {IncidentsModule} from '@pages/incidents/incidents.module';
 import {ChartsModule} from 'ng2-charts';
 import {PerformancesModule} from '@pages/performances/performances.module';
+import { ReportOverviewComponent } from './pages/report/report-overview/report-overview.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {PerformancesModule} from '@pages/performances/performances.module';
     HeaderComponent,
     NotfoundComponent,
     AcademyComponent,
+    ReportOverviewComponent,
   ],
   imports: [
     BrowserModule,

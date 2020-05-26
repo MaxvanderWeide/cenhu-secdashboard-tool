@@ -4,6 +4,7 @@ import {AcademyComponent} from '@components/academy/academy.component';
 import {IncidentsOverviewComponent} from '@pages/incidents/incidents-overview/incidents.component';
 import {PerformancesOverviewComponent} from '@pages/performances/performances-overview/performances.component';
 import {NotfoundComponent} from '@pages/notfound/notfound.component';
+import {ReportOverviewComponent} from "@pages/report/report-overview/report-overview.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'performances',
     component: PerformancesOverviewComponent,
+  },
+  {
+    path: 'report',
+    component: ReportOverviewComponent,
   },
   {
     path: '**',
