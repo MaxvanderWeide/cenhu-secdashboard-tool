@@ -2,14 +2,9 @@
 
 .incidents {
   z-index: 0;
-  height: 500px;
   display: block;
-  overflow-y: auto;
   margin: 15px 15px;
   position: relative;
-  overflow-x: hidden;
-  border-radius: 5px 5px 5px 5px;
-  background-color: rgb(169, 169, 169, 0.6);
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -49,17 +44,18 @@
 
 
   .box-header {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
     color: #ffffff;
-    position: sticky;
-
     padding: 10px 0 10px 10px;
+    border-radius: 5px 5px 0 0;
   }
 
   .message-container {
+    height: 480px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0 0 5px 5px;
+    background-color: rgb(169, 169, 169, 0.6);
+
 
     .empty-message {
       width: auto;
@@ -100,7 +96,6 @@
 @include lg-phone-only {
   .incidents {
     width: auto;
-    max-height: 500px;
     margin: 25px 10px;
 
     .message-container {
@@ -120,7 +115,6 @@
 @include sm-phone-only {
   .incidents {
     width: auto;
-    max-height: 500px;
     margin: 15px 10px;
 
     .box-header h4 {
@@ -128,6 +122,8 @@
     }
 
     .message-container {
+      max-height: 400px;
+
       .message-text {
         font-size: 14px;
       }
