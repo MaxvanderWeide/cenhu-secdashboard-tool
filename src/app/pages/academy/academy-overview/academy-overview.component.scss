@@ -1,0 +1,24 @@
+#academy-component {
+  margin: 90px 15px;
+
+  thead, tr, th, td {
+    border: 1px solid black;
+    font-size: 15px;
+    padding: 5px 4px;
+    background-color: #fff;
+  }
+
+  th {
+    background-color: darkgreen;
+    color: #fff;
+  }
+
+  .table-responsive {
+    margin-top: 5px;
+  }
+
+  .calculations {
+    margin-top: 15px;
+  }
+}
+
