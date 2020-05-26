@@ -1,4 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
+// @ts-ignore
+import SampleJson from '../../../assets/temp_assets/convertcsv.json';
 import {CSVRecord} from '@models/academy.model';
 
 @Component({
@@ -7,85 +9,41 @@ import {CSVRecord} from '@models/academy.model';
   styleUrls: ['./academy.component.scss']
 })
 export class AcademyComponent {
-  public avgHours: any;
-  public avgProgress: any;
-  public avgReviewScore: any;
-  public avgTrainerReview: any;
+  records: CSVRecord[] = [];
 
-  public yPercentage: any;
-  public nPercentage: any;
+  public avgHours: string;
+  public avgProgress: string;
+  public avgReviewScore: string;
+  public avgTrainerReview: string;
 
-  public quizScore: any;
-  public quizAttempt: any;
+  public yPercentage: string;
+  public nPercentage: string;
 
-  public records: any[] = [];
-  @ViewChild('csvReader') csvReader: any;
+  public quizScore: number;
+  public quizAttempt: number;
 
-
-  uploadListener(event: any): void {
-    const files = event.srcElement.files;
-    if (this.isValidCSVFile(files[0])) {
-      const input = event.target;
-      const reader = new FileReader();
-      reader.readAsText(input.files[0]);
-      reader.onload = () => {
-        const csvData = reader.result.toString();
-        const csvRecordsArray = (csvData).split(/\r\n|\n/);
-        const headersRow = this.getHeaderArray(csvRecordsArray);
-        this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
-        this.getData();
-      };
-      reader.onerror = () => {
-        console.log('error is occured while reading file!');
-      };
-    } else {
-      alert('Please import valid .csv file.');
-      this.fileReset();
+  constructor() {
+    for (const sample of SampleJson) {
+      this.records.push(
+        new CSVRecord(
+          sample.dateAssigned,
+          sample.dateStarted,
+          sample.dateCompleted,
+          sample.team,
+          sample.progress,
+          sample.timeSpent,
+          sample.reviewScore,
+          sample.trainerReview,
+          sample.certificate,
+          sample.quizScore,
+          sample.quizAttempts));
     }
+
+    console.log(this.records);
+    this.calculateDate();
   }
 
-  getDataRecordsArrayFromCSVFile(csvRecordsArray: string[], headerLength: any) {
-    const csvArr = [];
-    for (let i = 1; i < csvRecordsArray.length; i++) {
-      const currentRecord = (csvRecordsArray[i]).split(',');
-      if (currentRecord.length === headerLength) {
-        const csvRecord: CSVRecord = new CSVRecord();
-        csvRecord.dateAssigned = currentRecord[0].trim();
-        csvRecord.dateStarted = currentRecord[1].trim();
-        csvRecord.dateCompleted = currentRecord[2].trim();
-        csvRecord.teams = currentRecord[3].trim();
-        csvRecord.progress =  parseFloat(currentRecord[4].trim());
-        csvRecord.timeSpent = parseFloat(currentRecord[5].trim());
-        csvRecord.reviewScore = parseFloat(currentRecord[6].trim());
-        csvRecord.trainerReview = parseFloat(currentRecord[7].trim());
-        csvRecord.certificate = currentRecord[8].trim();
-        csvRecord.quizScore = parseFloat(currentRecord[9].trim());
-        csvRecord.quizAttempts = parseFloat(currentRecord[10].trim());
-        csvArr.push(csvRecord);
-      }
-    }
-    return csvArr;
-  }
-
-  isValidCSVFile(file: any) {
-    return file.name.endsWith('.csv');
-  }
-
-  getHeaderArray(csvRecordsArr: string[]) {
-    const headers = (csvRecordsArr[0]).split(',');
-    const headerArray = [];
-    for (const j of headers) {
-      headerArray.push(headers[j]);
-    }
-    return headerArray;
-  }
-
-  fileReset() {
-    this.csvReader.nativeElement.value = '';
-    this.records = [];
-  }
-
-  getData(){
+  calculateDate(){
     let sumHour = 0;
     let sumProgress = 0;
     let sumReviewScore = 0;
