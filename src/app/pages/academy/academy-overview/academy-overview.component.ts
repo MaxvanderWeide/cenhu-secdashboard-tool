@@ -19,8 +19,8 @@ export class AcademyOverviewComponent {
   yPercentage: string;
   nPercentage: string;
 
-  quizScore: number;
-  quizAttempt: number;
+  quizScore: number = 0;
+  quizAttempt: number = 0;
 
   constructor() {
     for (const sample of SampleJson) {
