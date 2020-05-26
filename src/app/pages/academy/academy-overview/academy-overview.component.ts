@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {Academy} from '@models/academy.model';
 // @ts-ignore

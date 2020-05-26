@@ -101,7 +101,7 @@
   .incidents {
     width: auto;
     max-height: 500px;
-    margin: 35px 10px;
+    margin: 25px 10px;
 
     .message-container {
       .message-text {
@@ -112,6 +112,24 @@
         .message-icon {
           font-size: 35px;
         }
+      }
+    }
+  }
+}
+
+@include sm-phone-only {
+  .incidents {
+    width: auto;
+    max-height: 500px;
+    margin: 15px 10px;
+
+    .box-header h4 {
+      font-size: 15px;
+    }
+
+    .message-container {
+      .message-text {
+        font-size: 14px;
       }
     }
   }
