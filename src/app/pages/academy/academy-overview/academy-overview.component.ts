@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Academy} from '@models/academy.model';
 // @ts-ignore
 import SampleJson from '../../../../assets/temp_assets/convertcsv.json';
