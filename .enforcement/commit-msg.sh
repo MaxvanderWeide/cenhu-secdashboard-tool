@@ -8,7 +8,7 @@ current_branch="$(git rev-parse --abbrev-ref HEAD)"
 [ "$current_branch" != "$develop_branch" ] && exit 0
 
 # regex to validate in commit msg
-commit_regex='(G-[0-9]+)'
+commit_regex='(G-[0-9]+|merge)'
 error_msg="Aborting commit. Your commit message is missing a ticket number"
 
 if ! grep -qE "$commit_regex" "$1"; then
