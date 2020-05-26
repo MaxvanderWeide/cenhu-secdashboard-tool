@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { EnvService } from './env.service';
+import {EnvService} from './env.service';
 
 interface WindowEnv {
   __env?: any; // eslint-disable-line @typescript-eslint/no-explicit-any

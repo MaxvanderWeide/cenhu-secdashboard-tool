@@ -7,7 +7,7 @@ import {ChartOptions} from 'chart.js';
   templateUrl: './pie.component.html',
   styleUrls: ['./pie.component.scss']
 })
-export class PieChartComponent implements OnInit{
+export class PieChartComponent implements OnInit {
   @Input() chart: {
     title: string;
     data: {

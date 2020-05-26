@@ -20,7 +20,7 @@ export class BarChartComponent implements OnInit {
     horizontal: boolean;
   };
 
-  colorsList: {[property: string]: {}}[] = [
+  colorsList: { [property: string]: {} }[] = [
     {
       green:
         { // green

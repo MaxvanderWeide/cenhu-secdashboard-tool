@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {IncidentsOverviewComponent} from './incidents-overview/incidents.component';
 import {IncidentComponent} from '@components/incident/incident.component';
-
 
 
 @NgModule({
@@ -14,4 +13,5 @@ import {IncidentComponent} from '@components/incident/incident.component';
     CommonModule
   ]
 })
-export class IncidentsModule { }
+export class IncidentsModule {
+}

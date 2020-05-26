@@ -17,8 +17,8 @@ export class PerformancesOverviewComponent {
   } = {
     title: 'Bar',
     data: [
-      { data: [65, 59, 80, 81], label: 'Series A' },
-      { data: [28, 48, 40, 19], label: 'Series B' }
+      {data: [65, 59, 80, 81], label: 'Series A'},
+      {data: [28, 48, 40, 19], label: 'Series B'}
     ],
     labels: ['2006', '2007', '2008', '2009'],
     dataColors: ['blue', 'red'],
@@ -84,8 +84,8 @@ export class PerformancesOverviewComponent {
   } = {
     title: 'Bar',
     data: [
-      { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+      {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
+      {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
     ],
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     dataColors: ['blue', 'red']

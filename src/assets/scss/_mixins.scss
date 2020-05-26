@@ -1,9 +1,17 @@
 @mixin sm-phone-only {
-  @media (max-width: 360px) { @content; }
+  @media (max-width: 360px) {
+    @content;
+  }
 }
+
 @mixin md-phone-only {
-  @media (max-width: 375px) { @content; }
+  @media (max-width: 375px) {
+    @content;
+  }
 }
+
 @mixin lg-phone-only {
-  @media (max-width: 599px) { @content; }
+  @media (max-width: 599px) {
+    @content;
+  }
 }

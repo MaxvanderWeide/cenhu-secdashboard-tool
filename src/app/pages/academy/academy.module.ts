@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AcademyOverviewComponent } from './academy-overview/academy-overview.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AcademyOverviewComponent} from './academy-overview/academy-overview.component';
 
 
 @NgModule({
@@ -12,4 +11,5 @@ import { AcademyOverviewComponent } from './academy-overview/academy-overview.co
     CommonModule
   ]
 })
-export class AcademyModule { }
+export class AcademyModule {
+}

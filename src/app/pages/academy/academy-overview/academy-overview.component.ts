@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Academy} from '@models/academy.model';
 // @ts-ignore
 import SampleJson from '../../../../assets/temp_assets/convertcsv.json';
@@ -53,7 +52,7 @@ export class AcademyOverviewComponent {
     let yAmount: number = 0;
     let nAmount: number = 0;
 
-    for (const record of this.records){
+    for (const record of this.records) {
       sumHour += record.timeSpent;
       sumProgress += record.progress;
       sumReviewScore += record.reviewScore;
@@ -62,7 +61,7 @@ export class AcademyOverviewComponent {
       this.quizScore += record.quizScore;
       this.quizAttempt += record.quizAttempts;
 
-      if (record.certificate === 'Y'){
+      if (record.certificate === 'Y') {
         yAmount += 1;
       } else {
         nAmount += 1;
