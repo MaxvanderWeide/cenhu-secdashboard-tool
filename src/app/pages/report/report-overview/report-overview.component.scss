@@ -1,0 +1,26 @@
+.report_new {
+  padding: 0 32px;
+  width: 500px;
+  label {
+    display: block;
+    margin: 0;
+  }
+  button {
+    display: block;
+    border: 0;
+    padding: 5px 15px;
+    color: white;
+    background: #11a048;
+    border-radius: 5px;
+    margin-top: -5px;
+  }
+
+  select, textarea {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+  }
+
+}

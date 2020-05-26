@@ -1,1 +1,25 @@
-<p>report-overview works!</p>
+<div class="report_new">
+  <form id="report_create" method="post">
+
+    <Label for="department">Kies een afdeling</Label>
+    <select id="department">
+      <option value="1">Afdeling 1</option>
+      <option value="2">Afdeling 2</option>
+      <option value="3">Afdeling 3</option>
+    </select>
+
+    <label for="severity">Kies een niveau</label>
+    <select id="severity">
+      <option value="1">Laag</option>
+      <option value="2">Gemiddeld</option>
+      <option value="3">Hoog</option>
+    </select>
+
+    <label for="description">Beschrijf de situatie</label>
+    <textarea id="description" maxlength="255"></textarea>
+
+    <button type="submit">Maak aan</button>
+
+  </form>
+
+</div>
