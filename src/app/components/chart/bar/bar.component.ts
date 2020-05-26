@@ -17,6 +17,7 @@ export class BarChartComponent implements OnInit {
     dataColors: string[];
     legend: boolean;
     type: ChartType;
+    horizontal: boolean;
   };
 
   colorsList: {[property: string]: {}}[] = [
@@ -49,7 +50,7 @@ export class BarChartComponent implements OnInit {
       responsive: true,
     };
     this.chart.legend = true;
-    this.chart.type = 'bar';
+    this.chart.type = this.chart.horizontal ? 'horizontalBar' : 'bar';
 
     this.chart.colors = [];
     for (const tempColor of this.chart.dataColors) {
