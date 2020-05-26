@@ -10,6 +10,7 @@ import {IncidentsModule} from '@pages/incidents/incidents.module';
 import {ChartsModule} from 'ng2-charts';
 import {PerformancesModule} from '@pages/performances/performances.module';
 import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
+import {AcademyModule} from '@pages/academy/academy.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ReportOverviewComponent} from '@pages/report/report-overview/report-over
     AppRoutingModule,
     IncidentsModule,
     ChartsModule,
-    PerformancesModule
+    PerformancesModule,
+    AcademyModule
   ],
   providers: [],
   exports: [],
