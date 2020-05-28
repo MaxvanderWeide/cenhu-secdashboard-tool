@@ -1,6 +1,23 @@
 #academy-component {
   margin: 90px 15px;
 
+  #chart1{
+    float: left;
+  }
+
+  #chart2{
+    float: left;
+  }
+
+  #chart3{
+    float: left;
+  }
+
+  #academy-table{
+    padding-top: 10px;
+    margin-left: 121px;
+  }
+
   thead, tr, th, td {
     border: 1px solid black;
     font-size: 15px;
