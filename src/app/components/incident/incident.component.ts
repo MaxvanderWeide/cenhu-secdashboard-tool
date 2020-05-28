@@ -1,10 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
-
-interface Message {
-  message: string;
-  severity: string;
-  url?: string;
-}
+import {Incident} from '@models/incidents.model';
+import {DataService} from '@app/services/data.service';
 
 @Component({
   selector: 'app-incident',
@@ -15,39 +11,6 @@ export class IncidentComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('type') alertType: string;
 
-  messages: Message[] = [
-    {message: 'M1 scored poorly', severity: 'high', url: '#'},
-    {message: 'M1 scored poorly without reference', severity: 'high'},
-    {message: 'M1 scored poorly', severity: 'high', url: '#'},
-    {message: 'M1 scored poorly without reference', severity: 'high'},
-    {message: 'M1 scored poorly', severity: 'high', url: '#'},
-    {
-      // tslint:disable-next-line:max-line-length
-      message: 'M1 scored poorly without reference. Will cancel after 100 retries. Retrying in 1 second(s). No feedback expected from user.',
-      severity: 'high'
-    },
-    {message: 'M1 scored poorly', severity: 'high', url: '#'},
-    {message: 'M1 scored poorly without reference', severity: 'high'},
-    {message: 'M1 scored poorly', severity: 'high', url: '#'},
-    {message: 'M1 scored poorly without reference', severity: 'high'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-    {message: 'M1 scored poorly without reference', severity: 'high'},
-  ];
   headerText: string;
   severityClass: string;
 
@@ -56,8 +19,8 @@ export class IncidentComponent implements OnInit {
     this.checkAlertType(this.alertType);
   }
 
-  getMessages(): Message[] {
-    return this.messages.filter(message => { // eslint-disable-line @typescript-eslint/typedef
+  getMessages(): Incident[] {
+    return DataService.getIncidents().filter(message => { // eslint-disable-line @typescript-eslint/typedef
       if (message.severity === this.alertType) {
         return message;
       }
