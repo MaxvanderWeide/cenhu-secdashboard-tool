@@ -8,7 +8,7 @@ import {ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
 
 @Component({
-  selector: 'app-temp',
+  selector: 'app-department-overview',
   templateUrl: './department-overview.component.html',
   styleUrls: ['./department-overview.component.scss']
 })
