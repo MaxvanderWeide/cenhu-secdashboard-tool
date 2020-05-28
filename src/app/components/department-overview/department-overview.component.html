@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="department-header">
+      <h2>Department</h2>
+      <div class="department-name">
+        Trolls
+      </div>
+    </div>
+  </div>
+  <div class="row main-statistics">
+    <div class="main-statistics-column" *ngFor="let statistic of department.data.mainStatistics">
+      <div class="main-tatistics-name">
+        {{statistic.name}}
+      </div>
+      <div>
+        {{statistic.data}}
+      </div>
+    </div>
+  </div>
+  <div class="row statistics-overview">
+    <div class="statistics-overview-header">
+      Overview
+    </div>
+    <div class="statistics-overview-body">
+      <div class="statistics-overview-column">
+        <app-bar-chart [chart]="barData"></app-bar-chart>
+      </div>
+      <div class="statistics-overview-column statistics-overview-main">
+        <div>
+          Total incidents
+          <span class="total-incidents">{{department.data.incidents.total}}</span>
+        </div>
+        <div>
+          Open incidents
+          <span class="open-incidents">{{department.data.incidents.open}}</span>
+        </div>
+        <div>
+          Closed incidents
+          <span class="closed-incidents">{{department.data.incidents.total - department.data.incidents.open}}</span>
+        </div>
+      </div>
+      <div class="statistics-overview-column">
+        <app-bar-chart [chart]="barData"></app-bar-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row details-row">
+    <div class="col-md-5">
+      <div class="row performances-container">
+        <div class="col-md-4">
+          <app-pie-chart [chart]="pieData"></app-pie-chart>
+        </div>
+        <div class="col-md-4">
+          <app-pie-chart [chart]="pieData"></app-pie-chart>
+        </div>
+        <div class="col-md-4">
+          <app-pie-chart [chart]="pieData"></app-pie-chart>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+  </div>
+</div>

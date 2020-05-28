@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Department} from '@models/department.model';
-import { CommonModule } from '@angular/common';
-// Temporary
+// TODO - remove
 // @ts-ignore
 import DepartmentJson from 'src/assets/temp/departments.json';
 
@@ -21,6 +20,18 @@ export class DepartmentsOverviewComponent {
           department.cleanUrl
         )
       );
+    }
+  }
+
+  toggleInformation(event: MouseEvent): void {
+    const departmentElement: Element = (event.target as HTMLElement).parentElement.parentElement.querySelector('.department-box-body');
+
+    if (departmentElement.classList.contains('active')) {
+      (event.target as HTMLElement).classList.replace('fa-chevron-down', 'fa-chevron-right');
+      departmentElement.classList.remove('active');
+    } else {
+      (event.target as HTMLElement).classList.replace('fa-chevron-right', 'fa-chevron-down');
+      departmentElement.classList.add('active');
     }
   }
 

@@ -1,0 +1,36 @@
+.departments-container {
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: 15px auto;
+
+  .department-box {
+    padding: 5px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+
+    .department-box-header {
+      padding: 6px;
+
+      .toggle-body {
+        cursor: pointer;
+        width: 4%;
+      }
+
+      .department-name {
+        color: black;
+        display: inline;
+      }
+    }
+
+    .department-box-body {
+      height: 0;
+      transition: 0.7s;
+
+      &.active {
+        height: 300px;
+      }
+    }
+  }
+}
