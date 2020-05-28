@@ -16,6 +16,10 @@ export class DepartmentsOverviewComponent {
 
   public departments: Department[] = this.dataService.getDepartments();
 
+  nonToggleInformation(): void {
+    console.log('Bypass');
+  }
+
   toggleInformation(event: MouseEvent): void {
     const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement.querySelector('.department-box-body');
 
