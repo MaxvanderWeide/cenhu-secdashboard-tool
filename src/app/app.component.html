@@ -1,3 +1,3 @@
-<app-header (rootAllowToggle)="nav.toggleRetracted('header')"></app-header>
+<app-header [rootSibling]="nav"></app-header>
 <app-navigation #nav></app-navigation>
 <router-outlet></router-outlet>
