@@ -10,7 +10,11 @@ import {DataService} from '@app/services/data.service';
   styleUrls: ['./departments-overview.component.scss']
 })
 export class DepartmentsOverviewComponent {
-  public departments: Department[] = DataService.getDepartments();
+
+  constructor(private dataService: DataService) {
+  }
+
+  public departments: Department[] = this.dataService.getDepartments();
 
   toggleInformation(event: MouseEvent): void {
     const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement.querySelector('.department-box-body');
