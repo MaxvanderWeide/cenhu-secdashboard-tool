@@ -14,6 +14,7 @@ import {AcademyModule} from '@pages/academy/academy.module';
 import {EnvServiceProvider} from '@app/services/env.service.provider';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
+import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {LoginComponent} from '@components/login/login.component';
     HeaderComponent,
     NotfoundComponent,
     ReportOverviewComponent,
-    LoginComponent
+    LoginComponent,
+    DepartmentsOverviewComponent
   ],
   imports: [
     BrowserModule,
