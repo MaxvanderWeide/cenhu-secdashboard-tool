@@ -1,8 +1,7 @@
-/* eslint-disable */
-import {EnvService} from './env.service';
+import { EnvService } from './env.service';
 
 interface WindowEnv {
-  __env?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  __env?: any;
 }
 
 export const EnvServiceFactory = () => {
@@ -21,7 +20,6 @@ export const EnvServiceFactory = () => {
       env[key] = browserWindow.__env[key];
     }
   }
-
   return env;
 };
 
@@ -30,4 +28,3 @@ export const EnvServiceProvider = {
   useFactory: EnvServiceFactory,
   deps: [],
 };
-/* eslint-enable */
