@@ -9,10 +9,6 @@ import {Component} from '@angular/core';
 
 export class NavigationComponent {
 
-  constructor() {
-  }
-
-
   private retracted: boolean = true;
 
   public get isRetracted(): boolean {

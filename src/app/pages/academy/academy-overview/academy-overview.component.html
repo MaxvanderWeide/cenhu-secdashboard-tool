@@ -1,27 +1,39 @@
 <div id="academy-component">
   <div class="calculations">
-    <div class="row">
-      <div class="col-md-6">
-        <p>Average Hour = {{avgHours}}</p>
+    <div class="graphs">
+      <div class="col-md-4" id="chart1">
+        <app-pie-chart [chart]="certificatePercentage" ></app-pie-chart>
       </div>
-      <div class="col-md-6">
-        <p>Average Progress = {{avgProgress}}</p>
+      <div class="col-md-4" id="chart2">
+        <app-pie-chart [chart]="progressPercentage" ></app-pie-chart>
       </div>
-      <div class="col-md-6">
-        <p>Average ReviewScore = {{avgReviewScore}}</p>
+      <div class="col-md-4" id="chart3">
+        <app-pie-chart [chart]="progressPercentage" ></app-pie-chart>
       </div>
-      <div class="col-md-6">
-        <p>Average TrainerScore = {{avgTrainerReview}}</p>
-      </div>
-      <div class="col-md-6">
-        <app-pie-chart [chart]="testPercentage" ></app-pie-chart>
-        <p>Percentage of Y certificates = {{yPercentage}}</p>
-        <p>Percentage of N certificates = {{nPercentage}}</p>
-      </div>
-      <div class="col-md-6">
-        <p>Total Quiz Attempts = {{quizAttempt}}</p>
-        <p>Total Passed Quizzes = {{quizScore}}</p>
-      </div>
+    </div>
+    <div class="col-md-10">
+      <table class="table-responsive" id="academy-table">
+        <tr>
+          <th>Total Issues</th>
+          <th>Average Hour</th>
+          <th>Average Progress</th>
+          <th>Average ReviewScore</th>
+          <th>Average TrainerScore</th>
+          <th>Total Quiz Attempts</th>
+          <th>Total Passed Quizzes</th>
+          <th>Total Certificates</th>
+        </tr>
+        <tr>
+          <td>{{totalIssues}}</td>
+          <td>{{avgHours}}</td>
+          <td>{{avgProgress}}</td>
+          <td>{{avgReviewScore}}</td>
+          <td>{{avgTrainerReview}}</td>
+          <td>{{quizAttempt}}</td>
+          <td>{{quizScore}}</td>
+          <td>{{yAmount}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
