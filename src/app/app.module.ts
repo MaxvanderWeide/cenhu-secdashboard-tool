@@ -18,6 +18,7 @@ import {DepartmentsOverviewComponent} from '@pages/departments/departments-overv
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
 import {ChartModule} from '@components/chart/chart.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {ChartModule} from '@components/chart/chart.module';
     PerformancesModule,
     AcademyModule,
     NgbModule,
-    ChartModule
+    ChartModule,
+    HttpClientModule
   ],
   providers: [EnvServiceProvider, AuthGuard],
   exports: [

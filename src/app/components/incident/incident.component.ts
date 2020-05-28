@@ -10,6 +10,12 @@ import {DataService} from '@app/services/data.service';
 export class IncidentComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('type') alertType: string;
+  public incidents: Incident[];
+
+  constructor(private dataService: DataService) {
+    this.incidents = this.dataService.getIncidents();
+  }
+
 
   headerText: string;
   severityClass: string;
@@ -20,11 +26,7 @@ export class IncidentComponent implements OnInit {
   }
 
   getMessages(): Incident[] {
-    return DataService.getIncidents().filter(message => { // eslint-disable-line @typescript-eslint/typedef
-      if (message.severity === this.alertType) {
-        return message;
-      }
-    });
+    return this.incidents;
   }
 
   checkAlertType(type: string): void {

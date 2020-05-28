@@ -1,35 +1,20 @@
-import {Incident} from '@models/incidents.model';
+import {Department} from '@models/department.model';
 
-export const incidents: Incident[] = [
-  {message: 'M1 scored poorly', severity: 'high', url: '#'},
-  {message: 'M1 scored poorly without reference', severity: 'high'},
-  {message: 'M1 scored poorly', severity: 'high', url: '#'},
-  {message: 'M1 scored poorly without reference', severity: 'high'},
-  {message: 'M1 scored poorly', severity: 'high', url: '#'},
+export const departments: Department[] = [
   {
-    // tslint:disable-next-line:max-line-length
-    message: 'M1 scored poorly without reference. Will cancel after 100 retries. Retrying in 1 second(s). No feedback expected from user.',
-    severity: 'high'
+    name: 'Finance',
+    cleanUrl: 'finance'
   },
-  {message: 'M1 scored poorly', severity: 'high', url: '#'},
-  {message: 'M1 scored poorly without reference', severity: 'high'},
-  {message: 'M1 scored poorly', severity: 'high', url: '#'},
-  {message: 'M1 scored poorly without reference', severity: 'high'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly', severity: 'medium', url: '#'},
-  {message: 'M1 scored poorly without reference', severity: 'high'},
+  {
+    name: 'Human resource management',
+    cleanUrl: 'human-resource-management'
+  },
+  {
+    name: 'Administration',
+    cleanUrl: 'administration'
+  },
+  {
+    name: 'Security officers',
+    cleanUrl: 'security'
+  }
 ];

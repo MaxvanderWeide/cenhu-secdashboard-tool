@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-12 department-box" *ngFor="let iets of departments;">
 
-      <div class="department-box-header">
-        <em class="fa fa-chevron-right toggle-body" (click)="toggleInformation($event)"></em>
+      <div class="department-box-header" (click)="toggleInformation($event)">
+        <em class="fa fa-chevron-right toggle-body"></em>
         <h3 class="department-name">{{iets.name}}</h3>
       </div>
       <div class="department-box-body">

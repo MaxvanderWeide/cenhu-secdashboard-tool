@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Academy} from '@models/academy.model';
 // Temporary
 // @ts-ignore
-import SampleJson from 'src/assets/temp/convertcsv.json';
+import SampleJson from 'src/assets/temp/academyData.json';
 
 
 @Component({

@@ -3,9 +3,9 @@ import {ActivatedRoute} from '@angular/router';
 
 // Temporary
 // @ts-ignore
-import tempDepartmentsFile from 'src/assets/temp/departments.json';
 import {ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
+import {DataService} from "@app/services/data.service";
 
 @Component({
   selector: 'app-department-overview',
@@ -77,7 +77,7 @@ export class DepartmentOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
       console.log(typeof params);
-      for (const tempDepartment of tempDepartmentsFile) {
+      for (const tempDepartment of DataService.getDepartments()) {
         console.log(tempDepartment);
       }
     });
