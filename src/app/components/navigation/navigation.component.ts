@@ -1,6 +1,11 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
 import {AppComponent} from '@app/app.component';
 
+interface NavigationResource {
+  name: string;
+  resource: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-navigation',
@@ -13,20 +18,24 @@ export class NavigationComponent {
   constructor(private eRef: ElementRef) {
   }
   public retracted: boolean = true;
+  navItems: NavigationResource[] = [
+    {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
+    {name: 'Academy', icon: 'university', resource: '/dashboard/academy'},
+    {name: 'Reports', icon: 'eye', resource: '/dashboard/report'},
+    {name: 'Departments', icon: 'cubes', resource: '/dashboard/departments'},
+  ];
 
   @HostListener('document:click', ['$event'])
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private toggleOnClick(event: any): void {
     if ((this.eRef.nativeElement.contains(event.target) ||
       (!this.eRef.nativeElement.contains(event.target) && !this.retracted)) && !AppComponent.isMobile()) {
-      console.log(`Click event with retracted set as: ${this.retracted}`);
       this.toggleRetracted('nav');
 
     }
   }
 
   public handleStopPropagation(event: MouseEvent): void {
-    console.log(`handleStopPropagation: ${this.retracted}`);
     if (this.retracted && !AppComponent.isMobile()) {
       event.stopPropagation();
     }
@@ -40,14 +49,6 @@ export class NavigationComponent {
     const targetClass: string = target === 'header' ? 'navbar-expand' : 'navbar-items';
     const animationToName: string = target === 'header' ? 'moveToTop' : 'moveToLeft';
     const animationFromName: string = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
-
-    if (target === 'header') {
-      if (this.retracted) {
-        document.querySelector('.navbar-expand').classList.add('nav-expanded');
-      } else {
-        document.querySelector('.navbar-expand').classList.remove('nav-expanded');
-      }
-    }
 
     const navbarItems: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
 

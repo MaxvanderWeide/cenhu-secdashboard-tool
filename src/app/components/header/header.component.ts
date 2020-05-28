@@ -12,15 +12,4 @@ export class HeaderComponent {
   @ViewChild('navMenu', {read: ElementRef}) navMenu: ElementRef;
 
   @Input() rootSibling: NavigationComponent;
-
-  public toggleNav(): void {
-    if (this.rootSibling.retracted) {
-      this.navMenu.nativeElement.querySelector('em').classList.replace('fa-bars', 'fa-times');
-    } else {
-      this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
-    }
-
-    console.log('emit RootAllowToggle');
-    this.rootSibling.toggleRetracted('header');
-  }
 }

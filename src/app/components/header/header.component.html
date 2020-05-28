@@ -4,7 +4,6 @@
     <img src="assets/img/logo.svg" width="132" height="35" alt="Menu">
   </div>
   <div class="navigation-container" #navMenu>
-    <em class="fa fa-bars" (click)="toggleNav()"></em>
+    <em [ngClass]="this.rootSibling.retracted ? 'fa fa-bars' : 'fa fa-times'" (click)="this.rootSibling.toggleRetracted('header')"></em>
   </div>
 </header>
-

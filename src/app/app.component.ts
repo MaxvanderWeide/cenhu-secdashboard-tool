@@ -1,5 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
-import {NavigationComponent} from '@components/navigation/navigation.component';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
