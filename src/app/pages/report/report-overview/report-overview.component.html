@@ -1,25 +1,125 @@
-<div class="report_new">
-  <form id="report_create" method="post">
+<div class="container">
+  <div class="row">
 
-    <Label for="department">Kies een afdeling</Label>
-    <select id="department">
-      <option value="1">Afdeling 1</option>
-      <option value="2">Afdeling 2</option>
-      <option value="3">Afdeling 3</option>
-    </select>
+    <div id="issues" class="col-sm view">
 
-    <label for="severity">Kies een niveau</label>
-    <select id="severity">
-      <option value="1">Laag</option>
-      <option value="2">Gemiddeld</option>
-      <option value="3">Hoog</option>
-    </select>
+      <h1>Issues</h1>
 
-    <label for="description">Beschrijf de situatie</label>
-    <textarea id="description" maxlength="255"></textarea>
+        <div class="list-group">
 
-    <button type="submit">Maak aan</button>
+          <button type="button" class="list-group-item list-group-item-action btn issue" (click)="openVerticallyCentered(content)">
 
-  </form>
+            Title issue
+            <span>14:59 28-05-2020</span>
+          </button>
 
+          <button type="button" class="list-group-item list-group-item-action issue">
+            Title issue
+            <span>14:59 28-05-2020</span>
+          </button>
+
+          <button type="button" class="list-group-item list-group-item-action issue">
+            Title issue
+            <span>14:59 28-05-2020</span>
+          </button>
+
+          <button type="button" class="list-group-item list-group-item-action issue">
+            Title issue
+            <span>14:59 28-05-2020</span>
+          </button>
+
+        </div>
+
+    </div>
+
+    <div id="issues_new" class="col-sm view">
+
+      <h1>Report a new issue</h1>
+
+      <form id="report_create" method="post">
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Enter a short title for the issue">
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select id="department" class="form-control">
+            <option value="" disabled selected>Choose a department</option>
+            <option value="1">Department 1</option>
+            <option value="2">Department 2</option>
+            <option value="3">Department 3</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="severity">Severity level</label>
+          <select id="severity" class="form-control">
+            <option value="" disabled selected>Choose the severity level</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="3" placeholder="Explain the issue"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create</button>
+
+      </form>
+    </div>
+
+  </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #longContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
