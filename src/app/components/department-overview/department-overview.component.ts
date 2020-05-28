@@ -14,11 +14,14 @@ import {Label} from 'ng2-charts';
 })
 export class DepartmentOverviewComponent implements OnInit {
   department: {
-    name: string,
+    name: string;
     data: {
-      mainStatistics: {}[],
-      incidents: { total: number, open: number }
-    }
+      mainStatistics: {}[];
+      incidents: {
+        total: number;
+        open: number;
+      };
+    };
   };
   public barData: {
     title: string;
@@ -72,7 +75,8 @@ export class DepartmentOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
+      console.log(typeof params);
       for (const tempDepartment of tempDepartmentsFile) {
         console.log(tempDepartment);
       }
