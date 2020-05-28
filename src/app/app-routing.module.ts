@@ -44,27 +44,17 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]}
       },
+      {
+        path: 'departments/:departmentName',
+        component: DepartmentOverviewComponent,
+        canActivate: [AuthGuard],
+        data: {scopes: [Scope.CorporateSecurityTeamMember]}
+      },
     ]
-  },
-  {
-    path: 'departments/:departmentName',
-    component: DepartmentOverviewComponent,
   },
   {
     path: 'notfound',
     component: NotfoundComponent,
-  },
-  {
-    path: 'academy',
-    component: AcademyOverviewComponent,
-  },
-  {
-    path: 'performances',
-    component: PerformancesOverviewComponent,
-  },
-  {
-    path: 'report',
-    component: ReportOverviewComponent,
   },
   {
     path: '**',
