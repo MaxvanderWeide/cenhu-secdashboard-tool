@@ -11,6 +11,8 @@ import {ChartsModule} from 'ng2-charts';
 import {PerformancesModule} from '@pages/performances/performances.module';
 import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
 import {AcademyModule} from '@pages/academy/academy.module';
+import {EnvServiceProvider} from '@app/services/env.service.provider';
+import {AuthGuard} from '@app/auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import {AcademyModule} from '@pages/academy/academy.module';
     PerformancesModule,
     AcademyModule
   ],
-  providers: [],
+  providers: [EnvServiceProvider, AuthGuard],
   exports: [],
   bootstrap: [AppComponent]
 })

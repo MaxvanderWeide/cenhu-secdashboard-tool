@@ -42,7 +42,7 @@ yarn-error.log
 testem.log
 /typings
 package-lock.json
-env.js
+src/env.js
 
 # System Files
 .DS_Store

@@ -1,37 +1,37 @@
-<nav class="navbar-expand">
+<nav class="navbar-expand" (mouseenter)="this.toggleRetracted('nav')" (mouseleave)="this.toggleRetracted('nav')">
   <div class="navbar-icons">
-    <a href="/incidents">
+    <a [routerLink]="['/dashboard/incidents']">
       <div class="navbar-icon">
         <em class="fa fa-exclamation-circle"></em>
       </div>
     </a>
-    <a href="/performances">
+    <a [routerLink]="['/dashboard/performances']">
       <div class="navbar-icon">
         <em class="fa fa-tachometer"></em>
       </div>
     </a>
-    <a href="/academy">
+    <a [routerLink]="['/dashboard/academy']">
       <div class="navbar-icon">
         <em class="fa fa-university"></em>
       </div>
     </a>
-    <a href="/report">
+    <a [routerLink]="['/dashboard/report']">
       <div class="navbar-icon">
         <em class="fa fa-eye"></em>
       </div>
     </a>
   </div>
   <div class="navbar-items" [ngClass]="isRetracted ? '' : 'expanded'">
-    <a href="/incidents">
+    <a [routerLink]="['/dashboard/incidents']">
       <span class="navbar-item">Incidents</span>
     </a>
-    <a href="/performances">
+    <a [routerLink]="['/dashboard/performances']">
       <span class="navbar-item">Performance</span>
     </a>
-    <a href="/academy">
+    <a [routerLink]="['/dashboard/academy']">
       <span class="navbar-item">Academy</span>
     </a>
-    <a href="/report">
+    <a [routerLink]="['/dashboard/report']">
       <span class="navbar-item">Reports</span>
     </a>
   </div>
