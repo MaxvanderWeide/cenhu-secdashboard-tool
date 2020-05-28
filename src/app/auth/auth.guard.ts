@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
       if (route.data.scopes.indexOf(this.env.clientAddedScopeDefinition) > -1){
         return true;
       }
-      this.router.navigate(['/notfound']);
+      this.router.navigate(['/login']);
       return false;
     }
     return true;
