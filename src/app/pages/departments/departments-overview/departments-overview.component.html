@@ -1,7 +1,15 @@
-<div class="container-fluid">
-  <p>hallo toon eens wat</p>
-  <div *ngFor="let iets of departments">
-    {{iets.name}}
-    {{iets.cleanUrl}}
+<div class="container-fluid departments-container">
+  <div class="row">
+    <div class="col-md-12 department-box" *ngFor="let iets of departments;">
+
+      <div class="department-box-header">
+        <em class="fa fa-chevron-right toggle-body" (click)="toggleInformation($event)"></em>
+        <h3 class="department-name">{{iets.name}}</h3>
+      </div>
+      <div class="department-box-body">
+
+      </div>
+
+    </div>
   </div>
 </div>
