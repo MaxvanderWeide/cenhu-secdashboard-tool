@@ -4,9 +4,9 @@ export class EnvService {
   // be overridden by env.js
 
   // API url
-  public clientAddedScopeDefinition = '';
+  public clientAddedScopeDefinition: string = '';
 
   // Whether or not to enable debug mode
-  public enableDebug = true;
+  public enableDebug: boolean = true;
 
 }
