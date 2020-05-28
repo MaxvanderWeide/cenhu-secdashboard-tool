@@ -1,39 +1,37 @@
-<nav class="navbar-expand"
-  (mouseenter)="this.toggleRetracted('nav')"
-  (mouseleave)="this.toggleRetracted('nav')">
+<nav class="navbar-expand">
   <div class="navbar-icons">
-    <a [routerLink]="['/dashboard/incidents']">
+    <a [routerLink]="['/dashboard/incidents']"  (click)="handleStopPropagation($event)">
       <div class="navbar-icon">
         <em class="fa fa-exclamation-circle"></em>
       </div>
     </a>
-    <a [routerLink]="['/dashboard/academy']">
+    <a [routerLink]="['/dashboard/academy']" (click)="handleStopPropagation($event)">
       <div class="navbar-icon">
         <em class="fa fa-university"></em>
       </div>
     </a>
-    <a [routerLink]="['/dashboard/report']">
+    <a [routerLink]="['/dashboard/report']" (click)="handleStopPropagation($event)">
       <div class="navbar-icon">
         <em class="fa fa-eye"></em>
       </div>
     </a>
-    <a [routerLink]="['/dashboard/departments']">
+    <a [routerLink]="['/dashboard/departments']" (click)="handleStopPropagation($event)">
       <div class="navbar-icon">
         <em class="fa fa-cubes"></em>
       </div>
     </a>
   </div>
-  <div class="navbar-items" [ngClass]="isRetracted ? '' : 'expanded'">
-    <a [routerLink]="['/dashboard/incidents']">
+  <div class="navbar-items" [ngClass]="(this.retracted) ? '' : 'expanded'">
+    <a [routerLink]="['/dashboard/incidents']" (click)="handleStopPropagation($event)">
       <span class="navbar-item">Incidents</span>
     </a>
-    <a [routerLink]="['/dashboard/academy']">
+    <a [routerLink]="['/dashboard/academy']" (click)="handleStopPropagation($event)">
       <span class="navbar-item">Academy</span>
     </a>
-    <a [routerLink]="['/dashboard/report']">
+    <a [routerLink]="['/dashboard/report']" (click)="handleStopPropagation($event)">
       <span class="navbar-item">Reports</span>
     </a>
-    <a [routerLink]="['/dashboard/departments']">
+    <a [routerLink]="['/dashboard/departments']" (click)="handleStopPropagation($event)">
       <span class="navbar-item">Departments</span>
     </a>
   </div>

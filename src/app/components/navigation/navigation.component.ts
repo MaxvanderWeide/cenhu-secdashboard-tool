@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, HostListener} from '@angular/core';
+import {AppComponent} from '@app/app.component';
 
 
 @Component({
@@ -9,19 +10,39 @@ import {Component} from '@angular/core';
 
 export class NavigationComponent {
 
-  private retracted: boolean = true;
+  constructor(private eRef: ElementRef) {
+  }
+  public retracted: boolean = true;
 
-  public get isRetracted(): boolean {
-    return this.retracted;
+  @HostListener('document:click', ['$event'])
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private toggleOnClick(event: any): void {
+    if ((this.eRef.nativeElement.contains(event.target) ||
+      (!this.eRef.nativeElement.contains(event.target) && !this.retracted)) && !AppComponent.isMobile()) {
+      console.log(`Click event with retracted set as: ${this.retracted}`);
+      this.toggleRetracted('nav');
+
+    }
+  }
+
+  public handleStopPropagation(event: MouseEvent): void {
+    console.log(`handleStopPropagation: ${this.retracted}`);
+    if (this.retracted && !AppComponent.isMobile()) {
+      event.stopPropagation();
+    }
+    if (AppComponent.isMobile()) {
+      this.toggleRetracted('header');
+    }
   }
 
   public toggleRetracted(target: string): void {
+    console.log(`Toggle Retract, called by: ${target}, with retracted set as: ${this.retracted}`);
     const targetClass: string = target === 'header' ? 'navbar-expand' : 'navbar-items';
     const animationToName: string = target === 'header' ? 'moveToTop' : 'moveToLeft';
     const animationFromName: string = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
 
     if (target === 'header') {
-      if (this.isRetracted) {
+      if (this.retracted) {
         document.querySelector('.navbar-expand').classList.add('nav-expanded');
       } else {
         document.querySelector('.navbar-expand').classList.remove('nav-expanded');
