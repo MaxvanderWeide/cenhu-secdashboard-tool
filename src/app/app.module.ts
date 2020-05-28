@@ -13,8 +13,9 @@ import {ReportOverviewComponent} from '@pages/report/report-overview/report-over
 import {AcademyModule} from '@pages/academy/academy.module';
 import {EnvServiceProvider} from '@app/services/env.service.provider';
 import {AuthGuard} from '@app/auth/auth.guard';
-import {LoginComponent} from '@components/login/login.component';
+// import {LoginComponent} from '@components/login/login.component';
 import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {DepartmentsOverviewComponent} from '@pages/departments/departments-overv
     HeaderComponent,
     NotfoundComponent,
     ReportOverviewComponent,
-    LoginComponent,
+    // LoginComponent,
     DepartmentsOverviewComponent
   ],
   imports: [
@@ -32,10 +33,13 @@ import {DepartmentsOverviewComponent} from '@pages/departments/departments-overv
     IncidentsModule,
     ChartsModule,
     PerformancesModule,
-    AcademyModule
+    AcademyModule,
+    NgbModule
   ],
   providers: [EnvServiceProvider, AuthGuard],
-  exports: [],
+  exports: [
+    NgbModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

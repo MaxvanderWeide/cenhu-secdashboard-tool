@@ -9,7 +9,21 @@
 
         <div class="card">
 
-     
+          <div class="card-header" id="heading_1">
+            <h2 class="mb-0">
+              <button type="button" class="btn btn-link btn-block text-left" (click)="isCollapsed = !isCollapsed"
+                      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+                Title issue<span>14:59 28-05-2020</span>
+              </button>
+            </h2>
+          </div>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                You can collapse this card by clicking Toggle
+              </div>
+            </div>
+          </div>
 
         </div>
 

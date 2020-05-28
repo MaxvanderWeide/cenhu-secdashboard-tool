@@ -6,5 +6,5 @@ import {Component} from '@angular/core';
   styleUrls: ['./report-overview.component.scss']
 })
 export class ReportOverviewComponent {
-
+  public isCollapsed: boolean = false;
 }
