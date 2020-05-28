@@ -13,6 +13,7 @@ import {ReportOverviewComponent} from '@pages/report/report-overview/report-over
 import {AcademyModule} from '@pages/academy/academy.module';
 import {EnvServiceProvider} from '@app/services/env.service.provider';
 import {AuthGuard} from '@app/auth/auth.guard';
+import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {AuthGuard} from '@app/auth/auth.guard';
     HeaderComponent,
     NotfoundComponent,
     ReportOverviewComponent,
+    DepartmentsOverviewComponent
   ],
   imports: [
     BrowserModule,

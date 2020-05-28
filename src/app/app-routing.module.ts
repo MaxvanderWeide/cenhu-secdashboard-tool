@@ -7,6 +7,7 @@ import {ReportOverviewComponent} from '@pages/report/report-overview/report-over
 import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-overview.component';
 import {Scope} from '@models/scope.enum';
 import {AuthGuard} from '@app/auth/auth.guard';
+import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
 
 const routes: Routes = [
   {
@@ -36,11 +37,29 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]}
       },
+      {
+        path: 'departments',
+        component: DepartmentsOverviewComponent,
+        canActivate: [AuthGuard],
+        data: {scopes: [Scope.CorporateSecurityTeamMember]}
+      },
     ]
   },
   {
     path: 'notfound',
     component: NotfoundComponent,
+  },
+  {
+    path: 'academy',
+    component: AcademyOverviewComponent,
+  },
+  {
+    path: 'performances',
+    component: PerformancesOverviewComponent,
+  },
+  {
+    path: 'report',
+    component: ReportOverviewComponent,
   },
   {
     path: '**',
