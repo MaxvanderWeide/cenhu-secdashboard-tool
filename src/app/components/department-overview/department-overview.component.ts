@@ -38,7 +38,7 @@ export class DepartmentOverviewComponent implements OnInit {
     dataColors: string[];
   };
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private dataService: DataService) {
     this.department = {
       name: 'Human resource management',
       data: {
@@ -77,7 +77,7 @@ export class DepartmentOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
       console.log(typeof params);
-      for (const tempDepartment of DataService.getDepartments()) {
+      for (const tempDepartment of this.dataService.getDepartments()) {
         console.log(tempDepartment);
       }
     });
