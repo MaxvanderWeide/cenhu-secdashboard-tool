@@ -5,22 +5,40 @@
 
       <h1>Issues</h1>
 
-      <div class="accordion" id="accordion">
+      <div class="accordion">
 
         <div class="card">
 
-          <div class="card-header" id="heading_1">
+          <div class="card-header">
             <h2 class="mb-0">
               <button type="button" class="btn btn-link btn-block text-left" (click)="isCollapsed = !isCollapsed"
-                      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-                Title issue<span>14:59 28-05-2020</span>
+                      [attr.aria-expanded]="!isCollapsed" aria-controls="item_1">
+                All passwords were snached<span>14:59 28-05-2020</span>
               </button>
             </h2>
           </div>
-          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+          <div id="item_1" [ngbCollapse]="!isCollapsed">
             <div class="card">
               <div class="card-body">
-                You can collapse this card by clicking Toggle
+                <div class="row">
+                  <div class="col-sm-3"><strong>Department</strong></div>
+                  <div class="col-sm">A 003-L2</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3"><strong>Severity</strong></div>
+                  <div class="col-sm">High</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3"><strong>Description</strong></div>
+                  <div class="col-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum,
+                    dolor id suscipit sollicitudin, nulla leo maximus diam, et tincidunt nisl felis sed risus.
+                    Fusce sollicitudin arcu sed gravida vulputate. Praesent tincidunt aliquam sapien, eget volutpat
+                    tellus feugiat sed. Fusce aliquet arcu id auctor vestibulum. Vestibulum suscipit vitae ante eu
+                    condimentum. Aliquam erat volutpat. Vestibulum tortor augue, efficitur ut ex a,
+                    ullamcorper porta felis.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
