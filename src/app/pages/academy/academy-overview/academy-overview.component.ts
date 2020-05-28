@@ -46,6 +46,7 @@ export class AcademyOverviewComponent {
           sample.certificate,
           sample.quizScore,
           sample.quizAttempts));
+      console.log(sample);
     }
 
     this.calculateData();

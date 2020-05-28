@@ -16,6 +16,8 @@ import {AuthGuard} from '@app/auth/auth.guard';
 // import {LoginComponent} from '@components/login/login.component';
 import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
+import {ChartModule} from '@components/chart/chart.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NotfoundComponent,
     ReportOverviewComponent,
     // LoginComponent,
-    DepartmentsOverviewComponent
+    DepartmentsOverviewComponent,
+    DepartmentOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ChartsModule,
     PerformancesModule,
     AcademyModule,
-    NgbModule
+    NgbModule,
+    ChartModule
   ],
   providers: [EnvServiceProvider, AuthGuard],
   exports: [

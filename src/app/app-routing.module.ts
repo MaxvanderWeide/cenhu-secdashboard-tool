@@ -8,6 +8,7 @@ import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-
 import {Scope} from '@models/scope.enum';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
+import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
         data: {scopes: [Scope.CorporateSecurityTeamMember]}
       },
     ]
+  },
+  {
+    path: 'departments/:departmentName',
+    component: DepartmentOverviewComponent,
   },
   {
     path: 'notfound',
