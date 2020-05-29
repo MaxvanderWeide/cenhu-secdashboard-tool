@@ -1,8 +1,10 @@
 import {Incident} from '@models/incidents.model';
 import {departments, departmentData} from 'src/assets/temp/mock-server.constants';
 import {Department} from '@models/department.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +12,20 @@ import {Injectable} from '@angular/core';
 export class DataService {
   constructor(private http: HttpClient){}
 
-  public getIncidents(): Incident[] {
+  static throwError(error: HttpErrorResponse) {
+    const errorMessage = error.error.detail ? error.error.detail.nl : error.error;
+    if (error.error instanceof ErrorEvent) {
+      console.error(`An unexpected error occurred: ${errorMessage}`);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: ${errorMessage}`);
+    }
+    return throwError(error);
+  }
+
+  public getIncidents(): Observable<Incident[]> {
     /* Mock Server-Calling service for a list of incidents */
-    // TODO - Create observable getIncidents
-    const responseList: Incident[] = [];
-    this.http.get<Incident[]>('assets/temp/incidentData.json').subscribe((response: Incident[]) => {
-      // tslint:disable-next-line:forin
-      for (const item in response) {
-        responseList.push(response[item]);
-      }
-    });
-    return responseList;
+    return this.http.get<Incident[]>('assets/temp/incidentData.json').pipe(catchError(DataService.throwError));
   }
 
   public getDepartments(): Department[] {

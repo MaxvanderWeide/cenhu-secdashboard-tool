@@ -1,0 +1,25 @@
+@import "~src/assets/scss/mixins";
+
+.snackbar-dressing {
+  background: #e57373;
+  color: white;
+  position: fixed;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 15px 10px 5px 10px;
+  animation: moveUp 0.3s;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+@keyframes moveUp {
+  from {
+    bottom: -50px;
+  }
+  to {
+    bottom: 10px;
+  }
+}

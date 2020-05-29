@@ -11,7 +11,14 @@ export class IncidentsCompactComponent {
   incidents: Incident[];
 
   constructor(private dataService: DataService) {
-    this.incidents = this.dataService.getIncidents();
+    this.dataService.getIncidents().subscribe(
+      (incidents: Incident[]) => {
+        this.incidents = incidents;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   incidentIcon(severity: string): string {

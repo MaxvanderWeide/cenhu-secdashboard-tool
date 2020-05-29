@@ -20,6 +20,7 @@ import {DepartmentOverviewComponent} from '@components/department-overview/depar
 import {ChartModule} from '@components/chart/chart.module';
 import {HttpClientModule} from '@angular/common/http';
 import {IncidentsCompactComponent} from '@components/incident/incidents-compact/incidents-compact.component';
+import {DressingBarComponent} from "@components/dressing-bar/dressing-bar.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {IncidentsCompactComponent} from '@components/incident/incidents-compact/
     LoginComponent,
     DepartmentsOverviewComponent,
     DepartmentOverviewComponent,
-    IncidentsCompactComponent
+    IncidentsCompactComponent,
+    DressingBarComponent
   ],
   imports: [
     BrowserModule,
