@@ -10,8 +10,8 @@ import {DressingService} from '@app/services/dressing.service';
 export class DressingBarComponent {
   dressingMessage: string = '';
 
-  constructor(public dressingService: DressingService): void {
-    this.dressingService.message$.subscribe(message => this.dressingMessage = message);
+  constructor(public dressingService: DressingService) {
+    this.dressingService.message$.subscribe((message: string) => this.dressingMessage = message);
   }
 
 }

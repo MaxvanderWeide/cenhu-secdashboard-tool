@@ -12,8 +12,8 @@ import {catchError} from 'rxjs/operators';
 export class DataService {
   constructor(private http: HttpClient){}
 
-  static throwError(error: HttpErrorResponse) {
-    const errorMessage = error.error.detail ? error.error.detail.nl : error.error;
+  static throwError(error: HttpErrorResponse) { // eslint-disable-line
+    const errorMessage = error.error.detail ? error.error.detail.nl : error.error; // eslint-disable-line
     if (error.error instanceof ErrorEvent) {
       console.error(`An unexpected error occurred: ${errorMessage}`);
     } else {

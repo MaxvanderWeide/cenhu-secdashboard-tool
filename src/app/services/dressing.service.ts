@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DressingService {
-  message$ = new BehaviorSubject<string>('');
+  message$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   message(message: string): void {
     this.message$.next(message);
