@@ -1,0 +1,14 @@
+<div class="incidents-compact-overview">
+  <div class="incidents-compact-header">
+    Incidents
+  </div>
+  <div class="incidents-compact-body">
+    <table>
+      <tr class="incidents-compact-item" *ngFor="let incident of incidents">
+        <td>{{incident.message}}</td>
+        <td class="link-holder"><a href="{{incident.url}}" *ngIf="incident.hasOwnProperty('url')">Open link</a></td>
+        <td class="severity-holder"><em class="fa {{incidentIcon(incident.severity)}}"></em></td>
+      </tr>
+    </table>
+  </div>
+</div>

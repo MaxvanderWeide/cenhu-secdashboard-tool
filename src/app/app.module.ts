@@ -18,7 +18,8 @@ import {DepartmentsOverviewComponent} from '@pages/departments/departments-overv
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
 import {ChartModule} from '@components/chart/chart.module';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http';
+import {IncidentsCompactComponent} from '@components/incident/incidents-compact/incidents-compact.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {HttpClientModule} from "@angular/common/http";
     ReportOverviewComponent,
     LoginComponent,
     DepartmentsOverviewComponent,
-    DepartmentOverviewComponent
+    DepartmentOverviewComponent,
+    IncidentsCompactComponent
   ],
   imports: [
     BrowserModule,

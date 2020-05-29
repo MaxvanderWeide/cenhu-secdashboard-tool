@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import {DataService} from '@app/services/data.service';
+import {Incident} from '@models/incidents.model';
+
+@Component({
+  selector: 'app-incidents-compact',
+  templateUrl: './incidents-compact.component.html',
+  styleUrls: ['./incidents-compact.component.scss']
+})
+export class IncidentsCompactComponent {
+  incidents: Incident[];
+
+  constructor(private dataService: DataService) {
+    this.incidents = this.dataService.getIncidents();
+  }
+
+  incidentIcon(severity: string) {
+    switch (severity) {
+      case 'high':
+        return 'fa-exclamation-triangle high-severity';
+      case 'medium':
+        return 'fa-exclamation-circle medium-severity';
+      case 'low':
+        return 'fa-bath low-severity';
+    }
+  }
+}

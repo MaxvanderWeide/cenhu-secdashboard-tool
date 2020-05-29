@@ -1,0 +1,53 @@
+$padding: 6px 20px;
+
+.incidents-compact {
+  &-overview {
+    background-color: #fff;
+    border-radius: 6px;
+  }
+
+  &-header {
+    padding: $padding;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  &-body {
+    max-height: 300px;
+    overflow-y: scroll;
+
+    table {
+      width: 100%;
+
+      tr {
+        width: 100%;
+
+        &:nth-child(odd) {
+          background-color: #ccc;
+        }
+
+        td {
+          padding: $padding;
+
+          &.severity-holder {
+
+            .low-severity {
+              color: green;
+            }
+
+            .medium-severity {
+              color: orange;
+            }
+
+            .high-severity {
+              color: red;
+            }
+          }
+
+          &.link-holder {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
