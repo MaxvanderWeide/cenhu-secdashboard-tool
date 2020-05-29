@@ -10,7 +10,7 @@ import {DressingService} from '@app/services/dressing.service';
 export class DressingBarComponent {
   dressingMessage: string = '';
 
-  constructor(public dressingService: DressingService) {
+  constructor(public dressingService: DressingService): void {
     this.dressingService.message$.subscribe(message => this.dressingMessage = message);
   }
 

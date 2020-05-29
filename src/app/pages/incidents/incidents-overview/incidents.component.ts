@@ -23,7 +23,7 @@ export class IncidentsOverviewComponent {
 
   getIncidents(severity: string): Incident[] {
     if (this.incidents) {
-      return this.incidents.filter(incident => incident.severity === severity);
+      return this.incidents.filter((incident: Incident) => incident.severity === severity);
     }
   }
 }

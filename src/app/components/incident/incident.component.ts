@@ -8,5 +8,5 @@ import {Incident} from '@models/incidents.model';
 })
 export class IncidentComponent {
   @Input() incidents: Incident[];
-  @Input() headerInfo: {color: string, name: string};
+  @Input() headerInfo: {color: string; name: string};
 }

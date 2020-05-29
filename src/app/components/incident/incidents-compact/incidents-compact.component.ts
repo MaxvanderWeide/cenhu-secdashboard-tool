@@ -15,7 +15,7 @@ export class IncidentsCompactComponent {
       (incidents: Incident[]) => {
         this.incidents = incidents;
       },
-      error => {
+      (error: string) => {
         console.log(error);
       }
     );
