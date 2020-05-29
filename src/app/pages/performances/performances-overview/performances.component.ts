@@ -17,28 +17,35 @@ export class PerformancesOverviewComponent {
     ],
     labels: ['2006', '2007', '2008', '2009'],
     dataColors: ['blue', 'red'],
-    horizontal: true
+    horizontal: true,
+    legend: true
   };
 
   public defensibilityData: PieChart = {
     title: 'Defensibility',
     data: [99, 52, 32],
     labels: ['Certifications', 'TopDesk notifications', 'Incidents register'],
-    dataColors: ['rgba(85,255,43,0.4)', 'rgba(250,247,55,0.4)', 'rgba(0,0,255,0.4)']
+    dataColors: ['rgba(85,255,43,0.4)', 'rgba(250,247,55,0.4)', 'rgba(0,0,255,0.4)'],
+    showLegend: true,
+    displayDataInChart: false
   };
 
   public complianceData: PieChart = {
     title: 'BIC Compliance',
     data: [300, 500, 100],
     labels: ['data1.1', 'data1.2', 'data1.3'],
-    dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)']
+    dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+    showLegend: true,
+    displayDataInChart: true
   };
 
   public pieData: PieChart = {
     title: 'Taart is lekker',
     data: [300, 500, 100],
     labels: ['data1.1', 'data1.2', 'data1.3'],
-    dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)']
+    dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+    showLegend: true,
+    displayDataInChart: false
   };
 
   public lineData: LineChart = {
@@ -48,7 +55,8 @@ export class PerformancesOverviewComponent {
       {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Series B'}
     ],
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    dataColors: ['blue', 'red']
+    dataColors: ['blue', 'red'],
+    legend: true
   };
 
   public barData: BarChart = {
@@ -59,6 +67,7 @@ export class PerformancesOverviewComponent {
     ],
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     dataColors: ['blue', 'red'],
-    horizontal: true
+    horizontal: true,
+    legend: true
   };
 }

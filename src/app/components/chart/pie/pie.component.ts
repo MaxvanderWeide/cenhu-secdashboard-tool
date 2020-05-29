@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import {ChartOptions} from 'chart.js';
+import {PieChart} from '@models/piechart.model';
 
 @Component({
   selector: 'app-pie-chart',
@@ -8,30 +8,21 @@ import {ChartOptions} from 'chart.js';
   styleUrls: ['./pie.component.scss']
 })
 export class PieChartComponent implements OnInit {
-  @Input() chart: {
-    title: string;
-    data: {
-      data: [];
-      labels: [];
-    };
-    labels: [];
-    options: ChartOptions;
-    type: string;
-    showLegend: boolean;
-    plugins: {};
-    colors: {};
-    dataColors: string[];
-  };
+  @Input() chart: PieChart;
 
   ngOnInit(): void {
     this.chart.options = {
       responsive: true,
       legend: {
         position: 'right',
+      },
+      plugins: {
+        datalabels: {
+          display: this.chart.displayDataInChart
+        }
       }
     };
     this.chart.type = 'pie';
-    this.chart.showLegend = true;
     this.chart.plugins = [pluginDataLabels];
     this.chart.colors =
       [
@@ -39,6 +30,5 @@ export class PieChartComponent implements OnInit {
           backgroundColor: this.chart.dataColors,
         },
       ];
-    console.log(this.chart);
   }
 }

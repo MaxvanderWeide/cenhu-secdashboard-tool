@@ -23,11 +23,12 @@ export class DataService {
   }
 
   public getDepartments(): Department[] {
-    /* Mock Server-Calling service for a list of incidents */
+    /* Mock Server-Calling service for a list of departments */
     return departments;
   }
 
   public getDepartmentData(name: string): Department {
+    /* Mock Server-Calling service for a department data */
     return departmentData;
   }
 }

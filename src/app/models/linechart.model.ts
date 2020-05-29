@@ -1,4 +1,4 @@
-import {ChartDataSets} from 'chart.js';
+import {ChartDataSets, ChartOptions, ChartPluginsOptions, ChartType} from 'chart.js';
 import {Label} from 'ng2-charts';
 
 export interface LineChart {
@@ -6,4 +6,9 @@ export interface LineChart {
   data: ChartDataSets[];
   labels: Label[];
   dataColors: string[];
+  legend: boolean;
+  plugins?: ChartPluginsOptions;
+  options?: ChartOptions;
+  colors?: {}[];
+  type?: ChartType;
 }

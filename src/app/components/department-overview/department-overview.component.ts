@@ -25,14 +25,17 @@ export class DepartmentOverviewComponent implements OnInit {
       ],
       labels: ['2015', '2016', '2017', '2018'],
       dataColors: ['blue', 'red'],
-      horizontal: false
+      horizontal: false,
+      legend: true
     };
 
     this.pieData = {
-      title: 'Taart is lekker',
+      title: 'Heey',
       data: [300, 500, 100],
       labels: ['data1.1', 'data1.2', 'data1.3'],
-      dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)']
+      dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+      showLegend: false,
+      displayDataInChart: false
     };
   }
 
@@ -40,7 +43,5 @@ export class DepartmentOverviewComponent implements OnInit {
     this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
       this.department = this.dataService.getDepartmentData(params.departmentName);
     });
-
   }
-
 }
