@@ -3,7 +3,7 @@
     <div class="department-header">
       <h2>Department</h2>
       <div class="department-name">
-        Trolls
+        {{department.name}}
       </div>
     </div>
   </div>
@@ -45,20 +45,20 @@
     </div>
   </div>
   <div class="row details-row">
-    <div class="col-md-5">
+    <div class="col-md-6 col-12">
       <div class="row performances-container">
-        <div class="col-md-4">
+        <div class="col-md-4 col-12">
           <app-pie-chart [chart]="pieData"></app-pie-chart>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-12">
           <app-pie-chart [chart]="pieData"></app-pie-chart>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-12">
           <app-pie-chart [chart]="pieData"></app-pie-chart>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-12 incidents-overview">
       <app-incidents-compact></app-incidents-compact>
     </div>
   </div>

@@ -15,38 +15,31 @@ $padding: 6px 20px;
     max-height: 300px;
     overflow-y: scroll;
 
-    table {
-      width: 100%;
+    .incidents-item-message-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 
-      tr {
-        width: 100%;
+  &-item {
+    padding: $padding;
+    width: 100%;
 
-        &:nth-child(odd) {
-          background-color: #ccc;
-        }
+    &:nth-child(odd) {
+      background-color: #ccc;
+    }
 
-        td {
-          padding: $padding;
+    .severity-holder {
+      .low-severity {
+        color: green;
+      }
 
-          &.severity-holder {
+      .medium-severity {
+        color: orange;
+      }
 
-            .low-severity {
-              color: green;
-            }
-
-            .medium-severity {
-              color: orange;
-            }
-
-            .high-severity {
-              color: red;
-            }
-          }
-
-          &.link-holder {
-            white-space: nowrap;
-          }
-        }
+      .high-severity {
+        color: red;
       }
     }
   }

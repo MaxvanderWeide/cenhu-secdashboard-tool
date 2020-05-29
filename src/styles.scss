@@ -11,13 +11,17 @@ html {
   max-height: 100vh;
   overflow: hidden;
 
+  @include lg-phone-only {
+    overflow: scroll;
+  }
+
   body {
     font-family: $font-family !important;
     background: #e2e2e2;
-    margin: 87px 15px 0 75px;
+    margin: 87px 15px 15px 75px;
 
     @include lg-phone-only {
-      margin-left: 0;
+      margin-left: 15px;
     }
   }
 }

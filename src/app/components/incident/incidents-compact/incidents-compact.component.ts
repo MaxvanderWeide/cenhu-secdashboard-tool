@@ -14,7 +14,7 @@ export class IncidentsCompactComponent {
     this.incidents = this.dataService.getIncidents();
   }
 
-  incidentIcon(severity: string) {
+  incidentIcon(severity: string): string {
     switch (severity) {
       case 'high':
         return 'fa-exclamation-triangle high-severity';
