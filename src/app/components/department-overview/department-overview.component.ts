@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-// Temporary
-// @ts-ignore
-import {ChartDataSets} from 'chart.js';
-import {Label} from 'ng2-charts';
-import {DataService} from "@app/services/data.service";
+import {DataService} from '@app/services/data.service';
+import {Department} from '@models/department.model';
+import {PieChart} from '@models/piechart.model';
+import {BarChart} from '@models/barchart.model';
 
 @Component({
   selector: 'app-department-overview',
@@ -13,48 +12,11 @@ import {DataService} from "@app/services/data.service";
   styleUrls: ['./department-overview.component.scss']
 })
 export class DepartmentOverviewComponent implements OnInit {
-  department: {
-    name: string;
-    data: {
-      mainStatistics: {}[];
-      incidents: {
-        total: number;
-        open: number;
-      };
-    };
-  };
-  public barData: {
-    title: string;
-    data: ChartDataSets[];
-    labels: Label[];
-    dataColors: string[];
-    horizontal: boolean;
-  };
-
-  public pieData: {
-    title: string;
-    data: number[];
-    labels: string[];
-    dataColors: string[];
-  };
+  department: Department;
+  public barData: BarChart;
+  public pieData: PieChart;
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
-    this.department = {
-      name: 'Human resource management',
-      data: {
-        mainStatistics: [
-          {name: 'stat1', data: 25000},
-          {name: 'stat2', data: 123},
-          {name: 'stat3', data: 2},
-          {name: 'stat4', data: 424123},
-        ],
-        incidents: {
-          total: 999,
-          open: 21
-        }
-      },
-    };
-
     this.barData = {
       title: 'Bar',
       data: [
@@ -76,10 +38,7 @@ export class DepartmentOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
-      console.log(typeof params);
-      for (const tempDepartment of this.dataService.getDepartments()) {
-        console.log(tempDepartment);
-      }
+      this.department = this.dataService.getDepartmentData(params.departmentName);
     });
 
   }

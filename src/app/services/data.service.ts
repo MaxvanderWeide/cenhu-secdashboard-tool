@@ -1,5 +1,5 @@
 import {Incident} from '@models/incidents.model';
-import {departments} from 'src/assets/temp/mock-server.constants';
+import {departments, departmentData} from 'src/assets/temp/mock-server.constants';
 import {Department} from '@models/department.model';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
@@ -25,5 +25,9 @@ export class DataService {
   public getDepartments(): Department[] {
     /* Mock Server-Calling service for a list of incidents */
     return departments;
+  }
+
+  public getDepartmentData(name: string): Department {
+    return departmentData;
   }
 }
