@@ -12,6 +12,7 @@ export class DataService {
 
   public getIncidents(): Incident[] {
     /* Mock Server-Calling service for a list of incidents */
+    // TODO - Create observable getIncidents
     const responseList: Incident[] = [];
     this.http.get<Incident[]>('assets/temp/incidentData.json').subscribe((response: Incident[]) => {
       // tslint:disable-next-line:forin
