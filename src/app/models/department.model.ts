@@ -5,15 +5,15 @@ export interface Department {
   cleanUrl: string;
   data?: {
     mainStatistics: {
-      name: string,
-      data: number
+      name: string;
+      data: number;
     }[];
     incidents: {
-      message: string,
-      severity: string,
-      url?: string,
-      closed: boolean
-    }[]
+      message: string;
+      severity: string;
+      url?: string;
+      closed: boolean;
+    }[];
     academy?: Academy[];
   };
 }

@@ -5,20 +5,21 @@ import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {PieChart} from '@models/piechart.model';
 import {BarChart} from '@models/barchart.model';
+import {Incident} from '@models/incidents.model';
 
 @Component({
-  selector: 'app-department-overview',
-  templateUrl: './department-overview.component.html',
-  styleUrls: ['./department-overview.component.scss']
+  selector: 'app-department',
+  templateUrl: './department.component.html',
+  styleUrls: ['./department.component.scss']
 })
-export class DepartmentOverviewComponent implements OnInit {
+export class DepartmentComponent implements OnInit {
   department: Department;
   barData: BarChart;
   pieData: PieChart;
   incidentsStats: {
-    total: number,
-    closed: number,
-    open: number
+    total: number;
+    closed: number;
+    open: number;
   };
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
@@ -47,10 +48,10 @@ export class DepartmentOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
       this.department = this.dataService.getDepartmentData(params.departmentName);
-      let closedCount = 0;
+      let closedCount: number = 0;
 
-      this.department.data.incidents.forEach(e => {
-        if (!e.closed) {
+      this.department.data.incidents.forEach(value => { // eslint-disable-line @typescript-eslint/typedef
+        if (!value.closed) {
         closedCount++;
         }
       }

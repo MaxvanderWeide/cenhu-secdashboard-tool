@@ -9,7 +9,7 @@ import {Scope} from '@models/scope.enum';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
 import {LoginComponent} from '@components/login/login.component';
-import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
+import {DepartmentComponent} from '@pages/department/department.component';
 
 const routes: Routes = [
   {
@@ -48,7 +48,7 @@ const routes: Routes = [
       },
       {
         path: 'departments/:departmentName',
-        component: DepartmentOverviewComponent,
+        component: DepartmentComponent,
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]}
       }

@@ -16,11 +16,11 @@ import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
 import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
+import {DepartmentComponent} from '@pages/department/department.component';
 import {ChartModule} from '@components/chart/chart.module';
 import {HttpClientModule} from '@angular/common/http';
 import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
-import {DressingBarComponent} from "@components/dressing-bar/dressing-bar.component";
+import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import {DressingBarComponent} from "@components/dressing-bar/dressing-bar.compon
     ReportOverviewComponent,
     LoginComponent,
     DepartmentsOverviewComponent,
-    DepartmentOverviewComponent,
+    DepartmentComponent,
     IncidentsCompactComponent,
     DressingBarComponent
   ],
