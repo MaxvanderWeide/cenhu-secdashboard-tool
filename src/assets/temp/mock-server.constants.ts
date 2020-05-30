@@ -30,10 +30,35 @@ export const departmentData: Department =
         {name: 'stat3', data: 2},
         {name: 'stat4', data: 424123},
       ],
-      incidents: {
-        total: 999,
-        open: 21
-      },
+      incidents: [
+        {
+          message: 'Need jacuzzi',
+          severity: 'low',
+          url: '#',
+          closed: false
+        },
+        {
+          message: 'Panic panic!',
+          severity: 'high',
+          closed: false
+        },
+        {
+          message: 'Forgot lunch',
+          severity: 'medium',
+          url: '#',
+          closed: true
+        },
+        {
+          message: 'Panic panic!',
+          severity: 'high',
+          closed: true
+        },
+        {
+          message: 'Making my minions do things',
+          severity: 'low',
+          closed: false
+        }
+      ],
       academy: [
         {
           dateAssigned: '23/04/1978',
@@ -48,8 +73,7 @@ export const departmentData: Department =
           quizScore: 0,
           quizAttempts: 0,
           status: 'New',
-          FIELD13: '',
-          functie: 'Consultant'
+          title: 'Consultant'
         },
         {
           dateAssigned: '24/04/1978',
@@ -64,8 +88,7 @@ export const departmentData: Department =
           quizScore: 1,
           quizAttempts: 1,
           status: 'In progress',
-          FIELD13: '',
-          functie: 'Manager'
+          title: 'Manager'
         },
         {
           dateAssigned: '25/04/1978',
@@ -80,9 +103,8 @@ export const departmentData: Department =
           quizScore: 0,
           quizAttempts: 0,
           status: 'Done',
-          FIELD13: '',
-          functie: 'Developer'
+          title: 'Developer'
         }
       ]
-    },
-  };
+    }
+};

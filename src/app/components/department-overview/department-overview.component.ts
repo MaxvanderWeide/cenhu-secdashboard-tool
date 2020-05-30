@@ -13,8 +13,13 @@ import {BarChart} from '@models/barchart.model';
 })
 export class DepartmentOverviewComponent implements OnInit {
   department: Department;
-  public barData: BarChart;
-  public pieData: PieChart;
+  barData: BarChart;
+  pieData: PieChart;
+  incidentsStats: {
+    total: number,
+    closed: number,
+    open: number
+  };
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
     this.barData = {
@@ -42,6 +47,20 @@ export class DepartmentOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
       this.department = this.dataService.getDepartmentData(params.departmentName);
+      let closedCount = 0;
+
+      this.department.data.incidents.forEach(e => {
+        if (!e.closed) {
+        closedCount++;
+        }
+      }
+    );
+
+      this.incidentsStats = {
+        total: this.department.data.incidents.length,
+        closed: closedCount,
+        open: this.department.data.incidents.length - closedCount
+      };
     });
   }
 }

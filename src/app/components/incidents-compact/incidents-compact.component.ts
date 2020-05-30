@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
 
@@ -11,14 +11,7 @@ export class IncidentsCompactComponent {
   incidents: Incident[];
 
   constructor(private dataService: DataService) {
-    this.dataService.getIncidents().subscribe(
-      (incidents: Incident[]) => {
-        this.incidents = incidents;
-      },
-      (error: string) => {
-        console.log(error);
-      }
-    );
+    this.incidents = this.dataService.getDepartmentData().data.incidents;
   }
 
   incidentIcon(severity: string): string {

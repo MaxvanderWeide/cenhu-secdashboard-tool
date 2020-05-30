@@ -53,6 +53,30 @@
           "functie": "Developer"
         }
       ]
-    }
+    },
+    "incidients": [
+      {
+        "message": "Need jacuzzi",
+        "severity": "low",
+        "url": "#"
+      },
+      {
+        "message": "Panic panic!",
+        "severity": "high"
+      },
+      {
+        "message": "Forgot lunch",
+        "severity": "medium",
+        "url": "#"
+      },
+      {
+        "message": "Panic panic!",
+        "severity": "high"
+      },
+      {
+        "message": "Making my minions do things",
+        "severity": "low"
+      }
+    ]
   }
 ]

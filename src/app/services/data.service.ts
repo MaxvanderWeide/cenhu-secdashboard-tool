@@ -33,7 +33,7 @@ export class DataService {
     return departments;
   }
 
-  public getDepartmentData(name: string): Department {
+  public getDepartmentData(name?: string): Department {
     /* Mock Server-Calling service for a department data */
     return departmentData;
   }

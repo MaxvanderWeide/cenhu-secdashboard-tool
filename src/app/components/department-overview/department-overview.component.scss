@@ -144,6 +144,9 @@ $columnPadding: 8px 12px;
 }
 
 .incidents-overview {
+  max-height: 300px;
+  overflow-y: scroll;
+
   @include md-phone-only {
     padding: 0;
     margin-top: 40px;

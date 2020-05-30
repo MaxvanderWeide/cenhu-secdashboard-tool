@@ -2,7 +2,7 @@ export class Academy {
   public dateAssigned: string;
   public dateStarted: string;
   public dateCompleted: string;
-  public teams: string;
+  public team: string;
   public progress: number;
   public timeSpent: number;
   public reviewScore: number;
@@ -10,15 +10,18 @@ export class Academy {
   public certificate: string;
   public quizScore: number;
   public quizAttempts: number;
+  public status: string;
+  public title: string;
 
 
   constructor(dateAssigned: string, dateStarted: string, dateCompleted: string,
-              teams: string, progress: number, timeSpent: number, reviewScore: number,
-              trainerReview: number, certificate: string, quizScore: number, quizAttempts: number) {
+              team: string, progress: number, timeSpent: number, reviewScore: number,
+              trainerReview: number, certificate: string, quizScore: number, quizAttempts: number,
+              status: string, title: string) {
     this.dateAssigned = dateAssigned;
     this.dateStarted = dateStarted;
     this.dateCompleted = dateCompleted;
-    this.teams = teams;
+    this.team = team;
     this.progress = progress;
     this.timeSpent = timeSpent;
     this.reviewScore = reviewScore;
@@ -26,5 +29,7 @@ export class Academy {
     this.certificate = certificate;
     this.quizScore = quizScore;
     this.quizAttempts = quizAttempts;
+    this.status = status;
+    this.title = title;
   }
 }

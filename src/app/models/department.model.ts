@@ -1,12 +1,19 @@
+import {Academy} from '@models/academy.model';
+
 export interface Department {
   name: string;
   cleanUrl: string;
   data?: {
-    mainStatistics: {}[];
+    mainStatistics: {
+      name: string,
+      data: number
+    }[];
     incidents: {
-      total: number;
-      open: number;
-    };
-    academy?: {}[];
+      message: string,
+      severity: string,
+      url?: string,
+      closed: boolean
+    }[]
+    academy?: Academy[];
   };
 }

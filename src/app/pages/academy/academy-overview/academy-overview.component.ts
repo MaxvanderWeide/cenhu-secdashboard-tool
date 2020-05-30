@@ -56,7 +56,10 @@ export class AcademyOverviewComponent {
           sample.trainerReview,
           sample.certificate,
           sample.quizScore,
-          sample.quizAttempts));
+          sample.quizAttempts,
+          sample.status,
+          sample.functie
+          ));
       console.log(sample);
     }
 

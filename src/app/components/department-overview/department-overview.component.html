@@ -28,15 +28,15 @@
       <div class="statistics-overview-column statistics-overview-main">
         <div>
           Total incidents
-          <span class="total-incidents">{{department.data.incidents.total}}</span>
+          <span class="total-incidents">{{incidentsStats.total}}</span>
         </div>
         <div>
           Open incidents
-          <span class="open-incidents">{{department.data.incidents.open}}</span>
+          <span class="open-incidents">{{incidentsStats.closed}}</span>
         </div>
         <div>
           Closed incidents
-          <span class="closed-incidents">{{department.data.incidents.total - department.data.incidents.open}}</span>
+          <span class="closed-incidents">{{incidentsStats.open}}</span>
         </div>
       </div>
       <div class="statistics-overview-column">

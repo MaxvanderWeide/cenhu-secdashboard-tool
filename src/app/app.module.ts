@@ -19,7 +19,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DepartmentOverviewComponent} from '@components/department-overview/department-overview.component';
 import {ChartModule} from '@components/chart/chart.module';
 import {HttpClientModule} from '@angular/common/http';
-import {IncidentsCompactComponent} from '@components/incident/incidents-compact/incidents-compact.component';
+import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
 import {DressingBarComponent} from "@components/dressing-bar/dressing-bar.component";
 
 @NgModule({

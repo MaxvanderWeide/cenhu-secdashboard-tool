@@ -9,12 +9,12 @@ $padding: 6px 20px;
   &-header {
     padding: $padding;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    background-color: #fff;
   }
 
   &-body {
-    max-height: 300px;
-    overflow-y: scroll;
-
     .incidents-item-message-wrapper {
       display: flex;
       justify-content: space-between;
