@@ -48,7 +48,8 @@ import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.compon
   ],
   providers: [EnvServiceProvider, AuthGuard],
   exports: [
-    NgbModule
+    NgbModule,
+    IncidentsCompactComponent
   ],
   bootstrap: [AppComponent]
 })

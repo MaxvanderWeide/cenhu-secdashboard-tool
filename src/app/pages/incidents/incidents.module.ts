@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {IncidentsOverviewComponent} from './incidents-overview/incidents.component';
 import {IncidentComponent} from '@components/incident/incident.component';
 import {DepartmentsComponent} from '@components/departments/departments.component';
+import {AppRoutingModule} from '@app/app-routing.module';
 
 
 @NgModule({
@@ -14,9 +15,10 @@ import {DepartmentsComponent} from '@components/departments/departments.componen
     exports: [
         DepartmentsComponent
     ],
-    imports: [
-        CommonModule
-    ]
+  imports: [
+    CommonModule,
+    AppRoutingModule
+  ]
 })
 export class IncidentsModule {
 }

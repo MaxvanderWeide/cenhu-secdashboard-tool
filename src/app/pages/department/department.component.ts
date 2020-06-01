@@ -5,7 +5,6 @@ import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {PieChart} from '@models/piechart.model';
 import {BarChart} from '@models/barchart.model';
-import {Incident} from '@models/incidents.model';
 
 @Component({
   selector: 'app-department',

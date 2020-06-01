@@ -1,11 +1,18 @@
-<div class="col-md-12 department-box" *ngFor="let iets of departments;">
-
-  <div class="department-box-header" (click)="toggleInformation($event)">
-    <em class="fa fa-chevron-right toggle-body"></em>
-    <h3 class="department-name" (click)="nonToggleInformation();$event.stopPropagation()">{{iets.name}}</h3>
+<div class="departments">
+  <div class="col-md-12 department-box" *ngFor="let department of departments;">
+    <div class="department-box-header" (click)="toggleInformation($event)">
+      <em class="fa fa-chevron-right toggle-body"></em>
+      <h3 class="department-name" routerLink="{{department.cleanUrl}}" (click)="$event.stopPropagation()">{{department.name}}</h3>
+    </div>
+    <div class="department-box-body">
+      <div class="row">
+        <div class="main-statistics col-md-6 col-lg-3" *ngFor="let statistic of department.data.mainStatistics">
+          {{statistic.name}}: {{statistic.data}}
+        </div>
+        <div class="col-md-6">
+          Open incidents: {{openIncidents}}
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="department-box-body">
-
-  </div>
-
 </div>
