@@ -21,6 +21,7 @@ import {ChartModule} from '@components/chart/chart.module';
 import {HttpClientModule} from '@angular/common/http';
 import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
 import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
+import {DepartmentsComponent} from '@components/departments/departments.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.compon
     DepartmentsOverviewComponent,
     DepartmentComponent,
     IncidentsCompactComponent,
-    DressingBarComponent
+    DressingBarComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,

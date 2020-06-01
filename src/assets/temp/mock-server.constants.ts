@@ -73,13 +73,13 @@ export const departments: Department[] = [
         {
           message: 'Panic panic!',
           severity: 'high',
-          closed: true
+          closed: false
         },
         {
           message: 'Making my minions do things',
           severity: 'low',
           closed: false
-        }
+        },
       ]
     }
   },
@@ -109,12 +109,12 @@ export const departments: Department[] = [
           message: 'Forgot lunch',
           severity: 'medium',
           url: '#',
-          closed: true
+          closed: false
         },
         {
           message: 'Panic panic!',
           severity: 'high',
-          closed: true
+          closed: false
         },
         {
           message: 'Making my minions do things',
@@ -179,6 +179,33 @@ export const departmentData: Department =
         {name: 'stat4', data: 424123},
       ],
       incidents: [
+        {
+          message: 'Need jacuzzi',
+          severity: 'low',
+          url: '#',
+          closed: false
+        },
+        {
+          message: 'Panic panic!',
+          severity: 'high',
+          closed: false
+        },
+        {
+          message: 'Forgot lunch',
+          severity: 'medium',
+          url: '#',
+          closed: true
+        },
+        {
+          message: 'Panic panic!',
+          severity: 'high',
+          closed: true
+        },
+        {
+          message: 'Making my minions do things',
+          severity: 'low',
+          closed: false
+        },
         {
           message: 'Need jacuzzi',
           severity: 'low',

@@ -1,6 +1,13 @@
+@import "../../../../assets/scss/mixins";
+
 .departments-container {
   width: 80%;
-  left: 0;
-  right: 0;
   margin: 15px auto;
+  overflow-y: scroll;
+  height: calc(100vh - 87px);
+
+  @include md-phone-only {
+    width: 100%;
+    padding: 0;
+  }
 }

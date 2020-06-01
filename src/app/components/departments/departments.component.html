@@ -3,14 +3,18 @@
     <div class="department-box-header" (click)="toggleInformation($event)">
       <em class="fa fa-chevron-right toggle-body"></em>
       <h3 class="department-name" routerLink="{{department.cleanUrl}}" (click)="$event.stopPropagation()">{{department.name}}</h3>
+      <em class="fa fa-external-link department-link" routerLink="{{department.cleanUrl}}" (click)="$event.stopPropagation()"></em>
     </div>
     <div class="department-box-body">
-      <div class="row">
-        <div class="main-statistics col-md-6 col-lg-3" *ngFor="let statistic of department.data.mainStatistics">
+      <div class="row main-statistics">
+        <div class="col-6 col-md-6 col-lg-3" *ngFor="let statistic of department.data.mainStatistics">
           {{statistic.name}}: {{statistic.data}}
         </div>
-        <div class="col-md-6">
-          Open incidents: {{openIncidents}}
+      </div>
+      <div class="department-incidents">
+        Open incidents: {{openIncidents}}
+        <div class="department-incidents-list">
+          <app-incidents-compact></app-incidents-compact>
         </div>
       </div>
     </div>

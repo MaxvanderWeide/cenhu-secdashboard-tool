@@ -1,7 +1,8 @@
+@import "../../../assets/scss/mixins";
+
 .departments {
-
-
   .department-box {
+    overflow: hidden;
     padding: 5px;
     margin-bottom: 15px;
     background-color: #ffffff;
@@ -10,34 +11,98 @@
 
     .department-box-header {
       padding: 6px;
+      transition: 0.5s;
+
+      @include md-phone-only {
+        & em {
+          font-size: 14px;
+        }
+        & h3 {
+          font-size: 17px;
+        }
+      }
 
       .toggle-body {
         width: 4%;
+
+        @include md-phone-only {
+          display: none;
+        }
       }
 
       .department-name {
         color: black;
         display: inline;
+        transition: all 0.2s;
+        position: absolute;
 
-        &:hover {
-          color: blue;
+        @include md-phone-only {
+          position: relative;
+        }
+
+        &:hover,
+        &:focus {
+          color: #199d4a;
+          font-size: 22px;
+          font-size-adjust: 2;
+        }
+      }
+
+      .department-link {
+        right: 15px;
+        color: #b5b5b5;
+        font-size: 18px;
+        position: absolute;
+        transition: 0.2s;
+
+        &:hover,
+        &:focus {
+          color: #199d4a;
+          transform: scale(1.2);
         }
       }
     }
 
     .department-box-body {
       height: 0;
-      visibility: hidden;
       transition: 0.25s;
       cursor: default;
 
       &.active {
         padding: 6px 12px;
-        visibility: visible;
-        height: 300px;
+        height: auto;
+        max-height: 500px;
+        position: relative;
+
+        @include md-phone-only {
+          padding: 0 12px;
+        }
+
+        //&::after {
+        //  left: 0;
+        //  right: 0;
+        //  top: 0;
+        //  width: 95%;
+        //  height: 1px;
+        //  content: ' ';
+        //  margin: 0 auto;
+        //  position: absolute;
+        //  background-color: black;
+        //}
 
         .main-statistics {
-          height: auto;
+          padding-top: 8px;
+
+          & div {
+            padding-bottom: 10px;
+          }
+        }
+
+        .department-incidents {
+          .department-incidents-list {
+            overflow-y: scroll;
+            max-height: 400px;
+          }
         }
       }
     }
