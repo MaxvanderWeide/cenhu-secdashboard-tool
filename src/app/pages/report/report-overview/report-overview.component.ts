@@ -9,7 +9,6 @@ import {DressingService} from '@app/services/dressing.service';
   styleUrls: ['./report-overview.component.scss']
 })
 export class ReportOverviewComponent {
-  public isCollapsed: boolean = false;
   public reports: Report[];
 
   constructor(private dataService: DataService, private dressingService: DressingService) {

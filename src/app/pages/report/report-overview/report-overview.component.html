@@ -7,41 +7,39 @@
 
       <div class="accordion">
 
-        <div class="card" *ngFor="let report of reports">
+        <ngb-accordion [closeOthers]="true" activeIds="item-1" >
 
-          <div class="card-header">
-            <h2 class="mb-0">
-              <button type="button" class="btn btn-link btn-block text-left" (click)="isCollapsed = !isCollapsed"
-                      [attr.aria-expanded]="!isCollapsed" attr.aria-controls="item_{{report.id}}">
-                {{report.name}}<span>{{report.date}}</span>
-              </button>
-            </h2>
-          </div>
+          <ngb-panel id="item-{{report.id}}"*ngFor="let report of reports">
 
-          <div id="item_{{report.id}}" [ngbCollapse]="!isCollapsed">
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3"><strong>Department</strong></div>
-                  <div class="col-sm">A 003-L2</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-3"><strong>Severity</strong></div>
-                  <div class="col-sm">High</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-3"><strong>Description</strong></div>
-                  <div class="col-sm">
-                    {{report.description}}
+            <ng-template ngbPanelTitle>
+              <span>{{report.name}}</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+
+                  <div class="row">
+                    <div class="col-sm-3"><strong>Department</strong></div>
+                    <div class="col-sm">{{report.department}}</div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <div class="row">
+                    <div class="col-sm-3"><strong>Severity</strong></div>
+                    <div class="col-sm">{{report.severity}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3"><strong>Description</strong></div>
+                    <div class="col-sm">
+                      {{report.description}}
+                    </div>
+                  </div>
 
-        </div>
+            </ng-template>
+          </ngb-panel>
 
+        </ngb-accordion>
       </div>
+
+
+
 
     </div>
 
