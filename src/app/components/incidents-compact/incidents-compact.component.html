@@ -1,6 +1,6 @@
-<div class="incidents-compact-overview">
+<div class="incidents-compact-overview" *ngIf="incidents !== undefined">
   <div class="incidents-compact-header">
-    Incidents
+    Incidents {{incidents.length}}
   </div>
   <div class="incidents-compact-body">
     <div class="incidents-compact-item" *ngFor="let incident of incidents">

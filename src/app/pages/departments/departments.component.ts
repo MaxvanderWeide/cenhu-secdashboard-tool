@@ -5,13 +5,14 @@ import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {PieChart} from '@models/piechart.model';
 import {BarChart} from '@models/barchart.model';
+import {Incident} from '@models/incidents.model';
 
 @Component({
-  selector: 'app-department',
-  templateUrl: './department.component.html',
-  styleUrls: ['./department.component.scss']
+  selector: 'app-departments',
+  templateUrl: './departments.component.html',
+  styleUrls: ['./departments.component.scss']
 })
-export class DepartmentComponent {
+export class DepartmentsComponent {
   department: Department;
   barData: BarChart;
   pieData: PieChart;
@@ -25,24 +26,14 @@ export class DepartmentComponent {
     this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
-          this.department = departments.find(s => s.cleanUrl === params.departmentName);
-
-          let openCount: number = 0;
-          let totalCount: number = 0;
-
-          this.dataService.getIncidentsWithDepartment(this.department.code).forEach(value => {
-              totalCount++;
-              if (value.open) {
-                openCount++;
-              }
-            }
-          );
-
-          this.incidentsStats = {
-            total: totalCount,
-            closed: totalCount - openCount,
-            open: openCount
-          };
+          this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
+          this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
+            this.incidentsStats = {
+              total: incidents.filter((s: Incident) => s.department === this.department.code).length,
+              closed: incidents.filter((s: Incident) => s.department === this.department.code && !s.open).length,
+              open: incidents.filter((s: Incident) => s.department === this.department.code && s.open).length
+            };
+          });
         }
       );
     });

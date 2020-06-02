@@ -1,9 +1,9 @@
-@import "../../../../assets/scss/mixins";
+@import "src/assets/scss/mixins";
 
 .departments-container {
   width: 80%;
   margin: 15px auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: calc(100vh - 87px);
 
   @include md-phone-only {

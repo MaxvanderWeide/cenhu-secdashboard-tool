@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
 import {Department} from '@models/department.model';
-// TODO - remove
-// @ts-ignore
 import {DataService} from '@app/services/data.service';
 import {DressingService} from '@app/services/dressing.service';
+import {AppComponent} from '@app/app.component';
 
 
 @Component({
-  selector: 'app-departments',
-  templateUrl: './departments.component.html',
-  styleUrls: ['./departments.component.scss']
+  selector: 'app-department',
+  templateUrl: './department.component.html',
+  styleUrls: ['./department.component.scss']
 })
-export class DepartmentsComponent {
+export class DepartmentComponent {
 
   public departments: Department[] = [];
-  openIncidents: number = 1;
+  isMobile: boolean = AppComponent.isMobile();
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.dataService.getDepartments().subscribe(

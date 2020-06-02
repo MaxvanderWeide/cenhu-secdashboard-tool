@@ -26,7 +26,8 @@ export class IncidentsCompactComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log(this.departmentCode);
-    this.incidents = this.dataService.getIncidentsWithDepartment(this.departmentCode);
+    this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
+      this.incidents = incidents.filter((s: Incident) => s.department === this.departmentCode);
+    });
   }
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="department !== null">
+<div class="container-fluid" *ngIf="department !== undefined">
   <div class="row">
     <div class="department-header">
       <h2>Department</h2>
@@ -21,7 +21,7 @@
     <div class="statistics-overview-header">
       Overview
     </div>
-    <div class="statistics-overview-body">
+    <div class="statistics-overview-body" *ngIf="incidentsStats !== undefined">
       <div class="statistics-overview-column">
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
@@ -32,11 +32,11 @@
         </div>
         <div>
           Open incidents
-          <span class="open-incidents">{{incidentsStats.closed}}</span>
+          <span class="open-incidents">{{incidentsStats.open}}</span>
         </div>
         <div>
           Closed incidents
-          <span class="closed-incidents">{{incidentsStats.open}}</span>
+          <span class="closed-incidents">{{incidentsStats.closed}}</span>
         </div>
       </div>
       <div class="statistics-overview-column">
@@ -60,7 +60,7 @@
     </div>
     <div class="col-md-6 col-12 incidents-overview">
       <div class="row">
-        <app-incidents-compact></app-incidents-compact>
+        <app-incidents-compact [departmentCode]="department.code"></app-incidents-compact>
       </div>
     </div>
   </div>

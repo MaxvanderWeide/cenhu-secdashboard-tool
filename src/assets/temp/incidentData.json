@@ -1,0 +1,42 @@
+[
+  {
+    "message": "M1 scored poorly",
+    "severity": "high",
+    "url": "#",
+    "department": "hrm",
+    "open": true
+  },
+  {
+    "message": "M1 scored poorly",
+    "severity": "high",
+    "url": "#",
+    "department": "hrm",
+    "open": true
+  },
+  {
+    "message": "M1 scored poorly",
+    "severity": "high",
+    "url": "#",
+    "department": "hrm",
+    "open": false
+  },
+  {
+    "message": "M1 scored poorly",
+    "severity": "high",
+    "url": "#"
+  },
+  {
+    "message": "Need jacuzzi",
+    "severity": "low",
+    "url": "#",
+    "department": "hrm",
+    "open": true
+  },
+  {
+    "message": "Panic panic!",
+    "severity": "medium",
+    "url": "#",
+    "department": "hrm",
+    "open": true
+  }
+]
