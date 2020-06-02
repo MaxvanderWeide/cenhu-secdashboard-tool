@@ -13,9 +13,7 @@ export class PieChartComponent implements OnInit {
   ngOnInit(): void {
     this.chart.options = {
       responsive: true,
-      legend: {
-        position: 'right',
-      },
+      legend: {},
       plugins: {
         datalabels: {
           display: this.chart.displayDataInChart
@@ -30,5 +28,8 @@ export class PieChartComponent implements OnInit {
           backgroundColor: this.chart.dataColors,
         },
       ];
+
+    this.chart.options.legend.position = this.chart.legendPosition === undefined ? 'right' : this.chart.legendPosition;
+    this.chart.options.legend.align = ['top', 'bottom'].includes(this.chart.legendPosition) ? 'start' : 'center';
   }
 }

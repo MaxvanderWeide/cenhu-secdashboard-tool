@@ -11,7 +11,7 @@ html {
   max-height: 100vh;
   overflow: hidden;
 
-  @include lg-phone-only {
+  @include md-tablet-only {
     overflow: scroll;
   }
 
