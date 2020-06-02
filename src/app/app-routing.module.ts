@@ -8,8 +8,8 @@ import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-
 import {Scope} from '@models/scope.enum';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
-import {DepartmentsComponent} from "@pages/departments/departments.component";
-import {DepartmentsOverviewComponent} from "@pages/departments-overview/departments-overview.component";
+import {DepartmentsComponent} from '@pages/departments/departments.component';
+import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
 
 const routes: Routes = [
   {
