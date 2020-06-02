@@ -29,7 +29,7 @@ export class DataService {
   }
 
   public getDepartments(): Observable<Department[]> {
-    /* Mock Server-Calling service for a list of departments */
+    /* Mock Server-Calling service for a list of departments-overview */
     return this.http.get<Department[]>('assets/temp/departmentData.json').pipe(catchError(DataService.throwError));
   }
 }

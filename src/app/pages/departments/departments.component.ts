@@ -8,11 +8,11 @@ import {BarChart} from '@models/barchart.model';
 import {Incident} from '@models/incidents.model';
 
 @Component({
-  selector: 'app-department',
-  templateUrl: './department.component.html',
-  styleUrls: ['./department.component.scss']
+  selector: 'app-departments',
+  templateUrl: './departments.component.html',
+  styleUrls: ['./departments.component.scss']
 })
-export class DepartmentComponent {
+export class DepartmentsComponent {
   department: Department;
   barData: BarChart;
   pieData: PieChart;
