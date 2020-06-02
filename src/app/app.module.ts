@@ -22,6 +22,7 @@ import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.compon
 import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
 import {DepartmentComponent} from '@components/department/department.component';
 import {DepartmentsComponent} from '@pages/departments/departments.component';
+import {ModalComponent} from '@components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {DepartmentsComponent} from '@pages/departments/departments.component';
     DepartmentComponent,
     IncidentsCompactComponent,
     DressingBarComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

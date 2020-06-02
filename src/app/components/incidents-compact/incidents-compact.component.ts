@@ -1,15 +1,17 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
+import {Modal} from '@models/modal.model';
 
 @Component({
   selector: 'app-incidents-compact',
   templateUrl: './incidents-compact.component.html',
   styleUrls: ['./incidents-compact.component.scss']
 })
-export class IncidentsCompactComponent implements OnInit{
+export class IncidentsCompactComponent implements OnInit {
   incidents: Incident[];
   @Input() departmentCode: string;
+  modal: Modal;
 
   constructor(private dataService: DataService) {
   }
@@ -29,5 +31,15 @@ export class IncidentsCompactComponent implements OnInit{
     this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
       this.incidents = incidents.filter((s: Incident) => s.department === this.departmentCode);
     });
+
+    this.modal = {
+      buttons: [],
+    };
+    this.modal.buttons.push('save');
+  }
+
+  openModal(event) {
+    document.querySelector('.modal-body').innerHTML = event.target.parentElement.querySelector('.incidents-compact-body').outerHTML;
+    document.querySelector('.modal').classList.add('modal-active');
   }
 }
