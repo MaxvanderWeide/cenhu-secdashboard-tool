@@ -10,7 +10,8 @@ import {catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {
+  }
 
   static throwError(error: HttpErrorResponse) { // eslint-disable-line
     const errorMessage = error.error.detail ? error.error.detail.nl : error.error; // eslint-disable-line

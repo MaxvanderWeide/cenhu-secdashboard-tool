@@ -59,7 +59,7 @@ export class AcademyOverviewComponent {
           sample.quizAttempts,
           sample.status,
           sample.functie
-          ));
+        ));
       console.log(sample);
     }
 
@@ -82,11 +82,11 @@ export class AcademyOverviewComponent {
       this.quizAttempt += record.quizAttempts;
 
       if (record.certificate === 'Y') {
-        yAmount ++;
+        yAmount++;
       }
 
       if (record.certificate === 'N') {
-        nAmount ++;
+        nAmount++;
       }
     }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Department} from '@models/department.model';
 // TODO - remove
 // @ts-ignore
@@ -18,8 +18,6 @@ export class DepartmentsComponent {
   constructor(private dataService: DataService) {
     for (const department of this.departments) {
       let closedCount: number = 0;
-
-      console.log(department.data.incidents);
 
       department.data.incidents.forEach(value => { // eslint-disable-line @typescript-eslint/typedef
           if (!value.closed) {
@@ -42,7 +40,5 @@ export class DepartmentsComponent {
       (event.currentTarget as HTMLElement).children[0].classList.replace('fa-chevron-right', 'fa-chevron-down');
       departmentElement.classList.add('active');
     }
-
-    console.log(this.departments);
   }
 }

@@ -7,8 +7,8 @@ import {AppRoutingModule} from '@app/app-routing.module';
 
 @NgModule({
   declarations: [
-        IncidentsOverviewComponent,
-        IncidentComponent
+    IncidentsOverviewComponent,
+    IncidentComponent
   ],
   exports: [],
   imports: [

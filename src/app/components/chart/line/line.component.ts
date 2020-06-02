@@ -10,7 +10,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 export class LineChartComponent implements OnInit {
   @Input() chart: LineChart;
 
-  colorsList: {[property: string]: {}}[] = [
+  colorsList: { [property: string]: {} }[] = [
     {
       green:
         { // green

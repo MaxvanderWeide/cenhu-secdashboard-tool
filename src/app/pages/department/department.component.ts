@@ -45,16 +45,16 @@ export class DepartmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params  => { // eslint-disable-line @typescript-eslint/typedef
+    this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
       this.department = this.dataService.getDepartmentData(params.departmentName);
       let closedCount: number = 0;
 
       this.department.data.incidents.forEach(value => { // eslint-disable-line @typescript-eslint/typedef
-        if (!value.closed) {
-        closedCount++;
+          if (!value.closed) {
+            closedCount++;
+          }
         }
-      }
-    );
+      );
 
       this.incidentsStats = {
         total: this.department.data.incidents.length,

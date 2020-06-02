@@ -7,7 +7,8 @@
     <div class="incident-message" *ngFor="let incident of incidents">
       <div class="message-text">
         <p>{{incident.message}}</p>
-        <a class="message-link" href="#" *ngIf="this.incident.hasOwnProperty('url')">Open reference in secure browser</a>
+        <a class="message-link" href="#" *ngIf="this.incident.hasOwnProperty('url')">Open reference in secure
+          browser</a>
       </div>
     </div>
     <div class="empty-message" *ngIf="incidents.length === 0">

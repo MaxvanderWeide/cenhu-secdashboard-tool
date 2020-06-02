@@ -17,6 +17,7 @@ export class NavigationComponent {
 
   constructor(private eRef: ElementRef) {
   }
+
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
     {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},

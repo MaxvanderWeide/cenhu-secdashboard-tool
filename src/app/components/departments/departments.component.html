@@ -2,8 +2,10 @@
   <div class="col-md-12 department-box" *ngFor="let department of departments;">
     <div class="department-box-header" (click)="toggleInformation($event)">
       <em class="fa fa-chevron-right toggle-body"></em>
-      <h3 class="department-name" routerLink="{{department.cleanUrl}}" (click)="$event.stopPropagation()">{{department.name}}</h3>
-      <em class="fa fa-external-link department-link" routerLink="{{department.cleanUrl}}" (click)="$event.stopPropagation()"></em>
+      <h3 class="department-name" routerLink="{{department.cleanUrl}}"
+          (click)="$event.stopPropagation()">{{department.name}}</h3>
+      <em class="fa fa-external-link department-link" routerLink="{{department.cleanUrl}}"
+          (click)="$event.stopPropagation()"></em>
     </div>
     <div class="department-box-body">
       <div class="row main-statistics">
