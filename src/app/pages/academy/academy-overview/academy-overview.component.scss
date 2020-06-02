@@ -1,23 +1,36 @@
-@import "../../../../assets/scss/mixins";
+@import "~src/assets/scss/mixins";
 
 .academy-header {
   background-color: #fff;
   border-radius: 6px;
   padding: 8px 12px;
   width: 100%;
+
   .progress {
     margin: 15px;
     height: 40px;
   }
 }
+
 .charts {
   margin-top: 40px;
   justify-content: space-between;
-  .chart-item {
+
+  .chart-item, .text-item {
     padding: 8px 12px;
     background-color: #fff;
     text-align: center;
     border-radius: 6px;
+    width: 30%;
+  }
+
+  .text-item {
+    .percentage {
+      font-weight: bold;
+      font-size: xx-large;
+      font-style: oblique;
+      opacity: .8;
+    }
   }
 }
 

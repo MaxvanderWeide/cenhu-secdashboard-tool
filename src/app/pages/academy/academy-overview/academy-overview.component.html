@@ -19,63 +19,18 @@
       <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
     </div>
   </div>
+  <div class="row charts">
+    <div class="chart-item text-item">
+      <p>Average hours spent on Academy:</p>
+      <p class="percentage">{{avgHours}}</p>
+    </div>
+    <div class="chart-item text-item">
+      <p>Average review score on Academy:</p>
+      <p class="percentage">{{avgReviewScore}}</p>
+    </div>
+    <div class="chart-item text-item">
+      <p>Average trainer review on Academy:</p>
+      <p class="percentage">{{avgTrainerReview}}</p>
+    </div>
+  </div>
 </div>
-<!--<div class="row">-->
-<!--  <div class="col">-->
-<!--    <div class="row statistics-overview">-->
-<!--      <div class="statistics-overview-header">-->
-<!--        Overview-->
-<!--      </div>-->
-<!--      <div class="statistics-overview-body">-->
-<!--        <div class="statistics-overview-column">-->
-<!--          <div class="barChart">-->
-<!--            <app-bar-chart [chart]="barData"></app-bar-chart>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="statistics-overview-column statistics-overview-main">-->
-<!--          <div>-->
-<!--            Total incidents-->
-<!--            <span class="total-incidents">{{incidentsStats.total}}</span>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            Open incidents-->
-<!--            <span class="open-incidents">{{incidentsStats.closed}}</span>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            Closed incidents-->
-<!--            <span class="closed-incidents">{{incidentsStats.open}}</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="col">-->
-<!--    <div class="col-md-4" id="chart1">-->
-<!--      <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<div class="col-md-10">-->
-<!--  <table class="table-responsive" id="academy-table">-->
-<!--    <tr>-->
-<!--      <th>Total Issues</th>-->
-<!--      <th>Average Hour</th>-->
-<!--      <th>Average Progress</th>-->
-<!--      <th>Average ReviewScore</th>-->
-<!--      <th>Average TrainerScore</th>-->
-<!--      <th>Total Quiz Attempts</th>-->
-<!--      <th>Total Passed Quizzes</th>-->
-<!--      <th>Total Certificates</th>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td>{{totalIssues}}</td>-->
-<!--      <td>{{avgHours}}</td>-->
-<!--      <td>{{avgProgress}}</td>-->
-<!--      <td>{{avgReviewScore}}</td>-->
-<!--      <td>{{avgTrainerReview}}</td>-->
-<!--      <td>{{quizAttempt}}</td>-->
-<!--      <td>{{quizScore}}</td>-->
-<!--      <td>{{yAmount}}</td>-->
-<!--    </tr>-->
-<!--  </table>-->
-<!--</div>-->
