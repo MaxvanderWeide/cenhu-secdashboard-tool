@@ -43,6 +43,7 @@ testem.log
 /typings
 package-lock.json
 src/env.js
+src/assets/temp/*
 
 # System Files
 .DS_Store
