@@ -7,7 +7,7 @@ import {ReportOverviewComponent} from '@pages/report/report-overview/report-over
 import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-overview.component';
 import {Scope} from '@models/scope.enum';
 import {AuthGuard} from '@app/auth/auth.guard';
-import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
+import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview.component';
 import {LoginComponent} from '@components/login/login.component';
 import {DepartmentComponent} from '@pages/department/department.component';
 

@@ -14,14 +14,13 @@ import {AcademyModule} from '@pages/academy/academy.module';
 import {EnvServiceProvider} from '@app/services/env.service.provider';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
-import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview/departments-overview.component';
+import {DepartmentsOverviewComponent} from '@pages/departments/departments-overview.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {DepartmentComponent} from '@pages/department/department.component';
 import {ChartModule} from '@components/chart/chart.module';
 import {HttpClientModule} from '@angular/common/http';
 import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
 import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
-import {DepartmentsComponent} from '@components/departments/departments.component';
+import {DepartmentComponent} from '@components/department/department.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,7 @@ import {DepartmentsComponent} from '@components/departments/departments.componen
     DepartmentComponent,
     IncidentsCompactComponent,
     DressingBarComponent,
-    DepartmentsComponent
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@ import {DataService} from '@app/services/data.service';
 import {DressingService} from '@app/services/dressing.service';
 
 @Component({
-  selector: 'app-deparments-overview',
+  selector: 'app-departments-overview',
   templateUrl: './departments-overview.component.html',
   styleUrls: ['./departments-overview.component.scss']
 })

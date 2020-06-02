@@ -6,11 +6,11 @@ import {AppComponent} from '@app/app.component';
 
 
 @Component({
-  selector: 'app-departments',
-  templateUrl: './departments.component.html',
-  styleUrls: ['./departments.component.scss']
+  selector: 'app-department',
+  templateUrl: './department.component.html',
+  styleUrls: ['./department.component.scss']
 })
-export class DepartmentsComponent {
+export class DepartmentComponent {
 
   public departments: Department[] = [];
   isMobile: boolean = AppComponent.isMobile();
