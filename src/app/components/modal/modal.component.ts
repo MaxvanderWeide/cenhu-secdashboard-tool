@@ -15,7 +15,7 @@ export class ModalComponent implements AfterViewInit {
     document.querySelector('body').prepend(this.modalElement.nativeElement);
   }
 
-  closeModal() {
+  closeModal(): void {
     document.querySelector('.modal').classList.remove('modal-active');
   }
 }

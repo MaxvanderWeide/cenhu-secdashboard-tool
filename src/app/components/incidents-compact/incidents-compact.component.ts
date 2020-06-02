@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
 import {Modal} from '@models/modal.model';
@@ -38,8 +38,8 @@ export class IncidentsCompactComponent implements OnInit {
     this.modal.buttons.push('save');
   }
 
-  openModal(event) {
-    document.querySelector('.modal-body').innerHTML = event.target.closest('.incidents-compact-overview').querySelector('.incidents-compact-body').outerHTML;
+  openModal(event: MouseEvent): void {
+    document.querySelector('.modal-body').innerHTML = (event.target as HTMLElement).closest('.incidents-compact-overview').querySelector('.incidents-compact-body').outerHTML;
     document.querySelector('.modal').classList.add('modal-active');
   }
 }
