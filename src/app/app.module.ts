@@ -24,6 +24,7 @@ import {DepartmentComponent} from '@components/department/department.component';
 import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {ModalComponent} from '@components/modal/modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
