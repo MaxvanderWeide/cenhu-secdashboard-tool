@@ -26,7 +26,7 @@ export class DepartmentComponent {
     this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
-          this.department = departments.find(s => s.cleanUrl === params.departmentName);
+          this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
             this.incidentsStats = {
               total: incidents.filter((s: Incident) => s.department === this.department.code).length,
