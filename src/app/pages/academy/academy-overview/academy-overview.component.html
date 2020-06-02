@@ -1,62 +1,81 @@
-<div class="row">
-  <div class="col">
-    <div class="row statistics-overview">
-      <div class="statistics-overview-header">
-        Overview
-      </div>
-      <div class="statistics-overview-body">
-        <div class="statistics-overview-column">
-          <div class="barChart">
-            <app-bar-chart [chart]="barData"></app-bar-chart>
-          </div>
-        </div>
-        <div class="statistics-overview-column statistics-overview-main">
-          <div>
-            Total incidents
-            <span class="total-incidents">{{incidentsStats.total}}</span>
-          </div>
-          <div>
-            Open incidents
-            <span class="open-incidents">{{incidentsStats.closed}}</span>
-          </div>
-          <div>
-            Closed incidents
-            <span class="closed-incidents">{{incidentsStats.open}}</span>
-          </div>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="academy-header">
+      <h2>Academy</h2>
+      <div class="progress">
+        <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': progPercentage}"
+             aria-valuenow="{{progPercentage}}" aria-valuemin="0" aria-valuemax="100">{{progPercentage}}</div>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="col-md-4" id="chart1">
+  <div class="row charts">
+    <div class="chart-item">
+      <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
+    </div>
+    <div class="chart-item">
+      <app-pie-chart [chart]="progressPercentage"></app-pie-chart>
+    </div>
+    <div class="chart-item">
       <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
     </div>
   </div>
 </div>
-<div class="col-md-10">
-  <table class="table-responsive" id="academy-table">
-    <tr>
-      <th>Total Issues</th>
-      <th>Average Hour</th>
-      <th>Average Progress</th>
-      <th>Average ReviewScore</th>
-      <th>Average TrainerScore</th>
-      <th>Total Quiz Attempts</th>
-      <th>Total Passed Quizzes</th>
-      <th>Total Certificates</th>
-    </tr>
-    <tr>
-      <td>{{totalIssues}}</td>
-      <td>{{avgHours}}</td>
-      <td>{{avgProgress}}</td>
-      <td>{{avgReviewScore}}</td>
-      <td>{{avgTrainerReview}}</td>
-      <td>{{quizAttempt}}</td>
-      <td>{{quizScore}}</td>
-      <td>{{yAmount}}</td>
-    </tr>
-  </table>
-</div>
-<div class="col-md-4" id="chart6">
-  <app-progressbar></app-progressbar>
-</div>
+<!--<div class="row">-->
+<!--  <div class="col">-->
+<!--    <div class="row statistics-overview">-->
+<!--      <div class="statistics-overview-header">-->
+<!--        Overview-->
+<!--      </div>-->
+<!--      <div class="statistics-overview-body">-->
+<!--        <div class="statistics-overview-column">-->
+<!--          <div class="barChart">-->
+<!--            <app-bar-chart [chart]="barData"></app-bar-chart>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="statistics-overview-column statistics-overview-main">-->
+<!--          <div>-->
+<!--            Total incidents-->
+<!--            <span class="total-incidents">{{incidentsStats.total}}</span>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            Open incidents-->
+<!--            <span class="open-incidents">{{incidentsStats.closed}}</span>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            Closed incidents-->
+<!--            <span class="closed-incidents">{{incidentsStats.open}}</span>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <div class="col-md-4" id="chart1">-->
+<!--      <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="col-md-10">-->
+<!--  <table class="table-responsive" id="academy-table">-->
+<!--    <tr>-->
+<!--      <th>Total Issues</th>-->
+<!--      <th>Average Hour</th>-->
+<!--      <th>Average Progress</th>-->
+<!--      <th>Average ReviewScore</th>-->
+<!--      <th>Average TrainerScore</th>-->
+<!--      <th>Total Quiz Attempts</th>-->
+<!--      <th>Total Passed Quizzes</th>-->
+<!--      <th>Total Certificates</th>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>{{totalIssues}}</td>-->
+<!--      <td>{{avgHours}}</td>-->
+<!--      <td>{{avgProgress}}</td>-->
+<!--      <td>{{avgReviewScore}}</td>-->
+<!--      <td>{{avgTrainerReview}}</td>-->
+<!--      <td>{{quizAttempt}}</td>-->
+<!--      <td>{{quizScore}}</td>-->
+<!--      <td>{{yAmount}}</td>-->
+<!--    </tr>-->
+<!--  </table>-->
+<!--</div>-->

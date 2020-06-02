@@ -3,7 +3,7 @@ import {Academy} from '@models/academy.model';
 // Temporary
 // @ts-ignore
 import SampleJson from 'src/assets/temp/academyData.json';
-import {BarChart} from "@models/barchart.model";
+import {BarChart} from '@models/barchart.model';
 
 
 @Component({
@@ -12,6 +12,8 @@ import {BarChart} from "@models/barchart.model";
   styleUrls: ['./academy-overview.component.scss']
 })
 export class AcademyOverviewComponent {
+  public progPercentage: string = '40%';
+
   records: Academy[] = [];
 
   totalIssues: number = 0;
@@ -117,14 +119,14 @@ export class AcademyOverviewComponent {
       title: 'Certificate',
       data: [this.yPercentage, this.nPercentage],
       labels: ['Certifications', 'Not certifications'],
-      dataColors: ['rgba(85,255,43,0.4)', 'rgba(250,247,55,0.4)']
+      dataColors: ['rgba(255,210,66,0.63)', 'rgba(2,4,250,0.22)']
     };
 
     this.progressPercentage = {
       title: 'Progress',
       data: [this.avgProgress, this.totalProgress],
       labels: ['Progress done', 'In progress'],
-      dataColors: ['rgba(85,255,43,0.4)', 'rgba(250,247,55,0.4)']
+      dataColors: ['rgba(34,139,34,0.4)', 'rgba(219,0,0,0.4)']
     };
 
     this.barData = {
