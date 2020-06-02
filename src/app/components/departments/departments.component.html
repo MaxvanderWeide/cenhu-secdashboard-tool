@@ -1,5 +1,5 @@
 <div class="departments">
-  <div class="col-md-12 department-box" *ngFor="let department of departments;">
+  <div class="col-md-12 department-box" *ngFor="let department of departments; let index = index">
     <div class="department-box-header" (click)="toggleInformation($event)">
       <em class="fa fa-chevron-right toggle-body"></em>
       <h3 class="department-name" routerLink="{{department.cleanUrl}}"
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="department-incidents">
-        Open incidents: {{openIncidents}}
+        Open incidents: {{openIncidents[index]}}
         <div class="department-incidents-list">
           <app-incidents-compact></app-incidents-compact>
         </div>
