@@ -1,0 +1,48 @@
+[
+  {
+    "department": "Human resource management",
+    "cleanUrl": "human-resource-management",
+    "code": "hrm",
+    "statistics": [
+      {
+        "name": "stat1",
+        "data": 2400
+      },
+      {
+        "name": "stat2",
+        "data": 124
+      },
+      {
+        "name": "stat3",
+        "data": 23
+      },
+      {
+        "name": "stat4",
+        "data": 24366
+      }
+    ]
+  },
+  {
+    "department": "Finance",
+    "cleanUrl": "corporate-finance",
+    "code": "fin",
+    "statistics": [
+      {
+        "name": "stat1",
+        "data": 2400
+      },
+      {
+        "name": "stat2",
+        "data": 124
+      },
+      {
+        "name": "stat3",
+        "data": 23
+      },
+      {
+        "name": "stat4",
+        "data": 24366
+      }
+    ]
+  }
+]

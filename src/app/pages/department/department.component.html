@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="department !== null">
+<div class="container-fluid">
   <div class="row">
     <div class="department-header">
       <h2>Department</h2>
@@ -60,7 +60,7 @@
     </div>
     <div class="col-md-6 col-12 incidents-overview">
       <div class="row">
-        <app-incidents-compact></app-incidents-compact>
+        <app-incidents-compact [departmentCode]="department.code"></app-incidents-compact>
       </div>
     </div>
   </div>

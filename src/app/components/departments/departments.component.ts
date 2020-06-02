@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {Department} from '@models/department.model';
-// TODO - remove
-// @ts-ignore
 import {DataService} from '@app/services/data.service';
 import {DressingService} from '@app/services/dressing.service';
 

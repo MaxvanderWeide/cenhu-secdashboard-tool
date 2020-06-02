@@ -5,6 +5,7 @@ import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {PieChart} from '@models/piechart.model';
 import {BarChart} from '@models/barchart.model';
+import {Incident} from '@models/incidents.model';
 
 @Component({
   selector: 'app-department',
@@ -26,23 +27,13 @@ export class DepartmentComponent {
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
           this.department = departments.find(s => s.cleanUrl === params.departmentName);
-
-          let openCount: number = 0;
-          let totalCount: number = 0;
-
-          this.dataService.getIncidentsWithDepartment(this.department.code).forEach(value => {
-              totalCount++;
-              if (value.open) {
-                openCount++;
-              }
-            }
-          );
-
-          this.incidentsStats = {
-            total: totalCount,
-            closed: totalCount - openCount,
-            open: openCount
-          };
+          this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
+            this.incidentsStats = {
+              total: incidents.filter((s: Incident) => s.department === this.department.code).length,
+              closed: incidents.filter((s: Incident) => s.department === this.department.code && !s.open).length,
+              open: incidents.filter((s: Incident) => s.department === this.department.code && s.open).length
+            };
+          });
         }
       );
     });
