@@ -23,6 +23,7 @@ import {IncidentsCompactComponent} from '@components/incidents-compact/incidents
 import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
 import {DepartmentsComponent} from '@components/departments/departments.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import {DepartmentsComponent} from '@components/departments/departments.componen
     DepartmentComponent,
     IncidentsCompactComponent,
     DressingBarComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
   ],
   imports: [
     BrowserModule,
