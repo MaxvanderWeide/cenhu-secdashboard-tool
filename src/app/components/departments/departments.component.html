@@ -14,9 +14,9 @@
         </div>
       </div>
       <div class="department-incidents">
-        Open incidents: {{openIncidents[index]}}
+        Open incidents: {{openIncidents}}
         <div class="department-incidents-list">
-          <app-incidents-compact></app-incidents-compact>
+          <app-incidents-compact [departmentCode]="department.code"></app-incidents-compact>
         </div>
       </div>
     </div>

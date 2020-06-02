@@ -14,7 +14,7 @@ import {DressingService} from '@app/services/dressing.service';
 export class DepartmentsComponent {
 
   public departments: Department[] = [];
-  openIncidents: number[] = [];
+  openIncidents: number = 1;
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.dataService.getDepartments().subscribe(
@@ -25,19 +25,6 @@ export class DepartmentsComponent {
         this.dressingService.message('Department data loading unsuccessful. Try again later.');
       }
     );
-
-    for (const department of this.departments) {
-      let openCount: number = 0;
-
-      this.dataService.getIncidentsWithDepartment(department.code).forEach(value => {
-          if (value.open) {
-            openCount++;
-          }
-        }
-      );
-
-      this.openIncidents.push(openCount);
-    }
   }
 
   toggleInformation(event: MouseEvent): void {

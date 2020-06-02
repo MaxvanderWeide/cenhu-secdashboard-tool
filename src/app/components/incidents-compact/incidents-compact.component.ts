@@ -1,25 +1,17 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
-import {DressingService} from '@app/services/dressing.service';
 
 @Component({
   selector: 'app-incidents-compact',
   templateUrl: './incidents-compact.component.html',
   styleUrls: ['./incidents-compact.component.scss']
 })
-export class IncidentsCompactComponent {
+export class IncidentsCompactComponent implements OnInit{
   incidents: Incident[];
+  @Input() departmentCode: string;
 
-  constructor(private dataService: DataService, private dressingService: DressingService) {
-    this.dataService.getIncidents().subscribe(
-      (incidents: Incident[]) => {
-        this.incidents = incidents;
-      },
-      () => {
-        this.dressingService.message('Incident data loading unsuccessful. Try again later.');
-      }
-    );
+  constructor(private dataService: DataService) {
   }
 
   incidentIcon(severity: string): string {
@@ -31,5 +23,10 @@ export class IncidentsCompactComponent {
       case 'low':
         return 'fa-bath low-severity';
     }
+  }
+
+  ngOnInit(): void {
+    console.log(this.departmentCode);
+    this.incidents = this.dataService.getIncidentsWithDepartment(this.departmentCode);
   }
 }
