@@ -15,3 +15,9 @@
     @content;
   }
 }
+
+@mixin md-tablet-only {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
