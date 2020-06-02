@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Department} from '@models/department.model';
 import {DataService} from '@app/services/data.service';
 import {DressingService} from '@app/services/dressing.service';
+import {AppComponent} from '@app/app.component';
 
 
 @Component({
@@ -12,6 +13,7 @@ import {DressingService} from '@app/services/dressing.service';
 export class DepartmentsComponent {
 
   public departments: Department[] = [];
+  isMobile: boolean = AppComponent.isMobile();
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.dataService.getDepartments().subscribe(
