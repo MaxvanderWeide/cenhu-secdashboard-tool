@@ -1,14 +1,14 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="department !== null">
   <div class="row">
     <div class="department-header">
       <h2>Department</h2>
       <div class="department-name">
-        {{department.name}}
+        {{department.cleanUrl}}
       </div>
     </div>
   </div>
   <div class="row main-statistics">
-    <div class="main-statistics-column" *ngFor="let statistic of department.data.mainStatistics">
+    <div class="main-statistics-column" *ngFor="let statistic of department.statistics">
       <div class="main-tatistics-name">
         {{statistic.name}}
       </div>

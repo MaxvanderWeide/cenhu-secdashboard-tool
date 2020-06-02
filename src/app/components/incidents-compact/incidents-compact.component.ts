@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
+import {DressingService} from '@app/services/dressing.service';
 
 @Component({
   selector: 'app-incidents-compact',
@@ -10,8 +11,15 @@ import {Incident} from '@models/incidents.model';
 export class IncidentsCompactComponent {
   incidents: Incident[];
 
-  constructor(private dataService: DataService) {
-    this.incidents = this.dataService.getDepartmentData().data.incidents;
+  constructor(private dataService: DataService, private dressingService: DressingService) {
+    this.dataService.getIncidents().subscribe(
+      (incidents: Incident[]) => {
+        this.incidents = incidents;
+      },
+      () => {
+        this.dressingService.message('Incident data loading unsuccessful. Try again later.');
+      }
+    );
   }
 
   incidentIcon(severity: string): string {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {DataService} from '@app/services/data.service';
@@ -11,7 +11,7 @@ import {BarChart} from '@models/barchart.model';
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.scss']
 })
-export class DepartmentComponent implements OnInit {
+export class DepartmentComponent {
   department: Department;
   barData: BarChart;
   pieData: PieChart;
@@ -22,6 +22,30 @@ export class DepartmentComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
+    this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
+      this.dataService.getDepartments().subscribe(
+        (departments: Department[]) => {
+          this.department = departments.find(s => s.cleanUrl === params.departmentName);
+
+          let openCount: number = 0;
+          let totalCount: number = 0;
+
+          this.dataService.getIncidentsWithDepartment(this.department.code).forEach(value => {
+              totalCount++;
+              if (value.open) {
+                openCount++;
+              }
+            }
+          );
+
+          this.incidentsStats = {
+            total: totalCount,
+            closed: totalCount - openCount,
+            open: openCount
+          };
+        }
+      );
+    });
     this.barData = {
       title: 'Bar',
       data: [
@@ -42,25 +66,5 @@ export class DepartmentComponent implements OnInit {
       showLegend: false,
       displayDataInChart: false
     };
-  }
-
-  ngOnInit(): void {
-    this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
-      this.department = this.dataService.getDepartmentData(params.departmentName);
-      let closedCount: number = 0;
-
-      this.department.data.incidents.forEach(value => { // eslint-disable-line @typescript-eslint/typedef
-          if (!value.closed) {
-            closedCount++;
-          }
-        }
-      );
-
-      this.incidentsStats = {
-        total: this.department.data.incidents.length,
-        closed: closedCount,
-        open: this.department.data.incidents.length - closedCount
-      };
-    });
   }
 }

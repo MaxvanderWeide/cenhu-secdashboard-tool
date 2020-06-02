@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {Department} from '@models/department.model';
-// TODO - remove
-// @ts-ignore
 import {DataService} from '@app/services/data.service';
+import {DressingService} from '@app/services/dressing.service';
 
 
 @Component({
@@ -12,21 +11,29 @@ import {DataService} from '@app/services/data.service';
 })
 export class DepartmentsComponent {
 
-  public departments: Department[] = this.dataService.getDepartments();
+  public departments: Department[] = [];
   openIncidents: number = 0;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private dressingService: DressingService) {
+    this.dataService.getDepartments().subscribe(
+      (departments: Department[]) => {
+        this.departments = departments;
+      },
+      () => {
+        this.dressingService.message('Department data loading unsuccessful. Try again later.');
+      }
+    );
     for (const department of this.departments) {
-      let closedCount: number = 0;
+      let openCount: number = 0;
 
-      department.data.incidents.forEach(value => { // eslint-disable-line @typescript-eslint/typedef
-          if (!value.closed) {
-            closedCount++;
+      this.dataService.getIncidentsWithDepartment(department.code).forEach(value => {
+          if (value.open) {
+            openCount++;
           }
         }
       );
 
-      this.openIncidents = department.data.incidents.length - closedCount;
+      this.openIncidents = openCount;
     }
   }
 

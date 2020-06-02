@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Department} from '@models/department.model';
 import {DataService} from '@app/services/data.service';
+import {DressingService} from '@app/services/dressing.service';
 
 @Component({
   selector: 'app-deparments-overview',
@@ -9,8 +10,15 @@ import {DataService} from '@app/services/data.service';
 })
 export class DepartmentsOverviewComponent {
 
-  constructor(private dataService: DataService) {
+  public departments: Department[] = [];
+  constructor(private dataService: DataService, private dressingService: DressingService) {
+    this.dataService.getDepartments().subscribe(
+      (departments: Department[]) => {
+        this.departments = departments;
+      },
+      () => {
+        this.dressingService.message('Department data loading unsuccessful. Try again later.');
+      }
+    );
   }
-
-  public departments: Department[] = this.dataService.getDepartments();
 }

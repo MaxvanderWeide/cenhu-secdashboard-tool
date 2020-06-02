@@ -1,5 +1,4 @@
 import {Incident} from '@models/incidents.model';
-import {departments, departmentData} from 'src/assets/temp/mock-server.constants';
 import {Department} from '@models/department.model';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
@@ -29,13 +28,24 @@ export class DataService {
     return this.http.get<Incident[]>('assets/temp/incidentData.json').pipe(catchError(DataService.throwError));
   }
 
-  public getDepartments(): Department[] {
-    /* Mock Server-Calling service for a list of departments */
-    return departments;
+  public getIncidentsWithDepartment(departmentCode: string): Incident[] {
+    /* Mock Server-Calling service for a list of incidents using department code */
+    const departmentIncidents: Incident[] = [];
+    this.http.get<Incident[]>('assets/temp/incidentData.json').pipe(catchError(DataService.throwError)).subscribe(
+      (incidents: Incident[]) => {
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < incidents.length; i++) {
+          if (incidents[i].department === departmentCode) {
+            departmentIncidents.push(incidents[i]);
+          }
+        }
+      },
+    );
+    return departmentIncidents;
   }
 
-  public getDepartmentData(name?: string): Department {
-    /* Mock Server-Calling service for a department data */
-    return departmentData;
+  public getDepartments(): Observable<Department[]> {
+    /* Mock Server-Calling service for a list of departments */
+    return this.http.get<Department[]>('assets/temp/departmentData.json').pipe(catchError(DataService.throwError));
   }
 }

@@ -2,17 +2,23 @@
   {
     "message": "M1 scored poorly",
     "severity": "high",
-    "url": "#"
+    "url": "#",
+    "department": "hrm",
+    "open": true
   },
   {
     "message": "M1 scored poorly",
     "severity": "high",
-    "url": "#"
+    "url": "#",
+    "department": "hrm",
+    "open": true
   },
   {
     "message": "M1 scored poorly",
     "severity": "high",
-    "url": "#"
+    "url": "#",
+    "department": "hrm",
+    "open": true
   },
   {
     "message": "M1 scored poorly",
@@ -22,11 +28,16 @@
   {
     "message": "Need jacuzzi",
     "severity": "low",
-    "url": "#"
+    "url": "#",
+    "department": "hrm",
+    "open": true
   },
   {
     "message": "Panic panic!",
-    "severity": "high"
+    "severity": "medium",
+    "url": "#",
+    "department": "hrm",
+    "open": true
   },
   {
     "message": "Forgot lunch",
