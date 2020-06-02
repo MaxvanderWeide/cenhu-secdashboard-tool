@@ -3,6 +3,7 @@ import {Academy} from '@models/academy.model';
 // Temporary
 // @ts-ignore
 import SampleJson from 'src/assets/temp/academyData.json';
+import {BarChart} from "@models/barchart.model";
 
 
 @Component({
@@ -14,6 +15,7 @@ export class AcademyOverviewComponent {
   records: Academy[] = [];
 
   totalIssues: number = 0;
+  openIssues: number = 0;
 
   avgHours: number = 0;
   avgProgress: number = 0;
@@ -40,6 +42,13 @@ export class AcademyOverviewComponent {
     data: number[];
     labels: string[];
     dataColors: string[];
+  };
+
+  barData: BarChart;
+  incidentsStats: {
+    total: number;
+    closed: number;
+    open: number;
   };
 
   constructor() {
@@ -91,6 +100,7 @@ export class AcademyOverviewComponent {
     }
 
     this.totalIssues = yAmount + nAmount;
+    this.openIssues = this.totalIssues - yAmount;
 
     this.avgHours = Math.round(((this.avgHours / this.records.length) + Number.EPSILON) * 100) / 100;
     this.avgProgress = Math.round(((this.avgProgress / this.records.length) + Number.EPSILON) * 100) / 100;
@@ -116,6 +126,24 @@ export class AcademyOverviewComponent {
       labels: ['Progress done', 'In progress'],
       dataColors: ['rgba(85,255,43,0.4)', 'rgba(250,247,55,0.4)']
     };
-  }
 
+    this.barData = {
+      title: 'Bar',
+      data: [
+        {data: [100, 111, 132, 304], label: 'Total'},
+        {data: [7, 32, 2, 102], label: 'Open'}
+      ],
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+      dataColors: ['blue', 'red'],
+      horizontal: false,
+      legend: true
+    };
+
+    this.incidentsStats = {
+      total: this.totalIssues,
+      closed: this.openIssues,
+      open: this.yAmount
+    };
+
+  }
 }
