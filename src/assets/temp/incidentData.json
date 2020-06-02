@@ -18,7 +18,7 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
-    "open": true
+    "open": false
   },
   {
     "message": "M1 scored poorly",

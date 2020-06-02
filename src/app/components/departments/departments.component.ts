@@ -12,7 +12,6 @@ import {DressingService} from '@app/services/dressing.service';
 export class DepartmentsComponent {
 
   public departments: Department[] = [];
-  openIncidents: number = 1;
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.dataService.getDepartments().subscribe(
