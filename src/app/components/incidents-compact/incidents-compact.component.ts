@@ -39,7 +39,7 @@ export class IncidentsCompactComponent implements OnInit {
   }
 
   openModal(event) {
-    document.querySelector('.modal-body').innerHTML = event.target.parentElement.querySelector('.incidents-compact-body').outerHTML;
+    document.querySelector('.modal-body').innerHTML = event.target.closest('.incidents-compact-overview').querySelector('.incidents-compact-body').outerHTML;
     document.querySelector('.modal').classList.add('modal-active');
   }
 }

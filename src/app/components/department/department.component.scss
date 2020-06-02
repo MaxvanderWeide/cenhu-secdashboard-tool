@@ -44,12 +44,10 @@
         &:focus {
           color: #199d4a;
           font-size: 22px;
-          font-size-adjust: 2;
 
           @include md-phone-only {
             color: black;
             font-size: 17px;
-            font-size-adjust: none;
           }
         }
       }
