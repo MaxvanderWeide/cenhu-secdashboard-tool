@@ -3,6 +3,7 @@ import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
 import {DressingService} from '@app/services/dressing.service';
 
+
 @Component({
   selector: 'app-incidents',
   templateUrl: './incidents.component.html'

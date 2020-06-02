@@ -3,21 +3,22 @@
 
     <div id="issues" class="col-sm view">
 
-      <h1>Issues</h1>
+      <h1>Reports</h1>
 
       <div class="accordion">
 
-        <div class="card">
+        <div class="card" *ngFor="let report of reports">
 
           <div class="card-header">
             <h2 class="mb-0">
               <button type="button" class="btn btn-link btn-block text-left" (click)="isCollapsed = !isCollapsed"
-                      [attr.aria-expanded]="!isCollapsed" aria-controls="item_1">
-                All passwords were snached<span>14:59 28-05-2020</span>
+                      [attr.aria-expanded]="!isCollapsed" attr.aria-controls="item_{{report.id}}">
+                {{report.name}}<span>{{report.date}}</span>
               </button>
             </h2>
           </div>
-          <div id="item_1" [ngbCollapse]="!isCollapsed">
+
+          <div id="item_{{report.id}}" [ngbCollapse]="!isCollapsed">
             <div class="card">
               <div class="card-body">
                 <div class="row">
@@ -31,12 +32,7 @@
                 <div class="row">
                   <div class="col-sm-3"><strong>Description</strong></div>
                   <div class="col-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum,
-                    dolor id suscipit sollicitudin, nulla leo maximus diam, et tincidunt nisl felis sed risus.
-                    Fusce sollicitudin arcu sed gravida vulputate. Praesent tincidunt aliquam sapien, eget volutpat
-                    tellus feugiat sed. Fusce aliquet arcu id auctor vestibulum. Vestibulum suscipit vitae ante eu
-                    condimentum. Aliquam erat volutpat. Vestibulum tortor augue, efficitur ut ex a,
-                    ullamcorper porta felis.
+                    {{report.description}}
                   </div>
                 </div>
               </div>
@@ -51,13 +47,13 @@
 
     <div id="issues_new" class="col-sm view">
 
-      <h1>Report a new issue</h1>
+      <h1>Create a new report</h1>
 
       <form id="report_create" method="post">
 
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="text" class="form-control" id="title" placeholder="Enter a short title for the issue">
+          <input type="text" class="form-control" id="title" placeholder="Choose a short title">
         </div>
 
         <div class="form-group">

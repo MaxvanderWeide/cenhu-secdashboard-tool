@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {Report} from '@models/report.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class DataService {
   public getDepartments(): Observable<Department[]> {
     /* Mock Server-Calling service for a list of departments-overview */
     return this.http.get<Department[]>('assets/temp/departmentData.json').pipe(catchError(DataService.throwError));
+  }
+  public getReports(): Observable<Report[]> {
+    /* Mock Server-Calling service for a list of departments-overview */
+    return this.http.get<Report[]>('assets/temp/reportData.json').pipe(catchError(DataService.throwError));
   }
 }
