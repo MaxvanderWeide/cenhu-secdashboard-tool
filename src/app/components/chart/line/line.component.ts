@@ -57,5 +57,9 @@ export class LineChartComponent implements OnInit {
       const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
       this.chart.colors.push(color);
     }
+
+    if (window.screen.width <= 768) {
+      this.chart.legend = true;
+    }
   }
 }
