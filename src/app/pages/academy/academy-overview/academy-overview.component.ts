@@ -12,7 +12,7 @@ import {BarChart} from '@models/barchart.model';
   styleUrls: ['./academy-overview.component.scss']
 })
 export class AcademyOverviewComponent {
-  public progPercentage: string = '40%';
+  public progPercentage: string = '';
 
   records: Academy[] = [];
 
@@ -105,14 +105,20 @@ export class AcademyOverviewComponent {
     this.openIssues = this.totalIssues - yAmount;
 
     this.avgHours = Math.round(((this.avgHours / this.records.length) + Number.EPSILON) * 100) / 100;
+
     this.avgProgress = Math.round(((this.avgProgress / this.records.length) + Number.EPSILON) * 100) / 100;
     this.totalProgress = Math.round(((1 - this.avgProgress) + Number.EPSILON) * 100) / 100;
+
     this.avgReviewScore = Math.round(((this.avgReviewScore / this.records.length) + Number.EPSILON) * 100) / 100;
     this.avgTrainerReview = Math.round(((this.avgTrainerReview / this.records.length) + Number.EPSILON) * 100) / 100;
 
     this.yAmount = yAmount;
     this.yPercentage = Number(((yAmount / this.records.length) * 100).toFixed(2));
     this.nPercentage = Number((((this.records.length - yAmount) / this.records.length) * 100).toFixed(2));
+
+    // Automatic loading percentage of Bar graph
+    this.progPercentage = String((this.avgProgress * 100).toFixed(0));
+    this.progPercentage = this.progPercentage + '%';
 
 
     this.certificatePercentage = {
