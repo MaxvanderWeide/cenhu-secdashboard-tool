@@ -18,8 +18,8 @@ export class ReportOverviewComponent {
   private severityInput: string;
   private descriptionInput: string;
   private id: number;
-  private dateTime = new Date().toLocaleString();
-  private reTime: any;
+  private dateTime: string = new Date().toLocaleString();
+  private reTime: string;
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
 
@@ -33,11 +33,10 @@ export class ReportOverviewComponent {
     );
   }
 
-  onSubmit(reportForm: NgForm) {
+  onSubmit(reportForm: NgForm): void {
     console.log(reportForm);
     this.id = (this.reports.length + 1);
     console.log(this.dateTime.replace(this.reTime, '$1 $2'));
-
   }
 
 }
