@@ -20,7 +20,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
 import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
 import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
-import {DepartmentComponent} from '@components/department/department.component';
 import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {ModalComponent} from '@components/modal/modal.component';
 
@@ -34,7 +33,6 @@ import {ModalComponent} from '@components/modal/modal.component';
     ReportOverviewComponent,
     LoginComponent,
     DepartmentsOverviewComponent,
-    DepartmentComponent,
     IncidentsCompactComponent,
     DressingBarComponent,
     DepartmentsComponent,

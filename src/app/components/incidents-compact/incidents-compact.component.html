@@ -2,7 +2,7 @@
 
 <div class="incidents-compact-overview" *ngIf="incidents !== undefined">
   <div class="incidents-compact-header" (click)="openModal($event)">
-    <span>Incidents {{incidents.length}}</span>
+    <span>Incidents <span class="badge badge-pill badge-secondary">{{incidents.length}}</span></span>
     <span><em class="fa fa-location-arrow"></em></span>
   </div>
   <div class="incidents-compact-body">
