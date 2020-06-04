@@ -13,11 +13,10 @@
 }
 
 .charts {
-  margin-top: 40px;
+  margin-top: 18px;
   justify-content: space-between;
 
   .chart-item, .text-item {
-    padding: 8px 12px;
     background-color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -38,11 +37,6 @@
 }
 
 .statistics-overview {
-  background-color: #fff;
-  padding: 4.5px 12px;
-  margin-top: 5px;
-  width: 700px;
-
   &-body {
     width: 100%;
     display: flex;
@@ -65,9 +59,7 @@
       font-size: 20px;
       text-align: center;
       display: flex;
-      flex-direction: column;
       justify-content: space-evenly;
-      border: 1px solid rgba(0, 0, 0, 0.3);
       border-top: 0;
       border-bottom: 0;
       padding: 10px 0;

@@ -12,22 +12,27 @@
       <div class="chart-item">
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
-      <div class="statistics-overview-column statistics-overview-main chart-item">
-        <div>
-          Total ...?
-          <span class="total-incidents">{{totalIssues}}</span>
-        </div>
-        <div>
-          Open ...?
-          <span class="open-incidents">{{openIssues}}</span>
-        </div>
-        <div>
-          Finished ...?
-          <span class="closed-incidents">{{yAmount}}</span>
-        </div>
+      <div class="chart-item">
+        <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
       </div>
       <div class="chart-item">
         <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row charts">
+    <div class="chart-item statistics-overview-column statistics-overview-main col">
+      <div>
+        Total ...?
+        <span class="total-incidents">{{totalIssues}}</span>
+      </div>
+      <div>
+        Open ...?
+        <span class="open-incidents">{{openIssues}}</span>
+      </div>
+      <div>
+        Finished ...?
+        <span class="closed-incidents">{{yAmount}}</span>
       </div>
     </div>
   </div>
