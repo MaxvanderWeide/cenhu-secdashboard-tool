@@ -140,13 +140,12 @@ $columnPadding: 8px 12px;
       text-align: center;
 
       @include md-tablet-only {
-        padding: 0;
-        margin-bottom: 14px;
+        padding: 0 0 0 15px;
         flex-basis: 100%;
         max-width: 100%;
 
-        &:last-child {
-          margin-bottom: 40px;
+        &:not(:last-child) {
+          margin-bottom: 14px;
         }
       }
     }
@@ -157,10 +156,9 @@ $columnPadding: 8px 12px;
   max-height: 300px;
   overflow-y: scroll;
 
-  @include md-phone-only {
+  @include md-tablet-only {
     padding: 0;
     margin-top: 40px;
-
   }
 
   .row {
