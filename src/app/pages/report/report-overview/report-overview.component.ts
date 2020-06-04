@@ -12,14 +12,14 @@ import {NgForm} from '@angular/forms';
 
 export class ReportOverviewComponent {
   public reports: Report[];
-  private nameInput: string;
-  private departmentInput: string;
-  private subjectInput: string;
-  private severityInput: string;
-  private descriptionInput: string;
-  private id: number;
-  private dateTime: string = new Date().toLocaleString();
-  private reTime: string;
+  public nameInput: string;
+  public departmentInput: string;
+  public subjectInput: string;
+  public severityInput: string;
+  public descriptionInput: string;
+  public id: number;
+  public dateTime: string = new Date().toLocaleString();
+  public reTime: string;
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
 
