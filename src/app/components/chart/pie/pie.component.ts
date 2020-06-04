@@ -36,11 +36,13 @@ export class PieChartComponent implements OnInit {
         },
       ];
 
-    this.chart.options.legend.position = this.chart.legendPosition === undefined ? 'right' : this.chart.legendPosition;
-    this.chart.options.legend.align = ['top', 'bottom'].includes(this.chart.legendPosition) ? 'start' : 'center';
 
     if (window.screen.width <= 768) {
       this.chart.showLegend = true;
+      this.chart.options.legend.position = 'bottom';
+    } else {
+      this.chart.options.legend.position = this.chart.legendPosition === undefined ? 'right' : this.chart.legendPosition;
+      this.chart.options.legend.align = ['top', 'bottom'].includes(this.chart.legendPosition) ? 'start' : 'center';
     }
   }
 }
