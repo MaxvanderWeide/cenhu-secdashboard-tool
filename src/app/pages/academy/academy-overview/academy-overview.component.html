@@ -13,18 +13,8 @@
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
       <div class="statistics-overview-column statistics-overview-main chart-item">
-        <div>
-          Total ...?
-          <span class="total-incidents">{{totalIssues}}</span>
-        </div>
-        <div>
-          Open ...?
-          <span class="open-incidents">{{openIssues}}</span>
-        </div>
-        <div>
-          Finished ...?
-          <span class="closed-incidents">{{yAmount}}</span>
-        </div>
+        <app-line-chart [chart]="lineData"></app-line-chart>
+
       </div>
       <div class="chart-item">
         <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
