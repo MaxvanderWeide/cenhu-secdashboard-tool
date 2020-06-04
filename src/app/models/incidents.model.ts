@@ -3,5 +3,6 @@ export interface Incident {
   severity: string;
   url?: string;
   department?: string;
-  open?: boolean;
+  open: boolean;
+  filed: string;
 }

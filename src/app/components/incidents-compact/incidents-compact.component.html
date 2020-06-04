@@ -6,10 +6,9 @@
     <span><em class="fa fa-location-arrow"></em></span>
   </div>
   <div class="incidents-compact-body">
-    <div class="incidents-compact-item" *ngFor="let incident of incidents">
+    <div class="incidents-compact-item" [ngClass]="incident.severity" *ngFor="let incident of incidents">
       <div class="incidents-item-message-wrapper">
         <span>{{incident.message}}</span>
-        <span><span class="severity-holder"><em class="fa {{incidentIcon(incident.severity)}}"></em></span></span>
       </div>
       <span><a href="{{incident.url}}" *ngIf="incident.hasOwnProperty('url')">Open link</a></span>
     </div>

@@ -51,23 +51,17 @@
     .incident-message {
       width: auto;
       height: auto;
-      border-radius: 5px;
       margin: 15px 2% 15px 2%;
       padding: 5px 5px 5px 5px;
-      background-color: #ffffff;
-
-      .message-text {
-        p {
-          margin-bottom: 0;
-        }
+      .message-box {
+        background-color: white;
+        border-bottom-right-radius: 6px;
+        border-top-right-radius: 6px;
       }
-
-      .message-link {
-        text-decoration: underline;
-      }
-
-      .message-icon {
-        font-size: 32px;
+      .time-box {
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+        background-color: #f6f6f6;
       }
     }
   }
@@ -79,7 +73,7 @@
     margin: 25px 10px;
 
     .message-container {
-      .message-text {
+      .message-box {
         font-size: 14px;
       }
 
@@ -104,7 +98,7 @@
     .message-container {
       max-height: 400px;
 
-      .message-text {
+      .message-box {
         font-size: 14px;
       }
     }

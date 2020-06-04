@@ -1,9 +1,22 @@
 $padding: 6px 20px;
 
 .incidents-compact {
+
+  .severity-block {
+
+  }
   &-overview {
-    background-color: #fff;
-    border-radius: 6px;
+    .low {
+      border: 4px solid rgba(0, 128, 0, 0.30);
+    }
+
+    .medium {
+      border: 4px solid rgba(255, 165, 0, 0.30);
+    }
+
+    .high{
+      border: 4px solid rgba(255, 0, 0, 0.30);
+    }
   }
 
   &-header {
@@ -30,25 +43,9 @@ $padding: 6px 20px;
 
   &-item {
     padding: $padding;
+    background-color: #fff;
     width: 100%;
-
-    &:nth-child(odd) {
-      background-color: #ccc;
-    }
-
-    .severity-holder {
-      .low-severity {
-        color: green;
-      }
-
-      .medium-severity {
-        color: orange;
-      }
-
-      .high-severity {
-        color: red;
-      }
-    }
+    border-radius: 6px;
   }
 }
 

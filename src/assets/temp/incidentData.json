@@ -4,6 +4,7 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
+    "filed": "2020-06-03T18:25:43.511Z",
     "open": true
   },
   {
@@ -11,6 +12,7 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
+    "filed": "2020-06-03T18:25:43.511Z",
     "open": true
   },
   {
@@ -18,18 +20,22 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
-    "open": false
+    "filed": "2020-06-03T18:25:43.511Z",
+    "open": true
   },
   {
     "message": "M1 scored poorly",
     "severity": "high",
-    "url": "#"
+    "url": "#",
+    "filed": "2020-06-03T18:25:43.511Z",
+    "open": true
   },
   {
     "message": "Need jacuzzi",
-    "severity": "low",
+    "severity": "medium",
     "url": "#",
     "department": "hrm",
+    "filed": "2020-06-03T18:25:43.511Z",
     "open": true
   },
   {
@@ -37,6 +43,7 @@
     "severity": "medium",
     "url": "#",
     "department": "hrm",
+    "filed": "2020-06-03T18:25:43.511Z",
     "open": true
   },
   {
@@ -44,6 +51,7 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
+    "filed": "2020-06-03T18:25:43.511Z",
     "open": true
   },
   {
@@ -51,91 +59,7 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
-    "open": false
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#"
-  },
-  {
-    "message": "Need jacuzzi",
-    "severity": "low",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "Panic panic!",
-    "severity": "medium",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "open": false
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#"
-  },
-  {
-    "message": "Need jacuzzi",
-    "severity": "low",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "Panic panic!",
-    "severity": "medium",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "open": false
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#"
-  },
-  {
-    "message": "Need jacuzzi",
-    "severity": "low",
-    "url": "#",
-    "department": "hrm",
-    "open": true
-  },
-  {
-    "message": "Panic panic!",
-    "severity": "medium",
-    "url": "#",
-    "department": "hrm",
+    "filed": "2020-06-03T18:25:43.511Z",
     "open": true
   }
 ]

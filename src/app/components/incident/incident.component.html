@@ -4,11 +4,13 @@
   </div>
 
   <div class="message-container">
-    <div class="incident-message" *ngFor="let incident of incidents">
-      <div class="message-text">
+    <div class="row incident-message" *ngFor="let incident of incidents">
+      <div class="col-3 time-box">
+        HEY
+      </div>
+      <div class="col-9 message-box">
         <p>{{incident.message}}</p>
-        <a class="message-link" href="#" *ngIf="this.incident.hasOwnProperty('url')">Open reference in secure
-          browser</a>
+        <p>{{incident.department}}</p>
       </div>
     </div>
     <div class="empty-message" *ngIf="incidents.length === 0">
