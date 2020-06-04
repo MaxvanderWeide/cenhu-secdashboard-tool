@@ -52,8 +52,8 @@ export class DepartmentsComponent {
   private setBardata(incidents: Incident[]): void {
     // Get incidents per year
     const date: Date = new Date();
-    const lowestYear = incidents.reduce((prev, curr) => prev.year < curr.year ? prev : curr).year;
-    const years: { currentYear: number, years: Label[], yearsDiff: number, year: number } = {
+    const lowestYear: number = incidents.reduce((prev: Incident, curr: Incident) => prev.year < curr.year ? prev : curr).year;
+    const years: { currentYear: number; years: Label[]; yearsDiff: number; year: number } = {
       currentYear: date.getFullYear(),
       years: [],
       yearsDiff: date.getFullYear() - lowestYear,
@@ -68,7 +68,7 @@ export class DepartmentsComponent {
     }
 
     // Set bar data
-    const incidentsYear: { total: number, open: number }[] = [];
+    const incidentsYear: { total: number; open: number }[] = [];
     years.years.forEach((value: string) => {
       incidentsYear.push({
         total: incidents.filter((incident: Incident) => incident.year === parseInt(value, 10)).length,
