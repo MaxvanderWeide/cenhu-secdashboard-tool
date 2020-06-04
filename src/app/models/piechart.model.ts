@@ -4,7 +4,7 @@ export interface PieChart {
   title: string;
   data: number[];
   labels: string[];
-  dataColors?: string[];
+  dataColors: string[];
   showLegend: boolean;
   legendPosition?: PositionType;
   displayDataInChart: boolean;

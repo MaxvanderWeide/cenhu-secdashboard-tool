@@ -26,40 +26,6 @@
   {
     "message": "M1 scored poorly",
     "severity": "high",
-    "url": "#",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
-  },
-  {
-    "message": "Need jacuzzi",
-    "severity": "medium",
-    "url": "#",
-    "department": "hrm",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
-  },
-  {
-    "message": "Panic panic!",
-    "severity": "medium",
-    "url": "#",
-    "department": "hrm",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
+    "url": "#"
   }
 ]

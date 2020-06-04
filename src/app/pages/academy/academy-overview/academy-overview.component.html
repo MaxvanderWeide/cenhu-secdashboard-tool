@@ -3,7 +3,9 @@
     <div class="academy-header">
       <h2>Academy</h2>
       <div class="progress">
-        <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': progPercentage }">{{progPercentage}}</div>
+        <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': progPercentage }">
+          {{progPercentage}}
+        </div>
       </div>
     </div>
   </div>
@@ -24,15 +26,15 @@
     <div class="chart-item statistics-overview-column statistics-overview-main col">
       <div>
         Waiting
-        <span class="total-incidents">{{totalIssues}}</span>
+        <span class="total-incidents">{{progWaiting}}</span>
       </div>
       <div>
         In Progress
-        <span class="open-incidents">{{openIssues}}</span>
+        <span class="open-incidents">{{progProgress}}</span>
       </div>
       <div>
         Done
-        <span class="closed-incidents">{{yAmount}}</span>
+        <span class="closed-incidents">{{progDone}}</span>
       </div>
     </div>
   </div>
@@ -52,16 +54,16 @@
   </div>
   <div class="row charts">
     <div class="chart-item text-item">
-      <p>Average hours spent on Academy:</p>
-      <p class="percentage">{{avgHours}}</p>
+      <p>To-Do</p>
+      <p class="percentage">To-Do</p>
     </div>
     <div class="chart-item text-item">
-      <p>Average review score on Academy:</p>
-      <p class="percentage">{{avgReviewScore}}</p>
+      <p>Average quiz score on Academy:</p>
+      <p class="percentage">{{quizScore}}</p>
     </div>
     <div class="chart-item text-item">
-      <p>Average trainer review on Academy:</p>
-      <p class="percentage">{{avgTrainerReview}}</p>
+      <p>Total quiz attempts on Academy:</p>
+      <p class="percentage">{{quizAttempt}}</p>
     </div>
   </div>
 </div>
