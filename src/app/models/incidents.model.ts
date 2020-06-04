@@ -4,4 +4,5 @@ export interface Incident {
   url?: string;
   department?: string;
   open?: boolean;
+  year: number;
 }
