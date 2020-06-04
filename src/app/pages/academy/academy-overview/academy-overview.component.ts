@@ -4,9 +4,8 @@ import {Academy} from '@models/academy.model';
 // @ts-ignore
 import SampleJson from 'src/assets/temp/academyData.json';
 import {BarChart} from '@models/barchart.model';
-import {LineChart} from '@models/linechart.model';
-import {ChartDataSets} from 'chart.js';
-import {Label} from 'ng2-charts';
+import {ChartDataSets} from "chart.js";
+import {Label} from "ng2-charts";
 
 
 @Component({
@@ -39,7 +38,7 @@ export class AcademyOverviewComponent {
     title: string;
     data: number[];
     labels: string[];
-    dataColors: string[];
+    dataColors?: string[];
   };
 
   public progressPercentage: {
@@ -134,8 +133,7 @@ export class AcademyOverviewComponent {
     this.certificatePercentage = {
       title: 'Certificate',
       data: [this.yPercentage, this.nPercentage],
-      labels: ['Certifications', 'Not certifications'],
-      dataColors: ['rgba(255,210,66,0.63)', 'rgba(2,4,250,0.22)']
+      labels: ['Certifications', 'Not certifications']
     };
 
     this.progressPercentage = {
@@ -172,6 +170,5 @@ export class AcademyOverviewComponent {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       dataColors: ['blue', 'red']
     };
-
   }
 }
