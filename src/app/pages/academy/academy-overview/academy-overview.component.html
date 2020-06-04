@@ -13,7 +13,7 @@
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
       <div class="chart-item">
-        <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
+        <app-line-chart [chart]="lineData"></app-line-chart>
       </div>
       <div class="chart-item">
         <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
@@ -23,17 +23,31 @@
   <div class="row charts">
     <div class="chart-item statistics-overview-column statistics-overview-main col">
       <div>
-        Total ...?
+        Waiting
         <span class="total-incidents">{{totalIssues}}</span>
       </div>
       <div>
-        Open ...?
+        In Progress
         <span class="open-incidents">{{openIssues}}</span>
       </div>
       <div>
-        Finished ...?
+        Done
         <span class="closed-incidents">{{yAmount}}</span>
       </div>
+    </div>
+  </div>
+  <div class="row charts">
+    <div class="chart-item text-item">
+      <p>Average hours spent on Academy:</p>
+      <p class="percentage">{{avgHours}}</p>
+    </div>
+    <div class="chart-item text-item">
+      <p>Average review score on Academy:</p>
+      <p class="percentage">{{avgReviewScore}}</p>
+    </div>
+    <div class="chart-item text-item">
+      <p>Average trainer review on Academy:</p>
+      <p class="percentage">{{avgTrainerReview}}</p>
     </div>
   </div>
   <div class="row charts">
