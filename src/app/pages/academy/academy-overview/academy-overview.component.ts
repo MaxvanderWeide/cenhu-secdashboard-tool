@@ -4,8 +4,8 @@ import {Academy} from '@models/academy.model';
 // @ts-ignore
 import SampleJson from 'src/assets/temp/academyData.json';
 import {BarChart} from '@models/barchart.model';
-import {ChartDataSets} from "chart.js";
-import {Label} from "ng2-charts";
+import {ChartDataSets} from 'chart.js';
+import {Label} from 'ng2-charts';
 
 
 @Component({
