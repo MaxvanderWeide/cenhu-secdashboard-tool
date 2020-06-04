@@ -14,26 +14,40 @@ import {Label} from "ng2-charts";
   styleUrls: ['./academy-overview.component.scss']
 })
 export class AcademyOverviewComponent {
+  // Percentage of the bar graph
   public progPercentage: string = '';
 
   records: Academy[] = [];
 
-  totalIssues: number = 0;
-  openIssues: number = 0;
-
+  // Count average hours work
   avgHours: number = 0;
-  avgProgress: number = 0;
-  totalProgress: number = 1;
-  avgReviewScore: number = 0;
-  avgTrainerReview: number = 0;
+  timeNull: number = 0;
 
+  avgProgress: number = 0;
+
+  // Average review score
+  avgReviewScore: number = 0;
+  reviewNull: number = 0;
+
+  // Average trainer review
+  avgTrainerReview: number = 0;
+  trainerNull: number = 0;
+
+  // Data for certificates
   yAmount: number = 0;
   yPercentage: number = 0;
   nPercentage: number = 0;
 
+  // Data for quiz
   quizScore: number = 0;
   quizAttempt: number = 0;
 
+  // Variables for progress
+  progWaiting: number = 0;
+  progProgress: number = 0;
+  progDone: number = 0;
+
+  // Data for Graphs
   public certificatePercentage: {
     title: string;
     data: number[];
@@ -41,19 +55,7 @@ export class AcademyOverviewComponent {
     dataColors?: string[];
   };
 
-  public progressPercentage: {
-    title: string;
-    data: number[];
-    labels: string[];
-    dataColors: string[];
-  };
-
   barData: BarChart;
-  incidentsStats: {
-    total: number;
-    closed: number;
-    open: number;
-  };
 
   public lineData: {
     title: string;
@@ -80,17 +82,12 @@ export class AcademyOverviewComponent {
           sample.status,
           sample.functie
         ));
-      console.log(sample);
     }
 
     this.calculateData();
-
-    console.log(this.yPercentage);
   }
 
   calculateData(): void {
-    let yAmount: number = 0;
-    let nAmount: number = 0;
 
     for (const record of this.records) {
       this.avgHours += record.timeSpent;
@@ -101,48 +98,53 @@ export class AcademyOverviewComponent {
       this.quizScore += record.quizScore;
       this.quizAttempt += record.quizAttempts;
 
-      if (record.certificate === 'Y') {
-        yAmount++;
+      // When the row time spent has no value
+      if (record.timeSpent == 0) {
+        this.timeNull++;
       }
 
-      if (record.certificate === 'N') {
-        nAmount++;
+      // When the row review score has no value
+      if (record.reviewScore == 0) {
+        this.reviewNull++;
+      }
+
+      // When the row trainer review has no value
+      if (record.trainerReview == 0) {
+        this.trainerNull++;
+      }
+
+      if (record.certificate === 'Y') {
+        this.yAmount++;
+      }
+
+      // Progress row data
+      if (record.progress == 0) {
+        this.progWaiting++;
+      }
+
+      if (record.progress >= 0.1 && record.progress <= 0.9) {
+        this.progProgress++;
+      }
+
+      if (record.progress == 1) {
+        this.progDone++;
       }
     }
 
-    this.totalIssues = yAmount + nAmount;
-    this.openIssues = this.totalIssues - yAmount;
+    this.avgHours = Math.round(((this.avgHours / (this.records.length - this.timeNull)) + Number.EPSILON) * 100) / 100;
 
-    this.avgHours = Math.round(((this.avgHours / this.records.length) + Number.EPSILON) * 100) / 100;
+    this.avgReviewScore = Math.round(((this.avgReviewScore / (this.records.length - this.reviewNull)) + Number.EPSILON) * 100) / 100;
+    this.avgTrainerReview = Math.round(((this.avgTrainerReview / (this.records.length - this.trainerNull)) + Number.EPSILON) * 100) / 100;
 
-    this.avgProgress = Math.round(((this.avgProgress / this.records.length) + Number.EPSILON) * 100) / 100;
-    this.totalProgress = Math.round(((1 - this.avgProgress) + Number.EPSILON) * 100) / 100;
-
-    this.avgReviewScore = Math.round(((this.avgReviewScore / this.records.length) + Number.EPSILON) * 100) / 100;
-    this.avgTrainerReview = Math.round(((this.avgTrainerReview / this.records.length) + Number.EPSILON) * 100) / 100;
-
-    this.yAmount = yAmount;
-    this.yPercentage = Number(((yAmount / this.records.length) * 100).toFixed(2));
-    this.nPercentage = Number((((this.records.length - yAmount) / this.records.length) * 100).toFixed(2));
+    this.yPercentage = Number(((this.yAmount / this.records.length) * 100).toFixed(2));
+    this.nPercentage = Number((((this.records.length - this.yAmount) / this.records.length) * 100).toFixed(2));
 
     // Automatic loading percentage of Bar graph
+    this.avgProgress = Math.round(((this.avgProgress / this.records.length) + Number.EPSILON) * 100) / 100;
     this.progPercentage = String((this.avgProgress * 100).toFixed(0));
     this.progPercentage = this.progPercentage + '%';
 
-
-    this.certificatePercentage = {
-      title: 'Certificate',
-      data: [this.yPercentage, this.nPercentage],
-      labels: ['Certifications', 'Not certifications']
-    };
-
-    this.progressPercentage = {
-      title: 'Progress',
-      data: [this.avgProgress, this.totalProgress],
-      labels: ['Progress done', 'In progress'],
-      dataColors: ['rgba(34,139,34,0.4)', 'rgba(219,0,0,0.4)']
-    };
-
+    // Bar graph
     this.barData = {
       title: 'Bar',
       data: [
@@ -155,12 +157,7 @@ export class AcademyOverviewComponent {
       legend: true
     };
 
-    this.incidentsStats = {
-      total: this.totalIssues,
-      closed: this.openIssues,
-      open: this.yAmount
-    };
-
+    // Line graph
     this.lineData = {
       title: 'Line',
       data: [
@@ -170,5 +167,13 @@ export class AcademyOverviewComponent {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       dataColors: ['blue', 'red']
     };
+
+    // Pie chart of certificate
+    this.certificatePercentage = {
+      title: 'Certificate',
+      data: [this.yPercentage, this.nPercentage],
+      labels: ['Certifications', 'Not certifications']
+    };
+
   }
 }
