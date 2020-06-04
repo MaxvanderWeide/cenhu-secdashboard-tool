@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {NavigationComponent} from '@app/components/navigation/navigation.component';
 
 @Component({
@@ -11,16 +11,5 @@ import {NavigationComponent} from '@app/components/navigation/navigation.compone
 export class HeaderComponent {
   @ViewChild('navMenu', {read: ElementRef}) navMenu: ElementRef;
 
-  constructor(private navigationComponent: NavigationComponent) {
-  }
-
-  public toggleNav(target: string): void {
-    if (this.navigationComponent.isRetracted) {
-      this.navMenu.nativeElement.querySelector('em').classList.replace('fa-bars', 'fa-times');
-    } else {
-      this.navMenu.nativeElement.querySelector('em').classList.replace('fa-times', 'fa-bars');
-    }
-
-    this.navigationComponent.toggleRetracted(target);
-  }
+  @Input() rootSibling: NavigationComponent;
 }

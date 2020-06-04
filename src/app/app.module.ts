@@ -11,6 +11,19 @@ import {ChartsModule} from 'ng2-charts';
 import {PerformancesModule} from '@pages/performances/performances.module';
 import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
 import {AcademyModule} from '@pages/academy/academy.module';
+import {EnvServiceProvider} from '@app/services/env.service.provider';
+import {AuthGuard} from '@app/auth/auth.guard';
+import {LoginComponent} from '@components/login/login.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ChartModule} from '@components/chart/chart.module';
+import {HttpClientModule} from '@angular/common/http';
+import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
+import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
+import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
+import {DepartmentComponent} from '@components/department/department.component';
+import {DepartmentsComponent} from '@pages/departments/departments.component';
+import {ModalComponent} from '@components/modal/modal.component';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +32,13 @@ import {AcademyModule} from '@pages/academy/academy.module';
     HeaderComponent,
     NotfoundComponent,
     ReportOverviewComponent,
+    LoginComponent,
+    DepartmentsOverviewComponent,
+    DepartmentComponent,
+    IncidentsCompactComponent,
+    DressingBarComponent,
+    DepartmentsComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +46,16 @@ import {AcademyModule} from '@pages/academy/academy.module';
     IncidentsModule,
     ChartsModule,
     PerformancesModule,
-    AcademyModule
+    AcademyModule,
+    NgbModule,
+    ChartModule,
+    HttpClientModule
   ],
-  providers: [],
-  exports: [],
+  providers: [EnvServiceProvider, AuthGuard],
+  exports: [
+    NgbModule,
+    IncidentsCompactComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

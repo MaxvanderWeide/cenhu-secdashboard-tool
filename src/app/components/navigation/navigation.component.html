@@ -1,38 +1,18 @@
-<nav class="navbar-expand">
+<nav [ngClass]="retracted  ? 'navbar-expand' : 'navbar-expand nav-expanded'">
   <div class="navbar-icons">
-    <a href="/incidents">
-      <div class="navbar-icon">
-        <em class="fa fa-exclamation-circle"></em>
-      </div>
-    </a>
-    <a href="/performances">
-      <div class="navbar-icon">
-        <em class="fa fa-tachometer"></em>
-      </div>
-    </a>
-    <a href="/academy">
-      <div class="navbar-icon">
-        <em class="fa fa-university"></em>
-      </div>
-    </a>
-    <a href="/report">
-      <div class="navbar-icon">
-        <em class="fa fa-eye"></em>
-      </div>
-    </a>
+    <div *ngFor="let item of navItems">
+      <a [routerLink]="[item.resource]"  (click)="handleStopPropagation($event)">
+        <div class="navbar-icon">
+          <em class="fa fa-{{item.icon}}"></em>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="navbar-items" [ngClass]="isRetracted ? '' : 'expanded'">
-    <a href="/incidents">
-      <span class="navbar-item">Incidents</span>
-    </a>
-    <a href="/performances">
-      <span class="navbar-item">Performance</span>
-    </a>
-    <a href="/academy">
-      <span class="navbar-item">Academy</span>
-    </a>
-    <a href="/report">
-      <span class="navbar-item">Reports</span>
-    </a>
+  <div class="navbar-items" [ngClass]="(this.retracted) ? '' : 'expanded'">
+    <div *ngFor="let item of navItems">
+      <a [routerLink]="[item.resource]" (click)="handleStopPropagation($event)">
+        <span class="navbar-item">{{item.name}}</span>
+      </a>
+    </div>
   </div>
 </nav>

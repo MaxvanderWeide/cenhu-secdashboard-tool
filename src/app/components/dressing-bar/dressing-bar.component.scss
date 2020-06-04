@@ -1,0 +1,43 @@
+@import "~src/assets/scss/mixins";
+
+.snackbar-dressing {
+  background: #e57373;
+  z-index: 999;
+  color: white;
+  position: fixed;
+  text-align: center;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 15px 10px 5px 10px;
+  animation: moveUp 0.3s;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+  @include lg-phone-only {
+    bottom: -45px;
+    padding: 5px 5px 0 5px;
+    margin: 0;
+    width: 100%;
+    animation: moveUpMobile 0.3s;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    bottom: -50px;
+  }
+  to {
+    bottom: 10px;
+  }
+}
+
+@keyframes moveUpMobile {
+  from {
+    bottom: -100px;
+  }
+  to {
+    bottom: -45px;
+  }
+}

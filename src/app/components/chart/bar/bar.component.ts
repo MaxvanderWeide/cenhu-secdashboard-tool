@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
-import {Label} from 'ng2-charts';
+import {BarChart} from '@models/barchart.model';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-bar-chart',
@@ -8,17 +8,7 @@ import {Label} from 'ng2-charts';
   styleUrls: ['./bar.component.scss']
 })
 export class BarChartComponent implements OnInit {
-  @Input() chart: {
-    title: string;
-    data: ChartDataSets[];
-    labels: Label[];
-    options: ChartOptions;
-    colors: {}[];
-    dataColors: string[];
-    legend: boolean;
-    type: ChartType;
-    horizontal: boolean;
-  };
+  @Input() chart: BarChart;
 
   colorsList: { [property: string]: {} }[] = [
     {
@@ -48,14 +38,24 @@ export class BarChartComponent implements OnInit {
   ngOnInit(): void {
     this.chart.options = {
       responsive: true,
+      // We use these empty structures as placeholders for dynamic theming.
+      plugins: {
+        datalabels: {
+          anchor: 'end',
+          align: 'end',
+        }
+      }
     };
-    this.chart.legend = true;
+    this.chart.plugins = [pluginDataLabels];
     this.chart.type = this.chart.horizontal ? 'horizontalBar' : 'bar';
-
     this.chart.colors = [];
     for (const tempColor of this.chart.dataColors) {
       const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
       this.chart.colors.push(color);
+    }
+
+    if (window.screen.width <= 768) {
+      this.chart.legend = true;
     }
   }
 }

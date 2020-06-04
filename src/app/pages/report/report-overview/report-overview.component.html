@@ -1,25 +1,88 @@
-<div class="report_new">
-  <form id="report_create" method="post">
+<div class="container">
+  <div class="row">
 
-    <Label for="department">Kies een afdeling</Label>
-    <select id="department">
-      <option value="1">Afdeling 1</option>
-      <option value="2">Afdeling 2</option>
-      <option value="3">Afdeling 3</option>
-    </select>
+    <div id="issues" class="col-sm view">
 
-    <label for="severity">Kies een niveau</label>
-    <select id="severity">
-      <option value="1">Laag</option>
-      <option value="2">Gemiddeld</option>
-      <option value="3">Hoog</option>
-    </select>
+      <h1>Reports</h1>
 
-    <label for="description">Beschrijf de situatie</label>
-    <textarea id="description" maxlength="255"></textarea>
+      <div class="accordion">
 
-    <button type="submit">Maak aan</button>
+        <ngb-accordion [closeOthers]="true" activeIds="item-1" >
 
-  </form>
+          <ngb-panel id="item-{{report.id}}"*ngFor="let report of reports">
 
+            <ng-template ngbPanelTitle>
+              <span>{{report.name}}</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+
+                  <div class="row">
+                    <div class="col-sm-3"><strong>Department</strong></div>
+                    <div class="col-sm">{{report.department}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3"><strong>Severity</strong></div>
+                    <div class="col-sm">{{report.severity}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3"><strong>Description</strong></div>
+                    <div class="col-sm">
+                      {{report.description}}
+                    </div>
+                  </div>
+
+            </ng-template>
+          </ngb-panel>
+
+        </ngb-accordion>
+      </div>
+
+
+
+
+    </div>
+
+    <div id="issues_new" class="col-sm view">
+
+      <h1>Create a new report</h1>
+
+      <form id="report_create" method="post">
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Choose a short title">
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select id="department" class="form-control">
+            <option value="" disabled selected>Choose a department</option>
+            <option value="1">Department 1</option>
+            <option value="2">Department 2</option>
+            <option value="3">Department 3</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="severity">Severity level</label>
+          <select id="severity" class="form-control">
+            <option value="" disabled selected>Choose the severity level</option>
+            <option value="1">Low</option>
+            <option value="2">Medium</option>
+            <option value="3">High</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="3" placeholder="Explain the issue"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create</button>
+
+      </form>
+    </div>
+
+  </div>
 </div>

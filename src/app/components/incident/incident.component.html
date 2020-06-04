@@ -1,16 +1,17 @@
-<div class="incidents {{severityClass}}">
-  <div class="box-header">
-    <h4>{{headerText}} <span class="badge badge-pill badge-light">{{this.getMessages().length}}</span></h4>
+<div class="incidents">
+  <div class="box-header" [ngStyle]="{'background-color':headerInfo.color}">
+    <h4>{{headerInfo.name}} <span class="badge badge-pill badge-light">{{incidents.length}}</span></h4>
   </div>
 
   <div class="message-container">
-    <div class="incident-message" *ngFor="let message of getMessages()">
-      <div class="message-text" *ngIf="this.message.severity === this.alertType">
-        <p>{{message.message}}</p>
-        <a class="message-link" href="#" *ngIf="this.message.hasOwnProperty('url')">Open reference in secure browser</a>
+    <div class="incident-message" *ngFor="let incident of incidents">
+      <div class="message-text">
+        <p>{{incident.message}}</p>
+        <a class="message-link" href="#" *ngIf="this.incident.hasOwnProperty('url')">Open reference in secure
+          browser</a>
       </div>
     </div>
-    <div class="empty-message" *ngIf="getMessages().length === 0">
+    <div class="empty-message" *ngIf="incidents.length === 0">
       <p>No incidents found</p>
     </div>
   </div>

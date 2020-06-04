@@ -1,0 +1,108 @@
+@import "../../../assets/scss/mixins";
+
+.departments {
+  .department-box {
+    padding: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+
+    .department-box-header {
+      padding: 6px;
+      transition: 0.5s;
+
+      @include md-phone-only {
+        & em {
+          font-size: 14px;
+        }
+        & h3 {
+          font-size: 17px;
+        }
+      }
+
+      .toggle-body {
+        width: 4%;
+
+        @include md-phone-only {
+          display: none;
+        }
+      }
+
+      .department-name {
+        color: black;
+        display: inline;
+        position: absolute;
+        transition: all 0.2s;
+
+        @include md-phone-only {
+          position: relative;
+        }
+
+        &:hover,
+        &:focus {
+          color: #199d4a;
+          font-size: 22px;
+
+          @include md-phone-only {
+            color: black;
+            font-size: 17px;
+          }
+        }
+      }
+
+      .department-link {
+        right: 15px;
+        color: #b5b5b5;
+        font-size: 18px;
+        transition: 0.2s;
+        position: absolute;
+
+        &:hover,
+        &:focus {
+          color: #199d4a;
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    .department-box-body {
+      max-height: 0;
+      transition: 1s;
+      cursor: default;
+
+      .department-box-wrapper {
+        transition: 1s;
+        padding: 0 12px 0 12px;
+      }
+
+      &.active {
+        height: auto;
+        max-height: 500px;
+        position: relative;
+
+        .department-box-wrapper {
+          padding: 10px 12px 6px 12px;
+
+          @include md-phone-only {
+            padding: 4px 12px 0 12px;
+          }
+        }
+
+        .main-statistics {
+          & div {
+            padding-bottom: 10px;
+          }
+        }
+
+        .department-incidents {
+          .department-incidents-list {
+            max-height: 400px;
+            overflow-y: auto;
+          }
+        }
+      }
+    }
+  }
+}

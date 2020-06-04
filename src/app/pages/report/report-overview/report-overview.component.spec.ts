@@ -11,7 +11,7 @@ describe('ReportOverviewComponent', () => {
       declarations: [ReportOverviewComponent]
     })
       .compileComponents();
-  }));
+}));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ReportOverviewComponent);

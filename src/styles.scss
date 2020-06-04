@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i");
 @import "~bootstrap/scss/bootstrap";
-@import "src/assets/scss/mixins";
+@import "~src/assets/scss/mixins";
 
 $font-family: 'Poppins', sans-serif;
 
@@ -11,13 +11,17 @@ html {
   max-height: 100vh;
   overflow: hidden;
 
+  @include md-tablet-only {
+    overflow: scroll;
+  }
+
   body {
     font-family: $font-family !important;
     background: #e2e2e2;
-    margin: 87px 0 0 60px;
+    margin: 87px 15px 15px 75px;
 
     @include lg-phone-only {
-      margin-left: 0;
+      margin-left: 15px;
     }
   }
 }

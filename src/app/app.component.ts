@@ -6,9 +6,14 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private auth: boolean = true;
 
-  public get isAuthenticated(): boolean {
-    return this.auth;
+  public static isMobile(): boolean {
+    return (navigator.userAgent.match(/Android/i) !== null
+      || navigator.userAgent.match(/webOS/i) !== null
+      || navigator.userAgent.match(/iPhone/i) !== null
+      || navigator.userAgent.match(/iPad/i) !== null
+      || navigator.userAgent.match(/iPod/i) !== null
+      || navigator.userAgent.match(/BlackBerry/i) !== null
+      || navigator.userAgent.match(/Windows Phone/i) !== null);
   }
 }

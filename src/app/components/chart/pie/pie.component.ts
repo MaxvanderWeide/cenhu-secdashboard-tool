@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import {ChartOptions} from 'chart.js';
+import {PieChart} from '@models/piechart.model';
 
 @Component({
   selector: 'app-pie-chart',
@@ -8,36 +8,41 @@ import {ChartOptions} from 'chart.js';
   styleUrls: ['./pie.component.scss']
 })
 export class PieChartComponent implements OnInit {
-  @Input() chart: {
-    title: string;
-    data: {
-      data: [];
-      labels: [];
-    };
-    labels: [];
-    options: ChartOptions;
-    type: string;
-    showLegend: boolean;
-    plugins: {};
-    colors: {};
-    dataColors: string[];
-  };
+  @Input() chart: PieChart;
 
   ngOnInit(): void {
+    const colors: string[] = [];
+    if (!this.chart.dataColors) {
+      // tslint:disable-next-line:forin
+      for (const value in this.chart.data) {
+        colors.push(`rgba(255, 153, 0,${this.chart.data[value] / this.chart.data.reduce((x: number, y: number) => x + y, 0)})`);
+      }
+    }
     this.chart.options = {
       responsive: true,
-      legend: {
-        position: 'right',
+      legend: {},
+      plugins: {
+        datalabels: {
+          display: this.chart.displayDataInChart
+        }
       }
     };
     this.chart.type = 'pie';
-    this.chart.showLegend = true;
     this.chart.plugins = [pluginDataLabels];
     this.chart.colors =
       [
         {
-          backgroundColor: this.chart.dataColors,
+          backgroundColor: this.chart.dataColors ? this.chart.dataColors : colors,
         },
       ];
+
+
+    if (window.screen.width <= 768) {
+      this.chart.showLegend = true;
+      this.chart.options.legend.position = 'bottom';
+    } else {
+      this.chart.options.legend.position = this.chart.legendPosition === undefined ? 'right' : this.chart.legendPosition;
+      this.chart.options.legend.align = ['top', 'bottom'].includes(this.chart.legendPosition) ? 'start' : 'center';
+    }
   }
 }

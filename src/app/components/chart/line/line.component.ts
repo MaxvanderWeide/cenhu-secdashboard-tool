@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
-import {Label} from 'ng2-charts';
+import {LineChart} from '@models/linechart.model';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-line-chart',
@@ -8,18 +8,9 @@ import {Label} from 'ng2-charts';
   styleUrls: ['./line.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  @Input() chart: {
-    title: string;
-    data: ChartDataSets[];
-    labels: Label[];
-    options: ChartOptions;
-    colors: {}[];
-    dataColors: string[];
-    legend: boolean;
-    type: ChartType;
-  };
+  @Input() chart: LineChart;
 
-  colorsList: {[property: string]: {}}[] = [
+  colorsList: { [property: string]: {} }[] = [
     {
       green:
         { // green
@@ -60,10 +51,15 @@ export class LineChartComponent implements OnInit {
     this.chart.legend = true;
     this.chart.type = 'line';
 
+    this.chart.plugins = [pluginDataLabels];
     this.chart.colors = [];
     for (const tempColor of this.chart.dataColors) {
       const color: {} = tempColor in this.colorsList[0] ? this.colorsList[0][tempColor] : this.colorsList[0].default;
       this.chart.colors.push(color);
+    }
+
+    if (window.screen.width <= 768) {
+      this.chart.legend = true;
     }
   }
 }
