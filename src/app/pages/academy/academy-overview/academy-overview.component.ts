@@ -36,7 +36,7 @@ export class AcademyOverviewComponent {
     title: string;
     data: number[];
     labels: string[];
-    dataColors: string[];
+    dataColors?: string[];
   };
 
   public progressPercentage: {
@@ -124,8 +124,7 @@ export class AcademyOverviewComponent {
     this.certificatePercentage = {
       title: 'Certificate',
       data: [this.yPercentage, this.nPercentage],
-      labels: ['Certifications', 'Not certifications'],
-      dataColors: ['rgba(255,210,66,0.63)', 'rgba(2,4,250,0.22)']
+      labels: ['Certifications', 'Not certifications']
     };
 
     this.progressPercentage = {
