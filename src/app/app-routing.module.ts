@@ -10,12 +10,19 @@ import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
 import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
+import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     canActivate: [AuthGuard],
     children: [
+      {
+        path: '',
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
+        data: {scopes: [Scope.CorporateSecurityTeamMember]}
+      },
       {
         path: 'academy',
         component: AcademyOverviewComponent,

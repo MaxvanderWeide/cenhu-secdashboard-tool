@@ -1,0 +1,55 @@
+$borderRadius: 6px;
+$columnPadding: 8px 12px;
+
+.dashboard {
+  .security-status {
+    width: 100%;
+    padding: $columnPadding;
+    background-color: #ff7465;
+    border-radius: $borderRadius;
+
+    .status-text {
+      h4, h3 {
+        margin: 0;
+        display: inline;
+      }
+      h4 {
+        font-size: 50px;
+        margin-right: 10px;
+        font-weight: normal;
+      }
+      h3 {
+        font-size: 25px;
+      }
+    }
+
+    .progress {
+      height: 20px;
+      margin: auto 15px;
+      position: absolute;
+      top: 0; bottom: 0; right: 0; left: 0;
+    }
+  }
+
+  .main-information {
+    margin-top: 40px;
+    justify-content: space-between;
+
+    .total-incidents {
+      width: 90%;
+      color: #fff;
+      text-align: center;
+      padding: $columnPadding;
+      background-color: #019e12;
+      border-radius: $borderRadius;
+    }
+
+    .department-information {
+      width: 80%;
+      text-align: center;
+      padding: $columnPadding;
+      background-color: #fff;
+      border-radius: $borderRadius;
+    }
+  }
+}
