@@ -7,7 +7,7 @@ import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-report-overview',
   templateUrl: './report-overview.component.html',
-  styleUrls: ['./report-overview.component.scss']
+  styleUrls: ['./report-overview.component.scss'],
 })
 
 export class ReportOverviewComponent {
@@ -17,12 +17,11 @@ export class ReportOverviewComponent {
   public subjectInput: string;
   public severityInput: string;
   public descriptionInput: string;
-  public id: number;
   public dateTime: string = new Date().toLocaleString();
   public reTime: string;
+  public object: HTMLElement;
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
-
     this.dataService.getReports().subscribe(
       (reports: Report[]) => {
         this.reports = reports;
@@ -33,8 +32,10 @@ export class ReportOverviewComponent {
     );
   }
 
-  onSubmit(reportForm: NgForm): void {
 
+
+
+  onSubmit(reportForm: NgForm): void {
     if (!this.nameInput) { this.dressingService.message('Please fill in a name'); }
     else if (!this.departmentInput) { this.dressingService.message('Please choose a department'); }
     else if (!this.subjectInput) { this.dressingService.message('Please choose a subject'); }
@@ -55,4 +56,12 @@ export class ReportOverviewComponent {
     reportForm.reset();
   }
 
+  openUp(id): void {
+    this.object = document.getElementById('content-' + id);
+    if (this.object.classList.contains('active')) {
+      this.object.classList.remove('active');
+    } else {
+      this.object.classList.add('active');
+    }
+  }
 }

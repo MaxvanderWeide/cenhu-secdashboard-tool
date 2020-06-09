@@ -1,37 +1,99 @@
 <div class="container-fluid dashboard">
   <div class="row">
     <div class="security-status">
-      <div class="row">
+      <div class="row status-wrapper">
         <div class="col-lg-4 status-text text-center">
-          <h4>28%</h4>
-          <h3>of total security reached</h3>
+          <h3>28%</h3>
+          <h4>of total security reached</h4>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 progress-wrapper">
           <div class="progress">
-            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': '28%'}">28%</div>
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': '28%'}"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row main-information">
-    <div class="col-md-6 total-incidents">
-      <div class="mx-3">
-        hier is text
+    <div class="col-md-5 total-incidents">
+      <div class="incidents-text">
+        <span>12</span> open <br> of 1656 total <br> INCIDENTS
       </div>
     </div>
     <div class="col-md-3 department-information">
-      <div class="mx-3">
-        hier is text
+      <h2>Department incidents</h2>
+      <div class="department-table-wrapper">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>Otto</td>
+            <td>32</td>
+          </tr>
+          <tr>
+            <td>Thornton</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>the Bird</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>Otto</td>
+            <td>32</td>
+          </tr>
+          <tr>
+            <td>Thornton</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <td>the Bird</td>
+            <td>42</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="col-md-3 department-information">
-      <div class="mx-3">
-        hier is text
+    <div class="col-md-3 active-departments">
+      <div class="text-wrapper">
+        <h1>35</h1>
+        <h3>Active Departments</h3>
       </div>
     </div>
   </div>
   <div class="row specific-information">
-
+    <div class="col-md-4 severity-risks">
+      <div class="risks-header">
+        Number of severity risks
+      </div>
+      <div class="risks-body">
+        <div>
+          <div class="risks-count">5</div>
+          <div class="risk-indicator high-risk">HIGH</div>
+        </div>
+        <div>
+          <div class="risks-count">9</div>
+          <div class="risk-indicator medium-risk">MEDIUM</div>
+        </div>
+        <div>
+          <div class="risks-count">3</div>
+          <div class="risk-indicator low-risk">LOW</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 academy-information">
+      <div class="academy-text">
+        <h1>365</h1>
+        <h4>Academy users last week</h4>
+        <div class="academy-percentage-box">
+          <em class="fa fa-caret-up"></em>
+          <span> 25%</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 incident-information">
+      <div class="chart-item" *ngIf="lineData !== undefined">
+        <app-line-chart [chart]="lineData"></app-line-chart>
+      </div>
+    </div>
   </div>
 </div>
