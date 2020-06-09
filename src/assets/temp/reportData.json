@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Test",
+    "name": "First",
     "department": "Department one",
     "subject": "Subject one",
     "severity": "High",
@@ -11,12 +11,12 @@
   },
   {
     "id": 2,
-    "name": "Test2",
-    "department": "Department 2",
-    "subject": "Subject 2",
-    "severity": "Medium",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (2)",
-    "date": "2020-10-23T18:25:43.511Z",
+    "name": "Second",
+    "department": "Department two",
+    "subject": "Subject two",
+    "severity": "Low",
+    "description": "(2)",
+    "date": "2020-08-23T18:25:43.511Z",
     "open": true
   }
 ]
