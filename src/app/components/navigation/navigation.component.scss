@@ -9,8 +9,8 @@
   width: 60px;
   background-color: #eaeaea;
   cursor: pointer;
-  @include lg-phone-only {
-    top: -1000px;
+  @include md-tablet-only {
+    top: -1050px;
     width: 100%;
     &.nav-expanded {
       background-color: blue;
@@ -38,7 +38,7 @@
       width: 60px;
       text-align: center;
       background-color: #eaeaea;
-      @include lg-phone-only {
+      @include md-tablet-only {
         position: absolute;
       }
     }
@@ -55,7 +55,7 @@
         display: block;
       }
 
-      @include lg-phone-only {
+      @include md-tablet-only {
         text-align: center;
         width: 100%;
         position: initial;
@@ -88,7 +88,7 @@
 
 @keyframes moveFromTop {
   from {
-    top: -800px;
+    top: -1050px;
   }
   to {
     top: 72px;
@@ -100,6 +100,6 @@
     top: 72px;
   }
   to {
-    top: -800px;
+    top: -1050px;
   }
 }
