@@ -5,20 +5,20 @@
     "code": "hrm",
     "statistics": [
       {
-        "name": "stat1",
-        "data": 2400
+        "name": "Employees",
+        "data": 47
       },
       {
-        "name": "stat2",
-        "data": 124
+        "name": "Overall performance",
+        "data": "88%"
       },
       {
-        "name": "stat3",
-        "data": 23
+        "name": "In year performance",
+        "data": "92%"
       },
       {
-        "name": "stat4",
-        "data": 24366
+        "name": "Vulnerability",
+        "data": "Critical"
       }
     ]
   },
@@ -28,20 +28,20 @@
     "code": "fin",
     "statistics": [
       {
-        "name": "stat1",
-        "data": 2400
+        "name": "Medewerkers",
+        "data": 241
       },
       {
-        "name": "stat2",
-        "data": 124
+        "name": "Overall performance",
+        "data": "95%"
       },
       {
-        "name": "stat3",
-        "data": 23
+        "name": "In year performance",
+        "data": "79%"
       },
       {
-        "name": "stat4",
-        "data": 24366
+        "name": "Vulnerability",
+        "data": "Low"
       }
     ]
   }

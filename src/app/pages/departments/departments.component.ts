@@ -40,7 +40,7 @@ export class DepartmentsComponent {
       );
     });
     this.pieData = {
-      title: 'Heey',
+      title: 'Chart',
       data: [300, 500, 100],
       labels: ['data1.1', 'data1.2', 'data1.3'],
       dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
