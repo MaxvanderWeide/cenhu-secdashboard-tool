@@ -52,7 +52,8 @@ export class DepartmentsComponent {
   private setBardata(incidents: Incident[]): void {
     // Get incidents per year
     const date: Date = new Date();
-    const lowestYear: number = incidents.reduce((prev: Incident, curr: Incident) => prev.year < curr.year ? prev : curr).year;
+    // tslint:disable-next-line:max-line-length
+    const lowestYear: number = new Date(incidents.reduce((prev: Incident, curr: Incident) => new Date(prev.filed).getFullYear() < new Date(curr.filed).getFullYear() ? prev : curr).filed).getFullYear();
     const years: { currentYear: number; years: Label[]; yearsDiff: number; year: number } = {
       currentYear: date.getFullYear(),
       years: [],
@@ -71,8 +72,9 @@ export class DepartmentsComponent {
     const incidentsYear: { total: number; open: number }[] = [];
     years.years.forEach((value: string) => {
       incidentsYear.push({
-        total: incidents.filter((incident: Incident) => incident.year === parseInt(value, 10)).length,
-        open: incidents.filter((incident: Incident) => incident.year === parseInt(value, 10) && incident.open).length
+        total: incidents.filter((incident: Incident) => new Date(incident.filed).getFullYear() === parseInt(value, 10)).length,
+        // tslint:disable-next-line:max-line-length
+        open: incidents.filter((incident: Incident) => new Date(incident.filed).getFullYear() === parseInt(value, 10) && incident.open).length
       });
     });
 

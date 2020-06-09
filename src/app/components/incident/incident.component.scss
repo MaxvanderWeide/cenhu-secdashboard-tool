@@ -24,6 +24,11 @@
     border-radius: 0 0 5px 5px;
     background-color: rgb(209, 209, 209);
 
+    .url-hold:hover {
+      cursor: pointer;
+      opacity: .8;
+    }
+
     &::-webkit-scrollbar {
       width: 5px;
     }
@@ -53,15 +58,29 @@
       height: auto;
       margin: 15px 2% 15px 2%;
       padding: 5px 5px 5px 5px;
+
       .message-box {
         background-color: white;
         border-bottom-right-radius: 6px;
         border-top-right-radius: 6px;
+        p {
+          margin: 0;
+        }
       }
+
       .time-box {
         border-bottom-left-radius: 6px;
         border-top-left-radius: 6px;
         background-color: #f6f6f6;
+        font-size: small;
+        text-align: center;
+
+        span {
+          display: inline-block;
+          vertical-align: middle;
+          line-height: normal;
+          opacity: 1;
+        }
       }
     }
   }
