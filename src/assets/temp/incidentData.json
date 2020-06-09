@@ -4,28 +4,35 @@
     "severity": "high",
     "url": "#",
     "department": "hrm",
+    "departmentName": "Human Resource Management",
     "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
+    "open": true,
+    "id": 3213421421
   },
   {
     "message": "One line",
     "severity": "high",
     "url": "#",
     "department": "hrm",
+    "departmentName": "Human Resource Management",
     "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
+    "open": true,
+    "id": 3213421421
   },
   {
     "message": "M1 scored poorly",
     "severity": "high",
     "url": "#",
     "department": "hrm",
+    "departmentName": "Human Resource Management",
     "filed": "2020-06-03T18:25:43.511Z",
-    "open": true
+    "open": true,
+    "id": 3213421421
   },
   {
     "message": "M1 scored poorly",
     "severity": "high",
-    "filed": "2020-06-03T18:25:43.511Z"
+    "filed": "2020-06-03T18:25:43.511Z",
+    "id": 3213421421
   }
 ]

@@ -56,31 +56,20 @@
     .incident-message {
       width: auto;
       height: auto;
+      border-radius: 5px;
       margin: 15px 2% 15px 2%;
       padding: 5px 5px 5px 5px;
-
-      .message-box {
-        background-color: white;
-        border-bottom-right-radius: 6px;
-        border-top-right-radius: 6px;
-        p {
-          margin: 0;
-        }
-      }
-
-      .time-box {
-        border-bottom-left-radius: 6px;
-        border-top-left-radius: 6px;
-        background-color: #f6f6f6;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      div {
+        color: #565656;
         font-size: small;
-        text-align: center;
-
-        span {
-          display: inline-block;
-          vertical-align: middle;
-          line-height: normal;
-          opacity: 1;
-        }
+      }
+      .box-text {
+        width: 100%;
+        font-size: medium;
+        color: black;
       }
     }
   }
