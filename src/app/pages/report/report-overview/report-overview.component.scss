@@ -6,6 +6,46 @@ h1 {
   float: right;
 }
 
-.accordion .btn {
-  box-shadow: none;
+
+.accordion {
+  overflow: overlay;
+  height: calc(100vh - 200px);
+}
+.report-item {
+  margin-bottom: 10px;
+  .accordion_btn {
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #d0cfcf;
+    padding: 10px 15px;
+    margin-bottom: 0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: white;
+    span {
+      float: right;
+      margin-right: 5px;
+    }
+  }
+  .content {
+    -moz-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid #ced4da;
+    background: white;
+    border-top: 0;
+    padding: 0;
+    &.active {
+      height: auto;
+      display: block;
+      padding: 15px 15px 0;
+    }
+  }
+  .btn {
+    box-shadow: none;
+  }
 }

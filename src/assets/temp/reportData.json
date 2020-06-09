@@ -6,7 +6,7 @@
     "subject": "Subject one",
     "severity": "High",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tortor libero, tincidunt id orci eget, aliquet ullamcorper nisl. Donec faucibus dictum lectus, a feugiat nisl pharetra quis. (1)",
-    "date": "2020-07-23T18:25:43.511Z",
+    "date": "9-6-2020 16:35:00",
     "open": true
   },
   {
@@ -16,7 +16,7 @@
     "subject": "Subject two",
     "severity": "Low",
     "description": "(2)",
-    "date": "2020-08-23T18:25:43.511Z",
+    "date": "9-6-2020 16:35:00",
     "open": true
   }
 ]
