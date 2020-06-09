@@ -20,7 +20,7 @@ html {
     background: #e2e2e2;
     margin: 87px 15px 15px 75px;
 
-    @include lg-phone-only {
+    @include md-tablet-only {
       margin-left: 15px;
     }
   }
