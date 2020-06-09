@@ -11,44 +11,39 @@ import {DataService} from '@app/services/data.service';
   templateUrl: './academy-overview.component.html',
   styleUrls: ['./academy-overview.component.scss']
 })
-export class AcademyOverviewComponent implements OnInit{
+export class AcademyOverviewComponent{
 
   months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
   // Percentage of the bar graph
-  progPercentage: number = 0;
-  progStringPercentage: string = '';
-  progColor: string = '#ffc107';
+  barPercentage: number;
+  barStringPercentage: string;
+  barColor: string = '#ffc107';
 
   academyData: Academy[];
 
   // Count average hours work
-  avgHours: number = 0;
-  timeNull: number = 0;
-
-  avgProgress: number = 0;
+  avgHours: number;
 
   // Average review score
-  avgReviewScore: number = 0;
-  reviewNull: number = 0;
+  avgReviewScore: number;
 
   // Average trainer review
-  avgTrainerReview: number = 0;
-  trainerNull: number = 0;
+  avgTrainerReview: number;
 
   // Data for certificates
-  yAmount: number = 0;
-  yPercentage: number = 0;
-  nPercentage: number = 0;
+  yCertificateAmount: number;
+  yCertificatePercentage: number;
+  nCertificatePercentage: number;
 
   // Data for quiz
-  quizScore: number = 0;
-  quizAttempt: number = 0;
+  quizScore: number;
+  quizAttempt: number;
 
   // Variables for progress
-  progWaiting: number = 0;
-  progProgress: number = 0;
-  progDone: number = 0;
+  progressToDo: number;
+  progressInProgress: number;
+  progressDone: number;
 
   // Data for Graphs
   public certificatePercentage: {
@@ -74,106 +69,70 @@ export class AcademyOverviewComponent implements OnInit{
     });
   }
 
-  ngOnInit(): void {
-  }
-
   calculateData(): void {
-    const academyAfterProgress = this.academyData.filter((academy: Academy) => {
-      return academy.timeSpent !== 0;
-    });
-    this.avgHours = academyAfterProgress.map(a => a.timeSpent).reduce((a, b) => a + b, 0) / academyAfterProgress.length;
-  //   for (const record of this.records) {
-  //     this.avgHours += record.timeSpent;
-  //     this.avgProgress += record.progress;
-  //     this.avgReviewScore += record.reviewScore;
-  //     this.avgTrainerReview += record.trainerReview;
-  //
-  //     this.quizScore += record.quizScore;
-  //     this.quizAttempt += record.quizAttempts;
-  //
-  //     // When the row time spent has no value
-  //     if (record.timeSpent === 0) {
-  //       this.timeNull++;
-  //     }
-  //
-  //     // When the row review score has no value
-  //     if (record.reviewScore === 0) {
-  //       this.reviewNull++;
-  //     }
-  //
-  //     // When the row trainer review has no value
-  //     if (record.trainerReview === 0) {
-  //       this.trainerNull++;
-  //     }
-  //
-  //     if (record.certificate === 'Y') {
-  //       this.yAmount++;
-  //     }
-  //
-  //     // Progress row data
-  //     if (record.progress === 0) {
-  //       this.progWaiting++;
-  //     }
-  //
-  //     if (record.progress >= 0.1 && record.progress <= 0.9) {
-  //       this.progProgress++;
-  //     }
-  //
-  //     if (record.progress === 1) {
-  //       this.progDone++;
-  //     }
-  //   }
-  //
-  //   this.avgHours = Math.round(((this.avgHours / (this.records.length - this.timeNull)) + Number.EPSILON) * 100) / 100;
-  //
-  //   this.avgReviewScore = Math.round(((this.avgReviewScore / (this.records.length - this.reviewNull)) + Number.EPSILON) * 100) / 100;
-  //   this.avgTrainerReview = Math.round(((this.avgTrainerReview / (this.records.length - this.trainerNull)) + Number.EPSILON) * 100) / 100;
-  //
-  //   this.yPercentage = Number(((this.yAmount / this.records.length) * 100).toFixed(2));
-  //   this.nPercentage = Number((((this.records.length - this.yAmount) / this.records.length) * 100).toFixed(2));
-  //
-  //   // Automatic loading percentage of Bar graph
-  //   this.avgProgress = Math.round(((this.avgProgress / this.records.length) + Number.EPSILON) * 100) / 100;
-  //   this.progPercentage = Math.round(this.avgProgress * 100);
-  //   this.progStringPercentage = this.progPercentage + '%';
-  //
-  //   // Color of bar graph
-  //   if (this.progPercentage <= 40){
-  //     this.progColor = 'red';
-  //   } else if (this.progPercentage > 60){
-  //     this.progColor = 'green';
-  //   }
-  //
-  //   // Bar graph
-  //   this.barData = {
-  //     title: 'Bar',
-  //     data: [
-  //       {data: [100, 111, 132, 304], label: 'Total'},
-  //       {data: [7, 32, 2, 102], label: 'Open'}
-  //     ],
-  //     labels: this.months,
-  //     dataColors: ['blue', 'red'],
-  //     horizontal: false,
-  //     legend: true
-  //   };
-  //
-  //   // Line graph
-  //   this.lineData = {
-  //     title: 'Line',
-  //     data: [
-  //       {data: [65, 59, 80, 81, 56, 55, 40, 52, 31, 23, 64, 31], label: 'Team A'},
-  //       {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Team B'}
-  //     ],
-  //     labels: this.months,
-  //     dataColors: ['blue', 'red']
-  //   };
-  //
-  //   // Pie chart of certificate
-  //   this.certificatePercentage = {
-  //     title: 'Certificate',
-  //     data: [this.yPercentage, this.nPercentage],
-  //     labels: ['Certifications', 'Not certifications']
-  //   };
-  //
+
+    // Data for Bar graph
+    this.barPercentage = (this.academyData.map(a => a.progress).reduce((a, b) => a + b, 0) / this.academyData.length) * 100;
+    this.barStringPercentage = String(this.barPercentage + '%');
+
+    // Color of bar graph
+    if (this.barPercentage <= 40){
+      this.barColor = 'red';
+    } else if (this.barPercentage > 60){
+      this.barColor = 'green';
+    }
+
+    this.avgHours = this.academyData.map(a => a.timeSpent).reduce((a, b) => a !== 0 ? a + b : b, 0)
+      / this.academyData.filter((academy: Academy) => { return academy.timeSpent !== 0; }).length;
+
+    this.avgReviewScore = this.academyData.map(a => a.reviewScore).reduce((a, b) => a + b, 0) / this.academyData.length;
+
+    this.avgTrainerReview = this.academyData.map(a => a.trainerReview).reduce((a, b) => a + b, 0) / this.academyData.length;
+
+    this.quizScore = this.academyData.map(a => a.quizScore).reduce((a, b) => a + b, 0) / this.academyData.length;
+
+    this.quizAttempt = this.academyData.map(a => a.quizScore).reduce((a, b) => a + b, 0);
+
+    this.progressToDo = this.academyData.filter(function (academy) { return academy.progress === 0; }).length;
+
+    this.progressInProgress = this.academyData.filter(function (academy) { return academy.progress >= 0.1 && academy.progress <= 0.9; }).length;
+
+    this.progressDone = this.academyData.filter(function (academy) { return academy.progress === 1; }).length;
+
+    // Data for pie chart
+    this.yCertificateAmount = this.academyData.filter(function (academy) { return academy.certificate === 'Y'; }).length;
+    this.yCertificatePercentage = Number(((this.yCertificateAmount / this.academyData.length) * 100).toFixed(2));
+    this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) / this.academyData.length) * 100).toFixed(2));
+
+    // Bar graph
+    this.barData = {
+      title: 'Bar',
+      data: [
+        {data: [100, 111, 132, 304], label: 'Total'},
+        {data: [7, 32, 2, 102], label: 'Open'}
+      ],
+      labels: this.months,
+      dataColors: ['blue', 'red'],
+      horizontal: false,
+      legend: true
+    };
+
+    // Line graph
+    this.lineData = {
+      title: 'Line',
+      data: [
+        {data: [65, 59, 80, 81, 56, 55, 40, 52, 31, 23, 64, 31], label: 'Team A'},
+        {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Team B'}
+      ],
+      labels: this.months,
+      dataColors: ['blue', 'red']
+    };
+
+    // Pie chart of certificate
+    this.certificatePercentage = {
+      title: 'Certificate',
+      data: [this.yCertificatePercentage, this.nCertificatePercentage],
+      labels: ['Certifications', 'Not certifications']
+    };
   }
 }

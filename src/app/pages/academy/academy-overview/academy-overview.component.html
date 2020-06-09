@@ -3,21 +3,21 @@
     <div class="academy-header">
       <h2>Academy</h2>
       <div class="progress">
-        <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': progStringPercentage, 'background-color': progColor }">
-          {{progPercentage}}
+        <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': barStringPercentage, 'background-color': barColor }">
+          {{barPercentage | number : '1.0-0'}}%
         </div>
       </div>
     </div>
   </div>
   <div class="row charts">
     <div class="statistics-overview-body">
-      <div class="chart-item">
+      <div class="chart-item" *ngIf="barData">
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
-      <div class="chart-item">
+      <div class="chart-item" *ngIf="lineData">
         <app-line-chart [chart]="lineData"></app-line-chart>
       </div>
-      <div class="chart-item">
+      <div class="chart-item" *ngIf="certificatePercentage">
         <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
       </div>
     </div>
@@ -26,30 +26,30 @@
     <div class="chart-item statistics-overview-column statistics-overview-main col">
       <div>
         To-Do
-        <span class="open-incidents">{{progWaiting}}</span>
+        <span class="open-incidents">{{progressToDo}}</span>
       </div>
       <div>
         In Progress
-        <span class="total-incidents">{{progProgress}}</span>
+        <span class="total-incidents">{{progressInProgress}}</span>
       </div>
       <div>
         Done
-        <span class="closed-incidents">{{progDone}}</span>
+        <span class="closed-incidents">{{progressDone}}</span>
       </div>
     </div>
   </div>
   <div class="row charts">
     <div class="chart-item text-item">
       <p>Average hours spent on Academy:</p>
-      <p class="percentage">{{avgHours}}</p>
+      <p class="percentage">{{avgHours | number : '1.2-2'}}</p>
     </div>
     <div class="chart-item text-item">
       <p>Average review score on Academy:</p>
-      <p class="percentage">{{avgReviewScore}}</p>
+      <p class="percentage">{{avgReviewScore | number : '1.2-2'}}</p>
     </div>
     <div class="chart-item text-item">
       <p>Average trainer review on Academy:</p>
-      <p class="percentage">{{avgTrainerReview}}</p>
+      <p class="percentage">{{avgTrainerReview | number : '1.2-2'}}</p>
     </div>
   </div>
   <div class="row charts">
@@ -59,7 +59,7 @@
     </div>
     <div class="chart-item text-item">
       <p>Average quiz score on Academy:</p>
-      <p class="percentage">{{quizScore}}</p>
+      <p class="percentage">{{quizScore | number : '1.2-2'}}</p>
     </div>
     <div class="chart-item text-item">
       <p>Total quiz attempts on Academy:</p>
