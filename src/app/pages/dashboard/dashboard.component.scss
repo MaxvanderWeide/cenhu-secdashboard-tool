@@ -1,26 +1,20 @@
 $borderRadius: 6px;
 $columnPadding: 8px 12px;
 
-.dashboard {
+.dashboard-container {
   .security-status {
-    width: 100%;
     padding: $columnPadding;
     background-color: #ff7465;
     border-radius: $borderRadius;
+    color: #fff;
 
-    .status-text {
-      h4, h3 {
-        margin: 0;
-        display: inline;
-      }
-      h4 {
-        font-size: 25px;
-        font-weight: normal;
-      }
-      h3 {
-        font-size: 50px;
-        margin-right: 10px;
-      }
+    &-percentage {
+      font-size: 50px;
+      margin-right: 10px;
+    }
+
+    &-text {
+      font-size: 25px;
     }
 
     .progress-wrapper {
@@ -32,82 +26,85 @@ $columnPadding: 8px 12px;
     }
   }
 
-  .main-information {
+  .dashboard-row {
     height: 25vh;
     margin-top: 40px;
     justify-content: space-between;
 
-    .total-incidents {
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: $columnPadding;
-      background-color: #189f48;
+    .row-column {
       border-radius: $borderRadius;
-
-      span {
-        font-weight: 600;
-        font-size: 60px;
-        line-height: 1;
-      }
-    }
-
-    .department-information {
-      text-align: left;
+      padding: $columnPadding;
       background-color: #fff;
-      padding: $columnPadding;
-      border-radius: $borderRadius;
 
-      h2 {
-        padding: 5px;
-        font-weight: normal;
-      }
+      &.total-incidents {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $columnPadding;
+        background-color: #189f48;
 
-      .department-table-wrapper {
-        max-height: 20vh;
-        overflow-y: scroll;
-      }
-    }
-
-    .active-departments {
-      display: flex;
-      text-align: center;
-      align-items: center;
-      background-color: #fff;
-      justify-content: center;
-      padding: $columnPadding;
-      border-radius: $borderRadius;
-
-      .text-wrapper {
-        h1 {
-          font-size: 60px;
+        span {
           font-weight: 600;
-        }
-        h3 {
-          color: #000;
-          font-weight: normal;
+          font-size: 60px;
+          line-height: 1;
         }
       }
     }
   }
 
-  .specific-information {
-    height: 25vh;
-    margin-top: 40px;
-    justify-content: space-between;
+  .departments-incidents {
+    h2 {
+      font-weight: normal;
+      padding: 6px 10px;
+    }
 
-    .severity-risks {
+    &-container {
+      max-height: 20vh;
+      overflow-y: scroll;
+    }
+
+    &-box {
       display: flex;
-      flex-direction: column;
-      background-color: #fff;
-      padding: $columnPadding;
-      border-radius: $borderRadius;
+      justify-content: space-between;
+      padding: 10px;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
 
-      .risks-header {
+      span:nth-child(2) {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .active-departments {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    &-wrapper {
+      h1 {
+        font-size: 60px;
+        font-weight: 600;
+      }
+
+      h3 {
+        color: #000;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .severity-risks {
+    display: flex;
+    flex-direction: column;
+
+    .risks {
+      &-header {
         font-size: 20px;
         position: relative;
         text-align: center;
+
 
         &::after {
           left: 0;
@@ -121,7 +118,7 @@ $columnPadding: 8px 12px;
         }
       }
 
-      .risks-body {
+      &-body {
         height: 100%;
         display: flex;
         justify-content: space-between;
@@ -131,79 +128,75 @@ $columnPadding: 8px 12px;
           display: flex;
           text-align: center;
           flex-direction: column;
-
-          .risks-count  {
-            margin: auto 0;
-            font-size: 60px;
-            position: relative;
-
-            &::after {
-              top: 0;
-              right: 0;
-              bottom: 0;
-              width: 2px;
-              content: ' ';
-              margin: auto 0;
-              position: absolute;
-              background-color: rgba(0, 0, 0, 0.3);
-            }
-          }
-
-          .risk-indicator {
-            color: white;
-
-            &.high-risk {
-              background-color: #ff7464;
-            }
-            &.medium-risk {
-              background-color: #ffc800;
-            }
-            &.low-risk {
-              background-color: #189f48;
-            }
-          }
         }
       }
-    }
 
-    .academy-information {
-      display: flex;
-      text-align: center;
-      align-items: center;
-      background-color: #fff;
-      padding: $columnPadding;
-      justify-content: center;
-      border-radius: $borderRadius;
+      &-count {
+        margin: auto 0;
+        font-size: 60px;
+        position: relative;
 
-      .academy-text {
-        h1 {
-          color: #000;
-          font-size: 60px;
-          font-weight: 600;
-        }
-        h4 {
-          color: #000;
-          font-size: 20px;
-          font-weight: normal;
-        }
-
-        .academy-percentage-box {
-          width: auto;
-          color: #019e12;
-          font-size: 18px;
-          margin-top: 8px;
-          padding: 2px 7px;
-          border-radius: 5px;
-          display: inline-table;
-          border: 1px solid #019e12;
+        &::after {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 2px;
+          content: ' ';
+          margin: auto 0;
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.3);
         }
       }
-    }
 
-    .incident-information {
-      background-color: #fff;
-      padding: $columnPadding;
-      border-radius: $borderRadius;
+      &:last-child .risks-count::after {
+        position: unset;
+      }
+
+      &-indicator {
+        color: white;
+      }
+
+      &-high {
+        background-color: #ff7464;
+      }
+
+      &-medium {
+        background-color: #ffc800;
+      }
+
+      &-low {
+        background-color: #189f48;
+      }
     }
+  }
+}
+
+.academy-information {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: #000;
+    font-size: 60px;
+    font-weight: 600;
+  }
+
+  h4 {
+    color: #000;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  .academy-percentage-box {
+    width: auto;
+    color: #019e12;
+    font-size: 18px;
+    margin-top: 8px;
+    padding: 2px 7px;
+    border-radius: 5px;
+    display: inline-table;
+    border: 1px solid #019e12;
   }
 }

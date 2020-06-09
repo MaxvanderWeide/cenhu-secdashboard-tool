@@ -1,87 +1,79 @@
-<div class="container-fluid dashboard">
-  <div class="row">
-    <div class="security-status">
-      <div class="row status-wrapper">
-        <div class="col-lg-4 status-text text-center">
-          <h3>28%</h3>
-          <h4>of total security reached</h4>
-        </div>
-        <div class="col-lg-8 progress-wrapper">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': '28%'}"></div>
-          </div>
-        </div>
+<div class="container-fluid dashboard-container">
+  <div class="row security-status">
+    <div class="col-lg-4 row-column">
+      <span class="security-status-percentage">28%</span>
+      <span class="security-status-text">of total security reached</span>
+    </div>
+    <div class="col-lg-8 progress-wrapper row-column">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': '28%'}"></div>
       </div>
     </div>
   </div>
-  <div class="row main-information">
-    <div class="col-md-5 total-incidents">
-      <div class="incidents-text">
+  <div class="row dashboard-row">
+    <div class="col-md-5 total-incidents row-column">
+      <div>
         <span>12</span> open <br> of 1656 total <br> INCIDENTS
       </div>
     </div>
-    <div class="col-md-3 department-information">
+    <div class="col-md-3 departments-incidents row-column">
       <h2>Department incidents</h2>
-      <div class="department-table-wrapper">
-        <table class="table">
-          <tbody>
-          <tr>
-            <td>Otto</td>
-            <td>32</td>
-          </tr>
-          <tr>
-            <td>Thornton</td>
-            <td>15</td>
-          </tr>
-          <tr>
-            <td>the Bird</td>
-            <td>42</td>
-          </tr>
-          <tr>
-            <td>Otto</td>
-            <td>32</td>
-          </tr>
-          <tr>
-            <td>Thornton</td>
-            <td>15</td>
-          </tr>
-          <tr>
-            <td>the Bird</td>
-            <td>42</td>
-          </tr>
-          </tbody>
-        </table>
+      <div class="departments-incidents-container">
+        <div class="departments-incidents-box">
+          <span>Otto</span>
+          <span>32</span>
+        </div>
+        <div class="departments-incidents-box">
+          <span>Thornton</span>
+          <span>15</span>
+        </div>
+        <div class="departments-incidents-box">
+          <span>the Bird</span>
+          <span>42</span>
+        </div>
+        <div class="departments-incidents-box">
+          <span>Otto</span>
+          <span>32</span>
+        </div>
+        <div class="departments-incidents-box">
+          <span>Thornton</span>
+          <span>15</span>
+        </div>
+        <div class="departments-incidents-box">
+          <span>the Bird</span>
+          <span>42</span>
+        </div>
       </div>
     </div>
-    <div class="col-md-3 active-departments">
-      <div class="text-wrapper">
+    <div class="col-md-3 active-departments row-column">
+      <div class="active-departments-wrapper">
         <h1>35</h1>
         <h3>Active Departments</h3>
       </div>
     </div>
   </div>
-  <div class="row specific-information">
-    <div class="col-md-4 severity-risks">
+  <div class="row dashboard-row">
+    <div class="col-md-4 severity-risks row-column">
       <div class="risks-header">
         Number of severity risks
       </div>
       <div class="risks-body">
         <div>
           <div class="risks-count">5</div>
-          <div class="risk-indicator high-risk">HIGH</div>
+          <div class="risks-indicator risks-high">HIGH</div>
         </div>
         <div>
           <div class="risks-count">9</div>
-          <div class="risk-indicator medium-risk">MEDIUM</div>
+          <div class="risks-indicator risks-medium">MEDIUM</div>
         </div>
         <div>
           <div class="risks-count">3</div>
-          <div class="risk-indicator low-risk">LOW</div>
+          <div class="risks-indicator risks-low">LOW</div>
         </div>
       </div>
     </div>
-    <div class="col-md-3 academy-information">
-      <div class="academy-text">
+    <div class="col-md-3 academy-information row-column">
+      <div>
         <h1>365</h1>
         <h4>Academy users last week</h4>
         <div class="academy-percentage-box">
@@ -90,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 incident-information">
+    <div class="col-md-4 incident-information row-column">
       <div class="chart-item" *ngIf="lineData !== undefined">
         <app-line-chart [chart]="lineData"></app-line-chart>
       </div>
