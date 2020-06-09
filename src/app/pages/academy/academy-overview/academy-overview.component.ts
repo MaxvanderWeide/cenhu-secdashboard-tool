@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Academy} from '@models/academy.model';
 // Temporary
 // @ts-ignore
-import SampleJson from 'src/assets/temp/academyData.json';
+import Academies from 'src/assets/temp/academyData.json';
 import {BarChart} from '@models/barchart.model';
 import {ChartDataSets} from "chart.js";
 import {Label} from "ng2-charts";
@@ -14,8 +14,13 @@ import {Label} from "ng2-charts";
   styleUrls: ['./academy-overview.component.scss']
 })
 export class AcademyOverviewComponent {
+
+  months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+
   // Percentage of the bar graph
-  public progPercentage: string = '';
+  progPercentage: number = 0;
+  progStringPercentage: string = '';
+  progColor: string = '#ffc107';
 
   records: Academy[] = [];
 
@@ -65,23 +70,22 @@ export class AcademyOverviewComponent {
   };
 
   constructor() {
-    for (const sample of SampleJson) {
+    for (const academy of Academies) {
       this.records.push(
-        new Academy(
-          sample.dateAssigned,
-          sample.dateStarted,
-          sample.dateCompleted,
-          sample.team,
-          sample.progress,
-          sample.timeSpent,
-          sample.reviewScore,
-          sample.trainerReview,
-          sample.certificate,
-          sample.quizScore,
-          sample.quizAttempts,
-          sample.status,
-          sample.functie
-        ));
+        { dateAssigned: academy.dateAssigned,
+          dateStarted: academy.dateStarted,
+          dateCompleted: academy.dateCompleted,
+          team: academy.team,
+          progress: academy.progress,
+          timeSpent: academy.timeSpent,
+          reviewScore: academy.reviewScore,
+          trainerReview: academy.trainerReview,
+          certificate: academy.certificate,
+          quizScore: academy.quizScore,
+          quizAttempts: academy.quizAttempts,
+          status: academy.status,
+          title: academy.functie }
+        );
     }
 
     this.calculateData();
@@ -141,8 +145,16 @@ export class AcademyOverviewComponent {
 
     // Automatic loading percentage of Bar graph
     this.avgProgress = Math.round(((this.avgProgress / this.records.length) + Number.EPSILON) * 100) / 100;
-    this.progPercentage = String((this.avgProgress * 100).toFixed(0));
-    this.progPercentage = this.progPercentage + '%';
+    this.progPercentage = Math.round(this.avgProgress * 100);
+    this.progStringPercentage = String(this.avgProgress);
+    this.progStringPercentage = this.progPercentage + '%';
+
+    // Color of bar graph
+    if (this.progPercentage <= 40){
+      this.progColor = 'red';
+    } else if (this.progPercentage > 60){
+      this.progColor = 'green';
+    }
 
     // Bar graph
     this.barData = {
@@ -151,7 +163,7 @@ export class AcademyOverviewComponent {
         {data: [100, 111, 132, 304], label: 'Total'},
         {data: [7, 32, 2, 102], label: 'Open'}
       ],
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+      labels: this.months,
       dataColors: ['blue', 'red'],
       horizontal: false,
       legend: true
@@ -164,7 +176,7 @@ export class AcademyOverviewComponent {
         {data: [65, 59, 80, 81, 56, 55, 40, 52, 31, 23, 64, 31], label: 'Team A'},
         {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Team B'}
       ],
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      labels: this.months,
       dataColors: ['blue', 'red']
     };
 

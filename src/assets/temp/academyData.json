@@ -1,8 +1,8 @@
 [
  {
-   "dateAssigned": "23/04/1978",
-   "dateStarted": "23/04/1978",
-   "dateCompleted": "23/04/1978",
+   "dateAssigned": "2020-06-03T18:25:43.511Z",
+   "dateStarted": "2020-06-03T18:25:43.511Z",
+   "dateCompleted": "2020-06-03T18:25:43.511Z",
    "team": "A",
    "progress": 0.7,
    "timeSpent": 0.4,
@@ -16,9 +16,9 @@
    "functie": "Consultant"
 },
  {
-   "dateAssigned": "24/04/1978",
-   "dateStarted": "24/04/1978",
-   "dateCompleted": "24/04/1978",
+   "dateAssigned": "2020-06-03T18:25:43.511Z",
+   "dateStarted": "2020-06-03T18:25:43.511Z",
+   "dateCompleted": "2020-06-03T18:25:43.511Z",
    "team": "B",
    "progress": 1,
    "timeSpent": 1.15,
@@ -32,9 +32,9 @@
    "functie": "Manager"
 },
  {
-   "dateAssigned": "25/04/1978",
-   "dateStarted": "25/04/1978",
-   "dateCompleted": "25/04/1978",
+   "dateAssigned": "2020-06-03T18:25:43.511Z",
+   "dateStarted": "2020-06-03T18:25:43.511Z",
+   "dateCompleted": "2020-06-03T18:25:43.511Z",
    "team": "C",
    "progress": 0,
    "timeSpent": 0,
