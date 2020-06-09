@@ -5,6 +5,6 @@ export interface Incident {
   department?: string;
   open?: boolean;
   filed: string;
-  id: number;
+  id: string;
   departmentName?: string;
 }
