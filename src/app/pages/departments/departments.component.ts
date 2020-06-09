@@ -15,7 +15,8 @@ import {Label} from 'ng2-charts';
 })
 export class DepartmentsComponent {
   department: Department;
-  barData: BarChart;
+  incidentsBar: BarChart;
+  performancesBar: BarChart;
   pieData: PieChart;
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
@@ -23,9 +24,10 @@ export class DepartmentsComponent {
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
           this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
+          this.setPerformanceBarData(this.department);
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
             this.setStatistics(this.department, incidents);
-            this.setBardata(incidents);
+            this.setIncidentsBarData(incidents);
           });
         }
       );
@@ -41,15 +43,15 @@ export class DepartmentsComponent {
   }
 
   private setStatistics(department: Department, incidents: Incident[]): void {
-    // tslint:disable-next-line:max-line-length
-    const yearPerformance: number = department.performances.find((performance: { year: number; performance: number; }) => performance.year === new Date().getFullYear()).performance;
+
+    // tslint:disable-next-line:max-line-length @
+    const yearPerformance: number = department.performances.find((performance: { year: number; performance: number }) => performance.year === new Date().getFullYear()).performance;
     let vulnerability;
     if (yearPerformance <= 20) {
       vulnerability = 'Critical';
     } else if (yearPerformance > 20 && yearPerformance <= 60) {
       vulnerability = 'Danger';
-    }
-    else if (yearPerformance > 60 && yearPerformance <= 80) {
+    } else if (yearPerformance > 60 && yearPerformance <= 80) {
       vulnerability = 'Medium';
     } else if (yearPerformance > 80) {
       vulnerability = 'Low';
@@ -60,7 +62,7 @@ export class DepartmentsComponent {
         employees: department.employees,
         vulnerability,
         // tslint:disable-next-line:max-line-length
-        performance: Number((department.performances.map((performance: { year: number; performance: number; }) => performance.performance).reduce((first: number, second: number) => first + second, 0) / department.performances.length).toFixed(2)),
+        averagePerformance: Number((department.performances.map((performance: { year: number; performance: number }) => performance.performance).reduce((first: number, second: number) => first + second, 0) / department.performances.length).toFixed(2)),
         yearPerformance
       },
       incidents: {
@@ -71,11 +73,10 @@ export class DepartmentsComponent {
     };
   }
 
-
-  private setBardata(incidents: Incident[]): void {
+  private setIncidentsBarData(incidents: Incident[]): void {
     // Get incidents per year
     const date: Date = new Date();
-    // tslint:disable-next-line:max-line-length
+    // tslint:disable-next-line:max-line-length @
     const lowestYear: number = new Date(incidents.reduce((prev: Incident, curr: Incident) => new Date(prev.filed).getFullYear() < new Date(curr.filed).getFullYear() ? prev : curr).filed).getFullYear();
     const years: { currentYear: number; years: Label[]; yearsDiff: number; year: number } = {
       currentYear: date.getFullYear(),
@@ -102,7 +103,7 @@ export class DepartmentsComponent {
     });
 
     // Set bar data of chart
-    this.barData = {
+    this.incidentsBar = {
       title: 'Incidents in years',
       data: [
         {
@@ -116,6 +117,55 @@ export class DepartmentsComponent {
       ],
       labels: years.years,
       dataColors: ['blue', 'red'],
+      horizontal: false,
+      legend: true
+    };
+  }
+
+  private setPerformanceBarData(department: Department): void {
+    // Get incidents per year
+    const date: Date = new Date();
+    // tslint:disable-next-line:max-line-length @
+    const lowestYear: number = this.department.performances.reduce(
+      (prev: { year: number; performance: number },
+       curr: { year: number; performance: number }) =>
+      prev.year < curr.year ? prev : curr).year;
+
+    const years: { currentYear: number; years: Label[]; yearsDiff: number; year: number } = {
+      currentYear: date.getFullYear(),
+      years: [],
+      yearsDiff: date.getFullYear() - lowestYear,
+      year: lowestYear
+    };
+
+    // Get all available years from lowest year to curent year
+    while (years.year <= date.getFullYear()) {
+      years.years.push((years.currentYear - years.yearsDiff).toString());
+      years.yearsDiff--;
+      years.year++;
+    }
+
+    // Set bar data
+    const performancesYear: { year: number; performance: number }[] = [];
+    years.years.forEach((value: string) => {
+      performancesYear.push({
+        year: parseInt(value, 10),
+        // tslint:disable-next-line:max-line-length
+        performance: this.department.performances.find((performance: { year: number; performance: number }) => performance.year === parseInt(value, 10)).performance
+      });
+    });
+
+    // Set bar data of chart
+    this.performancesBar = {
+      title: 'Performance in years',
+      data: [
+        {
+          data: performancesYear.map((performance: { performance: number }) => performance.performance),
+          label: 'Performance'
+        }
+      ],
+      labels: years.years,
+      dataColors: ['green'],
       horizontal: false,
       legend: true
     };

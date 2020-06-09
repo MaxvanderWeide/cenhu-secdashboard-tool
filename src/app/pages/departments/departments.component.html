@@ -36,8 +36,8 @@
       <div class="main-statistics-name">
         Overall performance
       </div>
-      <div *ngIf="department.statistics.data.performance !== null">
-        {{department.statistics.data.performance}}%
+      <div *ngIf="department.statistics.data.averagePerformance !== null">
+        {{department.statistics.data.averagePerformance}}%
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
     </div>
     <div class="statistics-overview-body" *ngIf="department.statistics !== undefined">
       <div class="statistics-overview-column">
-        <app-bar-chart [chart]="barData"></app-bar-chart>
+        <app-bar-chart [chart]="incidentsBar"></app-bar-chart>
       </div>
       <div class="statistics-overview-column statistics-overview-main">
         <div>
@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="statistics-overview-column">
-        <app-bar-chart [chart]="barData"></app-bar-chart>
+        <app-bar-chart [chart]="performancesBar"></app-bar-chart>
       </div>
     </div>
   </div>

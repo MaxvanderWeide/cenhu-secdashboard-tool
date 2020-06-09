@@ -11,7 +11,7 @@ export interface Department {
     data?: {
       employees: number;
       vulnerability: string;
-      performance: number;
+      averagePerformance: number;
       yearPerformance: number;
     },
     incidents?: {
