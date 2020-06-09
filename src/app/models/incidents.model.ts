@@ -5,5 +5,4 @@ export interface Incident {
   department?: string;
   open?: boolean;
   filed: string;
-  year?: number;
 }
