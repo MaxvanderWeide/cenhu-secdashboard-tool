@@ -8,5 +8,15 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tortor libero, tincidunt id orci eget, aliquet ullamcorper nisl. Donec faucibus dictum lectus, a feugiat nisl pharetra quis. (1)",
     "date": "2020-07-23T18:25:43.511Z",
     "open": true
+  },
+  {
+    "id": 2,
+    "name": "Test2",
+    "department": "Department 2",
+    "subject": "Subject 2",
+    "severity": "Medium",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (2)",
+    "date": "2020-10-23T18:25:43.511Z",
+    "open": true
   }
 ]
