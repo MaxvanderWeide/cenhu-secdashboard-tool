@@ -23,6 +23,7 @@ import {DepartmentsOverviewComponent} from '@pages/departments-overview/departme
 import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {ModalComponent} from '@components/modal/modal.component';
 import { DashboardComponent } from '@pages/dashboard/dashboard.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { DashboardComponent } from '@pages/dashboard/dashboard.component';
     AcademyModule,
     NgbModule,
     ChartModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [EnvServiceProvider, AuthGuard],
   exports: [
