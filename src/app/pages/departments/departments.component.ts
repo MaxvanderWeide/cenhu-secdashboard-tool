@@ -17,11 +17,6 @@ export class DepartmentsComponent {
   department: Department;
   barData: BarChart;
   pieData: PieChart;
-  incidentsStats: {
-    total: number;
-    closed: number;
-    open: number;
-  };
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
     this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
@@ -29,11 +24,7 @@ export class DepartmentsComponent {
         (departments: Department[]) => {
           this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
-            this.incidentsStats = {
-              total: incidents.filter((s: Incident) => s.department === this.department.code).length,
-              closed: incidents.filter((s: Incident) => s.department === this.department.code && !s.open).length,
-              open: incidents.filter((s: Incident) => s.department === this.department.code && s.open).length
-            };
+            this.setStatistics(this.department, incidents);
             this.setBardata(incidents);
           });
         }
@@ -48,6 +39,38 @@ export class DepartmentsComponent {
       displayDataInChart: false
     };
   }
+
+  private setStatistics(department: Department, incidents: Incident[]): void {
+    // tslint:disable-next-line:max-line-length
+    const yearPerformance: number = department.performances.find((performance: { year: number; performance: number; }) => performance.year === new Date().getFullYear()).performance;
+    let vulnerability;
+    if (yearPerformance <= 20) {
+      vulnerability = 'Critical';
+    } else if (yearPerformance > 20 && yearPerformance <= 60) {
+      vulnerability = 'Danger';
+    }
+    else if (yearPerformance > 60 && yearPerformance <= 80) {
+      vulnerability = 'Medium';
+    } else if (yearPerformance > 80) {
+      vulnerability = 'Low';
+    }
+
+    this.department.statistics = {
+      data: {
+        employees: department.employees,
+        vulnerability,
+        // tslint:disable-next-line:max-line-length
+        performance: Number((department.performances.map((performance: { year: number; performance: number; }) => performance.performance).reduce((first: number, second: number) => first + second, 0) / department.performances.length).toFixed(2)),
+        yearPerformance
+      },
+      incidents: {
+        total: incidents.filter((s: Incident) => s.department === this.department.code).length,
+        closed: incidents.filter((s: Incident) => s.department === this.department.code && !s.open).length,
+        open: incidents.filter((s: Incident) => s.department === this.department.code && s.open).length
+      }
+    };
+  }
+
 
   private setBardata(incidents: Incident[]): void {
     // Get incidents per year

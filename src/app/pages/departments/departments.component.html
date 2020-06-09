@@ -7,13 +7,37 @@
       </div>
     </div>
   </div>
-  <div class="row main-statistics">
-    <div class="main-statistics-column" *ngFor="let statistic of department.statistics">
+  <div class="row main-statistics" *ngIf="department.statistics !== undefined">
+    <div class="main-statistics-column">
       <div class="main-statistics-name">
-        {{statistic.name}}
+        Employees
       </div>
-      <div>
-        {{statistic.data}}
+      <div *ngIf="department.statistics.data.employees !== null">
+        {{department.statistics.data.employees}}
+      </div>
+    </div>
+    <div class="main-statistics-column">
+      <div class="main-statistics-name">
+        Vulnerability
+      </div>
+      <div *ngIf="department.statistics.data.vulnerability !== null">
+        {{department.statistics.data.vulnerability}}
+      </div>
+    </div>
+    <div class="main-statistics-column">
+      <div class="main-statistics-name">
+        In year performance
+      </div>
+      <div *ngIf="department.statistics.data.yearPerformance !== null">
+        {{department.statistics.data.yearPerformance}}%
+      </div>
+    </div>
+    <div class="main-statistics-column">
+      <div class="main-statistics-name">
+        Overall performance
+      </div>
+      <div *ngIf="department.statistics.data.performance !== null">
+        {{department.statistics.data.performance}}%
       </div>
     </div>
   </div>
@@ -21,22 +45,22 @@
     <div class="statistics-overview-header">
       Overview
     </div>
-    <div class="statistics-overview-body" *ngIf="incidentsStats !== undefined">
+    <div class="statistics-overview-body" *ngIf="department.statistics !== undefined">
       <div class="statistics-overview-column">
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
       <div class="statistics-overview-column statistics-overview-main">
         <div>
           Total incidents
-          <span class="total-incidents">{{incidentsStats.total}}</span>
+          <span class="total-incidents">{{department.statistics.incidents.total}}</span>
         </div>
         <div>
           Open incidents
-          <span class="open-incidents">{{incidentsStats.open}}</span>
+          <span class="open-incidents">{{department.statistics.incidents.open}}</span>
         </div>
         <div>
           Closed incidents
-          <span class="closed-incidents">{{incidentsStats.closed}}</span>
+          <span class="closed-incidents">{{department.statistics.incidents.closed}}</span>
         </div>
       </div>
       <div class="statistics-overview-column">

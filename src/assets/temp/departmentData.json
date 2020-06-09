@@ -3,22 +3,27 @@
     "department": "Human resource management",
     "cleanUrl": "human-resource-management",
     "code": "hrm",
-    "statistics": [
+    "employees": 47,
+    "performances": [
       {
-        "name": "Employees",
-        "data": 47
+        "year": 2016,
+        "performance": 67
       },
       {
-        "name": "Overall performance",
-        "data": "88%"
+        "year": 2017,
+        "performance": 94
       },
       {
-        "name": "In year performance",
-        "data": "92%"
+        "year": 2018,
+        "performance": 57
       },
       {
-        "name": "Vulnerability",
-        "data": "Critical"
+        "year": 2019,
+        "performance": 98
+      },
+      {
+        "year": 2020,
+        "performance": 90
       }
     ]
   },
@@ -26,22 +31,27 @@
     "department": "Finance",
     "cleanUrl": "corporate-finance",
     "code": "fin",
-    "statistics": [
+    "employees": 81,
+    "performances": [
       {
-        "name": "Medewerkers",
-        "data": 241
+        "year": 2016,
+        "performance": 81
       },
       {
-        "name": "Overall performance",
-        "data": "95%"
+        "year": 2017,
+        "performance": 97
       },
       {
-        "name": "In year performance",
-        "data": "79%"
+        "year": 2018,
+        "performance": 91
       },
       {
-        "name": "Vulnerability",
-        "data": "Low"
+        "year": 2019,
+        "performance": 92
+      },
+      {
+        "year": 2020,
+        "performance": 71
       }
     ]
   }

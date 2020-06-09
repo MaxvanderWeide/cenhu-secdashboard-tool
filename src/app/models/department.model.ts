@@ -2,5 +2,22 @@ export interface Department {
   department: string;
   cleanUrl: string;
   code?: string;
-  statistics?: object[];
+  employees?: number;
+  performances?: {
+    year: number;
+    performance: number;
+  }[];
+  statistics?: {
+    data?: {
+      employees: number;
+      vulnerability: string;
+      performance: number;
+      yearPerformance: number;
+    },
+    incidents?: {
+      total: number;
+      closed: number;
+      open: number;
+    }
+  };
 }

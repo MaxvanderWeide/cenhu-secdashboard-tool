@@ -15,9 +15,18 @@
         </div>
         <div class="department-box-body">
           <div class="department-box-body-wrapper">
-            <div class="row main-statistics">
-              <div class="col-6 col-md-6 col-lg-3" *ngFor="let statistic of department.statistics">
-                {{statistic.name}}: {{statistic.data}}
+            <div class="row main-statistics" *ngIf="department.performances !== undefined">
+              <div class="col-6 col-md-6 col-lg-3">
+                Employees: {{department.employees}}
+              </div>
+              <div class="col-6 col-md-6 col-lg-3">
+                Vulnerability: {{department.statistics.data.vulnerability}}
+              </div>
+              <div class="col-6 col-md-6 col-lg-3">
+                In year performance: {{department.statistics.data.yearPerformance}}%
+              </div>
+              <div class="col-6 col-md-6 col-lg-3">
+                Overall performance: {{department.statistics.data.performance}}%
               </div>
             </div>
             <div class="department-incidents">
