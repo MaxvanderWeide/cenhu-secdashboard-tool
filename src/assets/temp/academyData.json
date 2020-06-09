@@ -13,7 +13,7 @@
    "quizAttempts": 0,
    "status": "New",
    "FIELD13": "",
-   "functie": "Consultant"
+   "title": "Consultant"
 },
  {
    "dateAssigned": "2020-06-03T18:25:43.511Z",
@@ -29,7 +29,7 @@
    "quizAttempts": 1,
    "status": "In progress",
    "FIELD13": "",
-   "functie": "Manager"
+   "title": "Manager"
 },
  {
    "dateAssigned": "2020-06-03T18:25:43.511Z",
@@ -45,6 +45,6 @@
    "quizAttempts": 0,
    "status": "Done",
    "FIELD13": "",
-   "functie": "Developer"
+   "title": "Developer"
 }
 ]
