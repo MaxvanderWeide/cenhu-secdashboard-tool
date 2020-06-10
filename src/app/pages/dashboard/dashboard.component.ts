@@ -5,6 +5,7 @@ import {Department} from '@models/department.model';
 import {Incident} from '@models/incidents.model';
 import {LineChart} from '@models/linechart.model';
 import {Label} from 'ng2-charts';
+import {DressingService} from '@app/services/dressing.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,26 +16,39 @@ export class DashboardComponent {
   lineData: LineChart;
   incidentsStats: {
     total: number;
-    closed: number;
     open: number;
+    high: number;
+    medium: number;
+    low: number;
   };
+  public departments: Department[] = [];
 
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {
+  constructor(private route: ActivatedRoute, private dataService: DataService, private dressingService: DressingService) {
     this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
             this.incidentsStats = {
               total: incidents.length,
-              closed: incidents.filter((s: Incident) => !s.open).length,
-              open: incidents.filter((s: Incident) => s.open).length
+              open: incidents.filter((s: Incident) => s.open).length,
+              high: incidents.filter((s: Incident) => s.severity === 'high').length,
+              medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
+              low: incidents.filter((s: Incident) => s.severity === 'low').length,
             };
             this.setLineData(incidents);
           });
         }
       );
     });
+    this.dataService.getDepartments().subscribe(
+      (departments: Department[]) => {
+        this.departments = departments;
+      },
+      () => {
+        this.dressingService.message('Department data loading unsuccessful. Try again later.');
+      }
+    );
   }
 
   private setLineData(incidents: Incident[]): void {
