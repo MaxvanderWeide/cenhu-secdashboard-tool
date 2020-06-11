@@ -54,7 +54,7 @@ export class BarChartComponent implements OnInit {
       this.chart.colors.push(color);
     }
 
-    if (window.screen.width <= 768) {
+    if (window.screen.width <= 900) {
       this.chart.legend = true;
     }
   }

@@ -37,7 +37,7 @@ export class PieChartComponent implements OnInit {
       ];
 
 
-    if (window.screen.width <= 768) {
+    if (window.screen.width <= 900) {
       this.chart.showLegend = true;
       this.chart.options.legend.position = 'bottom';
     } else {
