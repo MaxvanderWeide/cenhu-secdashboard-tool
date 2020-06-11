@@ -42,13 +42,14 @@ export class DepartmentsComponent {
     };
   }
 
+  // TODO: Remove code duplicates with departments-overview
   private setStatistics(department: Department, incidents: Incident[]): void {
 
     const yearPerformance: number = department.performances.find((performance: {
       year: number;
-      performance: number
+      performance: number;
     }) => performance.year === new Date().getFullYear()).performance;
-    let vulnerability;
+    let vulnerability: string;
     if (yearPerformance <= 20) {
       vulnerability = 'Critical';
     } else if (yearPerformance > 20 && yearPerformance <= 60) {
@@ -65,7 +66,7 @@ export class DepartmentsComponent {
         vulnerability,
         averagePerformance: Number((department.performances.map((performance: {
           year: number;
-          performance: number
+          performance: number;
         }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
           department.performances.length).toFixed(2)),
         yearPerformance
@@ -78,6 +79,7 @@ export class DepartmentsComponent {
     };
   }
 
+  // TODO: Remove code duplicates with departments-overview
   private setIncidentsBarData(incidents: Incident[]): void {
     // Get incidents per year
     const date: Date = new Date();
@@ -128,6 +130,7 @@ export class DepartmentsComponent {
     };
   }
 
+  // TODO: Remove code duplicates with departments-overview
   private setPerformanceBarData(department: Department): void {
     // Get incidents per year
     const date: Date = new Date();
@@ -157,7 +160,7 @@ export class DepartmentsComponent {
         year: parseInt(value, 10),
         performance: this.department.performances.find((performance: {
           year: number;
-          performance: number
+          performance: number;
         }) => performance.year === parseInt(value, 10)).performance
       });
     });

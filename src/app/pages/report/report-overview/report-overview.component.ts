@@ -59,7 +59,7 @@ export class ReportOverviewComponent {
     reportForm.reset();
   }
 
-  openUp(id): void {
+  openUp(id: number): void {
     // TODO : Add this functionality to HTML
     this.object = document.getElementById('content-' + id);
     if (this.object.classList.contains('active')) {

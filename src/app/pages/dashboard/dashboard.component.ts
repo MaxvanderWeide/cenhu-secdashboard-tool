@@ -35,7 +35,7 @@ export class DashboardComponent {
             medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
             low: incidents.filter((s: Incident) => s.severity === 'low').length,
           };
-          departments.forEach( (department: Department) =>
+          departments.forEach((department: Department) =>
             this.departmentStats.push({
               department: department.department,
               open: incidents.filter((s: Incident) => s.open && s.department === department.code).length
@@ -50,18 +50,13 @@ export class DashboardComponent {
     );
   }
 
-  private static getMonthsBeforeDate(from, to): Date[] {
-    const monthNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
+    const monthNumbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-    const arr = [];
-    const fromYear = from.getFullYear();
-    const toYear = to.getFullYear();
-    const diffYear = (12 * (toYear - fromYear)) + to.getMonth();
-
-    for (let i = from.getMonth() + 1; i <= diffYear; i++) {
-      arr.push(new Date(Math.floor(fromYear + (i / 12)), monthNumbers[i % 12]));
+    const arr: Date[] = [];
+    for (let i: number = from.getMonth() + 1; i <= (12 * (to.getFullYear() - from.getFullYear())) + to.getMonth(); i++) {
+      arr.push(new Date(Math.floor(from.getFullYear() + (i / 12)), monthNumbers[i % 12]));
     }
-
     return arr;
   }
 
@@ -71,11 +66,11 @@ export class DashboardComponent {
     const lastYear: Date = new Date();
     lastYear.setFullYear(lastYear.getFullYear() - 1);
 
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const months = DashboardComponent.getMonthsBeforeDate(lastYear, toDay);
+    const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months: Date[] = DashboardComponent.getMonthsBeforeDate(lastYear, toDay);
 
     // Set bar data
-    const incidentsMonth: { total: number; }[] = [];
+    const incidentsMonth: { total: number }[] = [];
     months.forEach((value: Date) => {
       incidentsMonth.push({
         // tslint:disable-next-line:max-line-length

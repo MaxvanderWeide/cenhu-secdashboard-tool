@@ -41,8 +41,8 @@ export class DepartmentsOverviewComponent {
     for (const department of departments) {
       const yearPerformance: number = department.performances.find((performance: {
         year: number;
-        performance: number }) => performance.year === new Date().getFullYear()).performance;
-      let vulnerability;
+        performance: number; }) => performance.year === new Date().getFullYear()).performance;
+      let vulnerability: string;
       if (yearPerformance <= 20) {
         vulnerability = 'Critical';
       } else if (yearPerformance > 20 && yearPerformance <= 60) {
@@ -59,7 +59,7 @@ export class DepartmentsOverviewComponent {
           vulnerability,
           averagePerformance: Number((department.performances.map((performance: {
             year: number; performance:
-              number }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
+              number; }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
             department.performances.length).toFixed(2)),
           yearPerformance
         }

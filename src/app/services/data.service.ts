@@ -14,7 +14,7 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  static throwError(error: HttpErrorResponse) {
+  static throwError(error: HttpErrorResponse): Observable<never> {
     const errorMessage = error.error.detail ? error.error.detail.nl : error.error; // eslint-disable-line
     if (error.error instanceof ErrorEvent) {
       console.error(`An unexpected error occurred: ${errorMessage}`);
