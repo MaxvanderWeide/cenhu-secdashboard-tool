@@ -1,11 +1,8 @@
 import {Component} from '@angular/core';
 import {Academy} from '@models/academy.model';
 import {BarChart} from '@models/barchart.model';
-import {ChartDataSets} from 'chart.js';
-import {Label} from 'ng2-charts';
 import {DataService} from '@app/services/data.service';
-import {Incident} from "@models/incidents.model";
-import {LineChart} from "@models/linechart.model";
+import {LineChart} from '@models/linechart.model';
 
 
 @Component({
@@ -157,7 +154,7 @@ export class AcademyOverviewComponent {
     this.yCertificatePercentage = Number(((this.yCertificateAmount / this.academyData.length) * 100).toFixed(2));
     this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) /
       this.academyData.length) * 100).toFixed(2));
-    
+
     // Bar graph
     this.barData = {
       title: 'Bar',

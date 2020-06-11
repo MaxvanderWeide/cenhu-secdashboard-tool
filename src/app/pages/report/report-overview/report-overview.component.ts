@@ -17,6 +17,8 @@ export class ReportOverviewComponent {
   public object: HTMLElement;
   public departmentVal: boolean;
 
+  public nameInput: string;
+
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.dataService.getReports().subscribe(
       (reports: Report[]) => {
@@ -31,17 +33,18 @@ export class ReportOverviewComponent {
   onSubmit(reportForm: NgForm): void {
 
     this.departmentVal = typeof reportForm.value.departmentInput !== 'string';
-
-    this.reports.push({
-      id: this.reports.length + 1,
-      name: reportForm.value.nameInput,
-      department: reportForm.value.departmentInput,
-      subject: reportForm.value.subjectInput,
-      severity: reportForm.value.severityInput,
-      description: reportForm.value.descriptionInput,
-      date: this.dateTime.replace(this.reTime, '$1 $2'),
-      open: true
-    });
+    if (this.nameInput !== undefined) {
+      this.reports.push({
+        id: this.reports.length + 1,
+        name: reportForm.value.name,
+        department: reportForm.value.departmentInput,
+        subject: reportForm.value.subjectInput,
+        severity: reportForm.value.severityInput,
+        description: reportForm.value.descriptionInput,
+        date: this.dateTime.replace(this.reTime, '$1 $2'),
+        open: true
+      });
+    }
   }
 
   openUp(id: number): void {
