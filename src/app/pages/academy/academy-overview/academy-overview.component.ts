@@ -4,6 +4,8 @@ import {BarChart} from '@models/barchart.model';
 import {ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {DataService} from '@app/services/data.service';
+import {Incident} from "@models/incidents.model";
+import {LineChart} from "@models/linechart.model";
 
 
 @Component({
@@ -55,18 +57,60 @@ export class AcademyOverviewComponent {
 
   barData: BarChart;
 
-  public lineData: {
-    title: string;
-    data: ChartDataSets[];
-    labels: Label[];
-    dataColors: string[];
-  };
+  lineData: LineChart;
 
   constructor(private dataService: DataService) {
     this.dataService.getAcademyData().subscribe((academyData: Academy[]) => {
       this.academyData = academyData;
+      this.setLineData(this.academyData);
       this.calculateData();
     });
+  }
+
+  // To-DO Refactor Code
+  private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
+    const monthNumbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+    const arr: Date[] = [];
+    for (let i: number = from.getMonth() + 1; i <= (12 * (to.getFullYear() - from.getFullYear())) + to.getMonth(); i++) {
+      arr.push(new Date(Math.floor(from.getFullYear() + (i / 12)), monthNumbers[i % 12]));
+    }
+    return arr;
+  }
+
+  // To-DO Refactor Code
+  private setLineData(academy: Academy[]): void {
+    // Get incidents per year
+    const toDay: Date = new Date();
+    const lastYear: Date = new Date();
+    lastYear.setFullYear(lastYear.getFullYear() - 1);
+
+    const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months: Date[] = AcademyOverviewComponent.getMonthsBeforeDate(lastYear, toDay);
+
+    // Set bar data
+    const incidentsMonth: { total: number }[] = [];
+    months.forEach((value: Date) => {
+      incidentsMonth.push({
+        // tslint:disable-next-line:max-line-length
+        total: academy.filter((academy: Academy) => new Date(academy.dateAssigned)
+          > lastYear && new Date(academy.dateAssigned).getMonth() === value.getMonth()).length
+      });
+    });
+
+    // Line graph
+    this.lineData = {
+      title: 'Line',
+      data: [
+        {
+          data: incidentsMonth.map((incident: { total: number }) => incident.total),
+          label: 'Total'
+        }
+      ],
+      labels:  months.map((m: Date) => monthNames[m.getMonth()]),
+      dataColors: ['red'],
+      legend: true
+    };
   }
 
   calculateData(): void {
@@ -111,6 +155,7 @@ export class AcademyOverviewComponent {
     this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) /
       this.academyData.length) * 100).toFixed(2));
 
+
     // Bar graph
     this.barData = {
       title: 'Bar',
@@ -122,17 +167,6 @@ export class AcademyOverviewComponent {
       dataColors: ['blue', 'red'],
       horizontal: false,
       legend: true
-    };
-
-    // Line graph
-    this.lineData = {
-      title: 'Line',
-      data: [
-        {data: [65, 59, 80, 81, 56, 55, 40, 52, 31, 23, 64, 31], label: 'Team A'},
-        {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Team B'}
-      ],
-      labels: this.months,
-      dataColors: ['blue', 'red']
     };
 
     // Pie chart of certificate
