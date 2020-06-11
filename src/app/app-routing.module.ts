@@ -15,14 +15,10 @@ import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [AuthGuard],
+    data: {scopes: [Scope.CorporateSecurityTeamMember]},
     children: [
-      {
-        path: '',
-        component: DashboardComponent,
-        canActivate: [AuthGuard],
-        data: {scopes: [Scope.CorporateSecurityTeamMember]}
-      },
       {
         path: 'academy',
         component: AcademyOverviewComponent,
@@ -69,10 +65,11 @@ const routes: Routes = [
     path: 'notfound',
     component: NotfoundComponent,
   },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: '**',
     redirectTo: 'notfound'
-  }
+  },
 ];
 
 @NgModule({
