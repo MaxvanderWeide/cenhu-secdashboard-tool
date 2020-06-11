@@ -12,9 +12,12 @@
         <span>{{incident.id}} <em class="fa fa-exclamation-circle severity-icon"></em></span>
       </div>
       <div class="incidents-compact-item-body">
-        <span>{{incident.message}}</span>
+        {{incident.message}}
       </div>
       <span><a href="{{incident.url}}" *ngIf="incident.hasOwnProperty('url')">Open link</a></span>
+    </div>
+    <div class="incidents-compact-item incidents-compact-empty" *ngIf="incidents.length === 0">
+      No incidents found
     </div>
   </div>
 </div>

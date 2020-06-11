@@ -49,4 +49,10 @@ $padding: 6px 20px;
       color: #ff0000;
     }
   }
+
+  &-empty {
+    text-align: center;
+    padding: 14px 0;
+    border-bottom: 0;
+  }
 }
