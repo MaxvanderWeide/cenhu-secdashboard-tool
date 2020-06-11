@@ -3,7 +3,7 @@
 <div class="incidents-compact-overview" *ngIf="incidents !== undefined">
   <div class="incidents-compact-header" (click)="openModal($event)">
     <span>Incidents <span class="badge badge-pill badge-secondary">{{incidents.length}}</span></span>
-    <span><em class="fa fa-location-arrow"></em></span>
+    <span><em class="fa fa-location-arrow open-modal"></em></span>
   </div>
   <div class="incidents-compact-body">
     <div class="incidents-compact-item" [ngClass]="incident.severity" *ngFor="let incident of incidents">
@@ -11,7 +11,7 @@
         <span>{{incident.filed | date: "HH:mm:ss"}} | {{incident.filed | date : 'dd/MM/yy'}}</span>
         <span>{{incident.id}} <em class="fa fa-exclamation-circle severity-icon"></em></span>
       </div>
-      <div class="incidents-item-message-wrapper">
+      <div class="incidents-compact-item-body">
         <span>{{incident.message}}</span>
       </div>
       <span><a href="{{incident.url}}" *ngIf="incident.hasOwnProperty('url')">Open link</a></span>
