@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
-    <div class="col-md-4 total-incidents row-column">
+    <div class="col-md-4 total-incidents row-column" [routerLink]="['/dashboard/incidents/']">
       <div class="incidents-text-wrapper">
         <div class="open-number">{{incidentsStats.open}}</div><div class="open-text">open</div><div class="other-text">of {{incidentsStats.total}} total INCIDENTS</div>
       </div>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
-    <div class="col-md-3 active-departments row-column">
+    <div class="col-md-3 active-departments row-column" [routerLink]="['/dashboard/departments/']">
       <div class="active-departments-wrapper">
         <h1>{{departmentStats.length}}</h1>
         <h3>Active Departments</h3>
@@ -38,7 +38,7 @@
     </div>
     <div class="col-md-5 severity-risks row-column">
       <div class="risks-header">
-        Number of severity risks
+        Number of risks
       </div>
       <div class="risks-body">
         <div>
@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3 academy-information row-column">
+    <div class="col-md-3 academy-information row-column" [routerLink]="['/dashboard/academy/']">
       <div>
         <h1>365</h1>
         <h4>Academy users last week</h4>

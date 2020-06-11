@@ -33,18 +33,19 @@ $columnPadding: 8px 12px;
   }
 
   .dashboard-row {
-    min-height: 250px;
     margin-top: 40px;
+    min-height: 250px;
     justify-content: space-between;
 
     .row-column {
-      border-radius: $borderRadius;
-      padding: $columnPadding;
       background-color: #fff;
+      padding: $columnPadding;
+      border-radius: $borderRadius;
 
       &.total-incidents {
         color: #fff;
         display: flex;
+        cursor: pointer;
         align-items: center;
         justify-content: center;
         padding: $columnPadding;
@@ -54,10 +55,10 @@ $columnPadding: 8px 12px;
           text-align: center;
 
           .open-number {
+            line-height: 1;
             display: inline;
             font-weight: 600;
             font-size: 110px;
-            line-height: 1;
             margin-right: 5px;
           }
           .open-text {
@@ -68,14 +69,18 @@ $columnPadding: 8px 12px;
             font-size: 18px;
           }
         }
+
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
 
   .departments-incidents {
     h2 {
-      font-weight: normal;
       padding: 6px 10px;
+      font-weight: normal;
     }
 
     &-container {
@@ -84,10 +89,10 @@ $columnPadding: 8px 12px;
     }
 
     &-box {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
       padding: 10px;
+      display: flex;
+      cursor: pointer;
+      justify-content: space-between;
       border-top: 1px solid rgba(0, 0, 0, 0.2);
 
       &:hover {
@@ -102,6 +107,7 @@ $columnPadding: 8px 12px;
 
   .active-departments {
     display: flex;
+    cursor: pointer;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -117,6 +123,11 @@ $columnPadding: 8px 12px;
         font-weight: normal;
       }
     }
+
+    &:hover {
+      opacity: .8;
+      border: 1px solid rgba(0, 6, 255, 0.8);
+    }
   }
 
   .severity-risks {
@@ -125,21 +136,9 @@ $columnPadding: 8px 12px;
 
     .risks {
       &-header {
-        font-size: 20px;
+        font-size: 24px;
         position: relative;
         text-align: center;
-
-
-        &::after {
-          left: 0;
-          right: 0;
-          height: 2px;
-          content: ' ';
-          bottom: -5px;
-          margin: 0 auto;
-          position: absolute;
-          background-color: rgba(0, 0, 0, 0.3);
-        }
       }
 
       &-body {
@@ -207,6 +206,7 @@ $columnPadding: 8px 12px;
 
   .academy-information {
     display: flex;
+    cursor: pointer;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -232,6 +232,11 @@ $columnPadding: 8px 12px;
       border-radius: 5px;
       display: inline-table;
       border: 1px solid #019e12;
+    }
+
+    &:hover {
+      opacity: .8;
+      border: 1px solid rgba(255, 184, 1, 0.8);
     }
   }
 }
