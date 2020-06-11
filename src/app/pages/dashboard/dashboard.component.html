@@ -1,34 +1,43 @@
 <div class="container-fluid dashboard-container">
   <div class="row security-status">
     <div class="security-status-wrapper">
-      <span class="security-status-wrapper-percentage">52%</span>
-      <span class="security-status-wrapper-text">of total security reached</span>
+      <span class="security-status-wrapper-percentage">{{this.totalSecurity}}%</span>
+      <span class="security-status-wrapper-text">of total defined security reached*</span>
     </div>
     <div class="status-settings" (click)="settingsExpanded = !settingsExpanded">
       <em class="fa fa-cog status-settings-wheel"></em>
     </div>
     <div class="progress" [ngClass]="{'expanded': settingsExpanded}">
-      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': '52%'}"></div>
+      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': this.totalSecurity + '%'}"></div>
     </div>
   </div>
   <div class="row settings-wrapper">
-    <div class="security-status-settings" [ngClass]="{'expanded': settingsExpanded}">
-      <label>
-        Total incidents reached in a year
-        <input type="checkbox"/>
-      </label>
-      <label>
-        Fakke nifaauuuw
-        <input type="checkbox"/>
-      </label>
-      <label>
-        Hey
-        <input type="checkbox"/>
-      </label>
-      <label>
-        Hey
-        <input type="checkbox"/>
-      </label>
+    <div class="settings-wrapper-settings" [ngClass]="{'expanded': settingsExpanded}">
+      <span class="spell-tag">
+        <small>*Total defined security as calculated by the definitions below. Number does not represent actual corporate security.</small>
+      </span>
+      <div class="container-fluid">
+        <div class="row">
+          <label class="spell-input" title="Use the percentage from [incidents this month / incidents this year]">
+            Incidents this month/Incidents this year
+            <input type="checkbox" [(ngModel)]="calculateConfiguration.incidentMonthYearPercentage" (change)="calculateSecurityLevel()"/>
+          </label>
+          <label class="spell-input" title="Use the ratio from [open incidents / total incidents]">
+            Open incident/Total incident
+            <input type="checkbox" [(ngModel)]="calculateConfiguration.incidentOpenTotalRation" (change)="calculateSecurityLevel()"/>
+          </label>
+        </div>
+        <div class="row">
+          <label class="spell-input" title="Extra option">
+            Extra option
+            <input type="checkbox"/>
+          </label>
+          <label class="spell-input" title="Extra option">
+            Extra option
+            <input type="checkbox"/>
+          </label>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">

@@ -11,24 +11,15 @@ import {DressingService} from '@app/services/dressing.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  public settingsExpanded: boolean;
-  lineData: LineChart;
-  incidentsStats: {
-    total: number;
-    open: number;
-    high: number;
-    medium: number;
-    low: number;
-  };
-  departmentStats: {
-    department: Department;
-    open: number;
-  }[] = [];
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
+    this.calculateConfiguration = {
+      incidentOpenTotalRation: true, incidentMonthYearPercentage: false
+    };
     this.dataService.getDepartments().subscribe(
       (departments: Department[]) => {
         this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
+          this.incidents = incidents;
           this.incidentsStats = {
             total: incidents.length,
             open: incidents.filter((s: Incident) => s.open).length,
@@ -43,6 +34,7 @@ export class DashboardComponent {
             })
           );
           this.setLineData(incidents);
+          this.calculateSecurityLevel(); // Calculate the security level.
         });
       },
       () => {
@@ -50,6 +42,28 @@ export class DashboardComponent {
       }
     );
   }
+
+  public settingsExpanded: boolean;
+  public totalSecurity: number;
+  private incidents: Incident[];
+  private departments: Department[];
+
+  lineData: LineChart;
+  incidentsStats: {
+    total: number;
+    open: number;
+    high: number;
+    medium: number;
+    low: number;
+  };
+  departmentStats: {
+    department: Department;
+    open: number;
+  }[] = [];
+  calculateConfiguration: {
+    incidentMonthYearPercentage: boolean;
+    incidentOpenTotalRation: boolean;
+  };
 
   private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
     const monthNumbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -59,6 +73,25 @@ export class DashboardComponent {
       arr.push(new Date(Math.floor(from.getFullYear() + (i / 12)), monthNumbers[i % 12]));
     }
     return arr;
+  }
+
+  private calculateSecurityLevel(): void {
+    this.totalSecurity = 0;
+    const incidentRatio: number = this.incidents.filter((incident: Incident) => incident.open).length / this.incidents.length;
+    const incidentMonthOnYear: number = this.incidents.filter((incident: Incident) => {
+      return new Date(incident.filed).getMonth() === new Date().getMonth();
+      }).length /
+      this.incidents.filter((incident: Incident) => {
+        const incidentDate: Date = new Date(incident.filed);
+        return (new Date(new Date().setFullYear(new Date().getFullYear() - 1)) < incidentDate) &&
+          incidentDate.getMonth() !== new Date().getMonth();
+      }).length;
+    if (this.calculateConfiguration.incidentOpenTotalRation) {
+      this.totalSecurity = (Math.round(((incidentRatio) * 100) * 100) / 100);
+    }
+    if (this.totalSecurity < 0) {
+      this.totalSecurity = 0;
+    }
   }
 
   private setLineData(incidents: Incident[]): void {

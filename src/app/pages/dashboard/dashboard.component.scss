@@ -4,12 +4,14 @@ $columnPadding: 8px 12px;
 .dashboard-container {
 
   .settings-wrapper {
-    .security-status-settings {
+    &-settings {
       line-height: 0;
       background-color: white;
       color: black;
-      padding: 0 40px;
+      padding: 0;
       overflow: hidden;
+      left: 0;
+      right: 0;
       width: 100%;
       border-radius: 0 0 5px 5px;
       -webkit-transition: .5s;
@@ -19,8 +21,16 @@ $columnPadding: 8px 12px;
       height: 0;
 
       &.expanded {
-        padding: 40px;
-        height: auto;
+        height: 100px;
+      }
+      .spell-tag {
+        display: block;
+        margin: 15px 0 0 15px;
+        font-size: small;
+      }
+      .spell-input {
+        display: block;
+        margin: 15px 15px 0 15px;
       }
     }
   }
@@ -131,7 +141,7 @@ $columnPadding: 8px 12px;
 
     &-container {
       max-height: 20vh;
-      overflow-y: scroll;
+      overflow-y: hidden;
     }
 
     &-box {
