@@ -32,16 +32,19 @@ export class ReportOverviewComponent {
     );
   }
 
-
-
-
   onSubmit(reportForm: NgForm): void {
-    if (!this.nameInput) { this.dressingService.message('Please fill in a name'); }
-    else if (!this.departmentInput) { this.dressingService.message('Please choose a department'); }
-    else if (!this.subjectInput) { this.dressingService.message('Please choose a subject'); }
-    else if (!this.severityInput) { this.dressingService.message('Please choose a level of severity'); }
-    else if (!this.descriptionInput) { this.dressingService.message('Please enter a description'); }
-    else {
+    // TODO : Remove dressing service (DressingService is a snackbar for client/server errors, not validation errors)
+    if (!this.nameInput) {
+      this.dressingService.message('Please fill in a name');
+    } else if (!this.departmentInput) {
+      this.dressingService.message('Please choose a department');
+    } else if (!this.subjectInput) {
+      this.dressingService.message('Please choose a subject');
+    } else if (!this.severityInput) {
+      this.dressingService.message('Please choose a level of severity');
+    } else if (!this.descriptionInput) {
+      this.dressingService.message('Please enter a description');
+    } else {
       this.reports.push({
         id: this.reports.length + 1,
         name: this.nameInput,
@@ -57,6 +60,7 @@ export class ReportOverviewComponent {
   }
 
   openUp(id): void {
+    // TODO : Add this functionality to HTML
     this.object = document.getElementById('content-' + id);
     if (this.object.classList.contains('active')) {
       this.object.classList.remove('active');

@@ -8,7 +8,6 @@ import {HeaderComponent} from '@components/header/header.component';
 import {NotfoundComponent} from '@pages/notfound/notfound.component';
 import {IncidentsModule} from '@pages/incidents/incidents.module';
 import {ChartsModule} from 'ng2-charts';
-import {PerformancesModule} from '@pages/performances/performances.module';
 import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
 import {AcademyModule} from '@pages/academy/academy.module';
 import {EnvServiceProvider} from '@app/services/env.service.provider';
@@ -46,7 +45,6 @@ import {FormsModule} from '@angular/forms';
     AppRoutingModule,
     IncidentsModule,
     ChartsModule,
-    PerformancesModule,
     AcademyModule,
     NgbModule,
     ChartModule,
