@@ -11,13 +11,13 @@
   </div>
   <div class="row charts">
     <div class="statistics-overview-body">
-      <div class="chart-item" *ngIf="barData">
+      <div class="statistics-overview-column col" *ngIf="barData">
         <app-bar-chart [chart]="barData"></app-bar-chart>
       </div>
-      <div class="chart-item" *ngIf="lineData">
+      <div class="statistics-overview-column col" *ngIf="lineData">
         <app-line-chart [chart]="lineData"></app-line-chart>
       </div>
-      <div class="chart-item" *ngIf="certificatePercentage">
+      <div class="statistics-overview-column col" *ngIf="certificatePercentage">
         <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
       </div>
     </div>
@@ -44,8 +44,8 @@
       <p class="percentage">{{avgHours | number : '1.2-2'}}</p>
     </div>
     <div class="chart-item text-item">
-      <p>Average review score on Academy:</p>
-      <p class="percentage">{{avgReviewScore | number : '1.2-2'}}</p>
+      <p>Progress To-Do</p>
+      <p class="percentage">{{100 - barPercentage | number : '1.0-0'}}%</p>
     </div>
     <div class="chart-item text-item">
       <p>Average trainer review on Academy:</p>
@@ -54,8 +54,8 @@
   </div>
   <div class="row charts">
     <div class="chart-item text-item">
-      <p>To-Do</p>
-      <p class="percentage">To-Do</p>
+      <p>Average review score on Academy:</p>
+      <p class="percentage">{{avgReviewScore | number : '1.2-2'}}</p>
     </div>
     <div class="chart-item text-item">
       <p>Average quiz score on Academy:</p>

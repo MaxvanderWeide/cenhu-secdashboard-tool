@@ -1,41 +1,44 @@
 <div class="container-fluid dashboard-container">
   <div class="row security-status">
-    <div class="col-lg-4 row-column">
-      <span class="security-status-percentage">28%</span>
-      <span class="security-status-text">of total security reached</span>
+    <div class="security-status-wrapper">
+      <span class="security-status-wrapper-percentage">28%</span>
+      <span class="security-status-wrapper-text">of total security reached</span>
     </div>
-    <div class="col-lg-8 progress-wrapper row-column">
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': '28%'}"></div>
-      </div>
+    <div class="progress">
+      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': '52%'}"></div>
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
-    <div class="col-md-5 total-incidents row-column">
-      <div>
-        <span>{{incidentsStats.open}}</span> open <br> of {{incidentsStats.total}} total <br> INCIDENTS
+    <div class="col-md-4 total-incidents row-column" [routerLink]="['/dashboard/incidents/']">
+      <div class="incidents-text-wrapper">
+        <div class="open-number">{{incidentsStats.open}}</div><div class="open-text">open</div><div class="other-text">of {{incidentsStats.total}} total INCIDENTS</div>
       </div>
     </div>
     <div class="col-md-3 departments-incidents row-column">
       <h2>Department incidents</h2>
       <div class="departments-incidents-container" *ngFor="let stat of departmentStats">
-        <div class="departments-incidents-box">
-          <span>{{stat.department}}</span>
+        <div class="departments-incidents-box" [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
+          <span>{{stat.department.department}}</span>
           <span>{{stat.open}}</span>
         </div>
       </div>
     </div>
-    <div class="col-md-3 active-departments row-column">
+    <div class="col-md-4 incident-information row-column">
+      <div class="chart-item" *ngIf="lineData !== undefined">
+        <app-line-chart [chart]="lineData"></app-line-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
+    <div class="col-md-3 active-departments row-column" [routerLink]="['/dashboard/departments/']">
       <div class="active-departments-wrapper">
         <h1>{{departmentStats.length}}</h1>
         <h3>Active Departments</h3>
       </div>
     </div>
-  </div>
-  <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
-    <div class="col-md-4 severity-risks row-column">
+    <div class="col-md-5 severity-risks row-column">
       <div class="risks-header">
-        Number of severity risks
+        Number of risks
       </div>
       <div class="risks-body">
         <div>
@@ -52,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3 academy-information row-column">
+    <div class="col-md-3 academy-information row-column" [routerLink]="['/dashboard/academy/']">
       <div>
         <h1>365</h1>
         <h4>Academy users last week</h4>
@@ -60,11 +63,6 @@
           <em class="fa fa-caret-up"></em>
           <span> 25%</span>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4 incident-information row-column">
-      <div class="chart-item" *ngIf="lineData !== undefined">
-        <app-line-chart [chart]="lineData"></app-line-chart>
       </div>
     </div>
   </div>
