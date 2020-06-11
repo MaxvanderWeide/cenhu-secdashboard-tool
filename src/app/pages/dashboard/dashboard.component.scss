@@ -2,9 +2,32 @@ $borderRadius: 6px;
 $columnPadding: 8px 12px;
 
 .dashboard-container {
+
+  .settings-wrapper {
+    .security-status-settings {
+      line-height: 0;
+      background-color: white;
+      color: black;
+      padding: 0 40px;
+      overflow: hidden;
+      width: 100%;
+      border-radius: 0 0 5px 5px;
+      -webkit-transition: .5s;
+      -moz-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s;
+      height: 0;
+
+      &.expanded {
+        padding: 40px;
+        height: auto;
+      }
+    }
+  }
+
   .security-status {
-    color: #fff;
     position: relative;
+    color: #fff;
 
     &-wrapper {
       padding: 0 30px;
@@ -26,8 +49,29 @@ $columnPadding: 8px 12px;
       height: 100%;
       background-color: #cecece;
 
+      &.expanded {
+        border-radius: 5px 5px 0 0;
+      }
+
       #progressBar {
         background-color: #ff7464;
+      }
+    }
+
+    .status-settings {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 5px;
+      font-size: larger;
+      cursor: pointer;
+
+      &-wheel {
+        transition: transform .5s;
+
+        &:hover {
+          transform: rotate(90deg);
+        }
       }
     }
   }
@@ -61,10 +105,12 @@ $columnPadding: 8px 12px;
             font-size: 110px;
             margin-right: 5px;
           }
+
           .open-text {
             display: inline;
             font-size: 30px;
           }
+
           .other-text {
             font-size: 18px;
           }
@@ -240,5 +286,3 @@ $columnPadding: 8px 12px;
     }
   }
 }
-
-

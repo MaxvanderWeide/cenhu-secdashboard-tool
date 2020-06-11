@@ -1,17 +1,42 @@
 <div class="container-fluid dashboard-container">
   <div class="row security-status">
     <div class="security-status-wrapper">
-      <span class="security-status-wrapper-percentage">28%</span>
+      <span class="security-status-wrapper-percentage">52%</span>
       <span class="security-status-wrapper-text">of total security reached</span>
     </div>
-    <div class="progress">
+    <div class="status-settings" (click)="settingsExpanded = !settingsExpanded">
+      <em class="fa fa-cog status-settings-wheel"></em>
+    </div>
+    <div class="progress" [ngClass]="{'expanded': settingsExpanded}">
       <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': '52%'}"></div>
+    </div>
+  </div>
+  <div class="row settings-wrapper">
+    <div class="security-status-settings" [ngClass]="{'expanded': settingsExpanded}">
+      <label>
+        Total incidents reached in a year
+        <input type="checkbox"/>
+      </label>
+      <label>
+        Fakke nifaauuuw
+        <input type="checkbox"/>
+      </label>
+      <label>
+        Hey
+        <input type="checkbox"/>
+      </label>
+      <label>
+        Hey
+        <input type="checkbox"/>
+      </label>
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
     <div class="col-md-4 total-incidents row-column" [routerLink]="['/dashboard/incidents/']">
       <div class="incidents-text-wrapper">
-        <div class="open-number">{{incidentsStats.open}}</div><div class="open-text">open</div><div class="other-text">of {{incidentsStats.total}} total INCIDENTS</div>
+        <div class="open-number">{{incidentsStats.open}}</div>
+        <div class="open-text">open</div>
+        <div class="other-text">of {{incidentsStats.total}} total INCIDENTS</div>
       </div>
     </div>
     <div class="col-md-3 departments-incidents row-column">

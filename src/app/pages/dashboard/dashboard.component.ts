@@ -11,6 +11,7 @@ import {DressingService} from '@app/services/dressing.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  public settingsExpanded: boolean;
   lineData: LineChart;
   incidentsStats: {
     total: number;
