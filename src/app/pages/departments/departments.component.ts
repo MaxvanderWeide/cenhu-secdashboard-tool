@@ -42,9 +42,7 @@ export class DepartmentsComponent {
     };
   }
 
-  // TODO: Remove code duplicates with departments-overview
   private setStatistics(department: Department, incidents: Incident[]): void {
-
     const yearPerformance: number = department.performances.find((performance: {
       year: number;
       performance: number;
