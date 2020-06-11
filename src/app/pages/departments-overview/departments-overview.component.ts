@@ -39,9 +39,9 @@ export class DepartmentsOverviewComponent {
 
   private setStatistics(departments: Department[]): void {
     for (const department of departments) {
-      // eslint-disable-line @typescript-eslint/typedef
-      // tslint:disable-next-line:max-line-length
-      const yearPerformance: number = department.performances.find((performance: { year: number; performance: number }) => performance.year === new Date().getFullYear()).performance;
+      const yearPerformance: number = department.performances.find((performance: {
+        year: number;
+        performance: number }) => performance.year === new Date().getFullYear()).performance;
       let vulnerability;
       if (yearPerformance <= 20) {
         vulnerability = 'Critical';
@@ -57,9 +57,10 @@ export class DepartmentsOverviewComponent {
         data: {
           employees: department.employees,
           vulnerability,
-          // eslint-disable-line @typescript-eslint/typedef
-          // tslint:disable-next-line:max-line-length
-          averagePerformance: Number((department.performances.map((performance: { year: number; performance: number }) => performance.performance).reduce((first: number, second: number) => first + second, 0) / department.performances.length).toFixed(2)),
+          averagePerformance: Number((department.performances.map((performance: {
+            year: number; performance:
+              number }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
+            department.performances.length).toFixed(2)),
           yearPerformance
         }
       };

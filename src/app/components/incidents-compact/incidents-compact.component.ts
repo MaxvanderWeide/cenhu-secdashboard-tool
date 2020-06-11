@@ -22,9 +22,8 @@ export class IncidentsCompactComponent implements OnInit {
     });
 
     this.modal = {
-      buttons: [],
+      buttons: ['okay'],
     };
-    this.modal.buttons.push('save');
   }
 
   openModal(event: MouseEvent): void {

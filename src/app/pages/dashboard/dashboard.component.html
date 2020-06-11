@@ -13,7 +13,7 @@
   <div class="row dashboard-row">
     <div class="col-md-5 total-incidents row-column">
       <div>
-        <span>12</span> open <br> of 1656 total <br> INCIDENTS
+        <span>{{incidentsStats.open}}</span> open <br> of 1656 total <br> INCIDENTS
       </div>
     </div>
     <div class="col-md-3 departments-incidents row-column">
@@ -47,7 +47,7 @@
     </div>
     <div class="col-md-3 active-departments row-column">
       <div class="active-departments-wrapper">
-        <h1>35</h1>
+        <h1>{{departments.length}}</h1>
         <h3>Active Departments</h3>
       </div>
     </div>
@@ -59,15 +59,15 @@
       </div>
       <div class="risks-body">
         <div>
-          <div class="risks-count">5</div>
+          <div class="risks-count">{{incidentsStats.high}}</div>
           <div class="risks-indicator risks-high">HIGH</div>
         </div>
         <div>
-          <div class="risks-count">9</div>
+          <div class="risks-count">{{incidentsStats.medium}}</div>
           <div class="risks-indicator risks-medium">MEDIUM</div>
         </div>
         <div>
-          <div class="risks-count">3</div>
+          <div class="risks-count">{{incidentsStats.low}}</div>
           <div class="risks-indicator risks-low">LOW</div>
         </div>
       </div>

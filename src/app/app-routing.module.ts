@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {IncidentsOverviewComponent} from '@pages/incidents/incidents-overview/incidents.component';
-import {PerformancesOverviewComponent} from '@pages/performances/performances-overview/performances.component';
 import {NotfoundComponent} from '@pages/notfound/notfound.component';
 import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
 import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-overview.component';
@@ -18,22 +17,10 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: '',
-        component: DashboardComponent,
-        canActivate: [AuthGuard],
-        data: {scopes: [Scope.CorporateSecurityTeamMember]}
-      },
-      {
         path: 'academy',
         component: AcademyOverviewComponent,
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]}
-      },
-      {
-        path: 'performances',
-        component: PerformancesOverviewComponent,
-        data: {scopes: [Scope.CorporateSecurityTeamMember]},
-        canActivate: [AuthGuard],
       },
       {
         path: 'report',
@@ -62,6 +49,12 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'home',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    data: {scopes: [Scope.CorporateSecurityTeamMember]},
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
@@ -69,10 +62,11 @@ const routes: Routes = [
     path: 'notfound',
     component: NotfoundComponent,
   },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '**',
     redirectTo: 'notfound'
-  }
+  },
 ];
 
 @NgModule({

@@ -7,14 +7,15 @@
 
       <div class="container accordion">
         <div class="row report-item" *ngFor="let report of reports">
-          <p class="accordion_btn" (click)="openUp(report.id)"><strong>{{report.name}}</strong><span>{{report.date}}</span></p>
-            <div id="content-{{report.id}}" class="content">
-              <p><strong>Department</strong><br>{{report.department}}</p>
-              <p><strong>Subject</strong><br>{{report.subject}}</p>
-              <p><strong>Severity</strong><br>{{report.severity}}</p>
-              <p><strong>Description</strong><br>{{report.description}}</p>
-            </div>
+          <p class="accordion_btn" (click)="openUp(report.id)">
+            <strong>{{report.name}}</strong><span>{{report.date}}</span></p>
+          <div id="content-{{report.id}}" class="content">
+            <p><strong>Department</strong><br>{{report.department}}</p>
+            <p><strong>Subject</strong><br>{{report.subject}}</p>
+            <p><strong>Severity</strong><br>{{report.severity}}</p>
+            <p><strong>Description</strong><br>{{report.description}}</p>
           </div>
+        </div>
       </div>
 
     </div>
@@ -27,7 +28,8 @@
 
         <div class="form-group">
           <label for="name">Title</label>
-          <input type="text" class="form-control" id="name" placeholder="Choose a short title" required [(ngModel)]="nameInput" name="nameInput">
+          <input type="text" class="form-control" id="name" placeholder="Choose a short title" required
+                 [(ngModel)]="nameInput" name="nameInput">
         </div>
 
         <div class="form-group">

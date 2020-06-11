@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 
 import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
@@ -20,7 +20,7 @@ export class DepartmentsComponent {
   pieData: PieChart;
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {
-    this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
+    this.route.params.subscribe((params: Params) => {
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
           this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
@@ -44,8 +44,10 @@ export class DepartmentsComponent {
 
   private setStatistics(department: Department, incidents: Incident[]): void {
 
-    // tslint:disable-next-line:max-line-length @
-    const yearPerformance: number = department.performances.find((performance: { year: number; performance: number }) => performance.year === new Date().getFullYear()).performance;
+    const yearPerformance: number = department.performances.find((performance: {
+      year: number;
+      performance: number
+    }) => performance.year === new Date().getFullYear()).performance;
     let vulnerability;
     if (yearPerformance <= 20) {
       vulnerability = 'Critical';
@@ -61,8 +63,11 @@ export class DepartmentsComponent {
       data: {
         employees: department.employees,
         vulnerability,
-        // tslint:disable-next-line:max-line-length
-        averagePerformance: Number((department.performances.map((performance: { year: number; performance: number }) => performance.performance).reduce((first: number, second: number) => first + second, 0) / department.performances.length).toFixed(2)),
+        averagePerformance: Number((department.performances.map((performance: {
+          year: number;
+          performance: number
+        }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
+          department.performances.length).toFixed(2)),
         yearPerformance
       },
       incidents: {
@@ -76,8 +81,8 @@ export class DepartmentsComponent {
   private setIncidentsBarData(incidents: Incident[]): void {
     // Get incidents per year
     const date: Date = new Date();
-    // tslint:disable-next-line:max-line-length @
-    const lowestYear: number = new Date(incidents.reduce((prev: Incident, curr: Incident) => new Date(prev.filed).getFullYear() < new Date(curr.filed).getFullYear() ? prev : curr).filed).getFullYear();
+    const lowestYear: number = new Date(incidents.reduce((prev: Incident, curr: Incident) =>
+      new Date(prev.filed).getFullYear() < new Date(curr.filed).getFullYear() ? prev : curr).filed).getFullYear();
     const years: { currentYear: number; years: Label[]; yearsDiff: number; year: number } = {
       currentYear: date.getFullYear(),
       years: [],
@@ -96,9 +101,10 @@ export class DepartmentsComponent {
     const incidentsYear: { total: number; open: number }[] = [];
     years.years.forEach((value: string) => {
       incidentsYear.push({
-        total: incidents.filter((incident: Incident) => new Date(incident.filed).getFullYear() === parseInt(value, 10)).length,
-        // tslint:disable-next-line:max-line-length
-        open: incidents.filter((incident: Incident) => new Date(incident.filed).getFullYear() === parseInt(value, 10) && incident.open).length
+        total: incidents.filter((incident: Incident) =>
+          new Date(incident.filed).getFullYear() === parseInt(value, 10)).length,
+        open: incidents.filter((incident: Incident) =>
+          new Date(incident.filed).getFullYear() === parseInt(value, 10) && incident.open).length
       });
     });
 
@@ -125,11 +131,10 @@ export class DepartmentsComponent {
   private setPerformanceBarData(department: Department): void {
     // Get incidents per year
     const date: Date = new Date();
-    // tslint:disable-next-line:max-line-length @
     const lowestYear: number = this.department.performances.reduce(
       (prev: { year: number; performance: number },
        curr: { year: number; performance: number }) =>
-      prev.year < curr.year ? prev : curr).year;
+        prev.year < curr.year ? prev : curr).year;
 
     const years: { currentYear: number; years: Label[]; yearsDiff: number; year: number } = {
       currentYear: date.getFullYear(),
@@ -150,8 +155,10 @@ export class DepartmentsComponent {
     years.years.forEach((value: string) => {
       performancesYear.push({
         year: parseInt(value, 10),
-        // tslint:disable-next-line:max-line-length
-        performance: this.department.performances.find((performance: { year: number; performance: number }) => performance.year === parseInt(value, 10)).performance
+        performance: this.department.performances.find((performance: {
+          year: number;
+          performance: number
+        }) => performance.year === parseInt(value, 10)).performance
       });
     });
 
