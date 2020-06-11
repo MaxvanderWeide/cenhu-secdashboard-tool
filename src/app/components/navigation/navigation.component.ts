@@ -20,7 +20,7 @@ export class NavigationComponent {
 
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
-    {name: 'Dashboard', icon: 'tachometer', resource: '/dashboard'},
+    {name: 'Dashboard', icon: 'tachometer', resource: '/home'},
     {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
     {name: 'Academy', icon: 'codepen', resource: '/dashboard/academy'},
     {name: 'Reports', icon: 'eye', resource: '/dashboard/report'},
