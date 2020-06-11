@@ -4,6 +4,8 @@ import {BarChart} from '@models/barchart.model';
 import {ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {DataService} from '@app/services/data.service';
+import {Incident} from "@models/incidents.model";
+import {LineChart} from "@models/linechart.model";
 
 
 @Component({
@@ -55,18 +57,60 @@ export class AcademyOverviewComponent {
 
   barData: BarChart;
 
-  public lineData: {
-    title: string;
-    data: ChartDataSets[];
-    labels: Label[];
-    dataColors: string[];
-  };
+  lineData: LineChart;
 
   constructor(private dataService: DataService) {
     this.dataService.getAcademyData().subscribe((academyData: Academy[]) => {
       this.academyData = academyData;
+      this.setLineData(this.academyData);
       this.calculateData();
     });
+  }
+
+  // To-DO Refactor Code
+  private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
+    const monthNumbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+    const arr: Date[] = [];
+    for (let i: number = from.getMonth() + 1; i <= (12 * (to.getFullYear() - from.getFullYear())) + to.getMonth(); i++) {
+      arr.push(new Date(Math.floor(from.getFullYear() + (i / 12)), monthNumbers[i % 12]));
+    }
+    return arr;
+  }
+
+  // To-DO Refactor Code
+  private setLineData(academy: Academy[]): void {
+    // Get incidents per year
+    const toDay: Date = new Date();
+    const lastYear: Date = new Date();
+    lastYear.setFullYear(lastYear.getFullYear() - 1);
+
+    const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months: Date[] = AcademyOverviewComponent.getMonthsBeforeDate(lastYear, toDay);
+
+    // Set bar data
+    const incidentsMonth: { total: number }[] = [];
+    months.forEach((value: Date) => {
+      incidentsMonth.push({
+        // tslint:disable-next-line:max-line-length
+        total: academy.filter((academy: Academy) => new Date(academy.dateAssigned)
+          > lastYear && new Date(academy.dateAssigned).getMonth() === value.getMonth()).length
+      });
+    });
+
+    // Line graph
+    this.lineData = {
+      title: 'Line',
+      data: [
+        {
+          data: incidentsMonth.map((incident: { total: number }) => incident.total),
+          label: 'Total'
+        }
+      ],
+      labels:  months.map((m: Date) => monthNames[m.getMonth()]),
+      dataColors: ['red'],
+      legend: true
+    };
   }
 
   calculateData(): void {
@@ -77,32 +121,35 @@ export class AcademyOverviewComponent {
     this.barStringPercentage = String(this.barPercentage + '%');
 
     // Color of bar graph
-    // TODO : Add orange?
     if (this.barPercentage <= 40) {
       this.barColor = 'red';
     } else if (this.barPercentage > 60) {
       this.barColor = 'green';
     }
     // TODO : Comment what they do
+    // Counting the average hour work
     this.avgHours = this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a !== 0 ? a + b : b, 0)
       / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length;
 
+    // Counting the average reviewScore
     this.avgReviewScore = this.academyData.map((academy: Academy) =>
       academy.reviewScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
 
+    // Counting the average Trainer review
     this.avgTrainerReview = this.academyData.map((academy: Academy) =>
       academy.trainerReview).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
 
+    // Counting the average quiz score
     this.quizScore = this.academyData.map((academy: Academy) =>
       academy.quizScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
 
+    // Counting the quiz attempts
     this.quizAttempt = this.academyData.map((academy: Academy) =>
       academy.quizScore).reduce((a: number, b: number) => a + b, 0);
 
+    // Showing numbers for tasks that are in progress, done or not started yet
     this.progressToDo = this.academyData.filter((academy: Academy) => academy.progress === 0).length;
-
     this.progressInProgress = this.academyData.filter((academy: Academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length;
-
     this.progressDone = this.academyData.filter((academy: Academy) => academy.progress === 1).length;
 
     // Data for pie chart
@@ -110,7 +157,7 @@ export class AcademyOverviewComponent {
     this.yCertificatePercentage = Number(((this.yCertificateAmount / this.academyData.length) * 100).toFixed(2));
     this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) /
       this.academyData.length) * 100).toFixed(2));
-
+    
     // Bar graph
     this.barData = {
       title: 'Bar',
@@ -122,17 +169,6 @@ export class AcademyOverviewComponent {
       dataColors: ['blue', 'red'],
       horizontal: false,
       legend: true
-    };
-
-    // Line graph
-    this.lineData = {
-      title: 'Line',
-      data: [
-        {data: [65, 59, 80, 81, 56, 55, 40, 52, 31, 23, 64, 31], label: 'Team A'},
-        {data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], label: 'Team B'}
-      ],
-      labels: this.months,
-      dataColors: ['blue', 'red']
     };
 
     // Pie chart of certificate

@@ -20,7 +20,7 @@ export class DashboardComponent {
     low: number;
   };
   departmentStats: {
-    department: string;
+    department: Department;
     open: number;
   }[] = [];
 
@@ -37,7 +37,7 @@ export class DashboardComponent {
           };
           departments.forEach((department: Department) =>
             this.departmentStats.push({
-              department: department.department,
+              department,
               open: incidents.filter((s: Incident) => s.open && s.department === department.code).length
             })
           );
@@ -88,7 +88,7 @@ export class DashboardComponent {
         },
       ],
       labels: months.map((m: Date) => monthNames[m.getMonth()]),
-      dataColors: ['red'],
+      dataColors: ['orange'],
       legend: true
     };
   }
