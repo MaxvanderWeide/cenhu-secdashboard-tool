@@ -7,6 +7,10 @@
   </div>
   <div class="incidents-compact-body">
     <div class="incidents-compact-item" [ngClass]="incident.severity" *ngFor="let incident of incidents">
+      <div class="incidents-compact-item-header">
+        <span>{{incident.filed | date: "HH:mm:ss"}} | {{incident.filed | date : 'dd/MM/yy'}}</span>
+        <span>{{incident.id}} <em class="fa fa-exclamation-circle severity-icon"></em></span>
+      </div>
       <div class="incidents-item-message-wrapper">
         <span>{{incident.message}}</span>
       </div>
