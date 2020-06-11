@@ -10,49 +10,29 @@
       </div>
     </div>
   </div>
-  <div class="row dashboard-row">
+  <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
     <div class="col-md-5 total-incidents row-column">
       <div>
-        <span>{{incidentsStats.open}}</span> open <br> of 1656 total <br> INCIDENTS
+        <span>{{incidentsStats.open}}</span> open <br> of {{incidentsStats.total}} total <br> INCIDENTS
       </div>
     </div>
     <div class="col-md-3 departments-incidents row-column">
       <h2>Department incidents</h2>
-      <div class="departments-incidents-container">
+      <div class="departments-incidents-container" *ngFor="let stat of departmentStats">
         <div class="departments-incidents-box">
-          <span>Otto</span>
-          <span>32</span>
-        </div>
-        <div class="departments-incidents-box">
-          <span>Thornton</span>
-          <span>15</span>
-        </div>
-        <div class="departments-incidents-box">
-          <span>the Bird</span>
-          <span>42</span>
-        </div>
-        <div class="departments-incidents-box">
-          <span>Otto</span>
-          <span>32</span>
-        </div>
-        <div class="departments-incidents-box">
-          <span>Thornton</span>
-          <span>15</span>
-        </div>
-        <div class="departments-incidents-box">
-          <span>the Bird</span>
-          <span>42</span>
+          <span>{{stat.department}}</span>
+          <span>{{stat.open}}</span>
         </div>
       </div>
     </div>
     <div class="col-md-3 active-departments row-column">
       <div class="active-departments-wrapper">
-        <h1>{{departments.length}}</h1>
+        <h1>{{departmentStats.length}}</h1>
         <h3>Active Departments</h3>
       </div>
     </div>
   </div>
-  <div class="row dashboard-row">
+  <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
     <div class="col-md-4 severity-risks row-column">
       <div class="risks-header">
         Number of severity risks

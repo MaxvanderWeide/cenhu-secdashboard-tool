@@ -11,29 +11,6 @@ import {DressingService} from '@app/services/dressing.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
-
-  constructor(private dataService: DataService, private dressingService: DressingService) {
-    this.dataService.getDepartments().subscribe(
-      (departments: Department[]) => {
-        this.departments = departments;
-        this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
-          this.incidentsStats = {
-            total: incidents.length,
-            open: incidents.filter((s: Incident) => s.open).length,
-            high: incidents.filter((s: Incident) => s.severity === 'high').length,
-            medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
-            low: incidents.filter((s: Incident) => s.severity === 'low').length,
-          };
-          this.setLineData(incidents);
-        });
-      },
-      () => {
-        this.dressingService.message('Department data loading unsuccessful. Try again later.');
-      }
-    );
-  }
-
   lineData: LineChart;
   incidentsStats: {
     total: number;
@@ -42,7 +19,36 @@ export class DashboardComponent {
     medium: number;
     low: number;
   };
-  public departments: Department[] = [];
+  departmentStats: {
+    department: string;
+    open: number;
+  }[] = [];
+
+  constructor(private dataService: DataService, private dressingService: DressingService) {
+    this.dataService.getDepartments().subscribe(
+      (departments: Department[]) => {
+        this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
+          this.incidentsStats = {
+            total: incidents.length,
+            open: incidents.filter((s: Incident) => s.open).length,
+            high: incidents.filter((s: Incident) => s.severity === 'high').length,
+            medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
+            low: incidents.filter((s: Incident) => s.severity === 'low').length,
+          };
+          departments.forEach( (department: Department) =>
+            this.departmentStats.push({
+              department: department.department,
+              open: incidents.filter((s: Incident) => s.open && s.department === department.code).length
+            })
+          );
+          this.setLineData(incidents);
+        });
+      },
+      () => {
+        this.dressingService.message('Department data loading unsuccessful. Try again later.');
+      }
+    );
+  }
 
   private static getMonthsBeforeDate(from, to): Date[] {
     const monthNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
