@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {Incident} from '@models/incidents.model';
 import {LineChart} from '@models/linechart.model';
-import {Label} from 'ng2-charts';
 import {DressingService} from '@app/services/dressing.service';
 
 @Component({
@@ -13,6 +11,29 @@ import {DressingService} from '@app/services/dressing.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
+
+  constructor(private dataService: DataService, private dressingService: DressingService) {
+    this.dataService.getDepartments().subscribe(
+      (departments: Department[]) => {
+        this.departments = departments;
+        this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
+          this.incidentsStats = {
+            total: incidents.length,
+            open: incidents.filter((s: Incident) => s.open).length,
+            high: incidents.filter((s: Incident) => s.severity === 'high').length,
+            medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
+            low: incidents.filter((s: Incident) => s.severity === 'low').length,
+          };
+          this.setLineData(incidents);
+        });
+      },
+      () => {
+        this.dressingService.message('Department data loading unsuccessful. Try again later.');
+      }
+    );
+  }
+
   lineData: LineChart;
   incidentsStats: {
     total: number;
@@ -23,32 +44,20 @@ export class DashboardComponent {
   };
   public departments: Department[] = [];
 
+  private static getMonthsBeforeDate(from, to): Date[] {
+    const monthNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-  constructor(private route: ActivatedRoute, private dataService: DataService, private dressingService: DressingService) {
-    this.route.params.subscribe(params => { // eslint-disable-line @typescript-eslint/typedef
-      this.dataService.getDepartments().subscribe(
-        (departments: Department[]) => {
-          this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
-            this.incidentsStats = {
-              total: incidents.length,
-              open: incidents.filter((s: Incident) => s.open).length,
-              high: incidents.filter((s: Incident) => s.severity === 'high').length,
-              medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
-              low: incidents.filter((s: Incident) => s.severity === 'low').length,
-            };
-            this.setLineData(incidents);
-          });
-        }
-      );
-    });
-    this.dataService.getDepartments().subscribe(
-      (departments: Department[]) => {
-        this.departments = departments;
-      },
-      () => {
-        this.dressingService.message('Department data loading unsuccessful. Try again later.');
-      }
-    );
+    const arr = [];
+    const fromYear = from.getFullYear();
+    const toYear = to.getFullYear();
+    const diffYear = (12 * (toYear - fromYear)) + to.getMonth();
+
+    for (let i = from.getMonth() + 1; i <= diffYear; i++) {
+      console.log(monthNumbers[i % 12]);
+      arr.push(new Date(Math.floor(fromYear + (i / 12)), monthNumbers[i % 12]));
+    }
+
+    return arr;
   }
 
   private setLineData(incidents: Incident[]): void {
@@ -58,7 +67,7 @@ export class DashboardComponent {
     lastYear.setFullYear(lastYear.getFullYear() - 1);
 
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const months = this.getMonthsBeforeDate(lastYear, toDay);
+    const months = DashboardComponent.getMonthsBeforeDate(lastYear, toDay);
 
     console.log(months);
 
@@ -84,22 +93,6 @@ export class DashboardComponent {
       dataColors: ['red'],
       legend: true
     };
-  }
-
-  private getMonthsBeforeDate(from, to): Date[] {
-    const monthNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
-    const arr = [];
-    const fromYear =  from.getFullYear();
-    const toYear =  to.getFullYear();
-    const diffYear = (12 * (toYear - fromYear)) + to.getMonth();
-
-    for (let i = from.getMonth() + 1; i <= diffYear; i++) {
-      console.log(monthNumbers[i % 12]);
-      arr.push(new Date(Math.floor(fromYear + (i / 12)), monthNumbers[i % 12]));
-    }
-
-    return arr;
   }
 }
 
