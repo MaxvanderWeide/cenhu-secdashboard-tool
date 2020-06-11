@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Academy} from '@models/academy.model';
 import {BarChart} from '@models/barchart.model';
 import {ChartDataSets} from 'chart.js';
@@ -11,7 +11,7 @@ import {DataService} from '@app/services/data.service';
   templateUrl: './academy-overview.component.html',
   styleUrls: ['./academy-overview.component.scss']
 })
-export class AcademyOverviewComponent{
+export class AcademyOverviewComponent {
 
   months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
@@ -72,35 +72,41 @@ export class AcademyOverviewComponent{
   calculateData(): void {
 
     // Data for Bar graph
-    this.barPercentage = (this.academyData.map(a => a.progress).reduce((a, b) => a + b, 0) / this.academyData.length) * 100;
+    this.barPercentage = (this.academyData.map((academy: Academy) =>
+      academy.progress).reduce((a: number, b: number) => a + b, 0) / this.academyData.length) * 100;
     this.barStringPercentage = String(this.barPercentage + '%');
 
     // Color of bar graph
-    if (this.barPercentage <= 40){
+    // TODO : Add orange?
+    if (this.barPercentage <= 40) {
       this.barColor = 'red';
-    } else if (this.barPercentage > 60){
+    } else if (this.barPercentage > 60) {
       this.barColor = 'green';
     }
-    // TODO : Comment what they do && Add types to all function parameters
-    this.avgHours = this.academyData.map(a => a.timeSpent).reduce((a, b) => a !== 0 ? a + b : b, 0)
+    // TODO : Comment what they do
+    this.avgHours = this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a !== 0 ? a + b : b, 0)
       / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length;
 
-    this.avgReviewScore = this.academyData.map(a => a.reviewScore).reduce((a, b) => a + b, 0) / this.academyData.length;
+    this.avgReviewScore = this.academyData.map((academy: Academy) =>
+      academy.reviewScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
 
-    this.avgTrainerReview = this.academyData.map(a => a.trainerReview).reduce((a, b) => a + b, 0) / this.academyData.length;
+    this.avgTrainerReview = this.academyData.map((academy: Academy) =>
+      academy.trainerReview).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
 
-    this.quizScore = this.academyData.map(a => a.quizScore).reduce((a, b) => a + b, 0) / this.academyData.length;
+    this.quizScore = this.academyData.map((academy: Academy) =>
+      academy.quizScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
 
-    this.quizAttempt = this.academyData.map(a => a.quizScore).reduce((a, b) => a + b, 0);
+    this.quizAttempt = this.academyData.map((academy: Academy) =>
+      academy.quizScore).reduce((a: number, b: number) => a + b, 0);
 
-    this.progressToDo = this.academyData.filter((academy) => academy.progress === 0).length;
+    this.progressToDo = this.academyData.filter((academy: Academy) => academy.progress === 0).length;
 
-    this.progressInProgress = this.academyData.filter( (academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length;
+    this.progressInProgress = this.academyData.filter((academy: Academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length;
 
-    this.progressDone = this.academyData.filter( (academy) => academy.progress === 1).length;
+    this.progressDone = this.academyData.filter((academy: Academy) => academy.progress === 1).length;
 
     // Data for pie chart
-    this.yCertificateAmount = this.academyData.filter( (academy) => academy.certificate === 'Y').length;
+    this.yCertificateAmount = this.academyData.filter((academy: Academy) => academy.certificate === 'Y').length;
     this.yCertificatePercentage = Number(((this.yCertificateAmount / this.academyData.length) * 100).toFixed(2));
     this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) /
       this.academyData.length) * 100).toFixed(2));

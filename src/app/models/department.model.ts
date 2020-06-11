@@ -13,11 +13,11 @@ export interface Department {
       vulnerability: string;
       averagePerformance: number;
       yearPerformance: number;
-    },
+    };
     incidents?: {
       total: number;
       closed: number;
       open: number;
-    }
+    };
   };
 }
