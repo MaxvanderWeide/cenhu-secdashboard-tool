@@ -1,4 +1,4 @@
-<nav class="navbar-expand" [ngClass]="{'nav-expanded': this.retracted}">
+<nav [ngClass]="retracted  ? 'navbar-expand' : 'navbar-expand nav-expanded'">
   <div class="navbar-icons">
     <div *ngFor="let item of navItems">
       <a [routerLink]="[item.resource]"  (click)="handleStopPropagation($event)">
@@ -8,7 +8,7 @@
       </a>
     </div>
   </div>
-  <div class="navbar-items" [ngClass]="{'expanded': this.retracted}">
+  <div class="navbar-items" [ngClass]="(this.retracted) ? '' : 'expanded'">
     <div *ngFor="let item of navItems">
       <a [routerLink]="[item.resource]" (click)="handleStopPropagation($event)">
         <span class="navbar-item">{{item.name}}</span>
