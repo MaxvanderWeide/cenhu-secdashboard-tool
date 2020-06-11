@@ -15,9 +15,7 @@ import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: 'dashboard',
-    component: DashboardComponent,
     canActivate: [AuthGuard],
-    data: {scopes: [Scope.CorporateSecurityTeamMember]},
     children: [
       {
         path: 'academy',
@@ -58,6 +56,12 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'home',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    data: {scopes: [Scope.CorporateSecurityTeamMember]},
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
@@ -65,7 +69,7 @@ const routes: Routes = [
     path: 'notfound',
     component: NotfoundComponent,
   },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '**',
     redirectTo: 'notfound'
