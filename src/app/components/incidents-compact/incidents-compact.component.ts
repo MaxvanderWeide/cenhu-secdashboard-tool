@@ -22,6 +22,7 @@ export class IncidentsCompactComponent implements OnInit {
     });
 
     this.modal = {
+      title: 'Incidents',
       buttons: ['okay'],
     };
   }

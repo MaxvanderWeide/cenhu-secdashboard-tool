@@ -1,114 +1,90 @@
 @import "~src/assets/scss/mixins";
 
-.incidents {
+.incidents-box {
   z-index: 0;
   display: block;
   margin: 15px 15px;
   position: relative;
 
-  .badge {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .box-header {
+  &-header {
     color: #ffffff;
     padding: 10px 0 10px 10px;
     border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .badge {
+      margin-right: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
-  .message-container {
+  &-body {
     height: 480px;
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 0 0 5px 5px;
     background-color: rgb(209, 209, 209);
 
-    .url-hold:hover {
+    @include md-phone-only {
+      max-height: 400px;
+    }
+
+    .url-holder:hover {
       cursor: pointer;
       opacity: .8;
     }
 
     &::-webkit-scrollbar {
       width: 5px;
+
+      &-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+
+      &-thumb {
+        background: grey;
+      }
+    }
+  }
+
+  &-message {
+    width: 100%;
+    font-size: medium;
+    color: black;
+
+    &-container {
+      border-radius: 5px;
+      margin: 15px 2%;
+      padding: 5px;
+      background-color: #ffffff;
+      color: #565656;
     }
 
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px grey;
-      border-radius: 10px;
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-size: small;
     }
 
-    &::-webkit-scrollbar-thumb {
-      background: grey;
+    &-footer {
+      font-size: small;
     }
 
-    .empty-message {
+    &-empty {
       width: auto;
       height: auto;
       color: #8c8c8c;
       font-size: 22px;
       text-align: center;
       border-radius: 5px;
-      margin: 15px 2% 15px 2%;
-      padding: 5px 5px 5px 5px;
-    }
-
-    .incident-message {
-      width: auto;
-      height: auto;
-      border-radius: 5px;
-      margin: 15px 2% 15px 2%;
-      padding: 5px 5px 5px 5px;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      div {
-        color: #565656;
-        font-size: small;
-      }
-      .box-text {
-        width: 100%;
-        font-size: medium;
-        color: black;
-      }
-    }
-  }
-}
-
-@include lg-phone-only {
-  .incidents {
-    width: auto;
-    margin: 25px 10px;
-
-    .message-container {
-      .message-box {
-        font-size: 14px;
-      }
-
-      .incident-message {
-        .message-icon {
-          font-size: 35px;
-        }
-      }
-    }
-  }
-}
-
-@include sm-phone-only {
-  .incidents {
-    width: auto;
-    margin: 15px 10px;
-
-    .box-header h4 {
-      font-size: 15px;
-    }
-
-    .message-container {
-      max-height: 400px;
-
-      .message-box {
-        font-size: 14px;
-      }
+      margin: 15px 2%;
+      padding: 5px;
     }
   }
 }
