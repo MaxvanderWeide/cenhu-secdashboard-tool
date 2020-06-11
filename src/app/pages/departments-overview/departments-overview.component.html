@@ -3,12 +3,12 @@
     <div class="col-md-12">
       <div class="col-md-12 department-box" *ngFor="let department of departments; let index = index">
         <div class="department-box-header" (click)="toggleInformation($event)">
-          <span>
+          <div class="header-placement">
             <em class="fa fa-chevron-right toggle-body"></em>
             <h3 *ngIf="!isMobile" class="department-name" routerLink="{{department.cleanUrl}}"
                 (click)="$event.stopPropagation()">{{department.department}}</h3>
             <h3 *ngIf="isMobile" class="department-name">{{department.department}}</h3>
-          </span>
+          </div>
 
           <em class="fa fa-external-link department-link" routerLink="{{department.cleanUrl}}"
               (click)="$event.stopPropagation()"></em>

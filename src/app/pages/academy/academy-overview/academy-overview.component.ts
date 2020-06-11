@@ -81,9 +81,9 @@ export class AcademyOverviewComponent{
     } else if (this.barPercentage > 60){
       this.barColor = 'green';
     }
-
+    // TODO : Comment what they do && Add types to all function parameters
     this.avgHours = this.academyData.map(a => a.timeSpent).reduce((a, b) => a !== 0 ? a + b : b, 0)
-      / this.academyData.filter((academy: Academy) => { return academy.timeSpent !== 0; }).length;
+      / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length;
 
     this.avgReviewScore = this.academyData.map(a => a.reviewScore).reduce((a, b) => a + b, 0) / this.academyData.length;
 
@@ -93,16 +93,17 @@ export class AcademyOverviewComponent{
 
     this.quizAttempt = this.academyData.map(a => a.quizScore).reduce((a, b) => a + b, 0);
 
-    this.progressToDo = this.academyData.filter(function (academy) { return academy.progress === 0; }).length;
+    this.progressToDo = this.academyData.filter((academy) => academy.progress === 0).length;
 
-    this.progressInProgress = this.academyData.filter(function (academy) { return academy.progress >= 0.1 && academy.progress <= 0.9; }).length;
+    this.progressInProgress = this.academyData.filter( (academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length;
 
-    this.progressDone = this.academyData.filter(function (academy) { return academy.progress === 1; }).length;
+    this.progressDone = this.academyData.filter( (academy) => academy.progress === 1).length;
 
     // Data for pie chart
-    this.yCertificateAmount = this.academyData.filter(function (academy) { return academy.certificate === 'Y'; }).length;
+    this.yCertificateAmount = this.academyData.filter( (academy) => academy.certificate === 'Y').length;
     this.yCertificatePercentage = Number(((this.yCertificateAmount / this.academyData.length) * 100).toFixed(2));
-    this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) / this.academyData.length) * 100).toFixed(2));
+    this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) /
+      this.academyData.length) * 100).toFixed(2));
 
     // Bar graph
     this.barData = {

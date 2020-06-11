@@ -53,7 +53,6 @@ export class DashboardComponent {
     const diffYear = (12 * (toYear - fromYear)) + to.getMonth();
 
     for (let i = from.getMonth() + 1; i <= diffYear; i++) {
-      console.log(monthNumbers[i % 12]);
       arr.push(new Date(Math.floor(fromYear + (i / 12)), monthNumbers[i % 12]));
     }
 
@@ -68,8 +67,6 @@ export class DashboardComponent {
 
     const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const months = DashboardComponent.getMonthsBeforeDate(lastYear, toDay);
-
-    console.log(months);
 
     // Set bar data
     const incidentsMonth: { total: number; }[] = [];

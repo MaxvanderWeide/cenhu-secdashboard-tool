@@ -4,12 +4,13 @@
   </div>
 
   <div class="message-container">
-    <div class="row incident-message" *ngFor="let incident of incidents" [ngClass]="incident.url ? 'url-hold' : ''"
+    <div class="row incident-message" *ngFor="let incident of incidents" [ngClass]="{'url-hold': incident.url}"
          (click)="handleUrlClick(incident)">
-        <div>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</div>
-        <div>{{incident.id}}</div>
-        <div class="box-text"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
-        <div *ngIf="incident.departmentName">{{incident.departmentName}}</div>
+      <div>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</div>
+      <div>{{incident.id}}</div>
+      <div
+        class="box-text"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
+      <div *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
     <div class="empty-message" *ngIf="incidents.length === 0">
       <p>No incidents found</p>
