@@ -75,7 +75,7 @@ export class DashboardComponent {
     return arr;
   }
 
-  private calculateSecurityLevel(): void {
+  public calculateSecurityLevel(): void {
     this.totalSecurity = 0;
     const incidentRatio: number = this.incidents.filter((incident: Incident) => incident.open).length / this.incidents.length;
     const incidentMonthOnYear: number = this.incidents.filter((incident: Incident) => {
