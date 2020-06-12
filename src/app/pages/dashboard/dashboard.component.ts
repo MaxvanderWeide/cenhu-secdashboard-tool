@@ -86,9 +86,11 @@ export class DashboardComponent {
     }).length / 11 + 1) / (this.incidents.filter((incident: Incident) => {
         return new Date(incident.filed).getMonth() === new Date().getMonth();
       }).length + 1);
+    /* eslint-disable */
     const relativeHighIncidentDepartment: number = this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) !== 0 ?
       (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1) ** .733 /
       (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) : 1;
+    /* eslint-enable */
     let checks = 0;
     for (const calculateConfigurationKey in this.calculateConfiguration) {
       if (this.calculateConfiguration[calculateConfigurationKey]) {
@@ -135,8 +137,8 @@ export class DashboardComponent {
     const incidentsMonth: { total: number }[] = [];
     months.forEach((value: Date) => {
       incidentsMonth.push({
-        // tslint:disable-next-line:max-line-length
-        total: incidents.filter((incident: Incident) => new Date(incident.filed) > lastYear && new Date(incident.filed).getMonth() === value.getMonth()).length
+        total: incidents.filter((incident: Incident) => new Date(incident.filed) >
+          lastYear && new Date(incident.filed).getMonth() === value.getMonth()).length
       });
     });
 
