@@ -8,7 +8,7 @@
       <em class="fa fa-cog status-settings-wheel"></em>
     </div>
     <div class="progress" [ngClass]="{'expanded': settingsExpanded}">
-      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': this.totalReverseSecurity + '%'}"></div>
+      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': this.totalReverseSecurity + '%', 'background-color': this.securityColor}"></div>
     </div>
   </div>
   <div class="row settings-wrapper">

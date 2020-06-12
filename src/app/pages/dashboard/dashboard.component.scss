@@ -62,10 +62,6 @@ $columnPadding: 8px 12px;
       &.expanded {
         border-radius: 5px 5px 0 0;
       }
-
-      #progressBar {
-        background-color: #ff7464;
-      }
     }
 
     .status-settings {
@@ -103,7 +99,7 @@ $columnPadding: 8px 12px;
         align-items: center;
         justify-content: center;
         padding: $columnPadding;
-        background-color: #189f48;
+        background-color: #4ea24e;
 
         .incidents-text-wrapper {
           text-align: center;

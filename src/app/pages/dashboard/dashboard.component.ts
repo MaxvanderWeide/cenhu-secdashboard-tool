@@ -14,7 +14,7 @@ export class DashboardComponent {
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.calculateConfiguration = {
-      incidentOpenTotalRation: false, incidentMonthYearPercentage: false, relativeHighIncidentDepartment: true
+      incidentOpenTotalRation: true, incidentMonthYearPercentage: true, relativeHighIncidentDepartment: true
     };
     this.dataService.getDepartments().subscribe(
       (departments: Department[]) => {
@@ -45,6 +45,7 @@ export class DashboardComponent {
 
   public settingsExpanded: boolean;
   public totalReverseSecurity: number;
+  public securityColor: string;
   private incidents: Incident[];
   private departments: Department[];
 
@@ -82,18 +83,19 @@ export class DashboardComponent {
       const incidentDate: Date = new Date(incident.filed);
       return (new Date(new Date().setFullYear(new Date().getFullYear() - 1)) < incidentDate) &&
         incidentDate.getMonth() !== new Date().getMonth() && new Date(new Date().setFullYear(new Date().getFullYear() + 1)) > incidentDate;
-    }).length + 1) / (this.incidents.filter((incident: Incident) => {
+    }).length / 11 + 1) / (this.incidents.filter((incident: Incident) => {
         return new Date(incident.filed).getMonth() === new Date().getMonth();
       }).length + 1);
     const relativeHighIncidentDepartment: number = this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) !== 0 ?
-      (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1) ** .6 /
-      (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) : 0;
+      (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1) ** .733 /
+      (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) : 1;
     let checks = 0;
     for (const calculateConfigurationKey in this.calculateConfiguration) {
       if (this.calculateConfiguration[calculateConfigurationKey]) {
         checks++;
       }
     }
+    // TODO: Clean up \/
     this.totalReverseSecurity = 0;
     if (this.calculateConfiguration.relativeHighIncidentDepartment) {
       this.totalReverseSecurity += (Math.round((((1 - relativeHighIncidentDepartment) / checks) * 100) * 100) / 100);
@@ -104,14 +106,19 @@ export class DashboardComponent {
     if (this.calculateConfiguration.incidentMonthYearPercentage) {
       this.totalReverseSecurity += (Math.round(((1 - incidentMonthOnYear) / checks) * 100) * 100) / 100;
     }
-    console.log(relativeHighIncidentDepartment);
-    console.log(this.totalReverseSecurity);
     this.totalReverseSecurity = (Math.round((100 - (this.totalReverseSecurity)) * 100) / 100);
     if (isNaN(this.totalReverseSecurity) || this.totalReverseSecurity < 0 || !isFinite(this.totalReverseSecurity)) {
       this.totalReverseSecurity = 0;
     }
     if (this.totalReverseSecurity > 100) {
       this.totalReverseSecurity = 100;
+    }
+    this.securityColor = '#ff7464';
+    if (this.totalReverseSecurity > 55) {
+      this.securityColor = '#ffbe00';
+    }
+    if (this.totalReverseSecurity > 88) {
+      this.securityColor = '#4ea24e';
     }
   }
 
