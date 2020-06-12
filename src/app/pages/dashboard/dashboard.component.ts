@@ -78,40 +78,40 @@ export class DashboardComponent {
 
   public calculateSecurityLevel(): void {
     const incidentRatio: number = this.incidents.filter((incident: Incident) => incident.open).length / this.incidents.length;
-    const incidentMonthOnYear: number = this.incidents.filter((incident: Incident) => {
+    const incidentMonthOnYear: number = (this.incidents.filter((incident: Incident) => {
       const incidentDate: Date = new Date(incident.filed);
       return (new Date(new Date().setFullYear(new Date().getFullYear() - 1)) < incidentDate) &&
-        incidentDate.getMonth() !== new Date().getMonth();
-    }).length / this.incidents.filter((incident: Incident) => {
+        incidentDate.getMonth() !== new Date().getMonth() && new Date(new Date().setFullYear(new Date().getFullYear() + 1)) > incidentDate;
+    }).length + 1) / (this.incidents.filter((incident: Incident) => {
         return new Date(incident.filed).getMonth() === new Date().getMonth();
-      }).length;
-    const relativeHighIncidentDepartment: number = (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) /
-      (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1);
+      }).length + 1);
+    const relativeHighIncidentDepartment: number = this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) !== 0 ?
+      (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1) ** .6 /
+      (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) : 0;
     let checks = 0;
+    for (const calculateConfigurationKey in this.calculateConfiguration) {
+      if (this.calculateConfiguration[calculateConfigurationKey]) {
+        checks++;
+      }
+    }
     this.totalReverseSecurity = 0;
-    // NOTE: Some calculations have margins added to balance them all out.
     if (this.calculateConfiguration.relativeHighIncidentDepartment) {
-      this.totalReverseSecurity += (Math.round(((relativeHighIncidentDepartment) * 100) * 100) / 100);
-      checks++;
+      this.totalReverseSecurity += (Math.round((((1 - relativeHighIncidentDepartment) / checks) * 100) * 100) / 100);
     }
     if (this.calculateConfiguration.incidentOpenTotalRation) {
-      this.totalReverseSecurity += (Math.round(((incidentRatio) * 100) * 100) / 100);
-      checks++;
+      this.totalReverseSecurity += (Math.round(((incidentRatio / checks) * 100) * 100) / 100);
     }
     if (this.calculateConfiguration.incidentMonthYearPercentage) {
-      this.totalReverseSecurity += (Math.round(((1 - (incidentMonthOnYear ** 0.95)) * 100) * 100) / 100); // BROKEN
-      checks++;
+      this.totalReverseSecurity += (Math.round(((1 - incidentMonthOnYear) / checks) * 100) * 100) / 100;
     }
-    // console.log(incidentMonthOnYear);
-    // console.log(1 - (incidentMonthOnYear ** 0.95));
     console.log(relativeHighIncidentDepartment);
-    console.log((Math.round((100 - (this.totalReverseSecurity / checks)) * 100) / 100));
-    this.totalReverseSecurity = (Math.round((100 - (this.totalReverseSecurity / checks)) * 100) / 100);
-    if (isNaN(this.totalReverseSecurity) || this.totalReverseSecurity < 0) {
+    console.log(this.totalReverseSecurity);
+    this.totalReverseSecurity = (Math.round((100 - (this.totalReverseSecurity)) * 100) / 100);
+    if (isNaN(this.totalReverseSecurity) || this.totalReverseSecurity < 0 || !isFinite(this.totalReverseSecurity)) {
       this.totalReverseSecurity = 0;
     }
     if (this.totalReverseSecurity > 100) {
-      this.totalReverseSecurity = 0;
+      this.totalReverseSecurity = 100;
     }
   }
 
