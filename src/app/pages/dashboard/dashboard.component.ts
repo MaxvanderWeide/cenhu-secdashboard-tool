@@ -14,7 +14,7 @@ export class DashboardComponent {
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.calculateConfiguration = {
-      incidentOpenTotalRation: true, incidentMonthYearPercentage: false
+      incidentOpenTotalRation: false, incidentMonthYearPercentage: false, relativeHighIncidentDepartment: true
     };
     this.dataService.getDepartments().subscribe(
       (departments: Department[]) => {
@@ -44,7 +44,7 @@ export class DashboardComponent {
   }
 
   public settingsExpanded: boolean;
-  public totalSecurity: number;
+  public totalReverseSecurity: number;
   private incidents: Incident[];
   private departments: Department[];
 
@@ -63,6 +63,7 @@ export class DashboardComponent {
   calculateConfiguration: {
     incidentMonthYearPercentage: boolean;
     incidentOpenTotalRation: boolean;
+    relativeHighIncidentDepartment: boolean;
   };
 
   private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
@@ -76,21 +77,41 @@ export class DashboardComponent {
   }
 
   public calculateSecurityLevel(): void {
-    this.totalSecurity = 0;
     const incidentRatio: number = this.incidents.filter((incident: Incident) => incident.open).length / this.incidents.length;
     const incidentMonthOnYear: number = this.incidents.filter((incident: Incident) => {
-      return new Date(incident.filed).getMonth() === new Date().getMonth();
-      }).length /
-      this.incidents.filter((incident: Incident) => {
-        const incidentDate: Date = new Date(incident.filed);
-        return (new Date(new Date().setFullYear(new Date().getFullYear() - 1)) < incidentDate) &&
-          incidentDate.getMonth() !== new Date().getMonth();
+      const incidentDate: Date = new Date(incident.filed);
+      return (new Date(new Date().setFullYear(new Date().getFullYear() - 1)) < incidentDate) &&
+        incidentDate.getMonth() !== new Date().getMonth();
+    }).length / this.incidents.filter((incident: Incident) => {
+        return new Date(incident.filed).getMonth() === new Date().getMonth();
       }).length;
-    if (this.calculateConfiguration.incidentOpenTotalRation) {
-      this.totalSecurity = (Math.round(((incidentRatio) * 100) * 100) / 100);
+    const relativeHighIncidentDepartment: number = (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) /
+      (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1);
+    let checks = 0;
+    this.totalReverseSecurity = 0;
+    // NOTE: Some calculations have margins added to balance them all out.
+    if (this.calculateConfiguration.relativeHighIncidentDepartment) {
+      this.totalReverseSecurity += (Math.round(((relativeHighIncidentDepartment) * 100) * 100) / 100);
+      checks++;
     }
-    if (this.totalSecurity < 0) {
-      this.totalSecurity = 0;
+    if (this.calculateConfiguration.incidentOpenTotalRation) {
+      this.totalReverseSecurity += (Math.round(((incidentRatio) * 100) * 100) / 100);
+      checks++;
+    }
+    if (this.calculateConfiguration.incidentMonthYearPercentage) {
+      this.totalReverseSecurity += (Math.round(((1 - (incidentMonthOnYear ** 0.95)) * 100) * 100) / 100); // BROKEN
+      checks++;
+    }
+    // console.log(incidentMonthOnYear);
+    // console.log(1 - (incidentMonthOnYear ** 0.95));
+    console.log(relativeHighIncidentDepartment);
+    console.log((Math.round((100 - (this.totalReverseSecurity / checks)) * 100) / 100));
+    this.totalReverseSecurity = (Math.round((100 - (this.totalReverseSecurity / checks)) * 100) / 100);
+    if (isNaN(this.totalReverseSecurity) || this.totalReverseSecurity < 0) {
+      this.totalReverseSecurity = 0;
+    }
+    if (this.totalReverseSecurity > 100) {
+      this.totalReverseSecurity = 0;
     }
   }
 

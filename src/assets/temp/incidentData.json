@@ -6,41 +6,15 @@
     "department": "hrm",
     "departmentName": "Human Resource Management",
     "filed": "2020-06-03T18:25:43.511Z",
-    "open": true,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "One line",
-    "severity": "high",
-    "url": "#",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "low",
-    "url": "#",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-06-03T18:25:43.511Z",
-    "open": true,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "M1 scored poorly",
-    "severity": "high",
-    "filed": "2020-06-03T18:25:43.511Z",
+    "open": false,
     "id": "198 04 0858"
   },
   {
     "message": "M1 scored poorly",
     "severity": "medium",
     "url": "#",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
+    "department": "fin",
+    "departmentName": "Finance",
     "filed": "2020-08-03T18:25:43.511Z",
     "open": true,
     "id": "198 04 0858"
@@ -49,10 +23,20 @@
     "message": "M1 scored poorly",
     "severity": "high",
     "url": "#",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
+    "department": "fin",
+    "departmentName": "Finance",
     "filed": "2019-08-03T18:25:43.511Z",
     "open": true,
+    "id": "198 04 0858"
+  },
+  {
+    "message": "M1 scored poorly",
+    "severity": "high",
+    "url": "#",
+    "department": "fin",
+    "departmentName": "Finance",
+    "filed": "2019-08-03T18:25:43.511Z",
+    "open": false,
     "id": "198 04 0858"
   }
 ]

@@ -1,14 +1,14 @@
 <div class="container-fluid dashboard-container">
   <div class="row security-status">
     <div class="security-status-wrapper">
-      <span class="security-status-wrapper-percentage">{{this.totalSecurity}}%</span>
+      <span class="security-status-wrapper-percentage">{{this.totalReverseSecurity}}%</span>
       <span class="security-status-wrapper-text">of total defined security reached*</span>
     </div>
     <div class="status-settings" (click)="settingsExpanded = !settingsExpanded">
       <em class="fa fa-cog status-settings-wheel"></em>
     </div>
     <div class="progress" [ngClass]="{'expanded': settingsExpanded}">
-      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': this.totalSecurity + '%'}"></div>
+      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': this.totalReverseSecurity + '%'}"></div>
     </div>
   </div>
   <div class="row settings-wrapper">
@@ -28,9 +28,9 @@
           </label>
         </div>
         <div class="row">
-          <label class="spell-input" title="Extra option">
-            Extra option
-            <input type="checkbox"/>
+          <label class="spell-input" title="High relative incident frequency on a department, relative to other departments. A lot of incidents on one department will bring the total security down.">
+            High relative incident frequency on department
+            <input type="checkbox" [(ngModel)]="calculateConfiguration.relativeHighIncidentDepartment" (change)="calculateSecurityLevel()"/>
           </label>
           <label class="spell-input" title="Extra option">
             Extra option
