@@ -31,7 +31,7 @@ export class DatasecComponent {
       }
     ],
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    dataColors: ['red'],
+    dataColors: ['default'],
     legend: true,
     aspectRatioOff: true
   };

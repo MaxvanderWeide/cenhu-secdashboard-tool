@@ -12,6 +12,7 @@
   .text-center {
     max-height: 340px;
     .inner {
+      border-radius: 0.25rem;
       background-color: white;
       padding: 15px;
       overflow-y: auto;
@@ -36,7 +37,7 @@
 .access {
   .mr-2 {
     color: white;
-    border-radius: 3px;
+    border-radius: 0.25rem;
     .percentage {
       background-color: rgba(0, 0, 0, 0.16);
       font-size: larger;
