@@ -115,12 +115,12 @@ export class DashboardComponent {
     if (this.totalReverseSecurity > 100) {
       this.totalReverseSecurity = 100;
     }
-    this.securityColor = '#ff7464';
+    this.securityColor = '#f66355';
     if (this.totalReverseSecurity > 55) {
-      this.securityColor = '#ffbe00';
+      this.securityColor = '#ffb44d';
     }
     if (this.totalReverseSecurity > 88) {
-      this.securityColor = '#4ea24e';
+      this.securityColor = '#6dc193';
     }
   }
 

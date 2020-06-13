@@ -44,16 +44,16 @@
     }
   }
   &-danger {
-    background-color: #f66355;
+    background-color: $danger;
   }
   &-warning {
-    background-color: #ffb44d;
+    background-color: $warning;
   }
   &-unknown {
-    background-color: #aeb5c1;
+    background-color: $unknown;
   }
   &-clean {
-    background-color: #6dc193;
+    background-color: $passed;
   }
   &-blocked {
     // Important to overwrite parent

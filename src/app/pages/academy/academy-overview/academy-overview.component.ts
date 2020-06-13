@@ -17,7 +17,7 @@ export class AcademyOverviewComponent {
   // Percentage of the bar graph
   barPercentage: number;
   barStringPercentage: string;
-  barColor: string = '#ffc107';
+  barColor: string = '#ffb44d';
 
   academyData: Academy[];
 
@@ -119,11 +119,10 @@ export class AcademyOverviewComponent {
 
     // Color of bar graph
     if (this.barPercentage <= 40) {
-      this.barColor = 'red';
+      this.barColor = '#f66355';
     } else if (this.barPercentage > 60) {
-      this.barColor = 'green';
+      this.barColor = '#6dc193';
     }
-    // TODO : Comment what they do
     // Counting the average hour work
     this.avgHours = this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a !== 0 ? a + b : b, 0)
       / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length;

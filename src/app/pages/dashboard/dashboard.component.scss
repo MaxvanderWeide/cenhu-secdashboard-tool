@@ -1,3 +1,4 @@
+@import "~src/assets/scss/mixins";
 $borderRadius: 5px;
 $columnPadding: 8px 12px;
 
@@ -64,7 +65,7 @@ $columnPadding: 8px 12px;
       }
 
       #progressBar {
-        background-color: #ff7464;
+        background-color: $danger;
       }
     }
 
@@ -103,7 +104,7 @@ $columnPadding: 8px 12px;
         align-items: center;
         justify-content: center;
         padding: $columnPadding;
-        background-color: #4ea24e;
+        background-color: $passed;
 
         .incidents-text-wrapper {
           text-align: center;
@@ -247,15 +248,15 @@ $columnPadding: 8px 12px;
       }
 
       &-high {
-        background-color: rgba(226, 0, 0, 0.8);
+        background-color: $danger;
       }
 
       &-medium {
-        background-color: rgba(255, 184, 1, 0.8);
+        background-color: $warning;
       }
 
       &-low {
-        background-color: rgba(34, 139, 34, 0.8);
+        background-color: $passed;
       }
     }
   }
