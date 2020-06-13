@@ -25,6 +25,7 @@ import {ModalComponent} from '@components/modal/modal.component';
 import { DashboardComponent } from '@pages/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
 import {ProjectViewComponent} from '@components/project-view/project-view.component';
+import {DatasecComponent} from '@components/datasec/datasec.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {ProjectViewComponent} from '@components/project-view/project-view.compon
     DepartmentsComponent,
     ModalComponent,
     DashboardComponent,
-    ProjectViewComponent
+    ProjectViewComponent,
+    DatasecComponent
   ],
   imports: [
     CommonModule,

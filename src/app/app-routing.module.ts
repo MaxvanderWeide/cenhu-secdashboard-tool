@@ -11,6 +11,7 @@ import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
 import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 import {ProjectViewComponent} from '@components/project-view/project-view.component';
+import {DatasecComponent} from '@components/datasec/datasec.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,12 @@ const routes: Routes = [
       {
         path: 'projects',
         component: ProjectViewComponent,
+        canActivate: [AuthGuard],
+        data: {scopes: [Scope.CorporateSecurityTeamMember]},
+      },
+      {
+        path: 'datasec',
+        component: DatasecComponent,
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]},
       },

@@ -1,9 +1,12 @@
 @import "~src/assets/scss/mixins";
 
 .project {
+  overflow-y: auto;
+  height: 90vh;
   &-specific {
     padding: 5px;
     overflow: hidden;
+    position: relative;
     margin-bottom: 15px;
     background-color: #ffffff;
 

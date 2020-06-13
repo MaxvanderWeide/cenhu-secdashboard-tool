@@ -1,4 +1,5 @@
-<div class="container-fluid project">
+<div class="container-fluid">
+  <div class="project">
   <div class="project-specific" *ngFor="let project of projects">
     <div class="project-specific-header">{{project.projectId}}</div>
     <div class="project-specific-body">
@@ -12,6 +13,7 @@
       <div> Access Data: <span *ngFor="let access of project.accessData">[{{access.requestDate}}, {{access.resource}}, {{access.method}}]</span> </div>
     </div>
   </div>
+  </div>
 </div>
 
-<footer class="temp-overview">This page is created as a template and is not based on real data.</footer>
+<footer class="temp-overview">*This page is created as a template and is not based on real data.</footer>
