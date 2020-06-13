@@ -20,24 +20,6 @@
   }
 }
 
-//.charts {
-//  .chart-item, .text-item {
-//    background-color: #fff;
-//    text-align: center;
-//    border-radius: 0.25rem;
-//    width: 30%;
-//  }
-//
-//  .text-item {
-//    .percentage {
-//      font-weight: bold;
-//      font-size: xx-large;
-//      font-style: oblique;
-//      opacity: .8;
-//    }
-//  }
-//}
-
 .charts {
   &-container {
     width: 100%;
@@ -56,43 +38,6 @@
       padding: 10px 0;
       width: 100%;
     }
-
-    //&.statistics-overview-main {
-    //  width: 25%;
-    //  font-size: 20px;
-    //  text-align: center;
-    //  display: flex;
-    //  justify-content: space-evenly;
-    //  border-top: 0;
-    //  border-bottom: 0;
-    //  padding: 10px 0;
-    //
-    //  @include md-phone-only {
-    //    width: 100%;
-    //    border: 1px solid rgba(0, 0, 0, 0.3);
-    //    border-left: 0;
-    //    border-right: 0;
-    //    margin: 0;
-    //    padding: 20px 0;
-    //  }
-    //
-    //  span {
-    //    display: block;
-    //
-    //
-    //    &.total-incidents {
-    //      color: #60bfe2;
-    //    }
-    //
-    //    &.open-incidents {
-    //      color: red;
-    //    }
-    //
-    //    &.closed-incidents {
-    //      color: green;
-    //    }
-    //  }
-    //}
   }
 }
 
@@ -121,7 +66,7 @@
         color: red;
       }
 
-      &.done-task {
+      &.done-tasks {
         color: green;
       }
     }
