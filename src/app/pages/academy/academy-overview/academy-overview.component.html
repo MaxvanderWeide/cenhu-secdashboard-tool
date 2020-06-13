@@ -25,15 +25,15 @@
     <div class="col progress-details-container">
       <div class="progress-details-column">
         To-Do
-        <div class="incidents-count open-incidents">{{progressToDo}}</div>
+        <div class="incidents-count todo-tasks">{{progressToDo}}</div>
       </div>
       <div class="progress-details-column">
         In Progress
-        <div class="incidents-count total-incidents">{{progressInProgress}}</div>
+        <div class="incidents-count progress-tasks">{{progressInProgress}}</div>
       </div>
       <div class="progress-details-column">
         Done
-        <div class="incidents-count closed-incidents">{{progressDone}}</div>
+        <div class="incidents-count done-task">{{progressDone}}</div>
       </div>
     </div>
   </div>
@@ -43,8 +43,8 @@
       <p class="statistics">{{avgHours | number : '1.2-2'}}</p>
     </div>
     <div class="statistics-overview-column">
-      <p>Progress To-Do</p>
-      <p class="statistics">{{100 - barPercentage | number : '1.0-0'}}%</p>
+      <p>Progress To-Do:</p>
+      <p class="statistics progress-todo">{{100 - barPercentage | number : '1.0-0'}}%</p>
     </div>
     <div class="statistics-overview-column">
       <p>Average trainer review on Academy:</p>

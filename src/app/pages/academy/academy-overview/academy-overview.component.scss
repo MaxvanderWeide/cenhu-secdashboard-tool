@@ -44,7 +44,7 @@
     display: flex;
     justify-content: space-between;
 
-    @include md-phone-only {
+    @include lg-phone-only {
       flex-direction: column;
     }
   }
@@ -52,7 +52,7 @@
   &-column {
     width: 32%;
 
-    @include md-phone-only {
+    @include lg-phone-only {
       padding: 10px 0;
       width: 100%;
     }
@@ -113,15 +113,15 @@
     .incidents-count {
       font-size: 20px;
 
-      &.total-incidents {
+      &.progress-tasks {
         color: #60bfe2;
       }
 
-      &.open-incidents {
+      &.todo-tasks {
         color: red;
       }
 
-      &.closed-incidents {
+      &.done-task {
         color: green;
       }
     }
@@ -140,5 +140,12 @@
     font-weight: bold;
     font-size: 36px;
     opacity: 0.8;
+  }
+
+  .progress-todo{
+
+    @include lg-phone-only {
+      padding-top: 48px;
+    }
   }
 }
