@@ -1,7 +1,31 @@
 [
   {
-    "projectId": "hrm-person-tool",
-    "apiAccessData": [],
+    "projectId": "fin-person-api",
+    "accessData": [
+      {
+        "resource": "/declarations/pins",
+        "method": "GET",
+        "requestDate": "2020-06-13T08:28:43.511Z"
+      }
+    ],
+    "errors": [],
+    "failedAccess": [],
+    "buildData": {
+      "buildId": 1,
+      "buildStart": "2020-06-13T08:28:43.511Z",
+      "buildEnd": "2020-06-13T09:00:43.511Z",
+      "status": "Failed",
+      "buildUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  },
+  {
+    "projectId": "hrm-person-api",
+    "apiAccessData": [
+      {
+        "resource": "WebService.GetPeople",
+        "requestDate": "2020-06-13T08:28:43.511Z"
+      }
+    ],
     "errors": [
       {
         "errorDate": "2020-06-13T08:28:43.511Z",

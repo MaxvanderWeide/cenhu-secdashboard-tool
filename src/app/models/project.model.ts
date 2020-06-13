@@ -1,6 +1,10 @@
 export interface Project {
   projectId: string;
-  apiAccessData: [];
+  accessData: {
+    resource: string;
+    method?: string;
+    requestDate: string;
+  }[];
   errors?: {
    errorDate: string;
    stackTrace: string;

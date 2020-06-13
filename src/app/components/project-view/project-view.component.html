@@ -7,6 +7,9 @@
         Start: {{project.buildData.buildStart}} -
         End: {{project.buildData.buildEnd}} -
         Status: {{project.buildData.status}}</div>
+      <div> Errors: <span *ngFor="let error of project.errors">[{{error.errorDate}}, {{error.stackTrace}}]</span> </div>
+      <div> Failed Access Reports: <span *ngFor="let access of project.failedAccess">[{{access.requestDate}}]</span> </div>
+      <div> Access Data: <span *ngFor="let access of project.accessData">[{{access.requestDate}}, {{access.resource}}, {{access.method}}]</span> </div>
     </div>
   </div>
 </div>
