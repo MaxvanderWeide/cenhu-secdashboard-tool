@@ -17,9 +17,6 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
     #{$name}: nth($color, 2)
   }
 }
-.animate-colors-transition {
-  transition: color .5s, background-color .5s;
-}
 
 html {
   max-height: 100vh;
@@ -31,6 +28,7 @@ html {
 
   body {
     font-family: $font-family !important;
+    transition: color .5s, background .5s;
     background: var(--background-primary-color);
     margin: 87px 15px 15px 75px;
 

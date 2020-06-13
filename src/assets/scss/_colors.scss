@@ -5,6 +5,8 @@ $background-secondary-color: #ffffff;
 $background-gray-secondary-color: #cecece;
 $background-secondary-color-dark: #222c40;
 
+$inner-background-color: #D1D1D1;
+
 $background-header-color: #ffffff;
 $background-header-color-dark: #4d5c79;
 
@@ -14,13 +16,15 @@ $background-navigation-color-dark: #303a4e;
 $text-primary-color: #000000;
 $text-primary-color-dark: #eaeaea;
 
-$text-secondary-color: #616161;
+$text-secondary-color: #585858;
 $text-secondary-color-dark: #c9c9c9;
 
 $config: (
   --background-primary-color: ($background-primary-color, $background-primary-color-dark),
   --background-secondary-color: ($background-secondary-color, $background-secondary-color-dark),
   --background-gray-secondary-color: ($background-gray-secondary-color, $background-secondary-color-dark),
+  --inner-background-color: ($inner-background-color, $background-secondary-color-dark),
+  --content-background-color: ($background-secondary-color, $background-primary-color-dark),
   --background-header-color: ($background-header-color, $background-header-color-dark),
   --background-navigation-color: ($background-navigation-color, $background-navigation-color-dark),
   --text-primary-color: ($text-primary-color, $text-primary-color-dark),

@@ -14,17 +14,17 @@ interface NavigationResource {
 })
 
 export class NavigationComponent {
-
+  private toggledTheme: boolean = false;
   constructor(private eRef: ElementRef) {
   }
 
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
     {name: 'Dashboard', icon: 'bar-chart-o', resource: '/home'},
-    {name: 'Departments', icon: 'group', resource: '/dashboard/departments'},
     {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
-    {name: 'Academy', icon: 'graduation-cap', resource: '/dashboard/academy'},
+    {name: 'Departments', icon: 'group', resource: '/dashboard/departments'},
     {name: 'Reports', icon: 'envelope-o', resource: '/dashboard/report'},
+    {name: 'Academy', icon: 'graduation-cap', resource: '/dashboard/academy'},
     {name: 'Projects*', icon: 'folder-o', resource: '/dashboard/projects'},
     {name: 'Datasec*', icon: 'shield', resource: '/dashboard/datasec'},
   ];
@@ -45,6 +45,15 @@ export class NavigationComponent {
     if (AppComponent.isMobile()) {
       this.toggleRetracted('header');
     }
+  }
+
+  public toggleThemeMode() {
+    if (this.toggledTheme) {
+      document.body.classList.remove('theme-dark');
+    } else {
+      document.body.classList.add('theme-dark');
+    }
+    this.toggledTheme = !this.toggledTheme;
   }
 
   public toggleRetracted(target: string): void {
