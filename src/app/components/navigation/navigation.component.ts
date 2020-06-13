@@ -20,13 +20,13 @@ export class NavigationComponent {
 
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
-    {name: 'Dashboard', icon: 'tachometer', resource: '/home'},
-    {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
-    {name: 'Academy', icon: 'codepen', resource: '/dashboard/academy'},
-    {name: 'Reports', icon: 'eye', resource: '/dashboard/report'},
-    {name: 'Departments', icon: 'cubes', resource: '/dashboard/departments'},
-    {name: 'Projects*', icon: 'clipboard', resource: '/dashboard/projects'},
-    {name: 'Datasec*', icon: 'database', resource: '/dashboard/datasec'},
+    {name: 'Dashboard', icon: 'bar-chart-o', resource: '/home'},
+    {name: 'Incidents', icon: 'exclamation', resource: '/dashboard/incidents'},
+    {name: 'Academy', icon: 'group', resource: '/dashboard/academy'},
+    {name: 'Reports', icon: 'envelope-o', resource: '/dashboard/report'},
+    {name: 'Departments', icon: 'drivers-license-o', resource: '/dashboard/departments'},
+    {name: 'Projects*', icon: 'folder-o', resource: '/dashboard/projects'},
+    {name: 'Datasec*', icon: 'shield', resource: '/dashboard/datasec'},
   ];
 
   @HostListener('document:click', ['$event'])
