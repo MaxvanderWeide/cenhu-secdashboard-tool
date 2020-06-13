@@ -6,7 +6,10 @@
     <span><em class="fa fa-location-arrow open-modal"></em></span>
   </div>
   <div class="incidents-compact-body">
-    <div class="incidents-compact-item" [ngClass]="incident.severity" *ngFor="let incident of incidents">
+    <div class="incidents-compact-search">
+      <input type="text" class="form-control" placeholder="Search by incident number" [(ngModel)]="searchNumber"/>
+    </div>
+    <div class="incidents-compact-item" [ngClass]="incident.severity" *ngFor="let incident of incidents | filter:searchNumber">
       <div class="incidents-compact-item-header">
         <span>{{incident.filed | date: "HH:mm:ss"}} | {{incident.filed | date : 'dd/MM/yy'}}</span>
         <span>{{incident.id}} <em class="fa fa-exclamation-circle severity-icon"></em></span>

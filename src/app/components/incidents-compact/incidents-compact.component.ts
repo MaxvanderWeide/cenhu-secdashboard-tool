@@ -12,6 +12,7 @@ export class IncidentsCompactComponent implements OnInit {
   incidents: Incident[];
   @Input() departmentCode: string;
   modal: Modal;
+  searchNumber: string;
 
   constructor(private dataService: DataService) {
   }
