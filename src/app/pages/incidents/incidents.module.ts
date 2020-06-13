@@ -4,20 +4,20 @@ import {IncidentsOverviewComponent} from './incidents-overview/incidents.compone
 import {IncidentComponent} from '@components/incident/incident.component';
 import {AppRoutingModule} from '@app/app-routing.module';
 import {FormsModule} from '@angular/forms';
-import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {FilterPipe} from '@app/pipes/filter.pipe';
 
 
 @NgModule({
   declarations: [
     IncidentsOverviewComponent,
-    IncidentComponent
+    IncidentComponent,
+    FilterPipe
   ],
   exports: [],
   imports: [
     CommonModule,
     AppRoutingModule,
-    FormsModule,
-    Ng2SearchPipeModule
+    FormsModule
   ]
 })
 export class IncidentsModule {
