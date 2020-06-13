@@ -21,10 +21,10 @@ export class NavigationComponent {
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
     {name: 'Dashboard', icon: 'bar-chart-o', resource: '/home'},
-    {name: 'Departments', icon: 'group', resource: '/dashboard/departments'},
     {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
-    {name: 'Academy', icon: 'graduation-cap', resource: '/dashboard/academy'},
+    {name: 'Departments', icon: 'group', resource: '/dashboard/departments'},
     {name: 'Reports', icon: 'envelope-o', resource: '/dashboard/report'},
+    {name: 'Academy', icon: 'graduation-cap', resource: '/dashboard/academy'},
     {name: 'Projects*', icon: 'folder-o', resource: '/dashboard/projects'},
     {name: 'Datasec*', icon: 'shield', resource: '/dashboard/datasec'},
   ];

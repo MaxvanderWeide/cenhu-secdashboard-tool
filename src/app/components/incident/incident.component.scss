@@ -24,9 +24,9 @@
 
   &-search {
     height: auto;
-    background-color: #fff;
-
     input {
+      background: var(--background-secondary-color);
+      color: var(--text-secondary-color);
       border-radius: 0;
       border: none;
     }
@@ -42,8 +42,11 @@
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 0 0 0.25rem 0.25rem;
-    background-color: rgb(209, 209, 209);
+    background: var(--inner-background-color);
 
+    span {
+      color: var(--text-primary-color);
+    }
     @include md-phone-only {
       max-height: 400px;
     }
@@ -74,14 +77,13 @@
   &-message {
     width: 100%;
     font-size: medium;
-    color: black;
+    color: var(--text-secondary-color);
 
     &-container {
       border-radius: 0.25rem;
       margin: 15px 2%;
       padding: 5px;
-      background-color: #ffffff;
-      color: #565656;
+      background: var(--content-background-color);
     }
 
     &-header {
@@ -93,6 +95,7 @@
 
     &-footer {
       font-size: small;
+      color: var(--text-primary-color);
     }
 
     &-empty {
