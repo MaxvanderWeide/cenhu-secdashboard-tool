@@ -17,7 +17,7 @@ export class DatasecComponent {
       {data: [10, 10, 5], label: 'Other'}
     ],
     labels: ['% Encrypted Systems', '% Unencrypted Systems', '% Total'],
-    dataColors: ['green', 'red'],
+    dataColors: ['green', 'blue', 'red'],
     horizontal: false,
     legend: true
   };
