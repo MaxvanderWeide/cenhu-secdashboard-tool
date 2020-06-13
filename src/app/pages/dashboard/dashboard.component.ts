@@ -142,9 +142,6 @@ export class DashboardComponent {
       });
     });
 
-    incidents.forEach((incident: Incident) => console.log(new Date(incident.filed)));
-    console.log(new Date());
-
     // Set bar data of chart
     this.lineData = {
       title: 'Incidents per month in the last year',
