@@ -17,11 +17,9 @@ jobs:
       - run: npm install
       # Build
       - run: ng build --prod
-       - name: Commit files
-       run: git add .
-       - name: Commit report
-         run: |
-           git config --global user.name 'admin'
-           git config --global user.email 'admin@cenhu.com'
-           git commit -am "Automated build report G-011"
-           git push
+      - run: git add .
+      - run: |
+          git config --global user.name 'admin'
+          git config --global user.email 'admin@cenhu.com'
+          git commit -am "Automated build report G-011"
+          git push
