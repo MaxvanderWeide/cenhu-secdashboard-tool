@@ -6,17 +6,17 @@ export interface Project {
     requestDate: string;
   }[];
   errors?: {
-   errorDate: string;
-   stackTrace: string;
+    errorDate: string;
+    stackTrace: string;
   }[];
   failedAccess?: {
     requestDate: string;
   }[];
   buildData?: {
-    buildId: number,
-    buildStart: string,
-    buildEnd: string,
-    status: string,
-    buildUrl: string
+    buildId: number;
+    buildStart: string;
+    buildEnd: string;
+    status: string;
+    buildUrl: string;
   };
 }

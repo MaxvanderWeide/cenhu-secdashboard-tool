@@ -12,11 +12,12 @@ h1 {
   height: calc(100vh - 200px);
 }
 
-.arrow{
+.arrow {
   margin-right: 5px;
   transform: rotate(0deg);
   transition: transform 1s linear;
-  &.open{
+
+  &.open {
     transform: rotate(180deg);
     transition: transform 1s linear;
   }
@@ -25,6 +26,7 @@ h1 {
 
 .report-item {
   margin-bottom: 10px;
+
   .accordion_btn {
     width: 100%;
     cursor: pointer;
@@ -34,11 +36,13 @@ h1 {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     background: white;
+
     span {
       float: right;
       margin-right: 5px;
     }
   }
+
   .content {
     transition: max-height 400ms ease-out;
     max-height: 0;
@@ -49,14 +53,17 @@ h1 {
     border-top: 0;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+
     &.active {
       max-height: 500px;
       display: block;
     }
+
     .panel {
       padding: 15px 15px 0;
     }
   }
+
   .btn {
     box-shadow: none;
   }

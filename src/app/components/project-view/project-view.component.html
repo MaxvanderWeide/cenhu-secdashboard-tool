@@ -1,18 +1,19 @@
 <div class="container-fluid">
   <div class="project">
-  <div class="project-specific" *ngFor="let project of projects">
-    <div class="project-specific-header">{{project.projectId}}</div>
-    <div class="project-specific-body">
-      <div> Latest build data:
-        ID: {{project.buildData.buildId}} -
-        Start: {{project.buildData.buildStart}} -
-        End: {{project.buildData.buildEnd}} -
-        Status: {{project.buildData.status}}</div>
-      <div> Errors: <span *ngFor="let error of project.errors">[{{error.errorDate}}, {{error.stackTrace}}]</span> </div>
-      <div> Failed Access Reports: <span *ngFor="let access of project.failedAccess">[{{access.requestDate}}]</span> </div>
-      <div> Access Data: <span *ngFor="let access of project.accessData">[{{access.requestDate}}, {{access.resource}}, {{access.method}}]</span> </div>
+    <div class="project-specific" *ngFor="let project of projects">
+      <div class="project-specific-header">{{project.projectId}}</div>
+      <div class="project-specific-body">
+        <div> Latest build data:
+          ID: {{project.buildData.buildId}} -
+          Start: {{project.buildData.buildStart}} -
+          End: {{project.buildData.buildEnd}} -
+          Status: {{project.buildData.status}}</div>
+        <div> Errors: <span *ngFor="let error of project.errors">[{{error.errorDate}}, {{error.stackTrace}}]</span></div>
+        <div> Failed Access Reports: <span *ngFor="let access of project.failedAccess">[{{access.requestDate}}]</span></div>
+        <div> Access Data: <span *ngFor="let access of project.accessData">[{{access.requestDate}}, {{access.resource}}, {{access.method}}
+          ]</span></div>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 

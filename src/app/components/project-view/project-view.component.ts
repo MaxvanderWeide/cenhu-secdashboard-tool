@@ -10,6 +10,7 @@ import {DressingService} from '@app/services/dressing.service';
 })
 export class ProjectViewComponent {
   public projects: Project[] = [];
+
   constructor(private dataService: DataService, private dressingService: DressingService) {
     this.dataService.getProjectsData().subscribe(
       (projects: Project[]) => {
@@ -21,5 +22,4 @@ export class ProjectViewComponent {
       }
     );
   }
-
 }

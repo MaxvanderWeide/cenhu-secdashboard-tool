@@ -76,7 +76,7 @@ const routes: Routes = [
     path: 'notfound',
     component: NotfoundComponent,
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {
     path: '**',
     redirectTo: 'notfound'

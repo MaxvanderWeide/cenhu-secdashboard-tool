@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+
 $columnPadding: 8px 12px;
 
 .dashboard-container {
@@ -23,11 +24,13 @@ $columnPadding: 8px 12px;
       &.expanded {
         height: 100px;
       }
+
       .spell-tag {
         display: block;
         margin: 15px 0 0 15px;
         font-size: small;
       }
+
       .spell-input {
         display: block;
         margin: 15px 15px 0 15px;

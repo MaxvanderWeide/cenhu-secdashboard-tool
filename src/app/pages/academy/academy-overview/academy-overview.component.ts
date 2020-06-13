@@ -104,7 +104,7 @@ export class AcademyOverviewComponent {
           label: 'Total'
         }
       ],
-      labels:  months.map((m: Date) => monthNames[m.getMonth()]),
+      labels: months.map((m: Date) => monthNames[m.getMonth()]),
       dataColors: ['red'],
       legend: true
     };
