@@ -8,7 +8,7 @@ jobs:
     name: Checkup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -16,4 +16,12 @@ jobs:
       - run: npm install -g @angular/cli
       - run: npm install
       # Build
-      - run: npm build --prod
+      - run: ng build --prod
+       - name: Commit files
+       run: git add .
+       - name: Commit report
+         run: |
+           git config --global user.name 'admin'
+           git config --global user.email 'admin@cenhu.com'
+           git commit -am "Automated build report G-011"
+           git push
