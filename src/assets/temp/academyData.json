@@ -1,8 +1,8 @@
 [
  {
-   "dateAssigned": "2020-06-03T18:25:43.511Z",
-   "dateStarted": "2020-06-03T18:25:43.511Z",
-   "dateCompleted": "2020-06-03T18:25:43.511Z",
+   "dateAssigned": "2020-05-03 18:25:43",
+   "dateStarted": "2020-05-03 18:25:43",
+   "dateCompleted": "2020-05-03 18:25:43",
    "team": "A",
    "progress": 0.7,
    "timeSpent": 0.4,
@@ -16,9 +16,9 @@
    "title": "Consultant"
 },
  {
-   "dateAssigned": "2020-06-03T18:25:43.511Z",
-   "dateStarted": "2020-06-03T18:25:43.511Z",
-   "dateCompleted": "2020-06-03T18:25:43.511Z",
+   "dateAssigned": "2020-05-03 18:25:43",
+   "dateStarted": "2020-05-03 18:25:43",
+   "dateCompleted": "2020-05-03 18:25:43",
    "team": "B",
    "progress": 1,
    "timeSpent": 1.15,
@@ -32,9 +32,9 @@
    "title": "Manager"
 },
  {
-   "dateAssigned": "2020-04-03T18:25:43.511Z",
-   "dateStarted": "2020-04-03T18:25:43.511Z",
-   "dateCompleted": "2020-04-03T18:25:43.511Z",
+   "dateAssigned": "2020-05-03 18:25:43",
+   "dateStarted": "2020-05-03 18:25:43",
+   "dateCompleted": "2020-05-03 18:25:43",
    "team": "C",
    "progress": 0,
    "timeSpent": 0,
