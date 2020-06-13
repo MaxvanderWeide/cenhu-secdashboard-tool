@@ -19,10 +19,8 @@
         class="incidents-box-item-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
       <div class="incidents-box-item-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
-    <div *ngIf="(incidents | openFilter:openIncidents.checked) as result">
-      <div class="incidents-box-item-empty" *ngIf="incidents.length === 0 || result.length === 0 ">
+      <div class="incidents-box-item-empty" *ngIf="incidents.length === 0 || (incidents | openFilter:openIncidents.checked | filter:searchNumber).length === 0 ">
         <p>No incidents found</p>
-      </div>
     </div>
   </div>
 </div>
