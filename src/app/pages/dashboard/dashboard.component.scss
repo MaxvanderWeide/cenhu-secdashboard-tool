@@ -48,10 +48,19 @@ $columnPadding: 8px 12px;
       &-percentage {
         font-size: 90px;
         margin-right: 10px;
+
+        @include md-phone-only {
+          font-size: 62px;
+        }
       }
 
       &-text {
         font-size: 25px;
+
+        @include md-phone-only {
+          font-size: 18px;
+          display: inline-block;
+        }
       }
     }
 
@@ -94,10 +103,18 @@ $columnPadding: 8px 12px;
     min-height: 250px;
     justify-content: space-between;
 
+    @include md-phone-only {
+      margin-top: 0;
+    }
+
     .row-column {
       background-color: #fff;
       padding: $columnPadding;
       border-radius: 0.25rem;
+
+      @include md-phone-only {
+        margin-top: 16px;
+      }
 
       &.total-incidents {
         color: #fff;
@@ -143,8 +160,8 @@ $columnPadding: 8px 12px;
     }
 
     &-container {
-      max-height: 20vh;
-      overflow-y: hidden;
+      max-height: 300px;
+      overflow-y: scroll;
     }
 
     &-box {
@@ -185,13 +202,17 @@ $columnPadding: 8px 12px;
 
     &:hover {
       opacity: .8;
-      border: 1px solid rgba(0, 6, 255, 0.8);
     }
   }
 
   .severity-risks {
     display: flex;
     flex-direction: column;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
 
     .risks {
       &-header {
@@ -295,7 +316,6 @@ $columnPadding: 8px 12px;
 
     &:hover {
       opacity: .8;
-      border: 1px solid rgba(255, 184, 1, 0.8);
     }
   }
 }

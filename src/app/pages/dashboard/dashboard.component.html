@@ -52,8 +52,8 @@
     </div>
     <div class="col-md-3 departments-incidents row-column">
       <h2>Department incidents</h2>
-      <div class="departments-incidents-container" *ngFor="let stat of departmentStats">
-        <div class="departments-incidents-box" [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
+      <div class="departments-incidents-container">
+        <div class="departments-incidents-box" *ngFor="let stat of departmentStats" [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
           <span>{{stat.department.department}}</span>
           <span>{{stat.open}}</span>
         </div>
@@ -72,7 +72,7 @@
         <h3>Active Departments</h3>
       </div>
     </div>
-    <div class="col-md-5 severity-risks row-column">
+    <div class="col-md-5 severity-risks row-column" [routerLink]="['/dashboard/incidents/']">
       <div class="risks-header">
         Number of risks
       </div>
