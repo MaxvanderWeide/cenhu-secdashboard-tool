@@ -3,9 +3,11 @@
     <h3>{{headerInfo.name}}</h3>
     <span class="badge badge-pill badge-light">{{incidents.length}}</span>
   </div>
-
+  <div class="incidents-box-search">
+    <input type="text" class="form-control" placeholder="Search by incident number" [(ngModel)]="searchNumber"/>
+  </div>
   <div class="incidents-box-body">
-    <div class="row incidents-box-message-container" *ngFor="let incident of incidents"
+    <div class="row incidents-box-message-container" *ngFor="let incident of incidents | filter:searchNumber"
          [ngClass]="{'url-holder': incident.url, 'closed': !incident.open}"
          (click)="handleUrlClick(incident)">
       <div class="incidents-box-message-header">

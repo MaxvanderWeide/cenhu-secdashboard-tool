@@ -22,6 +22,21 @@
     }
   }
 
+  &-search {
+    height: auto;
+    background-color: #fff;
+
+    input {
+      border-radius: 0;
+      border: none;
+    }
+
+    textarea:focus, input:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
   &-body {
     height: 480px;
     overflow-y: auto;

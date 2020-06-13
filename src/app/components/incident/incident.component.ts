@@ -9,6 +9,7 @@ import {Incident} from '@models/incidents.model';
 export class IncidentComponent {
   @Input() incidents: Incident[];
   @Input() headerInfo: { color: string; name: string };
+  searchNumber: string;
 
   public handleUrlClick(incident: Incident): void {
     if (incident.url) {

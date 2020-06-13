@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {IncidentsOverviewComponent} from './incidents-overview/incidents.component';
 import {IncidentComponent} from '@components/incident/incident.component';
 import {AppRoutingModule} from '@app/app-routing.module';
+import {FormsModule} from '@angular/forms';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import {AppRoutingModule} from '@app/app-routing.module';
   exports: [],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ]
 })
 export class IncidentsModule {
