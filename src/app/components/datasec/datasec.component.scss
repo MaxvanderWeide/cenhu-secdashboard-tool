@@ -1,9 +1,51 @@
 @import "~src/assets/scss/mixins";
-
+.row {
+  margin-top: 40px;
+}
 .inner {
   background-color: white;
+  padding: 15px;
   overflow: hidden;
+
+  h3, h4 {
+    color: black;
+  }
 }
+
+.separate {
+  margin: 20px 0 0 0;
+  color: #9a9a9a;
+}
+
+.access {
+  .mr-2 {
+    color: white;
+    border-radius: 3px;
+    .percentage {
+      background-color: rgba(0, 0, 0, 0.16);
+      font-size: larger;
+      color: white;
+    }
+  }
+  &-danger {
+    background-color: #f66355;
+  }
+  &-warning {
+    background-color: #ffb44d;
+  }
+  &-unknown {
+    background-color: #aeb5c1;
+  }
+  &-clean {
+    background-color: #6dc193;
+  }
+  &-blocked {
+    // Important to overwrite parent
+    color: #9a9a9a!important;
+    background-color: #d3d5d9;
+  }
+}
+
 .temp-overview {
   position: fixed;
   bottom: 10px;
