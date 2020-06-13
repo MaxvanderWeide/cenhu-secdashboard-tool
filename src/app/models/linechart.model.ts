@@ -11,7 +11,5 @@ export interface LineChart {
   options?: ChartOptions;
   colors?: {}[];
   type?: ChartType;
-  height?: string;
-  width?: string;
-  position?: string;
+  aspectRatioOff?: boolean;
 }
