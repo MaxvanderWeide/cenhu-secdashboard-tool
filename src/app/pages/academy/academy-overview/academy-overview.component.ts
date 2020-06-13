@@ -89,7 +89,7 @@ export class AcademyOverviewComponent {
     const incidentsMonth: { total: number }[] = [];
     months.forEach((value: Date) => {
       incidentsMonth.push({
-        // tslint:disable-next-line:max-line-length
+        // tslint:disable-next-line:max-line-length no-shadowed-variable
         total: academy.filter((academy: Academy) => new Date(academy.dateAssigned)
           > lastYear && new Date(academy.dateAssigned).getMonth() === value.getMonth()).length
       });

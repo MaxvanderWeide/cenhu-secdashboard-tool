@@ -14,22 +14,22 @@ export class BarChartComponent implements OnInit {
     {
       green:
         { // green
-          backgroundColor: 'rgba(0,255,0,0.3)',
+          backgroundColor: 'rgba(109,193,147)',
           borderColor: 'green',
         },
       blue:
         { // blue
-          backgroundColor: 'rgba(0,0,255,0.3)',
+          backgroundColor: 'rgba(78,148,174)',
           borderColor: 'blue',
         },
       red:
         { // red
-          backgroundColor: 'rgba(255,0,0,0.3)',
+          backgroundColor: 'rgba(246,99,85)',
           borderColor: 'red',
         },
       default:
         {
-          backgroundColor: 'rgba(173,173,173,0.3)',
+          backgroundColor: 'rgba(174,181,193)',
           borderColor: 'gray',
         }
     }
