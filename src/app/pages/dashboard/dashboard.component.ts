@@ -138,9 +138,12 @@ export class DashboardComponent {
     months.forEach((value: Date) => {
       incidentsMonth.push({
         total: incidents.filter((incident: Incident) => new Date(incident.filed) >
-          lastYear && new Date(incident.filed).getMonth() === value.getMonth()).length
+          lastYear && new Date(incident.filed).getMonth() === value.getMonth() && new Date(incident.filed) <= new Date()).length
       });
     });
+
+    incidents.forEach((incident: Incident) => console.log(new Date(incident.filed)));
+    console.log(new Date());
 
     // Set bar data of chart
     this.lineData = {
