@@ -14,8 +14,12 @@ interface NavigationResource {
 })
 
 export class NavigationComponent {
-  private toggledTheme: boolean = false;
   constructor(private eRef: ElementRef) {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+      document.body.classList.add('theme-dark');
+    } else {
+      localStorage.setItem('theme', 'theme-light');
+    }
   }
 
   public retracted: boolean = true;
@@ -48,12 +52,15 @@ export class NavigationComponent {
   }
 
   public toggleThemeMode(): void {
-    if (this.toggledTheme) {
-      document.body.classList.remove('theme-dark');
-    } else {
+    if (localStorage.getItem('theme') === 'theme-light') {
       document.body.classList.add('theme-dark');
+      localStorage.setItem('theme', 'theme-dark');
+    } else if (localStorage.getItem('theme') === 'theme-dark') {
+      document.body.classList.remove('theme-dark');
+      localStorage.setItem('theme', 'theme-light');
+    } else {
+      localStorage.setItem('theme', 'theme-light');
     }
-    this.toggledTheme = !this.toggledTheme;
   }
 
   public toggleRetracted(target: string): void {
