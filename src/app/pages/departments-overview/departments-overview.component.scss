@@ -1,4 +1,4 @@
-@import "src/assets/scss/mixins";
+@import "~src/assets/scss/mixins";
 
 .departments-container {
   width: 80%;
@@ -15,7 +15,7 @@
     &-box {
       padding: 5px;
       overflow: hidden;
-      border-radius: 5px;
+      border-radius: 0.25rem;
       margin-bottom: 15px;
       background-color: #ffffff;
 

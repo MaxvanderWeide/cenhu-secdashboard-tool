@@ -63,9 +63,9 @@ export class DepartmentsComponent {
         employees: department.employees,
         vulnerability,
         averagePerformance: Number((department.performances.map((performance: {
-          year: number;
-          performance: number;
-        }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
+            year: number;
+            performance: number;
+          }) => performance.performance).reduce((first: number, second: number) => first + second, 0) /
           department.performances.length).toFixed(2)),
         yearPerformance
       },

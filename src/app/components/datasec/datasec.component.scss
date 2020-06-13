@@ -1,0 +1,90 @@
+@import "~src/assets/scss/mixins";
+
+.row {
+  margin-top: 40px;
+}
+
+.separate {
+  margin: 40px 0 0 0;
+  position: relative;
+  color: #9a9a9a;
+}
+
+.display {
+  .text-center {
+    max-height: 340px;
+
+    .inner {
+      border-radius: 0.25rem;
+      background-color: white;
+      padding: 15px;
+      overflow-y: auto;
+      height: 100%;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+
+        &-track {
+          box-shadow: inset 0 0 5px #a3a3a3;
+          border-radius: 10px;
+        }
+
+        &-thumb {
+          background: #a3a3a3;
+        }
+      }
+
+      h3, h4 {
+        color: black;
+      }
+    }
+  }
+}
+
+.access {
+  .mr-2 {
+    color: white;
+    border-radius: 0.25rem;
+
+    .percentage {
+      background-color: rgba(0, 0, 0, 0.16);
+      font-size: larger;
+      color: white;
+    }
+  }
+
+  &-danger {
+    background-color: $danger;
+  }
+
+  &-warning {
+    background-color: $warning;
+  }
+
+  &-unknown {
+    background-color: $unknown;
+  }
+
+  &-clean {
+    background-color: $passed;
+  }
+
+  &-blocked {
+    // Important to overwrite parent
+    color: #9a9a9a !important;
+    background-color: #d3d5d9;
+  }
+}
+
+.graph {
+  background-color: white;
+  padding: 15px;
+  margin: 40px 5px 0 0;
+  height: 100%;
+  border-radius: 0.25rem;
+}
+
+.temp-overview {
+  position: fixed;
+  bottom: 10px;
+}

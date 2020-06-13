@@ -55,6 +55,7 @@ export class LineChartComponent implements OnInit {
     };
     this.chart.legend = true;
     this.chart.type = 'line';
+    this.chart.options.maintainAspectRatio = !this.chart.aspectRatioOff;
 
     this.chart.plugins = [pluginDataLabels];
     this.chart.colors = [];

@@ -9,7 +9,7 @@
   &-header {
     color: #ffffff;
     padding: 10px 0 10px 10px;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0.25rem 0.25rem 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +26,7 @@
     height: 480px;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 0.25rem 0.25rem;
     background-color: rgb(209, 209, 209);
 
     @include md-phone-only {
@@ -36,6 +36,10 @@
     .url-holder:hover {
       cursor: pointer;
       opacity: .8;
+    }
+
+    .closed {
+      opacity: 0.5;
     }
 
     &::-webkit-scrollbar {
@@ -58,7 +62,7 @@
     color: black;
 
     &-container {
-      border-radius: 5px;
+      border-radius: 0.25rem;
       margin: 15px 2%;
       padding: 5px;
       background-color: #ffffff;
@@ -82,7 +86,7 @@
       color: #8c8c8c;
       font-size: 22px;
       text-align: center;
-      border-radius: 5px;
+      border-radius: 0.25rem;
       margin: 15px 2%;
       padding: 5px;
     }

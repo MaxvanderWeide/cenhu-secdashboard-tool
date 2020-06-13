@@ -6,13 +6,14 @@
 
   <div class="incidents-box-body">
     <div class="row incidents-box-message-container" *ngFor="let incident of incidents"
-         [ngClass]="{'url-holder': incident.url}"
+         [ngClass]="{'url-holder': incident.url, 'closed': !incident.open}"
          (click)="handleUrlClick(incident)">
       <div class="incidents-box-message-header">
         <span>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</span>
         <span>{{incident.id}}</span>
       </div>
-      <div class="incidents-box-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
+      <div
+        class="incidents-box-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
       <div class="incidents-box-message-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
     <div class="incidents-box-message-empty" *ngIf="incidents.length === 0">

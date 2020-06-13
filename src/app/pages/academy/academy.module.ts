@@ -5,9 +5,9 @@ import {ChartModule} from '@components/chart/chart.module';
 
 
 @NgModule({
-    declarations: [
-        AcademyOverviewComponent
-    ],
+  declarations: [
+    AcademyOverviewComponent
+  ],
   imports: [
     CommonModule,
     ChartModule

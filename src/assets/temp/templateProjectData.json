@@ -1,46 +1,70 @@
 [
   {
-    "projectId": "hrm-person-tool",
-    "apiAccessData": [],
+    "projectId": "fin-person-api",
+    "accessData": [
+      {
+        "resource": "/declarations/pins",
+        "method": "GET",
+        "requestDate": "2020-06-13 08:28:43"
+      }
+    ],
+    "errors": [],
+    "failedAccess": [],
+    "buildData": {
+      "buildId": 1,
+      "buildStart": "2020-06-13 08:28:43",
+      "buildEnd": "2020-06-13 09:00:43",
+      "status": "Failed",
+      "buildUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  },
+  {
+    "projectId": "hrm-person-api",
+    "apiAccessData": [
+      {
+        "resource": "WebService.GetPeople",
+        "requestDate": "2020-06-13 08:28:43"
+      }
+    ],
     "errors": [
       {
-        "errorDate": "2020-06-13T08:28:43.511Z",
+        "errorDate": "2020-06-13 08:28:43",
         "stackTrace": "IndexError in main.py 41:20"
       },
       {
-        "errorDate": "2020-06-13T08:28:43.511Z",
+        "errorDate": "2020-06-13 08:28:43",
         "stackTrace": "IndexError in main.py 41:20"
       },
       {
-        "errorDate": "2020-06-13T08:28:43.511Z",
+        "errorDate": "2020-06-13 08:28:43",
         "stackTrace": "IndexError in main.py 41:20"
       },
       {
-        "errorDate": "2020-06-13T08:28:43.511Z",
+        "errorDate": "2020-06-13 08:28:43",
         "stackTrace": "IndexError in main.py 41:20"
       },
       {
-        "errorDate": "2020-06-12T08:28:43.511Z",
+        "errorDate": "2020-06-12 08:28:43",
         "stackTrace": "Could not get status NoneType from List 41:20"
       }
     ],
     "failedAccess": [
       {
-        "requestDate": "2020-06-13T08:28:43.511Z"
+        "requestDate": "2020-06-13 08:28:43"
       },
       {
-        "requestDate": "2020-06-13T08:28:43.511Z"
+        "requestDate": "2020-06-13 08:28:43"
       },
       {
-        "requestDate": "2020-06-13T08:28:43.511Z"
+        "requestDate": "2020-06-13 08:28:43"
       },
       {
-        "requestDate": "2020-06-13T08:28:43.511Z"
+        "requestDate": "2020-06-13 08:28:43"
       }
     ],
     "buildData": {
       "buildId": 4,
-      "buildStart": "2020-06-13T08:28:43.511Z",
+      "buildStart": "2020-06-13 08:28:43",
       "buildEnd": "",
       "status": "In Progress",
       "buildUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"

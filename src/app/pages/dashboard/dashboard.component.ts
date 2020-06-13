@@ -84,14 +84,14 @@ export class DashboardComponent {
       return (new Date(new Date().setFullYear(new Date().getFullYear() - 1)) < incidentDate) &&
         incidentDate.getMonth() !== new Date().getMonth() && new Date(new Date().setFullYear(new Date().getFullYear() + 1)) > incidentDate;
     }).length / 11 + 1) / (this.incidents.filter((incident: Incident) => {
-        return new Date(incident.filed).getMonth() === new Date().getMonth();
-      }).length + 1);
+      return new Date(incident.filed).getMonth() === new Date().getMonth();
+    }).length + 1);
     /* eslint-disable */
     const relativeHighIncidentDepartment: number = this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) !== 0 ?
       (this.departmentStats.reduce((a, b) => a + (b.open || 0), 0) + 1) ** .733 /
       (Math.max.apply(Math, this.departmentStats.map(relative => relative.open)) + 1) : 1;
     /* eslint-enable */
-    let checks = 0;
+    let checks: number = 0;
     for (const calculateConfigurationKey in this.calculateConfiguration) {
       if (this.calculateConfiguration[calculateConfigurationKey]) {
         checks++;
@@ -115,12 +115,12 @@ export class DashboardComponent {
     if (this.totalReverseSecurity > 100) {
       this.totalReverseSecurity = 100;
     }
-    this.securityColor = '#ff7464';
+    this.securityColor = '#f66355';
     if (this.totalReverseSecurity > 55) {
-      this.securityColor = '#ffbe00';
+      this.securityColor = '#ffb44d';
     }
     if (this.totalReverseSecurity > 88) {
-      this.securityColor = '#4ea24e';
+      this.securityColor = '#6dc193';
     }
   }
 
@@ -138,7 +138,7 @@ export class DashboardComponent {
     months.forEach((value: Date) => {
       incidentsMonth.push({
         total: incidents.filter((incident: Incident) => new Date(incident.filed) >
-          lastYear && new Date(incident.filed).getMonth() === value.getMonth()).length
+          lastYear && new Date(incident.filed).getMonth() === value.getMonth() && new Date(incident.filed) <= new Date()).length
       });
     });
 

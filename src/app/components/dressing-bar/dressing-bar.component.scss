@@ -1,7 +1,7 @@
 @import "~src/assets/scss/mixins";
 
 .snackbar-dressing {
-  background: #e57373;
+  background: $danger;
   z-index: 999;
   color: white;
   position: fixed;

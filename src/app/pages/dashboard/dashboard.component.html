@@ -8,7 +8,8 @@
       <em class="fa fa-cog status-settings-wheel"></em>
     </div>
     <div class="progress" [ngClass]="{'expanded': settingsExpanded}">
-      <div class="progress-bar" id="progressBar" role="progressbar" [ngStyle]="{'width': this.totalReverseSecurity + '%', 'transition': '0.5s', 'background-color': this.securityColor}"></div>
+      <div class="progress-bar" id="progressBar" role="progressbar"
+           [ngStyle]="{'width': this.totalReverseSecurity + '%', 'transition': '0.5s', 'background-color': this.securityColor}"></div>
     </div>
   </div>
   <div class="row settings-wrapper">
@@ -28,13 +29,14 @@
           </label>
         </div>
         <div class="row">
-          <label class="spell-input" title="High relative incident frequency on a department, relative to other departments. A lot of incidents on one department will bring the total security down.">
+          <label class="spell-input"
+                 title="High relative incident frequency on a department, relative to other departments. A lot of incidents on one department will bring the total security down.">
             High relative incident frequency on department
             <input type="checkbox" [(ngModel)]="calculateConfiguration.relativeHighIncidentDepartment" (change)="calculateSecurityLevel()"/>
           </label>
-          <label class="spell-input" title="Extra option">
-            Extra option
-            <input type="checkbox"/>
+          <label class="spell-input" style="opacity: .6;" title="Use the DH Access ratio">
+            DH Access Ratio
+            <input type="checkbox" disabled/>
           </label>
         </div>
       </div>
@@ -50,8 +52,8 @@
     </div>
     <div class="col-md-3 departments-incidents row-column">
       <h2>Department incidents</h2>
-      <div class="departments-incidents-container" *ngFor="let stat of departmentStats">
-        <div class="departments-incidents-box" [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
+      <div class="departments-incidents-container">
+        <div class="departments-incidents-box" *ngFor="let stat of departmentStats" [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
           <span>{{stat.department.department}}</span>
           <span>{{stat.open}}</span>
         </div>
@@ -70,7 +72,7 @@
         <h3>Active Departments</h3>
       </div>
     </div>
-    <div class="col-md-5 severity-risks row-column">
+    <div class="col-md-5 severity-risks row-column" [routerLink]="['/dashboard/incidents/']">
       <div class="risks-header">
         Number of risks
       </div>
