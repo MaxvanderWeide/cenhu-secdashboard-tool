@@ -22,7 +22,8 @@
     margin: auto 0;
     font-size: 26px;
     display: none;
-    @include lg-phone-only {
+
+    @include md-tablet-only {
       display: block;
     }
   }

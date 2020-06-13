@@ -8,7 +8,7 @@ import {DressingService} from '@app/services/dressing.service';
 })
 
 export class DressingBarComponent {
-  dressingMessage: string = '';
+  public dressingMessage: string = '';
 
   constructor(public dressingService: DressingService) {
     this.dressingService.message$.subscribe((message: string) => this.dressingMessage = message);

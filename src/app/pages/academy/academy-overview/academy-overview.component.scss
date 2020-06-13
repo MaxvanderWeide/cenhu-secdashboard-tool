@@ -9,11 +9,13 @@
   .progress {
     margin: 15px;
     height: 40px;
+    font-size: 1.25rem;
   }
 }
 
 .charts {
-  margin-top: 18px;
+  margin-top: 30px;
+  border-radius: 6px;
   justify-content: space-between;
 
   .chart-item, .text-item {
@@ -51,6 +53,7 @@
     width: 35%;
 
     @include md-phone-only {
+      padding: 10px 0px;
       width: 100%;
     }
 

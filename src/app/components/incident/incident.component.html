@@ -1,17 +1,21 @@
-<div class="incidents">
-  <div class="box-header" [ngStyle]="{'background-color':headerInfo.color}">
-    <h4>{{headerInfo.name}} <span class="badge badge-pill badge-light">{{incidents.length}}</span></h4>
+<div class="incidents-box">
+  <div class="incidents-box-header" [ngStyle]="{'background-color': headerInfo.color}">
+    <h3>{{headerInfo.name}}</h3>
+    <span class="badge badge-pill badge-light">{{incidents.length}}</span>
   </div>
 
-  <div class="message-container">
-    <div class="incident-message" *ngFor="let incident of incidents">
-      <div class="message-text">
-        <p>{{incident.message}}</p>
-        <a class="message-link" href="#" *ngIf="this.incident.hasOwnProperty('url')">Open reference in secure
-          browser</a>
+  <div class="incidents-box-body">
+    <div class="row incidents-box-message-container" *ngFor="let incident of incidents"
+         [ngClass]="{'url-holder': incident.url}"
+         (click)="handleUrlClick(incident)">
+      <div class="incidents-box-message-header">
+        <span>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</span>
+        <span>{{incident.id}}</span>
       </div>
+      <div class="incidents-box-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
+      <div class="incidents-box-message-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
-    <div class="empty-message" *ngIf="incidents.length === 0">
+    <div class="incidents-box-message-empty" *ngIf="incidents.length === 0">
       <p>No incidents found</p>
     </div>
   </div>

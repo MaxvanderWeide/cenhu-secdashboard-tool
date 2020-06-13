@@ -1,0 +1,298 @@
+$borderRadius: 5px;
+$columnPadding: 8px 12px;
+
+.dashboard-container {
+
+  .settings-wrapper {
+    &-settings {
+      line-height: 0;
+      background-color: white;
+      color: black;
+      padding: 0;
+      overflow: hidden;
+      left: 0;
+      right: 0;
+      width: 100%;
+      border-radius: 0 0 5px 5px;
+      -webkit-transition: .5s;
+      -moz-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s;
+      height: 0;
+
+      &.expanded {
+        height: 100px;
+      }
+      .spell-tag {
+        display: block;
+        margin: 15px 0 0 15px;
+        font-size: small;
+      }
+      .spell-input {
+        display: block;
+        margin: 15px 15px 0 15px;
+      }
+    }
+  }
+
+  .security-status {
+    position: relative;
+    color: #fff;
+
+    &-wrapper {
+      padding: 0 30px;
+
+      &-percentage {
+        font-size: 90px;
+        margin-right: 10px;
+      }
+
+      &-text {
+        font-size: 25px;
+      }
+    }
+
+    .progress {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: #cecece;
+
+      &.expanded {
+        border-radius: 5px 5px 0 0;
+      }
+
+      #progressBar {
+        background-color: #ff7464;
+      }
+    }
+
+    .status-settings {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 5px;
+      font-size: larger;
+      cursor: pointer;
+
+      &-wheel {
+        transition: transform .5s;
+
+        &:hover {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .dashboard-row {
+    margin-top: 40px;
+    min-height: 250px;
+    justify-content: space-between;
+
+    .row-column {
+      background-color: #fff;
+      padding: $columnPadding;
+      border-radius: $borderRadius;
+
+      &.total-incidents {
+        color: #fff;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        padding: $columnPadding;
+        background-color: #4ea24e;
+
+        .incidents-text-wrapper {
+          text-align: center;
+
+          .open-number {
+            line-height: 1;
+            display: inline;
+            font-weight: 600;
+            font-size: 110px;
+            margin-right: 5px;
+          }
+
+          .open-text {
+            display: inline;
+            font-size: 30px;
+          }
+
+          .other-text {
+            font-size: 18px;
+          }
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  .departments-incidents {
+    h2 {
+      padding: 6px 10px;
+      font-weight: normal;
+    }
+
+    &-container {
+      max-height: 20vh;
+      overflow-y: hidden;
+    }
+
+    &-box {
+      padding: 10px;
+      display: flex;
+      cursor: pointer;
+      justify-content: space-between;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        opacity: .8;
+      }
+
+      span:nth-child(2) {
+        margin-right: 50px;
+      }
+    }
+  }
+
+  .active-departments {
+    display: flex;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    &-wrapper {
+      h1 {
+        font-size: 60px;
+        font-weight: 600;
+      }
+
+      h3 {
+        color: #000;
+        font-weight: normal;
+      }
+    }
+
+    &:hover {
+      opacity: .8;
+      border: 1px solid rgba(0, 6, 255, 0.8);
+    }
+  }
+
+  .severity-risks {
+    display: flex;
+    flex-direction: column;
+
+    .risks {
+      &-header {
+        font-size: 24px;
+        position: relative;
+        text-align: center;
+      }
+
+      &-body {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        > div {
+          width: 100%;
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+
+          &:last-of-type .risks-count::after {
+            position: unset;
+          }
+        }
+      }
+
+      &-count {
+        margin: auto 0;
+        font-size: 60px;
+        position: relative;
+
+        &::after {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 2px;
+          content: ' ';
+          margin: auto 0;
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        &:last-of-type .risks-count::after {
+          position: unset;
+        }
+      }
+
+      &:last-child .risks-count::after {
+        position: unset;
+      }
+
+      &-indicator {
+        color: white;
+        padding: 4px;
+        border-radius: 5px;
+        margin: 0 15px;
+      }
+
+      &-high {
+        background-color: rgba(226, 0, 0, 0.8);
+      }
+
+      &-medium {
+        background-color: rgba(255, 184, 1, 0.8);
+      }
+
+      &-low {
+        background-color: rgba(34, 139, 34, 0.8);
+      }
+    }
+  }
+
+  .academy-information {
+    display: flex;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: #000;
+      font-size: 60px;
+      font-weight: 600;
+    }
+
+    h4 {
+      color: #000;
+      font-size: 20px;
+      font-weight: normal;
+    }
+
+    .academy-percentage-box {
+      width: auto;
+      color: #019e12;
+      font-size: 18px;
+      margin-top: 8px;
+      padding: 2px 7px;
+      border-radius: 5px;
+      display: inline-table;
+      border: 1px solid #019e12;
+    }
+
+    &:hover {
+      opacity: .8;
+      border: 1px solid rgba(255, 184, 1, 0.8);
+    }
+  }
+}

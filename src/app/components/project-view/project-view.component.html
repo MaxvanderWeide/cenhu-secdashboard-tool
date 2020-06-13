@@ -1,0 +1,14 @@
+<div class="container-fluid project">
+  <div class="project-specific" *ngFor="let project of projects">
+    <div class="project-specific-header">{{project.projectId}}</div>
+    <div class="project-specific-body">
+      <div> Latest build data:
+        ID: {{project.buildData.buildId}} -
+        Start: {{project.buildData.buildStart}} -
+        End: {{project.buildData.buildEnd}} -
+        Status: {{project.buildData.status}}</div>
+    </div>
+  </div>
+</div>
+
+<footer class="temp-overview">This page is created as a template and is not based on real data.</footer>

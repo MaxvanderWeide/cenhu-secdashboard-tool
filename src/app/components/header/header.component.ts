@@ -10,6 +10,5 @@ import {NavigationComponent} from '@app/components/navigation/navigation.compone
 
 export class HeaderComponent {
   @ViewChild('navMenu', {read: ElementRef}) navMenu: ElementRef;
-
   @Input() rootSibling: NavigationComponent;
 }

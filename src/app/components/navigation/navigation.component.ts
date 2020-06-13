@@ -20,15 +20,16 @@ export class NavigationComponent {
 
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
+    {name: 'Dashboard', icon: 'tachometer', resource: '/home'},
     {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
     {name: 'Academy', icon: 'codepen', resource: '/dashboard/academy'},
     {name: 'Reports', icon: 'eye', resource: '/dashboard/report'},
     {name: 'Departments', icon: 'cubes', resource: '/dashboard/departments'},
+    {name: 'Projects', icon: 'clipboard', resource: '/dashboard/projects'},
   ];
 
   @HostListener('document:click', ['$event'])
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private toggleOnClick(event: any): void {
+  private toggleOnClick(event: MouseEvent): void {
     if ((this.eRef.nativeElement.contains(event.target) ||
       (!this.eRef.nativeElement.contains(event.target) && !this.retracted)) && !AppComponent.isMobile()) {
       this.toggleRetracted('nav');
@@ -46,14 +47,13 @@ export class NavigationComponent {
   }
 
   public toggleRetracted(target: string): void {
-    console.log(`Toggle Retract, called by: ${target}, with retracted set as: ${this.retracted}`);
     const targetClass: string = target === 'header' ? 'navbar-expand' : 'navbar-items';
     const animationToName: string = target === 'header' ? 'moveToTop' : 'moveToLeft';
     const animationFromName: string = target === 'header' ? 'moveFromTop' : 'moveFromLeft';
 
     const navbarItems: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName(targetClass) as HTMLCollectionOf<HTMLElement>;
 
-    navbarItems[0].style.animation = this.retracted ? '.4s ' + animationFromName : '.4s ' + animationToName;
+    navbarItems[0].style.animation = this.retracted ? '.6s ' + animationFromName : '.6s ' + animationToName;
 
     this.retracted = !this.retracted;
   }

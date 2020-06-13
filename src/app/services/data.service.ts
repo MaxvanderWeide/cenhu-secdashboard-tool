@@ -5,6 +5,8 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Report} from '@models/report.model';
+import {Academy} from '@models/academy.model';
+import {Project} from '@models/project.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  static throwError(error: HttpErrorResponse) { // eslint-disable-line
+  static throwError(error: HttpErrorResponse): Observable<never> {
     const errorMessage = error.error.detail ? error.error.detail.nl : error.error; // eslint-disable-line
     if (error.error instanceof ErrorEvent) {
       console.error(`An unexpected error occurred: ${errorMessage}`);
@@ -33,8 +35,20 @@ export class DataService {
     /* Mock Server-Calling service for a list of departments-overview */
     return this.http.get<Department[]>('assets/temp/departmentData.json').pipe(catchError(DataService.throwError));
   }
+
   public getReports(): Observable<Report[]> {
     /* Mock Server-Calling service for a list of departments-overview */
     return this.http.get<Report[]>('assets/temp/reportData.json').pipe(catchError(DataService.throwError));
+  }
+
+  public getAcademyData(): Observable<Academy[]> {
+    /* Mock Server-Calling service for a list of academy data */
+    return this.http.get<Academy[]>('assets/temp/academyData.json').pipe(catchError(DataService.throwError));
+  }
+
+  public getProjectsData(): Observable<Project[]> {
+    /* Mock Server-Calling service for a list of TEMPLATED project data */
+    console.warn('ProjectData is a template, and has not been verified yet.');
+    return this.http.get<Project[]>('assets/temp/templateProjectData.json').pipe(catchError(DataService.throwError));
   }
 }

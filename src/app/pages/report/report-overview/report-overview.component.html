@@ -1,87 +1,82 @@
 <div class="container">
   <div class="row">
 
-    <div id="issues" class="col-sm view">
+    <div id="reports" class="col-sm view">
 
       <h1>Reports</h1>
 
-      <div class="accordion">
-
-        <ngb-accordion [closeOthers]="true" activeIds="item-1" >
-
-          <ngb-panel id="item-{{report.id}}"*ngFor="let report of reports">
-
-            <ng-template ngbPanelTitle>
-              <span>{{report.name}}</span>
-            </ng-template>
-
-            <ng-template ngbPanelContent>
-
-                  <div class="row">
-                    <div class="col-sm-3"><strong>Department</strong></div>
-                    <div class="col-sm">{{report.department}}</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3"><strong>Severity</strong></div>
-                    <div class="col-sm">{{report.severity}}</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-3"><strong>Description</strong></div>
-                    <div class="col-sm">
-                      {{report.description}}
-                    </div>
-                  </div>
-
-            </ng-template>
-          </ngb-panel>
-
-        </ngb-accordion>
+      <div class="container accordion">
+        <div class="row report-item" *ngFor="let report of reports">
+          <p class="accordion_btn" (click)="openUp(report.id)">
+            <em class="fa fa-fw fa-chevron-down arrow"></em>
+            <strong>{{report.name}}</strong><span>{{report.date}}</span></p>
+          <div id="content-{{report.id}}" class="content">
+            <div class="panel">
+              <p><strong>Department</strong><br>{{report.department}}</p>
+              <p><strong>Subject</strong><br>{{report.subject}}</p>
+              <p><strong>Severity</strong><br>{{report.severity}}</p>
+              <p><strong>Description</strong><br>{{report.description}}</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
 
     </div>
 
-    <div id="issues_new" class="col-sm view">
+    <div id="reports_new" class="col-sm view">
 
       <h1>Create a new report</h1>
 
-      <form id="report_create" method="post">
+      <form #reportForm="ngForm" (submit)="onSubmit(reportForm)">
 
         <div class="form-group">
-          <label for="title">Title</label>
-          <input type="text" class="form-control" id="title" placeholder="Choose a short title">
+          <label for="name">Title</label>
+          <input type="text" class="form-control" id="name" placeholder="Choose a short title"
+                 name="name" required minlength="1" [(ngModel)]="nameInput" #name="ngModel">
+          <small *ngIf="name.invalid && (name.dirty || name.touched)">Name is required</small>
         </div>
 
         <div class="form-group">
           <label for="department">Department</label>
-          <select id="department" class="form-control">
-            <option value="" disabled selected>Choose a department</option>
-            <option value="1">Department 1</option>
-            <option value="2">Department 2</option>
-            <option value="3">Department 3</option>
+          <select id="department" class="form-control" name="departmentInput" required ngModel>
+            <option value="" disabled >Choose a department</option>
+            <option value="Department 1" selected>Department 1</option>
+            <option value="Department 2">Department 2</option>
+            <option value="Department 3">Department 3</option>
+          </select>
+          <small *ngIf="departmentVal">Please choose a department</small>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" class="form-control" name="subjectInput" required ngModel>
+            <option value="" disabled>Choose a subject</option>
+            <option value="Subject 1" selected>Subject 1</option>
+            <option value="Subject 2">Subject 2</option>
+            <option value="Subject 3">Subject 3</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="severity">Severity level</label>
-          <select id="severity" class="form-control">
-            <option value="" disabled selected>Choose the severity level</option>
-            <option value="1">Low</option>
-            <option value="2">Medium</option>
-            <option value="3">High</option>
+          <select id="severity" class="form-control" name="severityInput" required ngModel>
+            <option value="" disabled>Choose the severity level</option>
+            <option value="Low" selected>Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="description">Description</label>
-          <textarea class="form-control" id="description" rows="3" placeholder="Explain the issue"></textarea>
+          <textarea class="form-control" id="description" rows="3" placeholder="Explain the issue"
+                    name="descriptionInput" required ngModel></textarea>
         </div>
 
-        <button class="btn btn-primary" type="submit">Create</button>
+        <input type="submit" class="btn btn-primary" value="Create">
 
       </form>
+
     </div>
 
   </div>

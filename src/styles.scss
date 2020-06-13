@@ -20,7 +20,7 @@ html {
     background: #e2e2e2;
     margin: 87px 15px 15px 75px;
 
-    @include lg-phone-only {
+    @include md-tablet-only {
       margin-left: 15px;
     }
   }
@@ -64,6 +64,5 @@ h5 {
 h6 {
   font-size: 12px;
   font-weight: 700;
-  color: #ffffff;
   text-transform: uppercase;
 }

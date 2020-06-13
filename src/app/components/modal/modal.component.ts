@@ -11,8 +11,11 @@ export class ModalComponent implements AfterViewInit {
   @Input() modal: Modal;
 
   ngAfterViewInit(): void {
+    document.querySelectorAll('.modal').forEach((modal: HTMLElement) => modal.remove());
     this.modalElement.nativeElement.querySelector('.modal-body').innerHTML = this.modal.body;
     document.querySelector('body').prepend(this.modalElement.nativeElement);
+
+    this.modal.title = this.modal.title === undefined ? 'View' : this.modal.title;
   }
 
   closeModal(): void {

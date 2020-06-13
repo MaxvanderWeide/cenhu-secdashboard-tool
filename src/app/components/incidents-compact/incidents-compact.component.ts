@@ -16,26 +16,15 @@ export class IncidentsCompactComponent implements OnInit {
   constructor(private dataService: DataService) {
   }
 
-  incidentIcon(severity: string): string {
-    switch (severity) {
-      case 'high':
-        return 'fa-exclamation-triangle high-severity';
-      case 'medium':
-        return 'fa-exclamation-circle medium-severity';
-      case 'low':
-        return 'fa-bath low-severity';
-    }
-  }
-
   ngOnInit(): void {
     this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
       this.incidents = incidents.filter((s: Incident) => s.department === this.departmentCode);
     });
 
     this.modal = {
-      buttons: [],
+      title: 'Incidents',
+      buttons: ['okay'],
     };
-    this.modal.buttons.push('save');
   }
 
   openModal(event: MouseEvent): void {
