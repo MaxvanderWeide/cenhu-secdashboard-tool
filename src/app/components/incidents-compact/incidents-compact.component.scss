@@ -6,7 +6,7 @@ $padding: 6px 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background: var(--background-secondary-color);
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -20,6 +20,8 @@ $padding: 6px 20px;
     border-radius: 0;
     border: none;
     padding: 6px 20px;
+    background: var(--background-secondary-color);
+    color: var(--text-primary-color);
 
     &:focus {
       outline: none;
@@ -28,16 +30,19 @@ $padding: 6px 20px;
 
     &-wrapper {
       height: auto;
-      background-color: #fff;
+      background: var(--background-secondary-color);
       border-bottom: 1px solid #ccc;
     }
   }
 
   &-item {
     padding: $padding;
-    background-color: #fff;
+    background: var(--background-secondary-color);
     width: 100%;
     border-bottom: 1px solid #ccc;
+    span {
+      color: var(--text-primary-color);
+    }
 
     &-header {
       display: flex;

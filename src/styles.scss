@@ -23,7 +23,7 @@ html {
   overflow: hidden;
 
   @include md-tablet-only {
-    overflow: scroll;
+    overflow: auto;
   }
 
   body {

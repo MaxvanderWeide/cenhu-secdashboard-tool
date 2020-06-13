@@ -24,20 +24,24 @@
   }
 
   &-container {
-    background-color: #fff;
+    background: var(--background-secondary-color);
     border-radius: 6px;
     margin: 20px auto;
     width: 80%;
     max-height: 95vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+  }
+
+  &-body {
+    color: var(--text-primary-color);
   }
 
   &-header {
-    color: #2d2d2d;
+    color: var(--text-secondary-color);
     font-weight: 600;
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background: var(--background-secondary-color);
     z-index: 1;
 
     .close-modal {
@@ -49,7 +53,7 @@
   &-footer {
     position: sticky;
     bottom: 0;
-    background-color: #fff;
+    background: var(--background-secondary-color);
     z-index: 1;
   }
 }
