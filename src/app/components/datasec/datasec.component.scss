@@ -1,5 +1,9 @@
 @import "~src/assets/scss/mixins";
 
+.inner {
+  background-color: white;
+  overflow: hidden;
+}
 .temp-overview {
   position: fixed;
   bottom: 10px;
