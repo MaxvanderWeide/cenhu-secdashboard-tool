@@ -7,7 +7,7 @@
   top: 72px;
   left: 0;
   width: 60px;
-  background-color: #eaeaea;
+  background: var(--background-navigation-color);
   cursor: pointer;
   @include md-tablet-only {
     top: -1050px;
@@ -21,7 +21,7 @@
   em, a {
     text-decoration: none;
     font-size: 22px;
-    color: #616161;
+    color: var(--text-secondary-color);
 
     &:hover {
       opacity: .8;
@@ -37,7 +37,7 @@
     &-icons {
       width: 60px;
       text-align: center;
-      background-color: #eaeaea;
+      background: var(--background-navigation-color);
       @include md-tablet-only {
         position: absolute;
       }
@@ -45,7 +45,7 @@
 
     &-items {
       padding-right: 10px;
-      background-color: #eaeaea;
+      background: var(--background-navigation-color);
       position: absolute;
       left: -100px;
       z-index: -1;

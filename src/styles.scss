@@ -1,11 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i");
 @import "~bootstrap/scss/bootstrap";
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/colors";
 
 $font-family: 'Poppins', sans-serif;
-
 $fa-font-path: "../node_modules/font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome.scss';
+
+.theme-light {
+  @each $name, $color in $config {
+    #{$name}: nth($color, 1)
+  }
+}
+.theme-dark {
+  @each $name, $color in $config {
+    #{$name}: nth($color, 2)
+  }
+}
+.animate-colors-transition {
+  transition: color .5s, background-color .5s;
+}
 
 html {
   max-height: 100vh;
@@ -17,7 +31,7 @@ html {
 
   body {
     font-family: $font-family !important;
-    background: #e2e2e2;
+    background: var(--background-primary-color);
     margin: 87px 15px 15px 75px;
 
     @include md-tablet-only {

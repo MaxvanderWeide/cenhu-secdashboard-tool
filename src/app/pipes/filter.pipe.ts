@@ -8,4 +8,12 @@ export class FilterPipe implements PipeTransform {
       : items;
   }
 }
+
+
+@Pipe({name: 'openFilter'})
+export class OpenFilterPipe implements PipeTransform {
+  transform(items: any[], check: any): any {
+    return check ? items.filter(item => item.open) : items;
+  }
+}
 /* eslint-enable */

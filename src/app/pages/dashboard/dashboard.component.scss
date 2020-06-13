@@ -4,8 +4,8 @@ $columnPadding: 8px 12px;
 
 .settings {
   &-container {
-    background-color: white;
-    color: black;
+    background: var(--background-secondary-color);
+    color: var(--text-primary-color);
     padding: 0;
     overflow: hidden;
     width: 100%;
@@ -64,7 +64,7 @@ $columnPadding: 8px 12px;
     z-index: -1;
     width: 100%;
     height: 100%;
-    background-color: #cecece;
+    background-color: var(--background-gray-secondary-color);
 
     &.expanded {
       border-radius: 0.25rem 5px 0 0;
@@ -105,7 +105,7 @@ $columnPadding: 8px 12px;
   }
 
   .row-column {
-    background-color: #fff;
+    background-color: var(--background-secondary-color);
     padding: $columnPadding;
     border-radius: 0.25rem;
 
@@ -155,8 +155,13 @@ $columnPadding: 8px 12px;
 
 .departments-incidents {
   h2 {
+    color: var(--text-primary-color);
     padding: 6px 10px;
     font-weight: normal;
+  }
+
+  span {
+    color: var(--text-primary-color);
   }
 
   &-container {
@@ -203,12 +208,13 @@ $columnPadding: 8px 12px;
 
   &-container {
     h1 {
+      color: var(--text-primary-color);
       font-size: 60px;
       font-weight: 600;
     }
 
     h3 {
-      color: #000;
+      color: var(--text-primary-color);
       font-weight: normal;
     }
   }
@@ -231,12 +237,14 @@ $columnPadding: 8px 12px;
     font-size: 24px;
     position: relative;
     text-align: center;
+    color: var(--text-primary-color);
   }
 
   &-body {
     height: 100%;
     display: flex;
     justify-content: space-between;
+    color: var(--text-primary-color);
   }
 
   &-item {
@@ -306,13 +314,13 @@ $columnPadding: 8px 12px;
     flex-direction: column;
 
     h1 {
-      color: #000;
+      color: var(--text-primary-color);
       font-size: 60px;
       font-weight: 600;
     }
 
     h4 {
-      color: #000;
+      color: var(--text-primary-color);
       font-size: 20px;
       font-weight: normal;
     }

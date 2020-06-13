@@ -14,7 +14,8 @@
         <span>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</span>
         <span>{{incident.id}}</span>
       </div>
-      <div class="incidents-box-item-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
+      <div
+        class="incidents-box-item-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
       <div class="incidents-box-item-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
     <div class="incidents-box-item-empty" *ngIf="incidents.length === 0">
