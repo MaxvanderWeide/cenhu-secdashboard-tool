@@ -1,56 +1,79 @@
 <div class="container-fluid">
-  <h3 class="separate">ODH Access Summary</h3>
+  <h3 class="separate">DH Access Summary</h3>
   <div class="row access">
     <div class="text-center col-md-3">
       <div class="mr-2 access-danger">
-        <p>Malicious Access</p>
+        <p><em class="fa fa-exclamation-circle"></em> Malicious</p>
         <div class="percentage">0</div>
       </div>
     </div>
     <div class="text-center col-md-3">
       <div class="mr-2 access-warning">
-        <p>Dangerous Access</p>
+        <p><em class="fa fa-exclamation-triangle"></em> Dangerous</p>
         <div class="percentage">492</div>
       </div>
     </div>
     <div class="text-center col-md-2">
       <div class="mr-2 access-unknown">
-        <p>Unknown Access</p>
+        <p><em class="fa fa-question-circle"></em> Unknown</p>
         <div class="percentage">3</div>
       </div>
     </div>
     <div class="text-center col-md-2">
       <div class="mr-2 access-clean">
-        <p>Clean Access</p>
+        <p><em class="fa fa-check-circle"></em> Clean</p>
         <div class="percentage">12.0k</div>
       </div>
     </div>
     <div class="text-center col-md-2">
       <div class="mr-2 access-blocked">
-        <p>Blocked Access</p>
+        <p><em class="fa fa-ban"></em> Blocked</p>
         <div class="percentage">103</div>
       </div>
     </div>
   </div>
   <h3 class="separate">Data Security Summary</h3>
-  <div class="row">
-    <div class="text-center col-md-6">
+  <div class="row display">
+    <div class="text-center col-md-4">
       <div class="mr-2 inner">
         <app-bar-chart [chart]="systemBarData"></app-bar-chart>
       </div>
     </div>
-    <div class="text-center col-md-6">
+    <div class="text-center col-md-4">
       <div class="ml-2 inner">
         <h4>Data downloaded today:</h4>
         <h3>143 GB</h3>
-      </div>
-      <div class="ml-2 inner" style="margin-top: 40px;">
-        <h4>Emails sent today:</h4>
+        <h4 style="margin-top: 40px">Emails sent today:</h4>
         <h3>1401</h3>
-        <h4 style="margin-top: 40px">Emails received today:</h4>
+        <h4>Emails received today:</h4>
         <h3>13.913</h3>
       </div>
     </div>
+    <div class="text-center col-md-4">
+      <div class="mr-2 inner">
+        <p>High urgency vulnerability in Maven 3.6.2</p>
+        <p>Low urgency vulnerability in Maven 3.6.2</p>
+        <p>High urgency vulnerability in Paddock Tool 3v1</p>
+        <p>Low urgency vulnerability in TLSv1.2</p>
+        <p>High urgency vulnerability in TLSv1.0</p>
+        <p>High urgency vulnerability in TLSv1</p>
+        <p>High urgency vulnerability in Maven 3.6.2</p>
+        <p>Low urgency vulnerability in Maven 3.6.2</p>
+        <p>High urgency vulnerability in Paddock Tool 3v1</p>
+        <p>Low urgency vulnerability in TLSv1.2</p>
+        <p>High urgency vulnerability in TLSv1.0</p>
+        <p>High urgency vulnerability in TLSv1</p>
+        <p>High urgency vulnerability in Maven 3.6.2</p>
+        <p>Low urgency vulnerability in Maven 3.6.2</p>
+        <p>High urgency vulnerability in Paddock Tool 3v1</p>
+        <p>Low urgency vulnerability in TLSv1.2</p>
+        <p>High urgency vulnerability in TLSv1.0</p>
+        <p>High urgency vulnerability in TLSv1</p>
+      </div>
+    </div>
+  </div>
+  <div class="row graph">
+    <app-line-chart style="width: 100%; left: 0; right: 0" [chart]="dataLineData"></app-line-chart>
   </div>
 </div>
 <footer class="temp-overview">*This page is created as a template and is not based on real data.</footer>
