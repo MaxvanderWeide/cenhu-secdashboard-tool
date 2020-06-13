@@ -14,7 +14,7 @@ interface NavigationResource {
 })
 
 export class NavigationComponent {
-
+  private toggledTheme: boolean = false;
   constructor(private eRef: ElementRef) {
   }
 
@@ -45,6 +45,15 @@ export class NavigationComponent {
     if (AppComponent.isMobile()) {
       this.toggleRetracted('header');
     }
+  }
+
+  public toggleThemeMode() {
+    if (this.toggledTheme) {
+      document.body.classList.remove('theme-dark');
+    } else {
+      document.body.classList.add('theme-dark');
+    }
+    this.toggledTheme = !this.toggledTheme;
   }
 
   public toggleRetracted(target: string): void {

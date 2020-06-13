@@ -9,6 +9,11 @@
   width: 60px;
   background: var(--background-navigation-color);
   cursor: pointer;
+  .mode-toggle {
+    bottom: 10px;
+    left: 20px;
+    position: fixed;
+  }
   @include md-tablet-only {
     top: -1050px;
     width: 100%;
