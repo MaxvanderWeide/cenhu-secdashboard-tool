@@ -1,8 +1,8 @@
 <header class="header-bar">
-  <div class="logo-container">
+  <div class="logo-wrapper">
     <a routerLink="home"><img src="assets/img/logo.svg" width="132" height="35" alt="Menu"></a>
   </div>
-  <div class="navigation-container" #navMenu>
+  <div class="navigation-wrapper" #navMenu>
     <em [ngClass]="this.rootSibling.retracted ? 'fa fa-bars' : 'fa fa-times'"
         (click)="this.rootSibling.toggleRetracted('header')"></em>
   </div>

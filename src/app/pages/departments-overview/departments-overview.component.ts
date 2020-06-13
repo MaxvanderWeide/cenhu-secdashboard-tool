@@ -26,13 +26,14 @@ export class DepartmentsOverviewComponent {
   }
 
   toggleInformation(event: MouseEvent): void {
-    const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement.querySelector('.department-box-body');
+    const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement.querySelector('.departments-box-body');
+    console.log(event.currentTarget);
 
     if (departmentElement.classList.contains('active')) {
-      (event.currentTarget as HTMLElement).children[0].classList.replace('fa-chevron-down', 'fa-chevron-right');
+      (event.currentTarget as HTMLElement).children[0].querySelector('em').classList.replace('fa-chevron-down', 'fa-chevron-right');
       departmentElement.classList.remove('active');
     } else {
-      (event.currentTarget as HTMLElement).children[0].classList.replace('fa-chevron-right', 'fa-chevron-down');
+      (event.currentTarget as HTMLElement).children[0].querySelector('em').classList.replace('fa-chevron-right', 'fa-chevron-down');
       departmentElement.classList.add('active');
     }
   }

@@ -10,14 +10,16 @@ $columnPadding: 8px 12px;
   width: 100%;
 }
 
-.main {
-  &-statistics {
-    margin-top: 40px;
-    justify-content: space-between;
+.department-row {
+  margin-top: 40px;
 
-    @include md-phone-only {
-      margin-top: 20px;
-    }
+  @include md-phone-only {
+    margin-top: 30px;
+  }
+}
+
+.main-statistics {
+    justify-content: space-between;
 
     &-column {
       padding: $columnPadding;
@@ -37,13 +39,11 @@ $columnPadding: 8px 12px;
     &-name {
       font-weight: 600;
     }
-  }
 }
 
 .statistics-overview {
   background-color: #fff;
   padding: $columnPadding;
-  margin-top: 40px;
   border-radius: $borderRadius;
 
   &-header {
@@ -123,7 +123,6 @@ $columnPadding: 8px 12px;
 
 .details-row {
   justify-content: space-between;
-  margin-top: 40px;
 
   @include md-tablet-only {
     > div {
@@ -133,7 +132,6 @@ $columnPadding: 8px 12px;
   }
 
   .performances-container {
-    justify-content: space-between;
     margin-left: -30px;
 
     > div {
@@ -158,10 +156,6 @@ $columnPadding: 8px 12px;
 
   @include md-tablet-only {
     padding: 0;
-    margin-top: 40px;
-  }
-
-  .row {
-    flex-direction: column;
+    margin-top: 30px;
   }
 }

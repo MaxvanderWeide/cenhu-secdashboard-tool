@@ -1,38 +1,41 @@
-<div class="container-fluid dashboard-container">
+<div class="container-fluid">
   <div class="row security-status">
-    <div class="security-status-wrapper">
-      <span class="security-status-wrapper-percentage">{{this.totalReverseSecurity}}%</span>
-      <span class="security-status-wrapper-text">of total defined security reached*</span>
+    <div class="security-status-container">
+      <span class="security-status-percentage">{{this.totalReverseSecurity}}%</span>
+      <span class="security-status-text">of total defined security reached*</span>
     </div>
-    <div class="status-settings" (click)="settingsExpanded = !settingsExpanded">
-      <em class="fa fa-cog status-settings-wheel"></em>
+    <div class="security-status-settings-wrapper" (click)="settingsExpanded = !settingsExpanded">
+      <em class="fa fa-cog security-status-settings-icon"></em>
     </div>
-    <div class="progress" [ngClass]="{'expanded': settingsExpanded}">
+    <div class="progress progress-wrapper" [ngClass]="{'expanded': settingsExpanded}">
       <div class="progress-bar" id="progressBar" role="progressbar"
            [ngStyle]="{'width': this.totalReverseSecurity + '%', 'transition': '0.5s', 'background-color': this.securityColor}"></div>
     </div>
   </div>
-  <div class="row settings-wrapper">
-    <div class="settings-wrapper-settings" [ngClass]="{'expanded': settingsExpanded}">
+  <div class="row settings">
+    <div class="settings-container" [ngClass]="{'expanded': settingsExpanded}">
       <span class="spell-tag">
-        <small>*Total defined security as calculated by the definitions below. Number does not represent actual corporate security.</small>
+        <small>* Total defined security as calculated by the definitions below. Number does not represent actual corporate security.</small>
       </span>
       <div class="container-fluid">
         <div class="row">
           <label class="spell-input" title="Use the percentage from [incidents this month / incidents this year]">
             Incidents this month/Incidents this year
-            <input type="checkbox" [(ngModel)]="calculateConfiguration.incidentMonthYearPercentage" (change)="calculateSecurityLevel()"/>
+            <input type="checkbox" [(ngModel)]="calculateConfiguration.incidentMonthYearPercentage"
+                   (change)="calculateSecurityLevel()"/>
           </label>
           <label class="spell-input" title="Use the ratio from [open incidents / total incidents]">
             Open incident/Total incident
-            <input type="checkbox" [(ngModel)]="calculateConfiguration.incidentOpenTotalRation" (change)="calculateSecurityLevel()"/>
+            <input type="checkbox" [(ngModel)]="calculateConfiguration.incidentOpenTotalRation"
+                   (change)="calculateSecurityLevel()"/>
           </label>
         </div>
         <div class="row">
           <label class="spell-input"
                  title="High relative incident frequency on a department, relative to other departments. A lot of incidents on one department will bring the total security down.">
             High relative incident frequency on department
-            <input type="checkbox" [(ngModel)]="calculateConfiguration.relativeHighIncidentDepartment" (change)="calculateSecurityLevel()"/>
+            <input type="checkbox" [(ngModel)]="calculateConfiguration.relativeHighIncidentDepartment"
+                   (change)="calculateSecurityLevel()"/>
           </label>
           <label class="spell-input" style="opacity: .6;" title="Use the DH Access ratio">
             DH Access Ratio
@@ -43,62 +46,58 @@
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
-    <div class="col-md-4 total-incidents row-column" [routerLink]="['/dashboard/incidents/']">
-      <div class="incidents-text-wrapper">
+    <div class="col-md-4 row-column total-incidents" [routerLink]="['/dashboard/incidents/']">
+      <div class="total-incidents-container">
         <div class="open-number">{{incidentsStats.open}}</div>
         <div class="open-text">open</div>
         <div class="other-text">of {{incidentsStats.total}} total INCIDENTS</div>
       </div>
     </div>
-    <div class="col-md-3 departments-incidents row-column">
+    <div class="col-md-3 row-column departments-incidents">
       <h2>Department incidents</h2>
       <div class="departments-incidents-container">
-        <div class="departments-incidents-box" *ngFor="let stat of departmentStats" [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
+        <div class="departments-incidents-box" *ngFor="let stat of departmentStats"
+             [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
           <span>{{stat.department.department}}</span>
           <span>{{stat.open}}</span>
         </div>
       </div>
     </div>
-    <div class="col-md-4 incident-information row-column">
-      <div class="chart-item" *ngIf="lineData !== undefined">
-        <app-line-chart [chart]="lineData"></app-line-chart>
-      </div>
+    <div class="col-md-4 row-column incident-information" *ngIf="lineData !== undefined">
+      <app-line-chart [chart]="lineData"></app-line-chart>
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
-    <div class="col-md-3 active-departments row-column" [routerLink]="['/dashboard/departments/']">
-      <div class="active-departments-wrapper">
+    <div class="col-md-3 row-column active-departments" [routerLink]="['/dashboard/departments/']">
+      <div class="active-departments-container">
         <h1>{{departmentStats.length}}</h1>
         <h3>Active Departments</h3>
       </div>
     </div>
-    <div class="col-md-5 severity-risks row-column" [routerLink]="['/dashboard/incidents/']">
-      <div class="risks-header">
+    <div class="col-md-5 row-column severity-risks" [routerLink]="['/dashboard/incidents/']">
+      <div class="severity-risks-header">
         Number of risks
       </div>
-      <div class="risks-body">
-        <div>
-          <div class="risks-count">{{incidentsStats.high}}</div>
-          <div class="risks-indicator risks-high">HIGH</div>
+      <div class="severity-risks-body">
+        <div class="severity-risks-item">
+          <div class="severity-risks-count">{{incidentsStats.high}}</div>
+          <div class="severity-risks-indicator risks-high">HIGH</div>
         </div>
-        <div>
-          <div class="risks-count">{{incidentsStats.medium}}</div>
-          <div class="risks-indicator risks-medium">MEDIUM</div>
+        <div class="severity-risks-item">
+          <div class="severity-risks-count">{{incidentsStats.medium}}</div>
+          <div class="severity-risks-indicator risks-medium">MEDIUM</div>
         </div>
-        <div>
-          <div class="risks-count">{{incidentsStats.low}}</div>
-          <div class="risks-indicator risks-low">LOW</div>
+        <div class="severity-risks-item">
+          <div class="severity-risks-count">{{incidentsStats.low}}</div>
+          <div class="severity-risks-indicator risks-low">LOW</div>
         </div>
       </div>
     </div>
-    <div class="col-md-3 academy-information row-column" [routerLink]="['/dashboard/academy/']">
-      <div>
-        <h1>365</h1>
-        <h4>Academy users last week</h4>
-        <div class="academy-percentage-box">
-          <em class="fa fa-caret-up"></em>
-          <span> 25%</span>
-        </div>
+    <div class="col-md-3 row-column academy-information" [routerLink]="['/dashboard/academy/']">
+      <h1>365</h1>
+      <h4>Academy users last week</h4>
+      <div class="academy-percentage-box">
+        <em class="fa fa-caret-up"></em> 25%
       </div>
     </div>
   </div>

@@ -1,46 +1,45 @@
 @import "~src/assets/scss/mixins";
 
-.academy-header {
-  background-color: #fff;
-  border-radius: 0.25rem;
-  padding: 8px 12px;
-  width: 100%;
-
-  .progress {
-    margin: 15px;
-    height: 40px;
-    font-size: 1.25rem;
-  }
-}
-
-.charts {
-  margin-top: 30px;
-  border-radius: 0.25rem;
-  justify-content: space-between;
-
-  .chart-item, .text-item {
+.academy {
+  &-header {
     background-color: #fff;
-    text-align: center;
     border-radius: 0.25rem;
-    width: 30%;
-  }
+    padding: 8px 12px;
+    width: 100%;
 
-  .text-item {
-    .percentage {
-      font-weight: bold;
-      font-size: xx-large;
-      font-style: oblique;
-      opacity: .8;
+    .progress-wrapper {
+      margin: 15px;
+      height: 40px;
+      font-size: 1.25rem;
     }
   }
+
+  &-row {
+    margin-top: 30px;
+    justify-content: space-between
+  }
 }
 
-.academy-header {
-  width: 100%;
-}
+//.charts {
+//  .chart-item, .text-item {
+//    background-color: #fff;
+//    text-align: center;
+//    border-radius: 0.25rem;
+//    width: 30%;
+//  }
+//
+//  .text-item {
+//    .percentage {
+//      font-weight: bold;
+//      font-size: xx-large;
+//      font-style: oblique;
+//      opacity: .8;
+//    }
+//  }
+//}
 
-.statistics-overview {
-  &-body {
+.charts {
+  &-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,48 +50,95 @@
   }
 
   &-column {
-    width: 35%;
+    width: 32%;
 
     @include md-phone-only {
-      padding: 10px 0px;
+      padding: 10px 0;
       width: 100%;
     }
 
-    &.statistics-overview-main {
-      width: 25%;
-      font-size: 20px;
-      text-align: center;
-      display: flex;
-      justify-content: space-evenly;
-      border-top: 0;
-      border-bottom: 0;
-      padding: 10px 0;
+    //&.statistics-overview-main {
+    //  width: 25%;
+    //  font-size: 20px;
+    //  text-align: center;
+    //  display: flex;
+    //  justify-content: space-evenly;
+    //  border-top: 0;
+    //  border-bottom: 0;
+    //  padding: 10px 0;
+    //
+    //  @include md-phone-only {
+    //    width: 100%;
+    //    border: 1px solid rgba(0, 0, 0, 0.3);
+    //    border-left: 0;
+    //    border-right: 0;
+    //    margin: 0;
+    //    padding: 20px 0;
+    //  }
+    //
+    //  span {
+    //    display: block;
+    //
+    //
+    //    &.total-incidents {
+    //      color: #60bfe2;
+    //    }
+    //
+    //    &.open-incidents {
+    //      color: red;
+    //    }
+    //
+    //    &.closed-incidents {
+    //      color: green;
+    //    }
+    //  }
+    //}
+  }
+}
 
-      @include md-phone-only {
-        width: 100%;
-        border: 1px solid rgba(0, 0, 0, 0.3);
-        border-left: 0;
-        border-right: 0;
-        margin: 0;
-        padding: 20px 0;
+.progress-details {
+  border-radius: 6px;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+  }
+
+  &-column {
+    text-align: center;
+    flex-basis: 33.33%;
+
+    .incidents-count {
+      font-size: 20px;
+
+      &.total-incidents {
+        color: #60bfe2;
       }
 
-      span {
-        display: block;
+      &.open-incidents {
+        color: red;
+      }
 
-
-        &.total-incidents {
-          color: #60bfe2;
-        }
-
-        &.open-incidents {
-          color: red;
-        }
-
-        &.closed-incidents {
-          color: green;
-        }
+      &.closed-incidents {
+        color: green;
       }
     }
+  }
+}
+
+.statistics-overview-column {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 32%;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  .statistics {
+    font-weight: bold;
+    font-size: 36px;
+    opacity: 0.8;
   }
 }

@@ -2,68 +2,65 @@
   <div class="row">
     <div class="academy-header">
       <h2>Academy</h2>
-      <div class="progress">
-        <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width': barStringPercentage, 'background-color': barColor }">
+      <div class="progress progress-wrapper">
+        <div class="progress-bar bg-warning" role="progressbar"
+             [ngStyle]="{'width': barStringPercentage, 'background-color': barColor }">
           {{barPercentage | number : '1.0-0'}}%
         </div>
       </div>
     </div>
   </div>
-  <div class="row charts">
-    <div class="statistics-overview-body">
-      <div class="statistics-overview-column col" *ngIf="barData">
-        <app-bar-chart [chart]="barData"></app-bar-chart>
-      </div>
-      <div class="statistics-overview-column col" *ngIf="lineData">
-        <app-line-chart [chart]="lineData"></app-line-chart>
-      </div>
-      <div class="statistics-overview-column col" *ngIf="certificatePercentage">
-        <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
-      </div>
+  <div class="row academy-row charts">
+    <div class="charts-column" *ngIf="barData">
+      <app-bar-chart [chart]="barData"></app-bar-chart>
+    </div>
+    <div class="charts-column" *ngIf="lineData">
+      <app-line-chart [chart]="lineData"></app-line-chart>
+    </div>
+    <div class="charts-column" *ngIf="certificatePercentage">
+      <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
     </div>
   </div>
-  <div class="row charts">
-    <div class="chart-item statistics-overview-column statistics-overview-main col">
-      <div>
+  <div class="row academy-row progress-details">
+    <div class="col progress-details-container">
+      <div class="progress-details-column">
         To-Do
-        <span class="open-incidents">{{progressToDo}}</span>
+        <div class="incidents-count open-incidents">{{progressToDo}}</div>
       </div>
-      <div>
+      <div class="progress-details-column">
         In Progress
-        <span class="total-incidents">{{progressInProgress}}</span>
+        <div class="incidents-count total-incidents">{{progressInProgress}}</div>
       </div>
-      <div>
+      <div class="progress-details-column">
         Done
-        <span class="closed-incidents">{{progressDone}}</span>
+        <div class="incidents-count closed-incidents">{{progressDone}}</div>
       </div>
     </div>
   </div>
-  <div class="row charts">
-    <div class="chart-item text-item">
+  <div class="row statistics-overview academy-row">
+    <div class="statistics-overview-column">
       <p>Average hours spent on Academy:</p>
-      <p class="percentage">{{avgHours | number : '1.2-2'}}</p>
+      <p class="statistics">{{avgHours | number : '1.2-2'}}</p>
     </div>
-    <div class="chart-item text-item">
+    <div class="statistics-overview-column">
       <p>Progress To-Do</p>
-      <p class="percentage">{{100 - barPercentage | number : '1.0-0'}}%</p>
+      <p class="statistics">{{100 - barPercentage | number : '1.0-0'}}%</p>
     </div>
-    <div class="chart-item text-item">
+    <div class="statistics-overview-column">
       <p>Average trainer review on Academy:</p>
-      <p class="percentage">{{avgTrainerReview | number : '1.2-2'}}</p>
+      <p class="statistics">{{avgTrainerReview | number : '1.2-2'}}</p>
     </div>
-  </div>
-  <div class="row charts">
-    <div class="chart-item text-item">
+    <div class="statistics-overview-column">
       <p>Average review score on Academy:</p>
-      <p class="percentage">{{avgReviewScore | number : '1.2-2'}}</p>
+      <p class="statistics">{{avgReviewScore | number : '1.2-2'}}</p>
     </div>
-    <div class="chart-item text-item">
+    <div class="statistics-overview-column">
       <p>Average quiz score on Academy:</p>
-      <p class="percentage">{{quizScore | number : '1.2-2'}}</p>
+      <p class="statistics">{{quizScore | number : '1.2-2'}}</p>
     </div>
-    <div class="chart-item text-item">
+    <div class="statistics-overview-column">
       <p>Total quiz attempts on Academy:</p>
-      <p class="percentage">{{quizAttempt}}</p>
+      <p class="statistics">{{quizAttempt}}</p>
     </div>
   </div>
 </div>

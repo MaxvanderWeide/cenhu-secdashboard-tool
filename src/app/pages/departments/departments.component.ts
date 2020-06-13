@@ -24,7 +24,7 @@ export class DepartmentsComponent {
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
           this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
-          this.setPerformanceBarData(this.department);
+          this.setPerformanceBarData();
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
             this.setStatistics(this.department, incidents);
             this.setIncidentsBarData(incidents);
@@ -129,7 +129,7 @@ export class DepartmentsComponent {
   }
 
   // TODO: Remove code duplicates with departments-overview
-  private setPerformanceBarData(department: Department): void {
+  private setPerformanceBarData(): void {
     // Get incidents per year
     const date: Date = new Date();
     const lowestYear: number = this.department.performances.reduce(

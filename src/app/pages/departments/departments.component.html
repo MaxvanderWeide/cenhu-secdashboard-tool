@@ -2,12 +2,10 @@
   <div class="row">
     <div class="department-header">
       <h2>Department</h2>
-      <div class="department-name">
-        {{department.department}}
-      </div>
+      {{department.department}}
     </div>
   </div>
-  <div class="row main-statistics" *ngIf="department.statistics !== undefined">
+  <div class="row department-row main-statistics" *ngIf="department.statistics !== undefined">
     <div class="main-statistics-column">
       <div class="main-statistics-name">
         Employees
@@ -41,7 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="row statistics-overview">
+  <div class="row department-row statistics-overview">
     <div class="statistics-overview-header">
       Overview
     </div>
@@ -68,7 +66,7 @@
       </div>
     </div>
   </div>
-  <div class="row details-row">
+  <div class="row department-row details-row">
     <div class="col-md-6 col-12">
       <div class="row performances-container">
         <div class="col-md-4 col-12">

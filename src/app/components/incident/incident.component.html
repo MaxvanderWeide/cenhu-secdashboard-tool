@@ -7,18 +7,17 @@
     <input type="text" class="form-control" placeholder="Search by incident number" [(ngModel)]="searchNumber"/>
   </div>
   <div class="incidents-box-body">
-    <div class="row incidents-box-message-container" *ngFor="let incident of incidents | filter:searchNumber"
+    <div class="row incidents-box-item" *ngFor="let incident of incidents | filter:searchNumber"
          [ngClass]="{'url-holder': incident.url, 'closed': !incident.open}"
          (click)="handleUrlClick(incident)">
-      <div class="incidents-box-message-header">
+      <div class="incidents-box-item-header">
         <span>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</span>
         <span>{{incident.id}}</span>
       </div>
-      <div
-        class="incidents-box-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
-      <div class="incidents-box-message-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
+      <div class="incidents-box-item-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
+      <div class="incidents-box-item-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
-    <div class="incidents-box-message-empty" *ngIf="incidents.length === 0">
+    <div class="incidents-box-item-empty" *ngIf="incidents.length === 0">
       <p>No incidents found</p>
     </div>
   </div>
