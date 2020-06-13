@@ -6,7 +6,7 @@
 
   <div class="incidents-box-body">
     <div class="row incidents-box-message-container" *ngFor="let incident of incidents"
-         [ngClass]="{'url-holder': incident.url}"
+         [ngClass]="{'url-holder': incident.url, 'closed': !incident.open}"
          (click)="handleUrlClick(incident)">
       <div class="incidents-box-message-header">
         <span>{{incident.filed | date: "HH:mm:ss"}} {{incident.filed | date : 'dd/MM/yy'}}</span>

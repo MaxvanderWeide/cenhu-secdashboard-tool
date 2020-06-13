@@ -37,6 +37,9 @@
       cursor: pointer;
       opacity: .8;
     }
+    .closed {
+      opacity: 0.5;
+    }
 
     &::-webkit-scrollbar {
       width: 5px;

@@ -6,7 +6,7 @@
     "department": "hrm",
     "departmentName": "Human Resource Management",
     "filed": "2020-05-03T18:25:43.511Z",
-    "open": true,
+    "open": false,
     "id": "198 04 0858"
   },
   {
@@ -16,7 +16,7 @@
     "department": "hrm",
     "departmentName": "Human Resource Management",
     "filed": "2020-05-03T18:25:43.511Z",
-    "open": true,
+    "open": false,
     "id": "198 04 0858"
   },
   {
@@ -26,7 +26,7 @@
     "department": "hrm",
     "departmentName": "Human Resource Management",
     "filed": "2020-05-03T18:25:43.511Z",
-    "open": true,
+    "open": false,
     "id": "198 04 0858"
   },
   {
@@ -36,7 +36,7 @@
     "department": "hrm",
     "departmentName": "Human Resource Management",
     "filed": "2020-05-03T18:25:43.511Z",
-    "open": true,
+    "open": false,
     "id": "198 04 0858"
   },
   {
@@ -55,15 +55,15 @@
     "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "department": "fin",
     "departmentName": "Human Resource Management",
-    "filed": "2020-05-03T18:25:43.511Z",
-    "open": true,
+    "filed": "2020-06-03T18:25:43.511Z",
+    "open": false,
     "id": "198 04 0858"
   },
   {
     "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
     "severity": "high",
     "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "hrm",
+    "department": "fin",
     "departmentName": "Human Resource Management",
     "filed": "2020-05-03T18:25:43.511Z",
     "open": true,
@@ -76,7 +76,7 @@
     "department": "fin",
     "departmentName": "Human Resource Management",
     "filed": "2020-05-03T18:25:43.511Z",
-    "open": true,
+    "open": false,
     "id": "198 04 0858"
   },
   {
@@ -86,7 +86,7 @@
     "department": "fin",
     "departmentName": "Finance",
     "filed": "2019-08-03T18:25:43.511Z",
-    "open": true,
+    "open": false,
     "id": "198 04 0858"
   }
 ]
