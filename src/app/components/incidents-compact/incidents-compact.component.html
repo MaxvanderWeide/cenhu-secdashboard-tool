@@ -6,8 +6,8 @@
     <span><em class="fa fa-location-arrow open-modal"></em></span>
   </div>
   <div class="incidents-compact-body">
-    <div class="incidents-compact-search">
-      <input type="text" class="form-control" placeholder="Search by incident number" [(ngModel)]="searchNumber"/>
+    <div class="incidents-compact-search-wrapper">
+      <input type="text" class="form-control incidents-compact-search" placeholder="Search by incident number" [(ngModel)]="searchNumber"/>
     </div>
     <div class="incidents-compact-item" [ngClass]="incident.severity" *ngFor="let incident of incidents | filter:searchNumber">
       <div class="incidents-compact-item-header">

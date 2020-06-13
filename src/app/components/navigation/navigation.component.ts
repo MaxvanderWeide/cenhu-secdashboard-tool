@@ -47,7 +47,7 @@ export class NavigationComponent {
     }
   }
 
-  public toggleThemeMode() {
+  public toggleThemeMode(): void {
     if (this.toggledTheme) {
       document.body.classList.remove('theme-dark');
     } else {
