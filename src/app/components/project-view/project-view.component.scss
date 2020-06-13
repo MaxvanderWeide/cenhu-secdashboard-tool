@@ -1,0 +1,23 @@
+@import "~src/assets/scss/mixins";
+
+.project {
+  &-specific {
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+
+    &-header {
+      margin: 10px;
+      border-bottom: 1px solid black;
+    }
+    &-body {
+      margin: 10px;
+    }
+  }
+}
+
+.temp-overview {
+  position: fixed;
+  bottom: 10px;
+}

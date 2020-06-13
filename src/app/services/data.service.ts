@@ -6,6 +6,7 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Report} from '@models/report.model';
 import {Academy} from '@models/academy.model';
+import {Project} from '@models/project.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,11 @@ export class DataService {
   public getAcademyData(): Observable<Academy[]> {
     /* Mock Server-Calling service for a list of academy data */
     return this.http.get<Academy[]>('assets/temp/academyData.json').pipe(catchError(DataService.throwError));
+  }
+
+  public getProjectsData(): Observable<Project[]> {
+    /* Mock Server-Calling service for a list of TEMPLATED project data */
+    console.warn('ProjectData is a template, and has not been verified yet.');
+    return this.http.get<Project[]>('assets/temp/templateProjectData.json').pipe(catchError(DataService.throwError));
   }
 }

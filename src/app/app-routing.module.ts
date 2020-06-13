@@ -10,6 +10,7 @@ import {LoginComponent} from '@components/login/login.component';
 import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
 import {DashboardComponent} from '@pages/dashboard/dashboard.component';
+import {ProjectViewComponent} from '@components/project-view/project-view.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,12 @@ const routes: Routes = [
       {
         path: 'departments',
         component: DepartmentsOverviewComponent,
+        canActivate: [AuthGuard],
+        data: {scopes: [Scope.CorporateSecurityTeamMember]},
+      },
+      {
+        path: 'projects',
+        component: ProjectViewComponent,
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]},
       },

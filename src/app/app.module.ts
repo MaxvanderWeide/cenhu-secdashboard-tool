@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -23,6 +24,7 @@ import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {ModalComponent} from '@components/modal/modal.component';
 import { DashboardComponent } from '@pages/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
+import {ProjectViewComponent} from '@components/project-view/project-view.component';
 
 
 @NgModule({
@@ -38,9 +40,11 @@ import {FormsModule} from '@angular/forms';
     DressingBarComponent,
     DepartmentsComponent,
     ModalComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProjectViewComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     IncidentsModule,

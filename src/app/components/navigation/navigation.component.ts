@@ -25,6 +25,7 @@ export class NavigationComponent {
     {name: 'Academy', icon: 'codepen', resource: '/dashboard/academy'},
     {name: 'Reports', icon: 'eye', resource: '/dashboard/report'},
     {name: 'Departments', icon: 'cubes', resource: '/dashboard/departments'},
+    {name: 'Projects', icon: 'clipboard', resource: '/dashboard/projects'},
   ];
 
   @HostListener('document:click', ['$event'])
