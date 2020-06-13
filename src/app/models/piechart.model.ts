@@ -1,4 +1,4 @@
-import {ChartOptions, ChartPluginsOptions, PositionType} from 'chart.js';
+import {ChartOptions, ChartPluginsOptions, ChartType, PositionType} from 'chart.js';
 
 export interface PieChart {
   title: string;
@@ -9,7 +9,7 @@ export interface PieChart {
   legendPosition?: PositionType;
   displayDataInChart: boolean;
   options?: ChartOptions;
-  type?: string;
+  type?: ChartType;
   plugins?: ChartPluginsOptions;
   colors?: {};
 }

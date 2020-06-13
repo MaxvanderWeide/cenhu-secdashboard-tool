@@ -41,8 +41,8 @@ export class BarChartComponent implements OnInit {
       // We use these empty structures as placeholders for dynamic theming.
       plugins: {
         datalabels: {
-          anchor: 'end',
-          align: 'end',
+          anchor: 'center',
+          align: 'center',
         }
       }
     };
