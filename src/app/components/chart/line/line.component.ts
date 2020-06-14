@@ -32,6 +32,21 @@ export class LineChartComponent implements OnInit {
           backgroundColor: 'rgba(255,180,77, 0.6)',
           borderColor: '#d69741',
         },
+      yellow:
+        {
+          backgroundColor: 'rgba(255,206,86,0.6)',
+          borderColor: '#ffce56',
+        },
+      lightblue:
+        {
+        backgroundColor: 'rgba(64,165,236,0.6)',
+        borderColor: '#40a5ec',
+        },
+      lightgreen:
+        {
+          backgroundColor: 'rgba(7,156,71,0.6)',
+          borderColor: '#079c47',
+        },
       default:
         {
           backgroundColor: 'rgba(174,181,193, 0.6)',

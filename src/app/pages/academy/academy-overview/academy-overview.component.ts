@@ -3,6 +3,8 @@ import {Academy} from '@models/academy.model';
 import {BarChart} from '@models/barchart.model';
 import {DataService} from '@app/services/data.service';
 import {LineChart} from '@models/linechart.model';
+import {PieChart} from '@models/piechart.model';
+import {Incident} from '@models/incidents.model';
 
 
 @Component({
@@ -11,8 +13,16 @@ import {LineChart} from '@models/linechart.model';
   styleUrls: ['./academy-overview.component.scss']
 })
 export class AcademyOverviewComponent {
-
-  months: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+  statistics: {
+    avgHours: number;
+    avgReviewScore: number;
+    avgTrainerReview: number;
+    quizScore: number;
+    quizAttempt: number;
+    progressToDo: number;
+    progressInProgress: number;
+    progressDone: number;
+  };
 
   // Percentage of the bar graph
   barPercentage: number;
@@ -21,39 +31,10 @@ export class AcademyOverviewComponent {
 
   academyData: Academy[];
 
-  // Count average hours work
-  avgHours: number;
-
-  // Average review score
-  avgReviewScore: number;
-
-  // Average trainer review
-  avgTrainerReview: number;
-
-  // Data for certificates
-  yCertificateAmount: number;
-  yCertificatePercentage: number;
-  nCertificatePercentage: number;
-
-  // Data for quiz
-  quizScore: number;
-  quizAttempt: number;
-
-  // Variables for progress
-  progressToDo: number;
-  progressInProgress: number;
-  progressDone: number;
-
   // Data for Graphs
-  public certificatePercentage: {
-    title: string;
-    data: number[];
-    labels: string[];
-    dataColors?: string[];
-  };
-
+  certificatePercentage: PieChart;
+  pieData: PieChart;
   barData: BarChart;
-
   lineData: LineChart;
 
   constructor(private dataService: DataService) {
@@ -61,6 +42,10 @@ export class AcademyOverviewComponent {
       this.academyData = academyData;
       this.setLineData(this.academyData);
       this.calculateData();
+      this.calculateTeamAttempts();
+      this.calculateCertificate();
+      this.calculateAverageScore();
+      this.calculateDateStatistics();
     });
   }
 
@@ -111,7 +96,6 @@ export class AcademyOverviewComponent {
   }
 
   calculateData(): void {
-
     // Data for Bar graph
     this.barPercentage = (this.academyData.map((academy: Academy) =>
       academy.progress).reduce((a: number, b: number) => a + b, 0) / this.academyData.length) * 100;
@@ -123,55 +107,145 @@ export class AcademyOverviewComponent {
     } else if (this.barPercentage > 60) {
       this.barColor = '#6dc193';
     }
+
     // Counting the average hour work
-    this.avgHours = this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a !== 0 ? a + b : b, 0)
-      / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length;
-
-    // Counting the average reviewScore
-    this.avgReviewScore = this.academyData.map((academy: Academy) =>
-      academy.reviewScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
-
-    // Counting the average Trainer review
-    this.avgTrainerReview = this.academyData.map((academy: Academy) =>
-      academy.trainerReview).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
-
-    // Counting the average quiz score
-    this.quizScore = this.academyData.map((academy: Academy) =>
-      academy.quizScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length;
-
-    // Counting the quiz attempts
-    this.quizAttempt = this.academyData.map((academy: Academy) =>
-      academy.quizScore).reduce((a: number, b: number) => a + b, 0);
-
-    // Showing numbers for tasks that are in progress, done or not started yet
-    this.progressToDo = this.academyData.filter((academy: Academy) => academy.progress === 0).length;
-    this.progressInProgress = this.academyData.filter((academy: Academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length;
-    this.progressDone = this.academyData.filter((academy: Academy) => academy.progress === 1).length;
-
-    // Data for pie chart
-    this.yCertificateAmount = this.academyData.filter((academy: Academy) => academy.certificate === 'Y').length;
-    this.yCertificatePercentage = Number(((this.yCertificateAmount / this.academyData.length) * 100).toFixed(2));
-    this.nCertificatePercentage = Number((((this.academyData.length - this.yCertificateAmount) /
-      this.academyData.length) * 100).toFixed(2));
-
-    // Bar graph
-    this.barData = {
-      title: 'Bar',
-      data: [
-        {data: [100, 111, 132, 304], label: 'Total'},
-        {data: [7, 32, 2, 102], label: 'Open'}
-      ],
-      labels: this.months,
-      dataColors: ['blue', 'red'],
-      horizontal: false,
-      legend: true
+    this.statistics = {
+      // tslint:disable:max-line-length
+      avgHours: this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a !== 0 ? a + b : b, 0) / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length,
+      avgReviewScore: this.academyData.map((academy: Academy) => academy.reviewScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length,
+      avgTrainerReview: this.academyData.map((academy: Academy) => academy.trainerReview).reduce((a: number, b: number) => a + b, 0) / this.academyData.length,
+      quizScore: this.academyData.map((academy: Academy) => academy.quizScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length,
+      // tslint:enable:max-line-length
+      quizAttempt: this.academyData.map((academy: Academy) => academy.quizScore).reduce((a: number, b: number) => a + b, 0),
+      progressToDo: this.academyData.filter((academy: Academy) => academy.progress === 0).length,
+      progressInProgress: this.academyData.filter((academy: Academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length,
+      progressDone: this.academyData.filter((academy: Academy) => academy.progress === 1).length
     };
+  }
+
+  calculateTeamAttempts(): void {
+    // tslint:disable-next-line:max-line-length
+    const teamList: string[] = this.academyData.map((academy: Academy) => academy.team).filter((value: string, index: number, self: string[]) => self.indexOf(value) === index);
+    const attemptsList: {team: string, attempts: number}[] = [];
+
+    for (const team of teamList) {
+      let counter: number = 0;
+      // tslint:disable-next-line:max-line-length
+      this.academyData.filter((academy: Academy) => academy.team === team).map((academy: Academy) => academy.quizAttempts).forEach((count: number) => counter += count);
+
+      attemptsList.push({
+        team,
+        attempts: counter}
+      );
+    }
+
+    this.pieData = {
+      data: attemptsList.map((attempt: {team: string, attempts: number}) => attempt.attempts),
+      displayDataInChart: true,
+      labels: attemptsList.map((attempt: {team: string, attempts: number}) => attempt.team),
+      showLegend: true,
+      title: 'Attempts per team'
+    };
+  }
+
+  calculateCertificate(): void {
+    // Data for pie chart
+    const yCertificateAmount: number = this.academyData.filter((academy: Academy) => academy.certificate === 'Y').length;
+    const yCertificatePercentage: number = Number(((yCertificateAmount / this.academyData.length) * 100).toFixed(2));
+    const nCertificatePercentage: number = Number((((this.academyData.length - yCertificateAmount) /
+      this.academyData.length) * 100).toFixed(2));
 
     // Pie chart of certificate
     this.certificatePercentage = {
+      displayDataInChart: true,
+      showLegend: true,
+      dataColors: ['rgb(106, 193, 147)', 'rgb(246, 99, 85)'],
       title: 'Certificate',
-      data: [this.yCertificatePercentage, this.nCertificatePercentage],
+      data: [yCertificatePercentage, nCertificatePercentage],
       labels: ['Certifications', 'Not certifications']
+    };
+  }
+
+  calculateAverageScore() {
+    const date: Date = new Date();
+    let year: number = date.getFullYear() - 4;
+    const yearlyScores: {year: number, averageScore: number}[] = [];
+
+    while (year <= date.getFullYear()) {
+      const scoreLength = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).length;
+      // tslint:disable-next-line:max-line-length
+      const avgScoreYear = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).map((academy: Academy) =>
+        academy.quizScore).reduce((a: number, b: number) => a + b, 0) / scoreLength;
+
+
+      yearlyScores.push({
+        year,
+        averageScore: avgScoreYear
+      });
+
+      year++;
+    }
+
+    // Bar graph
+    this.barData = {
+      title: 'Average Quiz Score',
+      data: [
+        {data: yearlyScores.map((yearScore: {year: number, averageScore: number}) => Number(yearScore.averageScore.toFixed(2))), label: 'Score'},
+      ],
+      labels: yearlyScores.map((yearScore: {year: number, averageScore: number}) => yearScore.year.toString()),
+      dataColors: ['blue'],
+      horizontal: false,
+      legend: true
+    };
+  }
+
+  calculateDateStatistics(): void {
+    const toDay: Date = new Date();
+    const lastYear: Date = new Date();
+    lastYear.setFullYear(lastYear.getFullYear() - 1);
+
+    const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months: Date[] = AcademyOverviewComponent.getMonthsBeforeDate(lastYear, toDay);
+
+    const started: { total: number }[] = [];
+    const assigned: { total: number }[] = [];
+    const completed: { total: number }[] = [];
+    months.forEach((value: Date) => {
+      started.push({
+        total: this.academyData.filter((academy: Academy) => new Date(academy.dateStarted) >
+          lastYear && new Date(academy.dateStarted).getMonth() === value.getMonth() && new Date(academy.dateStarted) <= new Date()).length
+      });
+      assigned.push({
+        total: this.academyData.filter((academy: Academy) => new Date(academy.dateAssigned) >
+          lastYear && new Date(academy.dateAssigned).getMonth() === value.getMonth() && new Date(academy.dateAssigned) <= new Date()).length
+      });
+      completed.push({
+        total: this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted) >
+          // tslint:disable-next-line:max-line-length
+          lastYear && new Date(academy.dateCompleted).getMonth() === value.getMonth() && new Date(academy.dateCompleted) <= new Date()).length
+      });
+    });
+
+    this.lineData = {
+      title: 'Start / Complete / Assign Date',
+      data: [
+        {
+          data: started.map((data: { total: number }) => data.total),
+          label: 'Started'
+        },
+        {
+          data: assigned.map((data: { total: number }) => data.total),
+          label: 'Assigned'
+        },
+        {
+          data: completed.map((data: { total: number }) => data.total),
+          label: 'Completed'
+        }
+      ],
+      labels: months.map((m: Date) => monthNames[m.getMonth()]),
+      dataColors: ['lightgreen', 'lightblue', 'yellow'],
+      legend: true,
+      aspectRatioOff: true
     };
   }
 }
