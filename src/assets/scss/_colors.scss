@@ -19,6 +19,9 @@ $text-primary-color-dark: #ffffff;
 $text-secondary-color: #585858;
 $text-secondary-color-dark: #e9e9e9;
 
+$navigation-active-color: #079c49;
+$navigation-active-color-dark: #56b043;
+
 $config: (
   --background-primary-color: ($background-primary-color, $background-primary-color-dark),
   --background-secondary-color: ($background-secondary-color, $background-secondary-color-dark),
@@ -29,4 +32,5 @@ $config: (
   --background-navigation-color: ($background-navigation-color, $background-navigation-color-dark),
   --text-primary-color: ($text-primary-color, $text-primary-color-dark),
   --text-secondary-color: ($text-secondary-color, $text-secondary-color-dark),
+  --navigation-active-color: ($navigation-active-color, $navigation-active-color-dark)
 );

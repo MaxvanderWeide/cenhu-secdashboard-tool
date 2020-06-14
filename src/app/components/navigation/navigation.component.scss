@@ -9,6 +9,7 @@
   width: 60px;
   background: var(--background-navigation-color);
   cursor: pointer;
+  transition: 0.4s;
   .mode-toggle {
     bottom: 10px;
     left: 20px;
@@ -24,6 +25,7 @@
   }
 
   em, a {
+    transition: 0.4s;
     text-decoration: none;
     font-size: 22px;
     color: var(--text-secondary-color);
@@ -37,9 +39,18 @@
     &-icons, &-items {
       display: inline-block;
       padding: 10px 0;
+
+      a.is-active {
+        color: var(--navigation-active-color);
+
+        em {
+          color: var(--navigation-active-color);
+        }
+      }
     }
 
     &-icons {
+      transition: 0.4s;
       width: 60px;
       text-align: center;
       background: var(--background-navigation-color);
@@ -50,6 +61,7 @@
 
     &-items {
       padding-right: 10px;
+      transition: 0.4s;
       background: var(--background-navigation-color);
       position: absolute;
       left: -100px;
