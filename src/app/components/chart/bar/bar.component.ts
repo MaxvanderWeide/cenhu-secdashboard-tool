@@ -39,6 +39,11 @@ export class BarChartComponent implements OnInit {
     this.chart.options = {
       responsive: true,
       // We use these empty structures as placeholders for dynamic theming.
+      plugins: {
+        datalabels: {
+          clamp: true
+        }
+      }
     };
     this.chart.plugins = [pluginDataLabels];
     this.chart.type = this.chart.horizontal ? 'horizontalBar' : 'bar';
