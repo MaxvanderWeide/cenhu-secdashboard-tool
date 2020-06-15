@@ -4,8 +4,6 @@ import {BarChart} from '@models/barchart.model';
 import {DataService} from '@app/services/data.service';
 import {LineChart} from '@models/linechart.model';
 import {PieChart} from '@models/piechart.model';
-import {Incident} from '@models/incidents.model';
-
 
 @Component({
   selector: 'app-academy-overview',
@@ -126,7 +124,7 @@ export class AcademyOverviewComponent {
   calculateTeamAttempts(): void {
     // tslint:disable-next-line:max-line-length
     const teamList: string[] = this.academyData.map((academy: Academy) => academy.team).filter((value: string, index: number, self: string[]) => self.indexOf(value) === index);
-    const attemptsList: {team: string, attempts: number}[] = [];
+    const attemptsList: {team: string; attempts: number}[] = [];
 
     for (const team of teamList) {
       let counter: number = 0;
@@ -140,9 +138,9 @@ export class AcademyOverviewComponent {
     }
 
     this.pieData = {
-      data: attemptsList.map((attempt: {team: string, attempts: number}) => attempt.attempts),
+      data: attemptsList.map((attempt: {team: string; attempts: number}) => attempt.attempts),
       displayDataInChart: true,
-      labels: attemptsList.map((attempt: {team: string, attempts: number}) => attempt.team),
+      labels: attemptsList.map((attempt: {team: string; attempts: number}) => attempt.team),
       showLegend: true,
       title: 'Attempts per team'
     };
@@ -166,16 +164,18 @@ export class AcademyOverviewComponent {
     };
   }
 
-  calculateAverageScore() {
+  calculateAverageScore(): void {
     const date: Date = new Date();
     let year: number = date.getFullYear() - 4;
-    const yearlyScores: {year: number, averageScore: number}[] = [];
+    const yearlyScores: {year: number; averageScore: number}[] = [];
 
     while (year <= date.getFullYear()) {
-      const scoreLength = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).length;
-      // tslint:disable-next-line:max-line-length
-      const avgScoreYear = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).map((academy: Academy) =>
+      // tslint:disable:max-line-length
+      const scoreLength: number = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).length;
+      const avgScoreYear: number = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).map((academy: Academy) =>
         academy.quizScore).reduce((a: number, b: number) => a + b, 0) / scoreLength;
+      // tslint:enable:max-line-length
+
 
 
       yearlyScores.push({
@@ -190,9 +190,9 @@ export class AcademyOverviewComponent {
     this.barData = {
       title: 'Average Quiz Score',
       data: [
-        {data: yearlyScores.map((yearScore: {year: number, averageScore: number}) => Number(yearScore.averageScore.toFixed(2))), label: 'Score'},
+        {data: yearlyScores.map((yearScore: {year: number; averageScore: number}) => Number(yearScore.averageScore.toFixed(2))), label: 'Score'},
       ],
-      labels: yearlyScores.map((yearScore: {year: number, averageScore: number}) => yearScore.year.toString()),
+      labels: yearlyScores.map((yearScore: {year: number; averageScore: number}) => yearScore.year.toString()),
       dataColors: ['blue'],
       horizontal: false,
       legend: true
