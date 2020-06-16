@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AcademyOverviewComponent} from './academy-overview/academy-overview.component';
-import {ChartModule} from '@components/chart/chart.module';
+import {ChartModule} from '@app/modules/chart/chart.module';
 
 
 @NgModule({

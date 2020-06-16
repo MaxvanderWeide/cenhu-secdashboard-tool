@@ -1,17 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {IncidentsOverviewComponent} from '@pages/incidents/incidents-overview/incidents.component';
-import {NotfoundComponent} from '@pages/notfound/notfound.component';
-import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
-import {AcademyOverviewComponent} from '@pages/academy/academy-overview/academy-overview.component';
 import {Scope} from '@models/scope.enum';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
-import {DepartmentsComponent} from '@pages/departments/departments.component';
-import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
-import {DashboardComponent} from '@pages/dashboard/dashboard.component';
-import {ProjectViewComponent} from '@components/project-view/project-view.component';
 import {DatasecComponent} from '@components/datasec/datasec.component';
+import {DepartmentsComponent} from '@components/departments/departments.component';
+import {ReportOverviewComponent} from '@components/report-overview/report-overview.component';
+import {IncidentsOverviewComponent} from '@app/modules/incidents/incidents-overview/incidents.component';
+import {AcademyOverviewComponent} from '@app/modules/academy/academy-overview/academy-overview.component';
+import {DepartmentsOverviewComponent} from '@components/departments-overview/departments-overview.component';
+import {DashboardComponent} from '@components/dashboard/dashboard.component';
+import {NotfoundComponent} from '@components/notfound/notfound.component';
 
 const routes: Routes = [
   {
@@ -39,12 +38,6 @@ const routes: Routes = [
       {
         path: 'departments',
         component: DepartmentsOverviewComponent,
-        canActivate: [AuthGuard],
-        data: {scopes: [Scope.CorporateSecurityTeamMember]},
-      },
-      {
-        path: 'projects',
-        component: ProjectViewComponent,
         canActivate: [AuthGuard],
         data: {scopes: [Scope.CorporateSecurityTeamMember]},
       },
