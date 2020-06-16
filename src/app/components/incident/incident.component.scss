@@ -9,10 +9,15 @@
   &-header {
     color: #ffffff;
     padding: 10px 0 10px 10px;
-    border-radius: 0.25rem 0.25rem 0 0;
+    border-radius: 6px 0 0 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+
+    &:hover > .incidents-box-filter {
+      right: -43px;
+    }
 
     .badge {
       margin-right: 8px;
@@ -24,6 +29,10 @@
 
   &-search {
     height: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     input {
       background: var(--background-secondary-color);
@@ -105,6 +114,18 @@
       border-radius: 0.25rem;
       margin: 15px 2%;
       padding: 5px;
+    }
+  }
+
+  &-filter {
+    position: absolute;
+    right: 12px;
+    background: var(--background-secondary-color);
+
+    em {
+      color: var(--text-secondary-color);
+      margin-left: 5px;
+      vertical-align: middle;
     }
   }
 }

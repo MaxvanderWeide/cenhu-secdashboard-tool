@@ -1,14 +1,18 @@
 <div class="incidents-box">
   <div class="incidents-box-header" [ngStyle]="{'background-color': headerInfo.color}">
     <h3>{{headerInfo.name}}</h3>
-    <input type="checkbox" #openIncidents>
     <span class="badge badge-pill badge-light">{{incidents.length}}</span>
   </div>
   <div class="incidents-box-search">
     <input type="text" class="form-control" placeholder="Search by incident number" [(ngModel)]="searchNumber"/>
+    <div class="incidents-box-filter">
+      <input type="checkbox" #openIncidents>
+      <em class="fa fa-check-circle-o" aria-hidden="true"></em>
+    </div>
   </div>
   <div class="incidents-box-body">
-    <div class="row incidents-box-item" *ngFor="let incident of incidents | filter:searchNumber | openFilter:openIncidents.checked"
+    <div class="row incidents-box-item"
+         *ngFor="let incident of incidents | filter:searchNumber | openFilter:openIncidents.checked"
          [ngClass]="{'url-holder': incident.url, 'closed': !incident.open}"
          (click)="handleUrlClick(incident)">
       <div class="incidents-box-item-header">
@@ -19,8 +23,9 @@
         class="incidents-box-item-message"> {{(incident.message.length > 200) ? (incident.message | slice:0:200) + '...' : (incident.message) }}</div>
       <div class="incidents-box-item-footer" *ngIf="incident.departmentName">{{incident.departmentName}}</div>
     </div>
-      <div class="incidents-box-item-empty" *ngIf="incidents.length === 0 || (incidents | openFilter:openIncidents.checked | filter:searchNumber).length === 0 ">
-        <p>No incidents found</p>
+    <div class="incidents-box-item-empty"
+         *ngIf="incidents.length === 0 || (incidents | openFilter:openIncidents.checked | filter:searchNumber).length === 0 ">
+      <p>No incidents found</p>
     </div>
   </div>
 </div>
