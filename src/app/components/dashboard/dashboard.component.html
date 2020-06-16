@@ -45,15 +45,15 @@
       </div>
     </div>
   </div>
-  <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
-    <div class="col-md-4 row-column total-incidents" [routerLink]="['/dashboard/incidents']">
+  <div class="row inner-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
+    <div class="col-lg-4 col-md-5 row-column total-incidents" [routerLink]="['/dashboard/incidents/']">
       <div class="total-incidents-container">
         <div class="open-number">{{incidentsStats.open}}</div>
         <div class="open-text">open</div>
         <div class="other-text">of {{incidentsStats.total}} total INCIDENTS</div>
       </div>
     </div>
-    <div class="col-md-3 row-column departments-incidents">
+    <div class="col-lg-3 col-md-6 row-column departments-incidents">
       <h2>Department incidents</h2>
       <div class="departments-incidents-container">
         <div class="departments-incidents-box" *ngFor="let stat of departmentStats"
@@ -63,11 +63,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 row-column" *ngIf="lineData !== undefined">
+    <div class="col-lg-4 col-md-12 row-column incidents-chart" *ngIf="lineData !== undefined">
       <app-line-chart [chart]="lineData"></app-line-chart>
     </div>
   </div>
-  <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
+  <div class="row inner-row" *ngIf="incidentsStats !== undefined">
     <div class="col-md-3 row-column active-departments" [routerLink]="['/dashboard/departments']">
       <div class="active-departments-container">
         <h1>{{departmentStats.length}}</h1>
