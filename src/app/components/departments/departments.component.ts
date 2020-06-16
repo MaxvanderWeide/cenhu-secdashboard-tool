@@ -3,11 +3,10 @@ import {ActivatedRoute, Params} from '@angular/router';
 
 import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
-import {PieChart} from '@models/piechart.model';
-import {BarChart} from '@models/barchart.model';
 import {Incident} from '@models/incidents.model';
 import {Label} from 'ng2-charts';
 import {DressingService} from '@app/services/dressing.service';
+import {Chart} from '@models/chart.model';
 
 @Component({
   selector: 'app-departments',
@@ -16,9 +15,9 @@ import {DressingService} from '@app/services/dressing.service';
 })
 export class DepartmentsComponent {
   department: Department;
-  incidentsBar: BarChart;
-  performancesBar: BarChart;
-  pieData: PieChart;
+  incidentsBar: Chart;
+  performancesBar: Chart;
+  pieData: Chart;
 
   constructor(private route: ActivatedRoute, private dataService: DataService, private dressingService: DressingService) {
     this.route.params.subscribe((params: Params) => {
@@ -27,8 +26,8 @@ export class DepartmentsComponent {
           this.department = departments.find((s: Department) => s.cleanUrl === params.departmentName);
           this.setPerformanceBarData();
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
-            this.setStatistics(this.department, incidents);
-            this.setIncidentsBarData(incidents);
+              this.setStatistics(this.department, incidents);
+              this.setIncidentsBarData(incidents);
             },
             () => {
               this.dressingService.message('Incident data loading unsuccessful. Try again later.');

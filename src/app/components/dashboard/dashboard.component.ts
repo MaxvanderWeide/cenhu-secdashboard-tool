@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {Incident} from '@models/incidents.model';
-import {LineChart} from '@models/linechart.model';
 import {DressingService} from '@app/services/dressing.service';
+import {Chart} from '@models/chart.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,23 +19,23 @@ export class DashboardComponent {
     this.dataService.getDepartments().subscribe(
       (departments: Department[]) => {
         this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
-          this.incidents = incidents;
-          this.incidentsStats = {
-            total: incidents.length,
-            open: incidents.filter((s: Incident) => s.open).length,
-            high: incidents.filter((s: Incident) => s.severity === 'high').length,
-            medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
-            low: incidents.filter((s: Incident) => s.severity === 'low').length,
-          };
-          departments.forEach((department: Department) =>
-            this.departmentStats.push({
-              department,
-              open: incidents.filter((s: Incident) => s.open && s.department === department.code).length
-            })
-          );
-          this.setLineData(incidents);
-          this.calculateSecurityLevel(); // Calculate the security level.
-        },
+            this.incidents = incidents;
+            this.incidentsStats = {
+              total: incidents.length,
+              open: incidents.filter((s: Incident) => s.open).length,
+              high: incidents.filter((s: Incident) => s.severity === 'high').length,
+              medium: incidents.filter((s: Incident) => s.severity === 'medium').length,
+              low: incidents.filter((s: Incident) => s.severity === 'low').length,
+            };
+            departments.forEach((department: Department) =>
+              this.departmentStats.push({
+                department,
+                open: incidents.filter((s: Incident) => s.open && s.department === department.code).length
+              })
+            );
+            this.setLineData(incidents);
+            this.calculateSecurityLevel(); // Calculate the security level.
+          },
           () => {
             this.dressingService.message('Incident data loading unsuccessful. Try again later.');
           });
@@ -51,7 +51,7 @@ export class DashboardComponent {
   public securityColor: string;
   private incidents: Incident[];
 
-  lineData: LineChart;
+  lineData: Chart;
   incidentsStats: {
     total: number;
     open: number;
