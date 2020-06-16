@@ -17,7 +17,7 @@
   justify-content: space-between;
 
   @include lg-phone-only {
-    margin-top: 12px;
+    margin-top: 8px;
   }
 }
 
@@ -27,13 +27,15 @@
   border-radius: 6px;
   padding: 15px;
 
-  @include lg-phone-only {
+  @include md-tablet-only {
     margin-top: 12px;
-    padding: 15px 5px;
   }
 }
 
 .statistics-overview {
+  display: flex;
+  flex-direction: column;
+
   h2 {
     margin-bottom: 8px;
   }
@@ -46,7 +48,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @include lg-phone-only {
+    @include md-tablet-only {
       max-height: 300px;
     }
   }
@@ -59,36 +61,61 @@
   }
 }
 
-.certificates {
-  height: 300px;
-}
-
 .progress-details {
   display: flex;
-  justify-content: center;
   position: relative;
+  background-color: initial;
+  padding: 0;
   flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
 
-  &-title {
-    flex-basis: 100%;
-    flex-shrink: 0;
+  @include md-tablet-only {
+    border-radius: 0.25rem;
+    background-color: var(--background-secondary-color);
+    flex-direction: unset;
   }
 
-  &-container {
+  &-title {
+    background-color: var(--background-secondary-color);
+    padding: 15px;
+    border-radius: 0.25rem;
     text-align: center;
-    font-size: 18px;
+
+    @include md-tablet-only {
+      flex: 0 0 100%;
+      border-radius: 0;
+      background-color: unset;
+    }
   }
 
   &-column {
-    padding: 10px 0;
+    padding: 10px 15px;
+    background-color: var(--background-secondary-color);
+    margin: 10px 0;
+    border-radius: 0.25rem;
+    text-align: center;
+
+    @include md-tablet-only {
+      margin: 0;
+      flex: 1;
+      border-radius: 0;
+      background-color: unset;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     .progress-count {
       &-todo {
         color: $danger;
       }
+
       &-started {
         color: $passive;
       }
+
       &-done {
         color: $passed;
       }

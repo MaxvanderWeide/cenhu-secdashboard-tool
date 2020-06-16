@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Academy} from '@models/academy.model';
 import {DataService} from '@app/services/data.service';
 import {BarChart, LineChart, PieChart} from '@models/chart.model';
+import {AppComponent} from '@app/app.component';
 
 @Component({
   selector: 'app-academy-overview',
@@ -195,7 +196,7 @@ export class AcademyOverviewComponent {
       labels: months,
       dataColors: ['lightgreen', 'lightblue', 'yellow'],
       legend: true,
-      aspectRatioOff: true
+      aspectRatioOff: !AppComponent.isMobile()
     };
   }
 }

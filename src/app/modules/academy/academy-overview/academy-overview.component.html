@@ -44,27 +44,25 @@
     </div>
   </div>
   <div class="row inner-row">
-    <div class="row-column certificates col-lg-3" *ngIf="certificatePercentage !== undefined">
+    <div class="row-column certificates col-lg-4" *ngIf="certificatePercentage !== undefined">
       <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
     </div>
-    <div class="row-column progress-details col-lg-2">
+    <div class="row-column col-lg-2 progress-details" *ngIf="statistics !== undefined">
       <h2 class="progress-details-title">Progress</h2>
-      <div class="progress-details-container" *ngIf="statistics !== undefined">
-        <div class="progress-details-column">
-          To-Do
-          <div class="progress-count-todo">{{statistics.progressToDo}}</div>
-        </div>
-        <div class="progress-details-column">
-          In Progress
-          <div class="progress-count-started">{{statistics.progressInProgress}}</div>
-        </div>
-        <div class="progress-details-column">
-          Done
-          <div class="progress-count-done">{{statistics.progressDone}}</div>
-        </div>
+      <div class="progress-details-column">
+        To-Do
+        <div class="progress-count-todo">{{statistics.progressToDo}}</div>
+      </div>
+      <div class="progress-details-column">
+        In Progress
+        <div class="progress-count-started">{{statistics.progressInProgress}}</div>
+      </div>
+      <div class="progress-details-column">
+        Done
+        <div class="progress-count-done">{{statistics.progressDone}}</div>
       </div>
     </div>
-    <div class="row-column col-lg-6" *ngIf="lineData !== undefined">
+    <div class="row-column col-lg-5 status-statistics" *ngIf="lineData !== undefined">
       <app-line-chart [chart]="lineData"></app-line-chart>
     </div>
   </div>

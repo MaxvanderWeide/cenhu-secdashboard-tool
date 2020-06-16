@@ -238,7 +238,9 @@ $columnPadding: 8px 12px;
 }
 
 .incidents-chart {
-  margin-top: 20px;
+  @include md-tablet-only {
+    margin-top: 20px;
+  }
 }
 
 .active-departments {

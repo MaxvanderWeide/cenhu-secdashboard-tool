@@ -47,6 +47,7 @@
 
       .toggle-body {
         width: 4%;
+        margin-right: 30px;
 
         @include md-phone-only {
           display: none;
@@ -54,7 +55,6 @@
       }
 
       .department-name {
-        margin-left: 30px;
         color: var(--text-primary-color);
         transition: 0.2s;
 
@@ -76,7 +76,7 @@
 
     &-body {
       max-height: 0;
-      transition: 1s;
+      transition: 0.6s;
       padding: 0 12px 0 12px;
 
       &.active {
