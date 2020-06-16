@@ -38,59 +38,12 @@ export class AcademyOverviewComponent {
   constructor(private dataService: DataService) {
     this.dataService.getAcademyData().subscribe((academyData: Academy[]) => {
       this.academyData = academyData;
-      this.setLineData(this.academyData);
       this.calculateData();
       this.calculateTeamAttempts();
       this.calculateCertificate();
       this.calculateAverageScore();
       this.calculateDateStatistics();
     });
-  }
-
-  // To-DO Refactor Code
-  private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
-    const monthNumbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
-    const arr: Date[] = [];
-    for (let i: number = from.getMonth() + 1; i <= (12 * (to.getFullYear() - from.getFullYear())) + to.getMonth(); i++) {
-      arr.push(new Date(Math.floor(from.getFullYear() + (i / 12)), monthNumbers[i % 12]));
-    }
-    return arr;
-  }
-
-  // To-DO Refactor Code
-  private setLineData(academy: Academy[]): void {
-    // Get incidents per year
-    const toDay: Date = new Date();
-    const lastYear: Date = new Date();
-    lastYear.setFullYear(lastYear.getFullYear() - 1);
-
-    const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const months: Date[] = AcademyOverviewComponent.getMonthsBeforeDate(lastYear, toDay);
-
-    // Set bar data
-    const incidentsMonth: { total: number }[] = [];
-    months.forEach((value: Date) => {
-      incidentsMonth.push({
-        // tslint:disable-next-line:max-line-length no-shadowed-variable
-        total: academy.filter((academy: Academy) => new Date(academy.dateAssigned)
-          > lastYear && new Date(academy.dateAssigned).getMonth() === value.getMonth()).length
-      });
-    });
-
-    // Line graph
-    this.lineData = {
-      title: 'Line',
-      data: [
-        {
-          data: incidentsMonth.map((incident: { total: number }) => incident.total),
-          label: 'Total'
-        }
-      ],
-      labels: months.map((m: Date) => monthNames[m.getMonth()]),
-      dataColors: ['red'],
-      legend: true
-    };
   }
 
   calculateData(): void {
@@ -106,15 +59,17 @@ export class AcademyOverviewComponent {
       this.barColor = '#6dc193';
     }
 
-    // Counting the average hour work
     this.statistics = {
-      // tslint:disable:max-line-length
-      avgHours: this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a !== 0 ? a + b : b, 0) / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length,
-      avgReviewScore: this.academyData.map((academy: Academy) => academy.reviewScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length,
-      avgTrainerReview: this.academyData.map((academy: Academy) => academy.trainerReview).reduce((a: number, b: number) => a + b, 0) / this.academyData.length,
-      quizScore: this.academyData.map((academy: Academy) => academy.quizScore).reduce((a: number, b: number) => a + b, 0) / this.academyData.length,
-      // tslint:enable:max-line-length
-      quizAttempt: this.academyData.map((academy: Academy) => academy.quizScore).reduce((a: number, b: number) => a + b, 0),
+      avgHours: this.academyData.map((academy: Academy) => academy.timeSpent).reduce((a: number, b: number) => a
+      !== 0 ? a + b : b, 0) / this.academyData.filter((academy: Academy) => academy.timeSpent !== 0).length,
+      avgReviewScore: this.academyData.map((academy: Academy) => academy.reviewScore).reduce((a: number, b: number) =>
+        a + b, 0) / this.academyData.length,
+      avgTrainerReview: this.academyData.map((academy: Academy) => academy.trainerReview).reduce((a: number, b: number) =>
+        a + b, 0) / this.academyData.length,
+      quizScore: this.academyData.map((academy: Academy) => academy.quizScore).reduce((a: number, b: number) =>
+        a + b, 0) / this.academyData.length,
+      quizAttempt: this.academyData.map((academy: Academy) => academy.quizScore).reduce((a: number, b: number) =>
+        a + b, 0),
       progressToDo: this.academyData.filter((academy: Academy) => academy.progress === 0).length,
       progressInProgress: this.academyData.filter((academy: Academy) => academy.progress >= 0.1 && academy.progress <= 0.9).length,
       progressDone: this.academyData.filter((academy: Academy) => academy.progress === 1).length
@@ -124,7 +79,7 @@ export class AcademyOverviewComponent {
   calculateTeamAttempts(): void {
     // tslint:disable-next-line:max-line-length
     const teamList: string[] = this.academyData.map((academy: Academy) => academy.team).filter((value: string, index: number, self: string[]) => self.indexOf(value) === index);
-    const attemptsList: {team: string; attempts: number}[] = [];
+    const attemptsList: { team: string; attempts: number }[] = [];
 
     for (const team of teamList) {
       let counter: number = 0;
@@ -132,15 +87,16 @@ export class AcademyOverviewComponent {
       this.academyData.filter((academy: Academy) => academy.team === team).map((academy: Academy) => academy.quizAttempts).forEach((count: number) => counter += count);
 
       attemptsList.push({
-        team,
-        attempts: counter}
+          team,
+          attempts: counter
+        }
       );
     }
 
     this.pieData = {
-      data: attemptsList.map((attempt: {team: string; attempts: number}) => attempt.attempts),
+      data: attemptsList.map((attempt: { team: string; attempts: number }) => attempt.attempts),
       displayDataInChart: true,
-      labels: attemptsList.map((attempt: {team: string; attempts: number}) => attempt.team),
+      labels: attemptsList.map((attempt: { team: string; attempts: number }) => attempt.team),
       showLegend: true,
       title: 'Attempts per team'
     };
@@ -167,16 +123,15 @@ export class AcademyOverviewComponent {
   calculateAverageScore(): void {
     const date: Date = new Date();
     let year: number = date.getFullYear() - 4;
-    const yearlyScores: {year: number; averageScore: number}[] = [];
+    const yearlyScores: { year: number; averageScore: number }[] = [];
 
     while (year <= date.getFullYear()) {
-      // tslint:disable:max-line-length
-      const scoreLength: number = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).length;
-      const avgScoreYear: number = this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted).getFullYear() === year).map((academy: Academy) =>
+
+      const scoreLength: number = this.academyData.filter((academy: Academy) =>
+        new Date(academy.dateCompleted).getFullYear() === year).length;
+      const avgScoreYear: number = this.academyData.filter((academy: Academy) =>
+        new Date(academy.dateCompleted).getFullYear() === year).map((academy: Academy) =>
         academy.quizScore).reduce((a: number, b: number) => a + b, 0) / scoreLength;
-      // tslint:enable:max-line-length
-
-
 
       yearlyScores.push({
         year,
@@ -190,9 +145,12 @@ export class AcademyOverviewComponent {
     this.barData = {
       title: 'Average Quiz Score',
       data: [
-        {data: yearlyScores.map((yearScore: {year: number; averageScore: number}) => Number(yearScore.averageScore.toFixed(2))), label: 'Score'},
+        {
+          data: yearlyScores.map((yearScore: { year: number; averageScore: number }) => Number(yearScore.averageScore.toFixed(2))),
+          label: 'Score'
+        },
       ],
-      labels: yearlyScores.map((yearScore: {year: number; averageScore: number}) => yearScore.year.toString()),
+      labels: yearlyScores.map((yearScore: { year: number; averageScore: number }) => yearScore.year.toString()),
       dataColors: ['blue'],
       horizontal: false,
       legend: true
@@ -200,49 +158,44 @@ export class AcademyOverviewComponent {
   }
 
   calculateDateStatistics(): void {
-    const toDay: Date = new Date();
-    const lastYear: Date = new Date();
-    lastYear.setFullYear(lastYear.getFullYear() - 1);
-
     const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const months: Date[] = AcademyOverviewComponent.getMonthsBeforeDate(lastYear, toDay);
+    let months: string[] = monthNames.slice(0, new Date().getMonth() + 1);
+    months = monthNames.slice(new Date().getMonth() + 1, monthNames.length).concat(months);
 
-    const started: { total: number }[] = [];
-    const assigned: { total: number }[] = [];
-    const completed: { total: number }[] = [];
-    months.forEach((value: Date) => {
-      started.push({
-        total: this.academyData.filter((academy: Academy) => new Date(academy.dateStarted) >
-          lastYear && new Date(academy.dateStarted).getMonth() === value.getMonth() && new Date(academy.dateStarted) <= new Date()).length
-      });
-      assigned.push({
-        total: this.academyData.filter((academy: Academy) => new Date(academy.dateAssigned) >
-          lastYear && new Date(academy.dateAssigned).getMonth() === value.getMonth() && new Date(academy.dateAssigned) <= new Date()).length
-      });
-      completed.push({
-        total: this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted) >
-          // tslint:disable-next-line:max-line-length
-          lastYear && new Date(academy.dateCompleted).getMonth() === value.getMonth() && new Date(academy.dateCompleted) <= new Date()).length
+    const total: { started: number, assigned: number, completed: number }[] = [];
+
+    months.forEach((month: string) => {
+      total.push({
+        started: this.academyData.filter((academy: Academy) => new Date(academy.dateStarted) >
+          new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
+          new Date(academy.dateStarted).getMonth() === monthNames.indexOf(month) && new Date(academy.dateStarted) <= new Date()).length,
+        assigned: this.academyData.filter((academy: Academy) => new Date(academy.dateAssigned) >
+          new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
+          new Date(academy.dateAssigned).getMonth() === monthNames.indexOf(month) && new Date(academy.dateAssigned) <= new Date()).length,
+        completed: this.academyData.filter((academy: Academy) => new Date(academy.dateCompleted) >
+          new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
+          new Date(academy.dateCompleted).getMonth() === monthNames.indexOf(month) && new Date(academy.dateCompleted) <= new Date()).length
       });
     });
+    console.log(total);
 
     this.lineData = {
       title: 'Start / Complete / Assign Date',
       data: [
         {
-          data: started.map((data: { total: number }) => data.total),
+          data: total.map((data: { started: number, assigned: number, completed: number }) => data.started),
           label: 'Started'
         },
         {
-          data: assigned.map((data: { total: number }) => data.total),
+          data: total.map((data: { started: number, assigned: number, completed: number }) => data.assigned),
           label: 'Assigned'
         },
         {
-          data: completed.map((data: { total: number }) => data.total),
+          data: total.map((data: { started: number, assigned: number, completed: number }) => data.completed),
           label: 'Completed'
         }
       ],
-      labels: months.map((m: Date) => monthNames[m.getMonth()]),
+      labels: months,
       dataColors: ['lightgreen', 'lightblue', 'yellow'],
       legend: true,
       aspectRatioOff: true
