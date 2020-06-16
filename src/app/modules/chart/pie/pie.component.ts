@@ -14,8 +14,8 @@ export class PieChartComponent implements OnInit {
     const colors: string[] = [];
     if (!this.chart.dataColors) {
       this.chart.data.sort().forEach((data: number, index: number) => {
-        colors.push(`rgba(255, 153, 0,${(data / this.chart.data.reduce((x: number, y: number) => x + y, 0)) * ((index + 0.2) ** 0.8)})`);
-      }) ;
+        colors.push(`rgba(255, 153, 0,${(data / this.chart.data.reduce((x: number, y: number) => x + y, 0)) * ((index + 0.2) ** .65)})`);
+      });
     }
     this.chart.options = {
       responsive: true,
