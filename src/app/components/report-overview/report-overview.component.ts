@@ -25,7 +25,7 @@ export class ReportOverviewComponent {
         this.reports = reports;
       },
       () => {
-        this.dressingService.message('Data loaded unsuccessfully. Please try again later.');
+        this.dressingService.message('Reports loading unsuccessfully. Please try again later.');
       }
     );
   }

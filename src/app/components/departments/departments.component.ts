@@ -7,6 +7,7 @@ import {PieChart} from '@models/piechart.model';
 import {BarChart} from '@models/barchart.model';
 import {Incident} from '@models/incidents.model';
 import {Label} from 'ng2-charts';
+import {DressingService} from '@app/services/dressing.service';
 
 @Component({
   selector: 'app-departments',
@@ -19,7 +20,7 @@ export class DepartmentsComponent {
   performancesBar: BarChart;
   pieData: PieChart;
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {
+  constructor(private route: ActivatedRoute, private dataService: DataService, private dressingService: DressingService) {
     this.route.params.subscribe((params: Params) => {
       this.dataService.getDepartments().subscribe(
         (departments: Department[]) => {
@@ -28,9 +29,14 @@ export class DepartmentsComponent {
           this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
             this.setStatistics(this.department, incidents);
             this.setIncidentsBarData(incidents);
-          });
-        }
-      );
+            },
+            () => {
+              this.dressingService.message('Incident data loading unsuccessful. Try again later.');
+            });
+        },
+        () => {
+          this.dressingService.message('Department data loading unsuccessful. Try again later.');
+        });
     });
     this.pieData = {
       title: 'Chart',
@@ -77,7 +83,6 @@ export class DepartmentsComponent {
     };
   }
 
-  // TODO: Remove code duplicates with departments-overview
   private setIncidentsBarData(incidents: Incident[]): void {
     // Get incidents per year
     const date: Date = new Date();
@@ -90,7 +95,7 @@ export class DepartmentsComponent {
       year: lowestYear
     };
 
-    // Get all available years from lowest year to curent year
+    // Get all available years from lowest year to current year
     while (years.year <= date.getFullYear()) {
       years.years.push((years.currentYear - years.yearsDiff).toString());
       years.yearsDiff--;
@@ -128,7 +133,6 @@ export class DepartmentsComponent {
     };
   }
 
-  // TODO: Remove code duplicates with departments-overview
   private setPerformanceBarData(): void {
     // Get incidents per year
     const date: Date = new Date();

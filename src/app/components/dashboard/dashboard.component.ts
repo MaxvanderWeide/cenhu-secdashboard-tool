@@ -35,7 +35,10 @@ export class DashboardComponent {
           );
           this.setLineData(incidents);
           this.calculateSecurityLevel(); // Calculate the security level.
-        });
+        },
+          () => {
+            this.dressingService.message('Incident data loading unsuccessful. Try again later.');
+          });
       },
       () => {
         this.dressingService.message('Department data loading unsuccessful. Try again later.');
@@ -141,4 +144,3 @@ export class DashboardComponent {
     };
   }
 }
-

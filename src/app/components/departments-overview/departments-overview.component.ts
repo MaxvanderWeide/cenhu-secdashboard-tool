@@ -27,7 +27,6 @@ export class DepartmentsOverviewComponent {
 
   toggleInformation(event: MouseEvent): void {
     const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement.querySelector('.departments-box-body');
-    console.log(event.currentTarget);
 
     if (departmentElement.classList.contains('active')) {
       (event.currentTarget as HTMLElement).children[0].querySelector('em').classList.replace('fa-chevron-down', 'fa-chevron-right');

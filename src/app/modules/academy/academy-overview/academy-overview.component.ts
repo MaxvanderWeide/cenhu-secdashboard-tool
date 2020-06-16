@@ -177,7 +177,6 @@ export class AcademyOverviewComponent {
           new Date(academy.dateCompleted).getMonth() === monthNames.indexOf(month) && new Date(academy.dateCompleted) <= new Date()).length
       });
     });
-    console.log(total);
 
     this.lineData = {
       title: 'Start / Complete / Assign Date',

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '@app/services/data.service';
 import {Incident} from '@models/incidents.model';
 import {Modal} from '@models/modal.model';
+import {DressingService} from '@app/services/dressing.service';
 
 @Component({
   selector: 'app-incidents-compact',
@@ -14,12 +15,14 @@ export class IncidentsCompactComponent implements OnInit {
   modal: Modal;
   searchNumber: string;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private dressingService: DressingService) {
   }
 
   ngOnInit(): void {
     this.dataService.getIncidents().subscribe((incidents: Incident[]) => {
       this.incidents = incidents.filter((s: Incident) => s.department === this.departmentCode);
+    }, () => {
+      this.dressingService.message('Incident data loading unsuccessful. Try again later.');
     });
 
     this.modal = {
