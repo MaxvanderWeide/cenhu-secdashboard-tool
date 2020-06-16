@@ -3,7 +3,7 @@ import {Label} from 'ng2-charts';
 
 export interface Chart {
   title: string;
-  data: ChartDataSets[] | number[];
+  data: ChartDataSets[];
   labels: Label[];
   dataColors?: string[];
   legend?: boolean;
@@ -21,6 +21,7 @@ export type PieChart = Chart & {
   showLegend?: boolean;
   legendPosition?: PositionType;
   displayDataInChart?: boolean;
+  data: number[];
 };
 
 export type BarChart = Chart & {

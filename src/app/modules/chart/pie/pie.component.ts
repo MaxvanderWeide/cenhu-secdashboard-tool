@@ -13,12 +13,9 @@ export class PieChartComponent implements OnInit {
   ngOnInit(): void {
     const colors: string[] = [];
     if (!this.chart.dataColors) {
-      let opacity: number = 0.1;
-      // tslint:disable-next-line:forin
-      for (const value in this.chart.data) {
-        colors.push(`rgba(255, 153, 0,${opacity})`);
-        opacity += 0.1;
-      }
+      this.chart.data.sort().forEach((data: number, index: number) => {
+        colors.push(`rgba(255, 153, 0,${(data / this.chart.data.reduce((x: number, y: number) => x + y, 0)) * ((index + 0.2) ** 0.8)})`);
+      }) ;
     }
     this.chart.options = {
       responsive: true,
