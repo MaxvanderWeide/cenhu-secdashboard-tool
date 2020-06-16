@@ -47,7 +47,6 @@ export class DashboardComponent {
   public totalReverseSecurity: number;
   public securityColor: string;
   private incidents: Incident[];
-  private departments: Department[];
 
   lineData: LineChart;
   incidentsStats: {
@@ -66,16 +65,6 @@ export class DashboardComponent {
     incidentOpenTotalRation: boolean;
     relativeHighIncidentDepartment: boolean;
   };
-
-  private static getMonthsBeforeDate(from: Date, to: Date): Date[] {
-    const monthNumbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
-    const arr: Date[] = [];
-    for (let i: number = from.getMonth() + 1; i <= (12 * (to.getFullYear() - from.getFullYear())) + to.getMonth(); i++) {
-      arr.push(new Date(Math.floor(from.getFullYear() + (i / 12)), monthNumbers[i % 12]));
-    }
-    return arr;
-  }
 
   public calculateSecurityLevel(): void {
     const incidentRatio: number = this.incidents.filter((incident: Incident) => incident.open).length / this.incidents.length;
@@ -97,7 +86,6 @@ export class DashboardComponent {
         checks++;
       }
     }
-    // TODO: Clean up \/
     this.totalReverseSecurity = 0;
     if (this.calculateConfiguration.relativeHighIncidentDepartment) {
       this.totalReverseSecurity += (Math.round((((1 - relativeHighIncidentDepartment) / checks) * 100) * 100) / 100);
@@ -125,20 +113,16 @@ export class DashboardComponent {
   }
 
   private setLineData(incidents: Incident[]): void {
-    // Get incidents per year
-    const toDay: Date = new Date();
-    const lastYear: Date = new Date();
-    lastYear.setFullYear(lastYear.getFullYear() - 1);
-
     const monthNames: string[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const months: Date[] = DashboardComponent.getMonthsBeforeDate(lastYear, toDay);
+    let months: string[] = monthNames.slice(0, new Date().getMonth() + 1);
+    months = monthNames.slice(new Date().getMonth() + 1, monthNames.length).concat(months);
 
-    // Set bar data
     const incidentsMonth: { total: number }[] = [];
-    months.forEach((value: Date) => {
+    months.forEach((month: string) => {
       incidentsMonth.push({
         total: incidents.filter((incident: Incident) => new Date(incident.filed) >
-          lastYear && new Date(incident.filed).getMonth() === value.getMonth() && new Date(incident.filed) <= new Date()).length
+          new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
+          new Date(incident.filed).getMonth() === monthNames.indexOf(month) && new Date(incident.filed) <= new Date()).length
       });
     });
 
@@ -151,7 +135,7 @@ export class DashboardComponent {
           label: 'Total'
         },
       ],
-      labels: months.map((m: Date) => monthNames[m.getMonth()]),
+      labels: months,
       dataColors: ['orange'],
       legend: true
     };

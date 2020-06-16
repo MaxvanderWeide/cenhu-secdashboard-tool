@@ -46,7 +46,7 @@
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined && departmentStats !== undefined">
-    <div class="col-md-4 row-column total-incidents" [routerLink]="['/dashboard/incidents/']">
+    <div class="col-md-4 row-column total-incidents" [routerLink]="['/dashboard/incidents']">
       <div class="total-incidents-container">
         <div class="open-number">{{incidentsStats.open}}</div>
         <div class="open-text">open</div>
@@ -68,13 +68,13 @@
     </div>
   </div>
   <div class="row dashboard-row" *ngIf="incidentsStats !== undefined">
-    <div class="col-md-3 row-column active-departments" [routerLink]="['/dashboard/departments/']">
+    <div class="col-md-3 row-column active-departments" [routerLink]="['/dashboard/departments']">
       <div class="active-departments-container">
         <h1>{{departmentStats.length}}</h1>
         <h3>Active Departments</h3>
       </div>
     </div>
-    <div class="col-md-5 row-column severity-risks" [routerLink]="['/dashboard/incidents/']">
+    <div class="col-md-5 row-column severity-risks" [routerLink]="['/dashboard/incidents']">
       <div class="severity-risks-header">
         Number of risks
       </div>
@@ -93,11 +93,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3 row-column academy-information" [routerLink]="['/dashboard/academy/']">
-      <h1>365</h1>
-      <h4>Academy users last week</h4>
+    <div class="col-md-3 row-column academy-information" [routerLink]="['/dashboard/academy']">
+      <h1>0</h1>
+      <small>Placeholder for additional increase/decrease of data</small>
       <div class="academy-percentage-box">
-        <em class="fa fa-caret-up"></em> 25%
+        <em class="fa fa-caret-up"></em> +0%
       </div>
     </div>
   </div>
