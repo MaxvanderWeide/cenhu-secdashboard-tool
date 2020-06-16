@@ -7,6 +7,9 @@
         </div>
       </a>
     </div>
+    <div class="darkmode-toggle">
+        <em class="fa fa-moon-o darkmode-toggle-icon" (click)="$event.stopPropagation(); toggleThemeMode()"></em>
+    </div>
   </div>
   <div class="navbar-items" [ngClass]="(this.retracted) ? '' : 'expanded'">
     <div *ngFor="let item of navItems">
@@ -14,8 +17,5 @@
         <span class="navbar-item">{{item.name}}</span>
       </a>
     </div>
-  </div>
-  <div class="mode-toggle">
-    <em class="fa fa-moon-o" (click)="$event.stopPropagation(); toggleThemeMode()"></em>
   </div>
 </nav>

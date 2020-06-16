@@ -10,11 +10,6 @@
   background: var(--background-navigation-color);
   cursor: pointer;
   transition: 0.4s;
-  .mode-toggle {
-    bottom: 10px;
-    left: 20px;
-    position: fixed;
-  }
   @include md-tablet-only {
     top: -1050px;
     width: 100%;
@@ -50,12 +45,38 @@
     }
 
     &-icons {
+      position: relative;
+      height: 100%;
       transition: 0.4s;
       width: 60px;
       text-align: center;
       background: var(--background-navigation-color);
       @include md-tablet-only {
         position: absolute;
+      }
+
+      .darkmode-toggle {
+        position: absolute;
+        bottom: 82px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+
+        &-icon {
+          border: 1px solid var(--darkmode-background-color);
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background-color: var(--darkmode-background-color);
+            color: var(--darkmode-icon-color);
+          }
+        }
       }
     }
 
