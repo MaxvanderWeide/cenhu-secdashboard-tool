@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import {Chart} from '@models/chart.model';
+import {BarChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-bar-chart',
@@ -8,7 +8,7 @@ import {Chart} from '@models/chart.model';
   styleUrls: ['./bar.component.scss']
 })
 export class BarChartComponent implements OnInit {
-  @Input() chart: Chart;
+  @Input() chart: BarChart;
 
   colorsList: { [property: string]: {} }[] = [
     {

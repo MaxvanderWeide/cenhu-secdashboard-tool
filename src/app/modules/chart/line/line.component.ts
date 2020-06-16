@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
-import {Chart} from '@models/chart.model';
+import {LineChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-line-chart',
@@ -8,7 +8,7 @@ import {Chart} from '@models/chart.model';
   styleUrls: ['./line.component.scss']
 })
 export class LineChartComponent implements OnInit {
-  @Input() chart: Chart;
+  @Input() chart: LineChart;
 
   colorsList: { [property: string]: {} }[] = [
     {

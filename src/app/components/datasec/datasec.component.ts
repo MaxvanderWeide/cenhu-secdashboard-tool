@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Chart} from '@models/chart.model';
+import {BarChart, LineChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-datasec',
@@ -7,7 +7,7 @@ import {Chart} from '@models/chart.model';
   styleUrls: ['./datasec.component.scss']
 })
 export class DatasecComponent {
-  systemBarData: Chart = {
+  systemBarData: BarChart = {
     title: 'Systems Used',
     data: [
       {data: [70, 0, 65], label: 'Windows'},
@@ -21,7 +21,7 @@ export class DatasecComponent {
     legend: true
   };
 
-  dataLineData: Chart = {
+  dataLineData: LineChart = {
     title: 'Data Downloaded per Month * 10.000 GB',
     data: [
       {

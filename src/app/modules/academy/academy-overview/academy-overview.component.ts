@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Academy} from '@models/academy.model';
 import {DataService} from '@app/services/data.service';
-import {Chart} from '@models/chart.model';
+import {BarChart, LineChart, PieChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-academy-overview',
@@ -28,10 +28,10 @@ export class AcademyOverviewComponent {
   academyData: Academy[];
 
   // Data for Graphs
-  certificatePercentage: Chart;
-  pieData: Chart;
-  barData: Chart;
-  lineData: Chart;
+  certificatePercentage: PieChart;
+  pieData: PieChart;
+  barData: BarChart;
+  lineData: LineChart;
 
   constructor(private dataService: DataService) {
     this.dataService.getAcademyData().subscribe((academyData: Academy[]) => {

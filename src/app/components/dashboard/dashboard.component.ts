@@ -3,7 +3,7 @@ import {DataService} from '@app/services/data.service';
 import {Department} from '@models/department.model';
 import {Incident} from '@models/incidents.model';
 import {DressingService} from '@app/services/dressing.service';
-import {Chart} from '@models/chart.model';
+import {LineChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,7 +51,7 @@ export class DashboardComponent {
   public securityColor: string;
   private incidents: Incident[];
 
-  lineData: Chart;
+  lineData: LineChart;
   incidentsStats: {
     total: number;
     open: number;

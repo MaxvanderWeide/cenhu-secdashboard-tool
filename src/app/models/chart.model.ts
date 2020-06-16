@@ -11,9 +11,21 @@ export interface Chart {
   options?: ChartOptions;
   colors?: {}[];
   type?: ChartType;
+}
+
+export type LineChart = Chart & {
   aspectRatioOff?: boolean;
-  horizontal?: boolean;
+};
+
+export type PieChart = Chart & {
   showLegend?: boolean;
   legendPosition?: PositionType;
   displayDataInChart?: boolean;
-}
+};
+
+export type BarChart = Chart & {
+  showLegend?: boolean;
+  legendPosition?: PositionType;
+  displayDataInChart?: boolean;
+  horizontal?: boolean;
+};

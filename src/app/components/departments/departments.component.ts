@@ -6,7 +6,7 @@ import {Department} from '@models/department.model';
 import {Incident} from '@models/incidents.model';
 import {Label} from 'ng2-charts';
 import {DressingService} from '@app/services/dressing.service';
-import {Chart} from '@models/chart.model';
+import {BarChart, PieChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-departments',
@@ -15,9 +15,9 @@ import {Chart} from '@models/chart.model';
 })
 export class DepartmentsComponent {
   department: Department;
-  incidentsBar: Chart;
-  performancesBar: Chart;
-  pieData: Chart;
+  incidentsBar: BarChart;
+  performancesBar: BarChart;
+  pieData: PieChart;
 
   constructor(private route: ActivatedRoute, private dataService: DataService, private dressingService: DressingService) {
     this.route.params.subscribe((params: Params) => {
@@ -38,7 +38,7 @@ export class DepartmentsComponent {
         });
     });
     this.pieData = {
-      title: 'Chart',
+      title: 'Template',
       data: [300, 500, 100],
       labels: ['data1.1', 'data1.2', 'data1.3'],
       dataColors: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
