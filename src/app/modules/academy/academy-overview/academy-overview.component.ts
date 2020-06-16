@@ -160,7 +160,7 @@ export class AcademyOverviewComponent {
     let months: string[] = monthNames.slice(0, new Date().getMonth() + 1);
     months = monthNames.slice(new Date().getMonth() + 1, monthNames.length).concat(months);
 
-    const total: { started: number; assigned: number; completed: number; }[] = [];
+    const total: { started: number; assigned: number; completed: number }[] = [];
 
     months.forEach((month: string) => {
       total.push({
@@ -180,15 +180,15 @@ export class AcademyOverviewComponent {
       title: 'Start / Complete / Assign Date',
       data: [
         {
-          data: total.map((data: { started: number; assigned: number; completed: number; }) => data.started),
+          data: total.map((data: { started: number; assigned: number; completed: number }) => data.started),
           label: 'Started'
         },
         {
-          data: total.map((data: { started: number; assigned: number; completed: number; }) => data.assigned),
+          data: total.map((data: { started: number; assigned: number; completed: number }) => data.assigned),
           label: 'Assigned'
         },
         {
-          data: total.map((data: { started: number; assigned: number; completed: number; }) => data.completed),
+          data: total.map((data: { started: number; assigned: number; completed: number }) => data.completed),
           label: 'Completed'
         }
       ],
