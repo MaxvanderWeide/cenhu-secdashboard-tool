@@ -26,15 +26,9 @@ export class DepartmentsOverviewComponent {
   }
 
   toggleInformation(event: MouseEvent): void {
-    const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement.querySelector('.departments-box-body');
-
-    if (departmentElement.classList.contains('active')) {
-      (event.currentTarget as HTMLElement).children[0].querySelector('em').classList.replace('fa-chevron-down', 'fa-chevron-right');
-      departmentElement.classList.remove('active');
-    } else {
-      (event.currentTarget as HTMLElement).children[0].querySelector('em').classList.replace('fa-chevron-right', 'fa-chevron-down');
-      departmentElement.classList.add('active');
-    }
+    const departmentElement: Element = (event.currentTarget as HTMLElement).parentElement;
+    departmentElement.querySelector('.toggle-body').classList.toggle('active');
+    departmentElement.querySelector('.departments-box-body').classList.toggle('active');
   }
 
   private setStatistics(departments: Department[]): void {

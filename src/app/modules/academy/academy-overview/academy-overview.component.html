@@ -18,24 +18,24 @@
       <h2>Statistics</h2>
       <div class="statistics-overview-container" *ngIf="statistics !== undefined">
         <div class="statistics-overview-item">
-          <span>Average hours spent on Academy:</span>
-          <span>{{statistics.avgHours | number : '1.2-2'}}</span>
+          <span>Average hours spent on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.avgHours | number : '1.2-2'}}</span>
         </div>
         <div class="statistics-overview-item">
-          <span>Average trainer review on Academy:</span>
-          <span>{{statistics.avgTrainerReview | number : '1.2-2'}}</span>
+          <span>Average trainer review on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.avgTrainerReview | number : '1.2-2'}}</span>
         </div>
         <div class="statistics-overview-item">
-          <span>Average review score on Academy:</span>
-          <span>{{statistics.avgReviewScore | number : '1.2-2'}}</span>
+          <span>Average review score on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.avgReviewScore | number : '1.2-2'}}</span>
         </div>
         <div class="statistics-overview-item">
-          <span>Average quiz score on Academy:</span>
-          <span>{{statistics.quizScore | number : '1.2-2'}}</span>
+          <span>Average quiz score on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.quizScore | number : '1.2-2'}}</span>
         </div>
         <div class="statistics-overview-item">
-          <span>Total quiz attempts on Academy:</span>
-          <span>{{statistics.quizAttempt}}</span>
+          <span>Total quiz attempts on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.quizAttempt}}</span>
         </div>
       </div>
     </div>

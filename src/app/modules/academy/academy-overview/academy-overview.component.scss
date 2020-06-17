@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .academy-header {
   background: var(--background-secondary-color);
@@ -24,8 +25,8 @@
 .row-column {
   background-color: var(--background-secondary-color);
   color: var(--text-primary-color);
-  border-radius: 6px;
-  padding: 15px;
+  border-radius: $borderRadius;
+  padding: $columnPadding;
 
   @include md-tablet-only {
     margin-top: 12px;
@@ -58,6 +59,10 @@
     padding: 6px 0;
     border-top: 1px solid gray;
     justify-content: space-between;
+
+    &-value {
+      margin-left: 20px;
+    }
   }
 }
 

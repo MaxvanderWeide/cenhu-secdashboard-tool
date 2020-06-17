@@ -1,9 +1,11 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .departments {
   width: 80%;
   margin: 15px auto;
   overflow-y: auto;
+  max-height: calc(100vh - 87px);
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -18,8 +20,6 @@
     }
   }
 
-  max-height: calc(100vh - 87px);
-
   @include md-phone-only {
     width: 100%;
     padding: 0;
@@ -28,14 +28,14 @@
   &-box {
     padding: 5px;
     overflow: hidden;
-    border-radius: 0.25rem;
+    border-radius: $borderRadius;
     margin-bottom: 15px;
     background: var(--background-secondary-color);
     color: var(--text-primary-color);
 
     &-header {
       padding: 6px;
-      transition: 0.5s;
+      transition: $transition;
       display: flex;
       justify-content: space-between;
       cursor: pointer;
@@ -46,8 +46,13 @@
       }
 
       .toggle-body {
-        width: 4%;
         margin-right: 30px;
+        transition: $transitionSmall;
+        display: inline-block;
+
+        &.active {
+          transform: rotate(90deg);
+        }
 
         @include md-phone-only {
           display: none;
@@ -56,7 +61,7 @@
 
       .department-name {
         color: var(--text-primary-color);
-        transition: 0.2s;
+        transition: $transitionSmall;
 
         @include md-phone-only {
           position: relative;
@@ -76,7 +81,7 @@
 
     &-body {
       max-height: 0;
-      transition: 0.6s;
+      transition: $transition;
       padding: 0 12px 0 12px;
 
       &.active {
@@ -98,7 +103,7 @@
   &-link {
     color: #b5b5b5;
     font-size: 18px;
-    transition: 0.2s;
+    transition: $transitionSmall;
 
     &:hover, &:focus {
       color: #199d4a;
@@ -109,6 +114,7 @@
   &-incidents {
     max-height: 400px;
     overflow-y: auto;
+    border-top: 1px solid #ccc;
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -123,6 +129,5 @@
       }
     }
 
-    border-top: 1px solid #ccc;
   }
 }

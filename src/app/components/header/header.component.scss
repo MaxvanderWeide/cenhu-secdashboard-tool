@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .header-bar {
   width: 100%;
@@ -9,7 +10,7 @@
   height: 72px;
   padding: 0 16px;
   background: var(--background-header-color);
-  transition: 0.2s;
+  transition: $transitionSmall;
   display: flex;
   justify-content: space-between;
 

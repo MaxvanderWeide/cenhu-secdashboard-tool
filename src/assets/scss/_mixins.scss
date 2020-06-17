@@ -1,9 +1,3 @@
-$danger: #f66355;
-$warning: #ffb44d;
-$passed: #6dc193;
-$unknown: #aeb5c1;
-$passive: #86afff;
-
 @mixin sm-phone-only {
   @media (max-width: 360px) {
     @content;

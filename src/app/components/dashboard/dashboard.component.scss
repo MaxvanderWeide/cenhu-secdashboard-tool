@@ -1,6 +1,5 @@
 @import "~src/assets/scss/mixins";
-
-$columnPadding: 8px 12px;
+@import "~src/assets/scss/variables";
 
 .settings {
   &-container {
@@ -9,11 +8,11 @@ $columnPadding: 8px 12px;
     padding: 0;
     overflow: hidden;
     width: 100%;
-    border-radius: 0 0 5px 5px;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+    border-radius: 0 0 $borderRadius $borderRadius;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
     height: 0;
 
     &.expanded {
@@ -78,8 +77,9 @@ $columnPadding: 8px 12px;
   .progress {
 
     @include md-tablet-only {
-      border-radius: 0 0 6px 6px;
+      border-radius: 0 0 $borderRadius $borderRadius;
     }
+
     &-wrapper {
       position: absolute;
       z-index: -1;
@@ -93,7 +93,7 @@ $columnPadding: 8px 12px;
       }
 
       &.expanded {
-        border-radius: 0.25rem 5px 0 0;
+        border-radius: $borderRadius $borderRadius 0 0;
       }
 
       #progressBar {
@@ -112,7 +112,7 @@ $columnPadding: 8px 12px;
     }
 
     &-icon {
-      transition: transform 0.5s;
+      transition: $transition;
 
       @include md-tablet-only {
         color: var(--background-gray-secondary-color);
@@ -137,7 +137,7 @@ $columnPadding: 8px 12px;
   .row-column {
     background-color: var(--background-secondary-color);
     padding: $columnPadding;
-    border-radius: 0.25rem;
+    border-radius: $borderRadius;
 
     @include md-phone-only {
       margin-top: 16px;
@@ -211,7 +211,7 @@ $columnPadding: 8px 12px;
 
       &-track {
         box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
+        border-radius: $borderRadius;
       }
 
       &-thumb {
@@ -228,7 +228,7 @@ $columnPadding: 8px 12px;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
 
     span:nth-child(2) {
@@ -272,7 +272,7 @@ $columnPadding: 8px 12px;
   }
 
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
 
@@ -342,7 +342,7 @@ $columnPadding: 8px 12px;
   &-indicator {
     color: white;
     padding: 4px;
-    border-radius: 0.25rem;
+    border-radius: $borderRadius;
     margin: 0 15px;
   }
 
@@ -371,7 +371,7 @@ $columnPadding: 8px 12px;
     text-align: center;
 
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
 
     h1 {
@@ -396,7 +396,7 @@ $columnPadding: 8px 12px;
     font-size: 18px;
     margin-top: 8px;
     padding: 2px 7px;
-    border-radius: 0.25rem;
+    border-radius: $borderRadius;
     display: inline-table;
     border: 1px solid #019e12;
   }

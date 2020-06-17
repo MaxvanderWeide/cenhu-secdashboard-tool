@@ -1,4 +1,5 @@
-@import "~src/assets/scss/_mixins.scss";
+@import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .modal {
   position: fixed;
@@ -25,7 +26,7 @@
 
   &-container {
     background: var(--background-secondary-color);
-    border-radius: 6px;
+    border-radius: $borderRadius;
     margin: 20px auto;
     width: 80%;
     max-height: 95vh;

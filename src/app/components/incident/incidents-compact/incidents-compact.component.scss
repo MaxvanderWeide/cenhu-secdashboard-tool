@@ -1,8 +1,12 @@
-$padding: 6px 20px;
+@import "~src/assets/scss/variables";
 
 .incidents-compact {
+  &-overview {
+    padding: $columnPadding;
+  }
+
   &-header {
-    padding: $padding;
+    padding: $columnPadding;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     position: sticky;
     top: 0;
@@ -36,7 +40,7 @@ $padding: 6px 20px;
   }
 
   &-item {
-    padding: $padding;
+    padding: $columnPadding;
     background: var(--background-secondary-color);
     width: 100%;
     border-bottom: 1px solid #ccc;

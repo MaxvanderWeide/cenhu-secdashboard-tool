@@ -1,7 +1,5 @@
-@import "../../../assets/scss/_mixins.scss";
-
-$borderRadius: 0.25rem;
-$columnPadding: 8px 12px;
+@import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .department-header {
   background: var(--background-secondary-color);
@@ -11,7 +9,7 @@ $columnPadding: 8px 12px;
   width: 100%;
 }
 
-.department-row {
+.inner-row {
   margin-top: 40px;
 
   @include md-phone-only {
@@ -20,27 +18,27 @@ $columnPadding: 8px 12px;
 }
 
 .main-statistics {
-    justify-content: space-between;
+  justify-content: space-between;
 
-    &-column {
-      padding: $columnPadding;
-      background: var(--background-secondary-color);
-      color: var(--text-primary-color);
-      text-align: center;
-      border-radius: $borderRadius;
-      width: 22%;
+  &-column {
+    padding: $columnPadding;
+    background: var(--background-secondary-color);
+    color: var(--text-primary-color);
+    text-align: center;
+    border-radius: $borderRadius;
+    width: 22%;
 
-      @include md-tablet-only {
-        width: 48%;
-        &:nth-child(-n + 2) {
-          margin-bottom: 20px;
-        }
+    @include md-tablet-only {
+      width: 48%;
+      &:nth-child(-n + 2) {
+        margin-bottom: 20px;
       }
     }
+  }
 
-    &-name {
-      font-weight: 600;
-    }
+  &-name {
+    font-weight: 600;
+  }
 }
 
 .statistics-overview {
@@ -158,6 +156,7 @@ $columnPadding: 8px 12px;
   color: var(--text-primary-color);
   max-height: 300px;
   overflow-y: auto;
+
   &::-webkit-scrollbar {
     width: 5px;
 

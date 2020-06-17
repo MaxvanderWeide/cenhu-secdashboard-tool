@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .incidents-box {
   z-index: 0;
@@ -9,15 +10,11 @@
   &-header {
     color: #ffffff;
     padding: 10px 0 10px 10px;
-    border-radius: 0.25rem 0.25rem 0 0;
+    border-radius: $borderRadius $borderRadius 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-
-    &:hover > .incidents-box-filter {
-      right: -43px;
-    }
 
     .badge {
       margin-right: 8px;
@@ -51,7 +48,7 @@
     height: 480px;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 0 0 0.25rem 0.25rem;
+    border-radius: 0 0 $borderRadius $borderRadius;
     background: var(--inner-background-color);
 
     span {
@@ -64,7 +61,7 @@
 
     .url-holder:hover {
       cursor: pointer;
-      opacity: .8;
+      opacity: 0.8;
     }
 
     .closed {
@@ -88,7 +85,7 @@
   &-item {
     font-size: medium;
     color: var(--text-secondary-color);
-    border-radius: 0.25rem;
+    border-radius: $borderRadius;
     margin: 15px 2%;
     padding: 5px;
     background: var(--content-background-color);

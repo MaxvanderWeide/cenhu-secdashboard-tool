@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .navbar-expand {
   height: 100%;
@@ -9,7 +10,7 @@
   width: 60px;
   background: var(--background-navigation-color);
   cursor: pointer;
-  transition: 0.4s;
+  transition: $transition;
   @include md-tablet-only {
     top: -1050px;
     width: 100%;
@@ -20,13 +21,13 @@
   }
 
   em, a {
-    transition: 0.4s;
+    transition: $transition;
     text-decoration: none;
     font-size: 22px;
     color: var(--text-secondary-color);
 
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
   }
 
@@ -47,7 +48,7 @@
     &-icons {
       position: relative;
       height: 100%;
-      transition: 0.4s;
+      transition: $transition;
       width: 60px;
       text-align: center;
       background: var(--background-navigation-color);
@@ -82,7 +83,7 @@
 
     &-items {
       padding-right: 10px;
-      transition: 0.4s;
+      transition: $transition;
       background: var(--background-navigation-color);
       position: absolute;
       left: -100px;
