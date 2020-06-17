@@ -44,11 +44,11 @@ export class ReportOverviewComponent {
     }
   }
 
-  openUp(event): void {
-    const reportElement = event.currentTarget.parentElement;
-    const reportContent = reportElement.querySelector('.reports-item-body');
+  openUp(event: MouseEvent): void {
+    const reportElement: HTMLElement = (event.currentTarget as HTMLElement).parentElement;
+    const reportContent: HTMLElement = reportElement.querySelector('.reports-item-body');
 
     reportContent.classList.toggle('active');
-    event.currentTarget.querySelector('.arrow').classList.toggle('open');
+    (event.currentTarget as HTMLElement).querySelector('.arrow').classList.toggle('open');
   }
 }
