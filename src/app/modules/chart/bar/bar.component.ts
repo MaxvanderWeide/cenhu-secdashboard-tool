@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import {BarChart} from '@models/chart.model';
+import {AppComponent} from '@app/app.component';
 
 @Component({
   selector: 'app-bar-chart',
@@ -53,7 +54,7 @@ export class BarChartComponent implements OnInit {
       this.chart.colors.push(color);
     }
 
-    if (window.screen.width <= 900) {
+    if (AppComponent.isMobile()) {
       this.chart.legend = true;
     }
   }

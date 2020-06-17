@@ -62,7 +62,7 @@
         <div class="progress-count-done">{{statistics.progressDone}}</div>
       </div>
     </div>
-    <div class="row-column col-lg-5 status-statistics" *ngIf="lineData !== undefined">
+    <div class="row-column col-lg-5" *ngIf="lineData !== undefined">
       <app-line-chart [chart]="lineData"></app-line-chart>
     </div>
   </div>

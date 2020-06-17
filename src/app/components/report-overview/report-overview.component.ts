@@ -14,7 +14,6 @@ export class ReportOverviewComponent {
   public reports: Report[];
   public dateTime: string = new Date().toLocaleString();
   public reTime: string;
-  public object: HTMLElement;
   public departmentVal: boolean;
 
   public nameInput: string;
@@ -31,11 +30,9 @@ export class ReportOverviewComponent {
   }
 
   onSubmit(reportForm: NgForm): void {
-
     this.departmentVal = typeof reportForm.value.departmentInput !== 'string';
     if (this.nameInput !== undefined) {
       this.reports.push({
-        id: this.reports.length + 1,
         name: reportForm.value.name,
         department: reportForm.value.departmentInput,
         subject: reportForm.value.subjectInput,
@@ -47,12 +44,11 @@ export class ReportOverviewComponent {
     }
   }
 
-  openUp(id: number): void {
-    this.object = document.getElementById('content-' + id);
-    if (this.object.classList.contains('active')) {
-      this.object.classList.remove('active');
-    } else {
-      this.object.classList.add('active');
-    }
+  openUp(event): void {
+    const reportElement = event.currentTarget.parentElement;
+    const reportContent = reportElement.querySelector('.reports-item-body');
+
+    reportContent.classList.toggle('active');
+    event.currentTarget.querySelector('.arrow').classList.toggle('open');
   }
 }

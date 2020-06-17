@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import {PieChart} from '@models/chart.model';
+import {AppComponent} from '@app/app.component';
 
 @Component({
   selector: 'app-pie-chart',
@@ -36,7 +37,7 @@ export class PieChartComponent implements OnInit {
       ];
 
 
-    if (window.screen.width <= 900) {
+    if (AppComponent.isMobile()) {
       this.chart.showLegend = true;
       this.chart.options.legend.position = 'bottom';
     } else {

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import {LineChart} from '@models/chart.model';
+import {AppComponent} from '@app/app.component';
 
 @Component({
   selector: 'app-line-chart',
@@ -66,11 +67,11 @@ export class LineChartComponent implements OnInit {
             position: 'left',
           }
         ]
-      }
+      },
+      maintainAspectRatio: !this.chart.aspectRatioOff
     };
     this.chart.legend = true;
     this.chart.type = 'line';
-    this.chart.options.maintainAspectRatio = !this.chart.aspectRatioOff;
 
     this.chart.plugins = [pluginDataLabels];
     this.chart.colors = [];
@@ -79,7 +80,7 @@ export class LineChartComponent implements OnInit {
       this.chart.colors.push(color);
     }
 
-    if (window.screen.width <= 900) {
+    if (AppComponent.isMobile()) {
       this.chart.legend = true;
     }
   }

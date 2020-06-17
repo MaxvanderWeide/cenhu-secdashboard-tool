@@ -64,22 +64,18 @@
 .progress-details {
   display: flex;
   position: relative;
-  background-color: initial;
   padding: 0;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: column;
 
   @include md-tablet-only {
-    border-radius: 0.25rem;
     background-color: var(--background-secondary-color);
     flex-direction: unset;
   }
 
   &-title {
-    background-color: var(--background-secondary-color);
     padding: 15px;
-    border-radius: 0.25rem;
     text-align: center;
 
     @include md-tablet-only {
@@ -91,9 +87,6 @@
 
   &-column {
     padding: 10px 15px;
-    background-color: var(--background-secondary-color);
-    margin: 10px 0;
-    border-radius: 0.25rem;
     text-align: center;
 
     @include md-tablet-only {
@@ -101,6 +94,7 @@
       flex: 1;
       border-radius: 0;
       background-color: unset;
+      padding: 0 0 15px 0;
     }
 
     &:last-of-type {
