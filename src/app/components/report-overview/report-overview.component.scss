@@ -70,7 +70,7 @@ h2 {
     color: var(--text-primary-color);
   }
 
-  input, select, textarea {
+  input:not([type=submit]), select, textarea {
     background: var(--background-secondary-color);
     border: none;
     color: var(--text-primary-color);
@@ -78,5 +78,9 @@ h2 {
     &::placeholder {
       color: #cdcdcd;
     }
+  }
+
+  small {
+    color: var(--text-primary-color);
   }
 }
