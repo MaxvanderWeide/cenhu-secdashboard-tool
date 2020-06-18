@@ -54,7 +54,7 @@
           transform: rotate(90deg);
         }
 
-        @include md-phone-only {
+        @include lg-phone-only {
           display: none;
         }
       }

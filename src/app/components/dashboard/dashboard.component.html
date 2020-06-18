@@ -59,7 +59,7 @@
         <div class="departments-incidents-box" *ngFor="let stat of departmentStats"
              [routerLink]="['/dashboard/departments/' + stat.department.cleanUrl]">
           <span>{{stat.department.department}}</span>
-          <span>{{stat.open}}</span>
+          <span class="departments-incidents-box-value">{{stat.open}}</span>
         </div>
       </div>
     </div>
