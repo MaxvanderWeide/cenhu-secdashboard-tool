@@ -11,11 +11,11 @@
     </div>
   </div>
   <div class="row inner-row">
-    <div class="row-column col-lg-4" *ngIf="barData">
-      <app-bar-chart [chart]="barData"></app-bar-chart>
+    <div class="row-column col-lg-4" *ngIf="lineData !== undefined">
+      <app-line-chart [chart]="lineData"></app-line-chart>
     </div>
     <div class="row-column statistics-overview col-lg-3">
-      <h2>Statistics</h2>
+      <h3>Statistics</h3>
       <div class="statistics-overview-container" *ngIf="statistics !== undefined">
         <div class="statistics-overview-item">
           <span>Average hours spent on Academy</span>
@@ -48,7 +48,7 @@
       <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
     </div>
     <div class="row-column col-lg-2 progress-details" *ngIf="statistics !== undefined">
-      <h2 class="progress-details-title">Progress</h2>
+      <h3 class="progress-details-title">Progress</h3>
       <div class="progress-details-column">
         To-Do
         <div class="progress-count-todo">{{statistics.progressToDo}}</div>
@@ -62,8 +62,8 @@
         <div class="progress-count-done">{{statistics.progressDone}}</div>
       </div>
     </div>
-    <div class="row-column col-lg-5" *ngIf="lineData !== undefined">
-      <app-line-chart [chart]="lineData"></app-line-chart>
+    <div class="row-column col-lg-4" *ngIf="barData">
+      <app-bar-chart [chart]="barData"></app-bar-chart>
     </div>
   </div>
 </div>

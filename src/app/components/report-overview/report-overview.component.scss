@@ -1,8 +1,9 @@
 @import "~src/assets/scss/mixins";
 @import "~src/assets/scss/variables";
 
-h1 {
+h2 {
   margin: 15px 0;
+  color: var(--text-primary-color);
 }
 
 .reports {
@@ -16,14 +17,15 @@ h1 {
 
   &-item {
     margin-bottom: 10px;
+    color: var(--text-primary-color);
 
     &-header {
       width: 100%;
       cursor: pointer;
-      border: 1px solid #d0cfcf;
+      border: 1px solid var(--darkmode-icon-color);
       padding: 10px 15px;
       border-radius: $borderRadius $borderRadius 0 0;
-      background: white;
+      background: var(--background-secondary-color);
       display: flex;
       justify-content: space-between;
 
@@ -42,8 +44,8 @@ h1 {
       max-height: 0;
       overflow: hidden;
       width: 100%;
-      border: 1px solid #ced4da;
-      background: white;
+      border: 1px solid var(--darkmode-icon-color);;
+      background: var(--background-secondary-color);
       border-top: 0;
       border-radius: 0 0 $borderRadius $borderRadius;
 
@@ -59,6 +61,22 @@ h1 {
 
     .btn {
       box-shadow: none;
+    }
+  }
+}
+
+.new-report {
+  label {
+    color: var(--text-primary-color);
+  }
+
+  input, select, textarea {
+    background: var(--background-secondary-color);
+    border: none;
+    color: var(--text-primary-color);
+
+    &::placeholder {
+      color: #cdcdcd;
     }
   }
 }

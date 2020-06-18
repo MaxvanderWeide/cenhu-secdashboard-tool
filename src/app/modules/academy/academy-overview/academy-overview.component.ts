@@ -196,7 +196,7 @@ export class AcademyOverviewComponent {
       labels: months,
       dataColors: ['lightgreen', 'lightblue', 'yellow'],
       legend: true,
-      aspectRatioOff: !AppComponent.isMobile()
+      aspectRatioOff: false
     };
   }
 }

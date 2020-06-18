@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-5 reports">
-      <h1>Reports</h1>
+      <h2>Reports</h2>
       <div class="reports-container">
         <div class="reports-item" *ngFor="let report of reports">
           <div class="reports-item-header" (click)="openUp($event)">
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-12 col-lg-5 new-report">
-      <h1>Create a new report</h1>
+      <h2>Create a new report</h2>
       <form #reportForm="ngForm" (submit)="onSubmit(reportForm)">
         <div class="form-group">
           <label for="name">Title</label>

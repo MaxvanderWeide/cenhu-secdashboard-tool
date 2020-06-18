@@ -18,7 +18,7 @@
     &.expanded {
       height: 110px;
 
-      @include md-phone-only {
+      @include lg-phone-only {
         height: 250px;
       }
     }
@@ -40,7 +40,7 @@
   position: relative;
   color: #fff;
 
-  @include md-phone-only {
+  @include lg-phone-only {
     margin-bottom: 20px;
   }
 
@@ -68,7 +68,7 @@
   &-text {
     font-size: 25px;
 
-    @include md-phone-only {
+    @include lg-phone-only {
       font-size: 18px;
       display: inline-block;
     }
@@ -130,7 +130,7 @@
   min-height: 250px;
   justify-content: space-between;
 
-  @include md-phone-only {
+  @include lg-phone-only {
     margin-top: 0;
   }
 
@@ -139,7 +139,7 @@
     padding: $columnPadding;
     border-radius: $borderRadius;
 
-    @include md-phone-only {
+    @include lg-phone-only {
       margin-top: 16px;
     }
 
