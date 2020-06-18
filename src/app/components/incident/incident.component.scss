@@ -119,10 +119,13 @@
     right: 12px;
     background: var(--background-secondary-color);
 
+    input, em {
+      vertical-align: middle;
+    }
+
     em {
       color: var(--text-secondary-color);
       margin-left: 5px;
-      vertical-align: middle;
     }
   }
 }
