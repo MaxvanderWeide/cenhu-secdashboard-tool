@@ -65,13 +65,14 @@
         justify-content: center;
 
         &-icon {
-          border: 1px solid var(--darkmode-background-color);
+          border: 1.5px solid var(--darkmode-background-color);
           border-radius: 50%;
           width: 35px;
           height: 35px;
           display: flex;
           align-items: center;
           justify-content: center;
+          color: var(--darkmode-background-color);
 
           &:hover {
             background-color: var(--darkmode-background-color);

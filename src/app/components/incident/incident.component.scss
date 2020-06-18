@@ -42,6 +42,10 @@
       outline: none;
       box-shadow: none;
     }
+
+    @include lg-phone-only {
+      display: block;
+    }
   }
 
   &-body {
@@ -118,14 +122,17 @@
     position: absolute;
     right: 12px;
     background: var(--background-secondary-color);
+    color: #6c757d;
 
-    input, em {
+    input {
       vertical-align: middle;
     }
 
-    em {
-      color: var(--text-secondary-color);
-      margin-left: 5px;
+    @include lg-phone-only {
+      padding: 5px 12px;
+      border-top: 1px solid #ccc;
+      position: unset;
     }
+
   }
 }
