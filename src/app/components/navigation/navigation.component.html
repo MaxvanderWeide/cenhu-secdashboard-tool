@@ -1,16 +1,19 @@
 <nav [ngClass]="retracted  ? 'navbar-expand' : 'navbar-expand nav-expanded'">
   <div class="navbar-icons">
     <div *ngFor="let item of navItems">
-      <a [routerLink]="[item.resource]"  (click)="handleStopPropagation($event)">
+      <a [routerLink]="[item.resource]" [routerLinkActive]="['is-active']" (click)="handleStopPropagation($event)">
         <div class="navbar-icon">
           <em class="fa fa-{{item.icon}}"></em>
         </div>
       </a>
     </div>
+    <div class="darkmode-toggle">
+        <em class="fa fa-moon-o darkmode-toggle-icon" (click)="$event.stopPropagation(); toggleThemeMode()"></em>
+    </div>
   </div>
   <div class="navbar-items" [ngClass]="(this.retracted) ? '' : 'expanded'">
     <div *ngFor="let item of navItems">
-      <a [routerLink]="[item.resource]" (click)="handleStopPropagation($event)">
+      <a [routerLink]="[item.resource]" [routerLinkActive]="['is-active']" (click)="handleStopPropagation($event)">
         <span class="navbar-item">{{item.name}}</span>
       </a>
     </div>

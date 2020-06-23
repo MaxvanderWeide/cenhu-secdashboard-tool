@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .navbar-expand {
   height: 100%;
@@ -7,8 +8,9 @@
   top: 72px;
   left: 0;
   width: 60px;
-  background-color: #eaeaea;
+  background: var(--background-navigation-color);
   cursor: pointer;
+  transition: $transition;
   @include md-tablet-only {
     top: -1050px;
     width: 100%;
@@ -19,12 +21,13 @@
   }
 
   em, a {
+    transition: $transition;
     text-decoration: none;
     font-size: 22px;
-    color: #616161;
+    color: var(--text-secondary-color);
 
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
   }
 
@@ -32,20 +35,57 @@
     &-icons, &-items {
       display: inline-block;
       padding: 10px 0;
+
+      a.is-active {
+        color: var(--navigation-active-color);
+
+        em {
+          color: var(--navigation-active-color);
+        }
+      }
     }
 
     &-icons {
+      position: relative;
+      height: 100%;
+      transition: $transition;
       width: 60px;
       text-align: center;
-      background-color: #eaeaea;
+      background: var(--background-navigation-color);
       @include md-tablet-only {
         position: absolute;
+      }
+
+      .darkmode-toggle {
+        position: absolute;
+        bottom: 82px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+
+        &-icon {
+          border: 1.5px solid var(--darkmode-background-color);
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--darkmode-background-color);
+
+          &:hover {
+            background-color: var(--darkmode-background-color);
+            color: var(--darkmode-icon-color);
+          }
+        }
       }
     }
 
     &-items {
       padding-right: 10px;
-      background-color: #eaeaea;
+      transition: $transition;
+      background: var(--background-navigation-color);
       position: absolute;
       left: -100px;
       z-index: -1;

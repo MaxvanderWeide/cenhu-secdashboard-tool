@@ -6,26 +6,25 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {NavigationComponent} from '@components/navigation/navigation.component';
 import {HeaderComponent} from '@components/header/header.component';
-import {NotfoundComponent} from '@pages/notfound/notfound.component';
-import {IncidentsModule} from '@pages/incidents/incidents.module';
 import {ChartsModule} from 'ng2-charts';
-import {ReportOverviewComponent} from '@pages/report/report-overview/report-overview.component';
-import {AcademyModule} from '@pages/academy/academy.module';
 import {EnvServiceProvider} from '@app/services/env.service.provider';
 import {AuthGuard} from '@app/auth/auth.guard';
 import {LoginComponent} from '@components/login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ChartModule} from '@components/chart/chart.module';
 import {HttpClientModule} from '@angular/common/http';
-import {IncidentsCompactComponent} from '@components/incidents-compact/incidents-compact.component';
+import {IncidentsCompactComponent} from '@components/incident/incidents-compact/incidents-compact.component';
 import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
-import {DepartmentsOverviewComponent} from '@pages/departments-overview/departments-overview.component';
-import {DepartmentsComponent} from '@pages/departments/departments.component';
 import {ModalComponent} from '@components/modal/modal.component';
-import {DashboardComponent} from '@pages/dashboard/dashboard.component';
 import {FormsModule} from '@angular/forms';
-import {ProjectViewComponent} from '@components/project-view/project-view.component';
 import {DatasecComponent} from '@components/datasec/datasec.component';
+import {NotfoundComponent} from '@components/notfound/notfound.component';
+import {ReportOverviewComponent} from '@components/report-overview/report-overview.component';
+import {DepartmentsOverviewComponent} from '@components/departments-overview/departments-overview.component';
+import {DepartmentsComponent} from '@components/departments/departments.component';
+import {DashboardComponent} from '@components/dashboard/dashboard.component';
+import {IncidentsModule} from '@app/modules/incidents/incidents.module';
+import {AcademyModule} from '@app/modules/academy/academy.module';
+import {ChartModule} from '@app/modules/chart/chart.module';
 
 
 @NgModule({
@@ -42,7 +41,6 @@ import {DatasecComponent} from '@components/datasec/datasec.component';
     DepartmentsComponent,
     ModalComponent,
     DashboardComponent,
-    ProjectViewComponent,
     DatasecComponent
   ],
   imports: [

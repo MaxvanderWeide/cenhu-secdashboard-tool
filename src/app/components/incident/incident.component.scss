@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .incidents-box {
   z-index: 0;
@@ -9,10 +10,11 @@
   &-header {
     color: #ffffff;
     padding: 10px 0 10px 10px;
-    border-radius: 0.25rem 0.25rem 0 0;
+    border-radius: $borderRadius $borderRadius 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     .badge {
       margin-right: 8px;
@@ -22,12 +24,40 @@
     }
   }
 
+  &-search {
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      background: var(--background-secondary-color);
+      color: var(--text-secondary-color);
+      border-radius: 0;
+      border: none;
+    }
+
+    textarea:focus, input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    @include lg-phone-only {
+      display: block;
+    }
+  }
+
   &-body {
     height: 480px;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 0 0 0.25rem 0.25rem;
-    background-color: rgb(209, 209, 209);
+    border-radius: 0 0 $borderRadius $borderRadius;
+    background: var(--inner-background-color);
+
+    span {
+      color: var(--text-primary-color);
+    }
 
     @include md-phone-only {
       max-height: 400px;
@@ -35,11 +65,11 @@
 
     .url-holder:hover {
       cursor: pointer;
-      opacity: .8;
+      opacity: 0.8;
     }
 
     .closed {
-      opacity: 0.5;
+      opacity: 0.3;
     }
 
     &::-webkit-scrollbar {
@@ -56,18 +86,13 @@
     }
   }
 
-  &-message {
-    width: 100%;
+  &-item {
     font-size: medium;
-    color: black;
-
-    &-container {
-      border-radius: 0.25rem;
-      margin: 15px 2%;
-      padding: 5px;
-      background-color: #ffffff;
-      color: #565656;
-    }
+    color: var(--text-secondary-color);
+    border-radius: $borderRadius;
+    margin: 15px 2%;
+    padding: 5px;
+    background: var(--content-background-color);
 
     &-header {
       display: flex;
@@ -78,6 +103,7 @@
 
     &-footer {
       font-size: small;
+      color: var(--text-primary-color);
     }
 
     &-empty {
@@ -90,5 +116,23 @@
       margin: 15px 2%;
       padding: 5px;
     }
+  }
+
+  &-filter {
+    position: absolute;
+    right: 12px;
+    background: var(--background-secondary-color);
+    color: #6c757d;
+
+    input {
+      vertical-align: middle;
+    }
+
+    @include lg-phone-only {
+      padding: 5px 12px;
+      border-top: 1px solid #ccc;
+      position: unset;
+    }
+
   }
 }

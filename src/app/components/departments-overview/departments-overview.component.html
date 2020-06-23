@@ -1,0 +1,38 @@
+<div class="container-fluid departments">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12 departments-box" *ngFor="let department of departments; let index = index">
+        <div class="departments-box-header" (click)="toggleInformation($event)">
+            <div>
+              <em class="fa fa-chevron-right toggle-body"></em>
+              <h3 *ngIf="!isMobile" class="department-name" routerLink="{{department.cleanUrl}}"
+                  (click)="$event.stopPropagation()">{{department.department}}</h3>
+            <h3 *ngIf="isMobile" class="department-name">{{department.department}}</h3>
+            </div>
+
+          <em class="fa fa-external-link departments-link" routerLink="{{department.cleanUrl}}"
+              (click)="$event.stopPropagation()"></em>
+        </div>
+        <div class="departments-box-body">
+          <div class="row main-statistics" *ngIf="department.performances !== undefined">
+            <div class="col-6 col-md-6 col-lg-3 main-statistics-column">
+              Employees: {{department.employees}}
+            </div>
+            <div class="col-6 col-md-6 col-lg-3 main-statistics-column">
+              Vulnerability: {{department.statistics.data.vulnerability}}
+            </div>
+            <div class="col-6 col-md-6 col-lg-3 main-statistics-column">
+              In year performance: {{department.statistics.data.yearPerformance}}%
+            </div>
+            <div class="col-6 col-md-6 col-lg-3 main-statistics-column">
+              Overall performance: {{department.statistics.data.averagePerformance}}%
+            </div>
+          </div>
+          <div class="departments-incidents">
+            <app-incidents-compact [departmentCode]="department.code"></app-incidents-compact>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

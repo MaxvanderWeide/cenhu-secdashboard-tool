@@ -1,0 +1,86 @@
+@import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
+
+h2 {
+  margin: 15px 0;
+  color: var(--text-primary-color);
+}
+
+.reports {
+  &-container {
+    max-height: calc(100vh - 200px);
+
+    @include md-tablet-only {
+      max-height: unset;
+    }
+  }
+
+  &-item {
+    margin-bottom: 10px;
+    color: var(--text-primary-color);
+
+    &-header {
+      width: 100%;
+      cursor: pointer;
+      border: 1px solid var(--darkmode-icon-color);
+      padding: 10px 15px;
+      border-radius: $borderRadius $borderRadius 0 0;
+      background: var(--background-secondary-color);
+      display: flex;
+      justify-content: space-between;
+
+      .arrow {
+        margin-right: 7px;
+        transition: $transitionSmall;
+
+        &.open {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &-body {
+      transition: $transition;
+      max-height: 0;
+      overflow: hidden;
+      width: 100%;
+      border: 1px solid var(--darkmode-icon-color);;
+      background: var(--background-secondary-color);
+      border-top: 0;
+      border-radius: 0 0 $borderRadius $borderRadius;
+
+      &.active {
+        max-height: 500px;
+        display: block;
+      }
+
+      &-container {
+        padding: 15px 15px 0;
+      }
+    }
+
+    .btn {
+      box-shadow: none;
+    }
+  }
+}
+
+.new-report {
+  label {
+    color: var(--text-primary-color);
+  }
+
+  input:not([type=submit]), select, textarea {
+    background: var(--background-secondary-color);
+    border: none;
+    color: var(--text-primary-color);
+
+    &::placeholder {
+      color: #cdcdcd;
+    }
+  }
+
+  small {
+    color: var(--text-primary-color);
+  }
+}

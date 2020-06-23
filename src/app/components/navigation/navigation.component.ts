@@ -14,18 +14,21 @@ interface NavigationResource {
 })
 
 export class NavigationComponent {
-
   constructor(private eRef: ElementRef) {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+      document.body.classList.add('theme-dark');
+    } else {
+      localStorage.setItem('theme', 'theme-light');
+    }
   }
 
   public retracted: boolean = true;
   navItems: NavigationResource[] = [
     {name: 'Dashboard', icon: 'bar-chart-o', resource: '/home'},
-    {name: 'Incidents', icon: 'exclamation', resource: '/dashboard/incidents'},
-    {name: 'Academy', icon: 'group', resource: '/dashboard/academy'},
+    {name: 'Incidents', icon: 'exclamation-circle', resource: '/dashboard/incidents'},
+    {name: 'Departments', icon: 'group', resource: '/dashboard/departments'},
     {name: 'Reports', icon: 'envelope-o', resource: '/dashboard/report'},
-    {name: 'Departments', icon: 'drivers-license-o', resource: '/dashboard/departments'},
-    {name: 'Projects*', icon: 'folder-o', resource: '/dashboard/projects'},
+    {name: 'Academy', icon: 'graduation-cap', resource: '/dashboard/academy'},
     {name: 'Datasec*', icon: 'shield', resource: '/dashboard/datasec'},
   ];
 
@@ -44,6 +47,18 @@ export class NavigationComponent {
     }
     if (AppComponent.isMobile()) {
       this.toggleRetracted('header');
+    }
+  }
+
+  public toggleThemeMode(): void {
+    if (localStorage.getItem('theme') === 'theme-light') {
+      document.body.classList.add('theme-dark');
+      localStorage.setItem('theme', 'theme-dark');
+    } else if (localStorage.getItem('theme') === 'theme-dark') {
+      document.body.classList.remove('theme-dark');
+      localStorage.setItem('theme', 'theme-light');
+    } else {
+      localStorage.setItem('theme', 'theme-light');
     }
   }
 

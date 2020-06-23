@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {BarChart} from '@models/barchart.model';
-import {LineChart} from '@models/linechart.model';
+import {BarChart, LineChart} from '@models/chart.model';
 
 @Component({
   selector: 'app-datasec',
@@ -17,7 +16,7 @@ export class DatasecComponent {
       {data: [10, 10, 5], label: 'Other'}
     ],
     labels: ['% Encrypted Systems', '% Unencrypted Systems', '% Total'],
-    dataColors: ['green', 'red'],
+    dataColors: ['green', 'blue', 'red'],
     horizontal: false,
     legend: true
   };

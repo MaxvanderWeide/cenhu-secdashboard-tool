@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="row-column academy-header">
+      <h2>Academy - Average progress</h2>
+      <div class="progress progress-wrapper">
+        <div class="progress-bar bg-warning" role="progressbar"
+             [ngStyle]="{'width': barStringPercentage, 'background-color': barColor }">
+          {{barPercentage | number : '1.0-0'}}%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row inner-row">
+    <div class="row-column col-lg-4" *ngIf="lineData !== undefined">
+      <app-line-chart [chart]="lineData"></app-line-chart>
+    </div>
+    <div class="row-column statistics-overview col-lg-3">
+      <h3>Statistics</h3>
+      <div class="statistics-overview-container" *ngIf="statistics !== undefined">
+        <div class="statistics-overview-item">
+          <span>Average hours spent on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.avgHours | number : '1.2-2'}}</span>
+        </div>
+        <div class="statistics-overview-item">
+          <span>Average trainer review on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.avgTrainerReview | number : '1.2-2'}}</span>
+        </div>
+        <div class="statistics-overview-item">
+          <span>Average review score on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.avgReviewScore | number : '1.2-2'}}</span>
+        </div>
+        <div class="statistics-overview-item">
+          <span>Average quiz score on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.quizScore | number : '1.2-2'}}</span>
+        </div>
+        <div class="statistics-overview-item">
+          <span>Total quiz attempts on Academy</span>
+          <span class="statistics-overview-item-value">{{statistics.quizAttempt}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-column col-lg-4" *ngIf="pieData !== undefined">
+      <app-pie-chart [chart]="pieData"></app-pie-chart>
+    </div>
+  </div>
+  <div class="row inner-row">
+    <div class="row-column certificates col-lg-4" *ngIf="certificatePercentage !== undefined">
+      <app-pie-chart [chart]="certificatePercentage"></app-pie-chart>
+    </div>
+    <div class="row-column col-lg-2 progress-details" *ngIf="statistics !== undefined">
+      <h3 class="progress-details-title">Progress</h3>
+      <div class="progress-details-column">
+        To-Do
+        <div class="progress-count-todo">{{statistics.progressToDo}}</div>
+      </div>
+      <div class="progress-details-column">
+        In Progress
+        <div class="progress-count-started">{{statistics.progressInProgress}}</div>
+      </div>
+      <div class="progress-details-column">
+        Done
+        <div class="progress-count-done">{{statistics.progressDone}}</div>
+      </div>
+    </div>
+    <div class="row-column col-lg-4" *ngIf="barData">
+      <app-bar-chart [chart]="barData"></app-bar-chart>
+    </div>
+  </div>
+</div>

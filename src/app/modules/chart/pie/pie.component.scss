@@ -1,0 +1,10 @@
+.chart {
+  background: var(--background-secondary-color);
+  padding: 10px;
+
+  &-title {
+    text-align: center;
+    color: var(--text-primary-color);
+    margin-bottom: 5px;
+  }
+}

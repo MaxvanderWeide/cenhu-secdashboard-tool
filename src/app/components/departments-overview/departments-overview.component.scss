@@ -1,0 +1,133 @@
+@import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
+
+.departments {
+  width: 80%;
+  margin: 15px auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 87px);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+
+    &-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    &-thumb {
+      background: grey;
+    }
+  }
+
+  @include md-phone-only {
+    width: 100%;
+    padding: 0;
+  }
+
+  &-box {
+    padding: 5px;
+    overflow: hidden;
+    border-radius: $borderRadius;
+    margin-bottom: 15px;
+    background: var(--background-secondary-color);
+    color: var(--text-primary-color);
+
+    &-header {
+      padding: 6px;
+      transition: $transition;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      align-items: center;
+
+      .toggle-body, .department-name {
+        display: inline;
+      }
+
+      .toggle-body {
+        margin-right: 30px;
+        transition: $transitionSmall;
+        display: inline-block;
+
+        &.active {
+          transform: rotate(90deg);
+        }
+
+        @include lg-phone-only {
+          display: none;
+        }
+      }
+
+      .department-name {
+        color: var(--text-primary-color);
+        transition: $transitionSmall;
+
+        @include md-phone-only {
+          position: relative;
+        }
+
+        &:hover, &:focus {
+          color: #199d4a;
+          font-size: 22px;
+
+          @include md-phone-only {
+            color: var(--text-primary-color);
+            font-size: 17px;
+          }
+        }
+      }
+    }
+
+    &-body {
+      max-height: 0;
+      transition: $transition;
+      padding: 0 12px 0 12px;
+
+      &.active {
+        height: auto;
+        max-height: 500px;
+        position: relative;
+
+        @include md-phone-only {
+          padding: 4px 12px 0 12px;
+        }
+      }
+
+      .main-statistics-column {
+        padding: 10px 15px;
+      }
+    }
+  }
+
+  &-link {
+    color: #b5b5b5;
+    font-size: 18px;
+    transition: $transitionSmall;
+
+    &:hover, &:focus {
+      color: #199d4a;
+      transform: scale(1.2);
+    }
+  }
+
+  &-incidents {
+    max-height: 400px;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+
+      &-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+
+      &-thumb {
+        background: grey;
+      }
+    }
+
+  }
+}

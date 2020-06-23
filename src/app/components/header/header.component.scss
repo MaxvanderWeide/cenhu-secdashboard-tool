@@ -1,4 +1,5 @@
 @import "~src/assets/scss/mixins";
+@import "~src/assets/scss/variables";
 
 .header-bar {
   width: 100%;
@@ -8,23 +9,24 @@
   left: 0;
   height: 72px;
   padding: 0 16px;
-  background: white;
-  transition: 0.2s;
+  background: var(--background-header-color);
+  transition: $transitionSmall;
   display: flex;
   justify-content: space-between;
 
-  .logo-container {
+  .logo-wrapper {
     display: inline-block;
     padding: 19px 0;
   }
 
-  .navigation-container {
+  .navigation-wrapper {
     margin: auto 0;
     font-size: 26px;
     display: none;
 
     @include md-tablet-only {
       display: block;
+      color: var(--text-primary-color);
     }
   }
 }
