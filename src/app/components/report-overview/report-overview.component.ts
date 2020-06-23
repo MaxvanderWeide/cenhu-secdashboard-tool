@@ -18,9 +18,9 @@ export class ReportOverviewComponent {
   public departments: Department[];
 
   public nameInput: string;
-  public departmentControl = new FormControl('', Validators.required);
-  public subjectInput = new FormControl('', Validators.required);
-  public severityInput = new FormControl('', Validators.required);
+  public departmentControl: FormControl = new FormControl('', Validators.required);
+  public subjectInput: FormControl = new FormControl('', Validators.required);
+  public severityInput: FormControl = new FormControl('', Validators.required);
 
 
   constructor(private dataService: DataService, private dressingService: DressingService) {
