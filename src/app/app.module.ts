@@ -15,7 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {IncidentsCompactComponent} from '@components/incident/incidents-compact/incidents-compact.component';
 import {DressingBarComponent} from '@components/dressing-bar/dressing-bar.component';
 import {ModalComponent} from '@components/modal/modal.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DatasecComponent} from '@components/datasec/datasec.component';
 import {NotfoundComponent} from '@components/notfound/notfound.component';
 import {ReportOverviewComponent} from '@components/report-overview/report-overview.component';
@@ -43,18 +43,19 @@ import {ChartModule} from '@app/modules/chart/chart.module';
     DashboardComponent,
     DatasecComponent
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    IncidentsModule,
-    ChartsModule,
-    AcademyModule,
-    NgbModule,
-    ChartModule,
-    HttpClientModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        IncidentsModule,
+        ChartsModule,
+        AcademyModule,
+        NgbModule,
+        ChartModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [EnvServiceProvider, AuthGuard],
   exports: [
     NgbModule,
