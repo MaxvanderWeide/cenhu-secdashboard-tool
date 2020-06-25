@@ -15,7 +15,7 @@
     "department": "Department two",
     "subject": "Subject two",
     "severity": "Low",
-    "description": "(2)",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tortor libero, tincidunt id orci eget, aliquet ullamcorper nisl. Donec faucibus dictum lectus, a feugiat nisl pharetra quis. (2)",
     "date": "2020-05-03 18:25:43",
     "open": true
   }

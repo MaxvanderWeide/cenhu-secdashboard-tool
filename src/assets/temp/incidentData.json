@@ -1,92 +1,39 @@
 [
   {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-05-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-05-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-05-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-05-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "hrm",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-06-03 18:25:43",
-    "open": true,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "fin",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-06-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "fin",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-05-03 18:25:43",
-    "open": true,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. Never gonna make you cry. Never gonna say goodbye",
-    "severity": "high",
-    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "department": "fin",
-    "departmentName": "Human Resource Management",
-    "filed": "2020-05-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  },
-  {
-    "message": "M1 scored poorly",
+    "message": "Weird phone number recorded.",
     "severity": "medium",
     "url": "#",
+    "department": "hrm",
+    "departmentName": "Human Resource Management",
+    "filed": "2020-05-03 18:25:43",
+    "open": true,
+    "id": "148 04 1338"
+  },
+  {
+    "message": "Spam emails found. Around 100 emails in inbox from different senders. All containing the same spam info.",
+    "severity": "medium",
+    "department": "hrm",
+    "departmentName": "Human Resource Management",
+    "filed": "2020-01-01 18:25:43",
+    "open": false,
+    "id": "148 04 1352"
+  },
+  {
+    "message": "The central screen in the office has no password. We did not know, and the password has not been there for around 4 months. The screen displayed some bad info.",
+    "severity": "high",
     "department": "fin",
     "departmentName": "Finance",
-    "filed": "2019-08-03 18:25:43",
-    "open": false,
-    "id": "198 04 0858"
-  }
+    "filed": "2020-01-01 18:25:43",
+    "open": true,
+    "id": "148 04 1352"
+  },
+  {
+    "message": "Dropped my phone. Does the print of my phone display anything on the ground?",
+    "severity": "low",
+    "department": "fin",
+    "departmentName": "Finance",
+    "filed": "2020-01-01 18:25:43",
+    "open": true,
+    "id": "148 04 1355"
+  },
 ]
