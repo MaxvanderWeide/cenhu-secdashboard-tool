@@ -37,7 +37,7 @@
 
     <div class="col-12 col-lg-5 new-report">
       <h2>Create a new report</h2>
-      <form #reportForm="ngForm" (submit)="onSubmit(reportForm)">
+      <form #reportForm="ngForm" (submit)="onSubmit(reportForm)" novalidate>
         <div class="form-group">
           <label for="name">Title</label>
           <input type="text" class="form-control" id="name" placeholder="Choose a short title"
@@ -47,42 +47,44 @@
 
         <div class="form-group">
           <label for="department">Department</label>
-          <select id="department" class="form-control" name="departmentInput" required ngModel>
-            <option value="" disabled>Choose a department</option>
-            <option value="Department 1" selected>Department 1</option>
-            <option value="Department 2">Department 2</option>
-            <option value="Department 3">Department 3</option>
+          <select id="department" class="form-control" name="departmentInput" [formControl]="departmentControl" required>
+            <option value="" selected disabled>Choose a department</option>
+            <option *ngFor="let department of departments" value="{{department.department}}">
+              {{department.department}}
+            </option>
           </select>
-          <small *ngIf="departmentVal">Please choose a department</small>
+          <small *ngIf="departmentControl.hasError('required') && departmentControl.touched">Please choose a department</small>
         </div>
 
         <div class="form-group">
           <label for="subject">Subject</label>
-          <select id="subject" class="form-control" name="subjectInput" required ngModel>
+          <select id="subject" class="form-control" name="subjectInput" [formControl]="subjectInput" required>
             <option value="" disabled>Choose a subject</option>
             <option value="Subject 1" selected>Subject 1</option>
             <option value="Subject 2">Subject 2</option>
             <option value="Subject 3">Subject 3</option>
           </select>
+          <small *ngIf="subjectInput.hasError('required') && subjectInput.touched">Please choose a subject</small>
         </div>
 
         <div class="form-group">
           <label for="severity">Severity level</label>
-          <select id="severity" class="form-control" name="severityInput" required ngModel>
+          <select id="severity" class="form-control" name="severityInput" [formControl]="severityInput" required>
             <option value="" disabled>Choose the severity level</option>
             <option value="low" selected>Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
           </select>
+          <small *ngIf="severityInput.hasError('required') && severityInput.touched">Please choose a severity level</small>
         </div>
 
         <div class="form-group">
           <label for="description">Description</label>
           <textarea class="form-control" id="description" rows="3" placeholder="Explain the issue"
-                    name="descriptionInput" required ngModel></textarea>
+                    name="descriptionInput" ngModel></textarea>
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Create">
+        <input type="submit" class="btn btn-primary" value="Create" [disabled]="!reportForm.valid">
       </form>
     </div>
   </div>
